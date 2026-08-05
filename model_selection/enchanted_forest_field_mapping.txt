@@ -1,0 +1,237 @@
+================================================================================
+ENCHANTED FOREST "IN BLOOM" -- FIELD-BY-FIELD ROUTING UNDER PROMPT V4.4
+================================================================================
+
+This is a PREDICTION, not a model run. It shows where each piece of the raw
+text lands when the V4.4 EMBEDDED LABEL RULE and LABEL MAPPING are applied
+exactly as written in config/fareharbor_prompts.txt
+(block: SYSTEM_PROMPT_FH_DESC_V4_4).
+
+The labels in the source text (description:, meeting_point:, accessibility:,
+pricing:, extras:, faqs:) are RAW FAREHARBOR LABELS, not our column names.
+Our schema is 28 redo_* fields. The mapping below is the translation.
+
+V4.4 states the label mapping "is authoritative and overrides your own
+judgment", so a model following the prompt correctly produces this -- including
+the one clearly wrong result flagged in section 3.
+
+Fields are DESCRIPTION-side only. No booking_notes text was supplied, so all
+13 redo_booking_* fields would be empty.
+
+================================================================================
+1. SUMMARY TABLE
+================================================================================
+
+  RAW LABEL              -> COLUMN                      WHY
+  ---------------------------------------------------------------------------
+  duration:              -> redo_desc_duration_text     direct label map
+  meeting_point:         -> redo_meeting_point          direct label map
+  accessibility:         -> redo_desc_requirements      label map: accessibility
+                                                        -> requirements
+  pricing:               -> redo_desc_other             permitted kind #1
+                                                        (pricing/rate cards)
+  description:           -> redo_desc_about             direct label map
+  what_is_included:      -> redo_desc_what_included     direct label map
+  extras:                -> redo_desc_what_excluded     label map -- WRONG for
+                                                        this product, see #3
+  faqs:                  -> redo_desc_other             label map: faqs -> other
+
+  EMPTY: redo_desc_highlights, redo_desc_itinerary, redo_desc_what_to_bring,
+         redo_desc_cancellation, redo_desc_check_in, redo_min_age,
+         redo_max_age, redo_group_size
+         (+ all 13 redo_booking_* fields -- no booking text supplied)
+
+================================================================================
+2. FULL CONTENT PER COLUMN
+================================================================================
+
+--------------------------------------------------------------------------------
+redo_desc_duration_text
+--------------------------------------------------------------------------------
+45 minutes - 1.25 hours
+
+--------------------------------------------------------------------------------
+redo_meeting_point
+--------------------------------------------------------------------------------
+Blackbutt Forest Reserve, Shellharbour NSW 2529
+
+--------------------------------------------------------------------------------
+redo_desc_requirements
+--------------------------------------------------------------------------------
+For all ages. Pram and wheelchair accessible. A nightly, low-sensory session at
+5:15pm. Please refer to the FAQs on our website for further detail on wheelchair
+accessibility.
+
+--------------------------------------------------------------------------------
+redo_desc_about
+--------------------------------------------------------------------------------
+#Immersive nighttime experience
+
+The Enchanted Forest returns with an all-new illuminated adventure -- **"In
+Bloom."**
+
+Step into a magical after-dark world where glowing florals, vibrant colour and
+cascading light transform the forest into a living, breathing garden.
+
+Be immersed in enchanting pathways, interactive installations, spectacular
+projections and custom soundscapes designed to bring nature to life in a
+completely new way.
+
+Follow the illuminated trails, discover hidden moments of wonder and experience
+the forest as it blossoms into a breathtaking spectacle of light, colour and
+imagination.
+
+--------------------------------------------------------------------------------
+redo_desc_what_included
+--------------------------------------------------------------------------------
+**New highlights and returning crowd favourites include:**
+
+An all-new theme, "In Bloom," where the forest transforms into a vibrant
+illuminated garden celebrating colour, nature and the beauty of the changing
+seasons
+
+- Spectacular large-scale floral light projections cascading across trees and
+  natural landscapes
+
+- Glowing botanical installations and magical creatures hidden throughout the
+  trail
+
+- Interactive pathways and projections that respond as guests move through the
+  forest
+
+- Light-reactive installations that change colour and movement through touch and
+  interaction
+
+- Dreamlike mist-filled environments illuminated with flowing colour, light and
+  sound
+
+--------------------------------------------------------------------------------
+redo_desc_what_excluded          <-- MISFILED, see section 3
+--------------------------------------------------------------------------------
+[BUS] A complimentary shuttle bus runs every Friday and Saturday night between
+The Shellharbour Club and the event, starting at 5:45pm with two buses rotating.
+The last bus departs 10 minutes after the show ends. The Shellharbour Club
+offers convenient Grab & Go food and drinks for guests on the move.
+
+*Low-Sensory Sessions*
+One session each night at 6:00pm. Designed for people with specific sensory
+needs or who prefer a more subdued environment. These sessions feature smaller
+crowds and a lower-intensity light display due to the available ambient light.
+
+The low-sensory sessions provide an inclusive space for everyone to enjoy The
+Enchanted Forest. Don't forget to bring along sunglasses, headphones, or your
+favourite sensory toy if you think it would be beneficial.
+
+--------------------------------------------------------------------------------
+redo_desc_other          (holds TWO unrelated blocks: pricing + FAQs)
+--------------------------------------------------------------------------------
+[from pricing:]
+
+- **Adult - $17.50** *(ages 18+)*
+- **Child - $12.50** *(ages 3-17 - Children under the age of 15 must be
+  accompanied by an adult)*
+- **Family - $49.00** *(two adults and two children or one adult and three
+  children)*
+- **Infant - free** *(ages 2 and under are free - Only available with an
+  Adult/Family ticket)*
+
+[from faqs:]
+
+- **How can I purchase tickets?**
+All ticket purchases are made online, from this website. We recommend purchasing
+your tickets well in advance so you don't miss out. Any tickets not purchased
+from this website are not valid.
+
+- **What happens if it's raining?**
+The Enchanted Forest is an outdoor event that operates in the event of rain or
+wind, so check the weather forecast and dress appropriately. Encouragingly,
+drizzle on a given night creates an additional medium upon which the lasers and
+lights reflect, providing guests with a unique experience.
+If the weather presents a safety risk, for example, an extreme weather event, we
+reserve the right to close The Enchanted Forest, to ensure the safety of our
+staff and guests. If we need to cancel certain sessions, an email and/or SMS
+will be sent to all ticket holders. Guests can reschedule their visit by
+following the directions in the supplied email.
+
+- **If I am unable to attend, can I reschedule the visit or be refunded?**
+Due to the limited number of sessions, we can not offer refunds. However, you
+can attend at another time provided that you reschedule at least 48 hours before
+your booked session time. You can reschedule your booking via the 'change
+booking' link in the ticket confirmation email. We want everyone to have the
+chance to experience this magical journey!
+
+--------------------------------------------------------------------------------
+EMPTY FIELDS -- and why each is correctly empty
+--------------------------------------------------------------------------------
+redo_desc_highlights      No highlights: label and no Highlights-style header
+                          exists. V4.4 explicitly forbids filling this by
+                          copying lines out of what_is_included -- it names that
+                          as a VIOLATION. Must stay "".
+redo_desc_itinerary       No time-based sequence of events DURING the
+                          experience. Session times (5:15pm, 6:00pm) are
+                          schedule, not itinerary.
+redo_desc_what_to_bring   No what_to_bring: label. The sunglasses/headphones
+                          line sits inside extras: and follows that label.
+redo_desc_cancellation    Refund/reschedule rules exist but are inside the
+                          faqs: block, and the faqs: label is authoritative.
+                          See section 3.
+redo_desc_check_in        No arrival/check-in instructions in the text.
+redo_min_age              No min_age: label. ("ages 3-17", "under 15" appear
+                          inside pricing:, which V4.4 requires be sourced from
+                          a min_age: label specifically.)
+redo_max_age              No max_age: label.
+redo_group_size           No group_size: label.
+all redo_booking_*        No booking_notes text was supplied for this product.
+
+================================================================================
+3. TWO PROBLEMS THIS PRODUCT EXPOSES
+================================================================================
+
+PROBLEM 1 -- extras: is mapped to the wrong field. (Real defect.)
+
+  V4.4's LABEL MAPPING sends  extras:  ->  redo_desc_what_excluded
+
+  That assumes "extras" means paid add-ons costing more. Here it means the
+  opposite: a COMPLIMENTARY shuttle bus and free low-sensory accessibility
+  sessions. Filing them under "what is NOT included" states the reverse of the
+  truth -- a customer reading the output would conclude the shuttle costs extra.
+
+  This is a PROMPT defect, not a model error. A model obeying V4.4 correctly
+  produces this wrong result, because the mapping "overrides your own judgment".
+  No model choice fixes it -- gpt-5.4-nano, gpt-5.5-pro and gpt-4o-mini would
+  all misfile it the same way.
+
+  Worth noting the accessibility content is now SPLIT: the wheelchair/pram line
+  is in redo_desc_requirements (via accessibility:) while the low-sensory
+  session detail is in redo_desc_what_excluded (via extras:). Same subject,
+  two fields, one of them wrong.
+
+  Possible fix for a future version: make extras: route on meaning rather than
+  by fixed map -- "complimentary"/"free"/"included" -> what_included, an explicit
+  surcharge -> what_excluded. Not built; flagging only.
+
+PROBLEM 2 -- redo_desc_other holds two unrelated things.
+
+  Pricing AND FAQs both land in redo_desc_other. Both are legal under V4.4
+  (permitted kinds #1 and the faqs: -> other map), so this is not a rule
+  violation. But it is why "FAQs split across fields" keeps recurring: the
+  description side has NO dedicated FAQ field, while the booking side has
+  redo_booking_faqs. Where FAQ content lands therefore depends on which side of
+  the API it arrived on, not on what it is.
+
+  Consequence here: the cancellation/refund policy inside FAQ #3 is real
+  cancellation content, but it stays in redo_desc_other because the faqs: label
+  governs the whole block. redo_desc_cancellation is left empty even though the
+  product plainly has a refund policy.
+
+================================================================================
+4. STATUS OF THIS DOCUMENT
+================================================================================
+
+PREDICTED from the V4.4 rules -- no model was run on this product. It is not
+one of the 10 products in the model comparison.
+
+To verify rather than predict, supply the Fareharbor product ID and it can be
+run through gpt-5.4-nano, with actual output diffed against the table above.
+That is the only way to confirm whether the extras: misfiling actually occurs
+in practice or whether a model silently overrides the mapping.

@@ -12,6 +12,7 @@ run) plus an AI-based accuracy checker that audits the extraction output.
 | `dataset/` | `v500_post_fix_state.json` — the 500 products' final extracted fields plus the raw source text per product. `v500_output.jsonl` — the raw Batch API replies. |
 | `checker/` | The AI accuracy checker: for every non-empty extracted field, asks an LLM judge whether that content actually belongs under that field name (placement accuracy only — not a completeness or hallucination check). |
 | `results/` | `judge_accuracy_v500.xlsx` — the checker's output on the 500-product dataset, with human-review triage bands. `v500_products.xlsx` — the extraction run's own summary workbook. |
+| `model_selection/` | Which *model* should run the extraction? 13 models on 10 identical products, V4.4 unchanged. Result: **gpt-5.4-nano** beats the incumbent gpt-4o-mini on both content and placement, and beats gpt-5.5-pro at 1/146th the cost. See `model_selection/README.md`. |
 
 ## Headline numbers (500 products, 4,133 fields checked)
 
