@@ -12,7 +12,8 @@ run) plus an AI-based accuracy checker that audits the extraction output.
 | `dataset/` | `v500_post_fix_state.json` — the 500 products' final extracted fields plus the raw source text per product. `v500_output.jsonl` — the raw Batch API replies. |
 | `checker/` | The AI accuracy checker: for every non-empty extracted field, asks an LLM judge whether that content actually belongs under that field name (placement accuracy only — not a completeness or hallucination check). |
 | `results/` | `judge_accuracy_v500.xlsx` — the checker's output on the 500-product dataset, with human-review triage bands. `v500_products.xlsx` — the extraction run's own summary workbook. |
-| `model_selection/` | Which *model* should run the extraction? 13 models on 10 identical products, V4.4 unchanged, plus an LLM judge and human review. **Start with `model_selection/MODEL_DECISION_REPORT.md`** — it consolidates automated testing, human review, and OpenAI's own docs, and supersedes the earlier gpt-5.4-nano recommendation. Current pick: **gpt-5.6-terra**. |
+| `model_selection/` | Which *model* should run the extraction? 13 models on 10 identical products, V4.4 unchanged, plus an LLM judge and human review. Consolidated in `model_selection/MODEL_DECISION_REPORT.md`. **Superseded by `hard30_run/`.** |
+| `hard30_run/` | **The current decision: `gpt-5.6-luna` ($49 for all 23,034 products).** 3 models on 30 hard-selected products using a new prompt version (V4.7), raw output only, with 38 hand-written review verdicts. Also records what V4.7 fixed, what it did not, and concrete suggested wording for the next prompt version. **Start here.** |
 
 ## Headline numbers (500 products, 4,133 fields checked)
 

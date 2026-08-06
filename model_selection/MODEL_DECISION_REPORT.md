@@ -280,6 +280,26 @@ no downstream script can detect text that was never in the source.
 
 ### Recommendation
 
+> ### ⚠️ SUPERSEDED — the decision is now `gpt-5.6-luna` ($49)
+>
+> See [`../hard30_run/`](../hard30_run/) for the run that changed it: **30
+> hard-selected products, 3 models, a new prompt version (V4.7)**, plus human
+> review.
+>
+> This report recommends gpt-5.6-terra at $487 and treats gpt-5.6-luna as
+> "untested, worth one cheap run". Luna has now been tested and reviewed:
+> **0.946 word ratio (effectively identical to terra's 0.945), 98.96% coverage,
+> and human review passed it on 6 products** — for **$49 instead of $487**.
+>
+> It is *not* the top scorer — terra remains the cleanest output (1 duplicated
+> sentence to luna's 16). The judgement is that terra is the better model but
+> not 10x better. Luna's known weaknesses (FAQ handling, occasional invented
+> itineraries) are documented in the new report rather than glossed over.
+>
+> Everything below remains accurate as of when it was written and is kept for
+> the audit trail — how the conclusion moved (coverage → placement →
+> duplication → cost) is itself the finding.
+
 **Primary: `gpt-5.6-terra` — $487.**
 Highest judged placement, faithful to the source at 0.96x, only 1 missing unit,
 newest knowledge cutoff (Feb 2026), and **you passed it on review**. Your own
