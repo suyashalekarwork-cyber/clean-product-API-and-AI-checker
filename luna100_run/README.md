@@ -56,9 +56,15 @@ one of them is right.
 description text** — no clock times, no numbered stops. One example filled it
 with a narrative about Sydney's convict history.
 
-The cause is in the instructions, not the model: the current prompt accepts
-words like *"then"* and *"next"* as evidence of an itinerary, and every story
-contains a "then". The fix is to require a clock time or a numbered step.
+The cause is in the instructions, not the model. `prompts/fareharbor_prompts_v4_7.txt`
+defines the itinerary field as:
+
+> *"Must contain time signals (e.g. "9am", "Day 1", **"then", "next",
+> "first...then...finally"**)"*
+
+Those last three are ordering *words*, not structure — and every story contains
+a "then". The fix is to require a clock time or a numbered step, which is what
+`fareharbor_extraction_mapping_rules.md` already specifies.
 
 **This is a prompt change, not a model change**, and it is exactly what
 `fareharbor_extraction_mapping_rules.md` specifies. Full per-product detail is
@@ -76,9 +82,33 @@ in the `Itinerary_Check` sheet.
 | **`worked_example.xlsx`** | **One invented product showing every column.** Read this first — it shows the output shape in 5 minutes |
 | **`luna100_manager_review.xlsx`** | The real results. 5 sheets, 100 products |
 | `Fareharbor_328656_Reference_Extraction.docx` | A **real** product hand-extracted by a person — the gold standard to measure the AI against |
+| **`prompts/fareharbor_prompts_v4_7.txt`** | **The exact instructions given to the AI for this run** |
 | `fareharbor_extraction_mapping_rules.md` | The rules: which supplier heading goes to which field, and why |
 | `luna100_products.json` | The 100 product IDs and how they were chosen |
 | `scripts/` | The full pipeline, reproducible |
+
+### `prompts/fareharbor_prompts_v4_7.txt` — the instructions used
+
+Two prompts: one for the description text (169 lines), one for the booking
+notes (108 lines). This is what every one of the 166 requests in this run
+received — **verified byte-for-byte against the submitted batch file**, not
+reconstructed afterwards.
+
+Version 4.7 is version 4.4 plus two rules, and nothing else was changed:
+
+| Rule added | Why |
+|---|---|
+| **NO DUPLICATION** | Says explicitly that pulling text into a field *removes* it from the general description. Without that sentence, a model could leave a copy behind and the same paragraph would render twice on the page. |
+| **NO INVENTION** | Every word must already exist in the supplier's text. Also forbids placeholder prose like *"No content found for this field"* — an empty field must be genuinely empty. |
+
+`scripts/build_v47_prompts.py` shows exactly how V4.7 was produced from V4.4
+and fails if any V4.4 line is lost, so the change is auditable rather than
+described.
+
+**These are not the same as `fareharbor_extraction_mapping_rules.md`.** The
+prompt is the current working instructions; the mapping rules document is the
+heading-gated design being moved toward. The itinerary problem in this run is
+precisely where the two differ — see below.
 
 ### `Fareharbor_328656_Reference_Extraction.docx`
 
