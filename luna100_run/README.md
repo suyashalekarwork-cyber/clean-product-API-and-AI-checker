@@ -75,9 +75,35 @@ in the `Itinerary_Check` sheet.
 |---|---|
 | **`worked_example.xlsx`** | **One invented product showing every column.** Read this first — it shows the output shape in 5 minutes |
 | **`luna100_manager_review.xlsx`** | The real results. 5 sheets, 100 products |
+| `Fareharbor_328656_Reference_Extraction.docx` | A **real** product hand-extracted by a person — the gold standard to measure the AI against |
 | `fareharbor_extraction_mapping_rules.md` | The rules: which supplier heading goes to which field, and why |
 | `luna100_products.json` | The 100 product IDs and how they were chosen |
 | `scripts/` | The full pipeline, reproducible |
+
+### `Fareharbor_328656_Reference_Extraction.docx`
+
+Product 328656, *"Costal Views Safari"* (~840 words), extracted **by hand**
+into all 28 fields. Not model output — this is what a careful person produces,
+so the AI can be measured against it rather than against opinion.
+
+It is worth reading for the four problems it documents in the source data
+itself, which no extraction rule can fix:
+
+- **The booking notes duplicate the description.** Nine of ten booking-note
+  paragraphs reappear inside the description under their own heading.
+- **The two copies contradict each other.** One set of directions says two
+  white fridges and a gate; the other says one fridge and a driveway. The
+  supplier updated one copy and not the other. **No extraction rule can
+  resolve this** — the source is simply wrong in one place.
+- **A typo survives verbatim extraction.** The description says *"you should
+  miss us"* where the supplier meant *"shouldn't"*. Because the rule is
+  verbatim copying, the typo carries through — correctly.
+- **Non-standard headings.** `##Duration:`, `##About`, `## What to bring` —
+  inconsistent spacing after the hashes, which is why heading detection cannot
+  be a simple exact match.
+
+Note this product is **not** one of the 100 in this run, so the hand extraction
+is independent of the model output published here.
 
 ### `luna100_manager_review.xlsx`
 

@@ -1,3 +1,4 @@
 *.xlsx binary
+*.docx binary
 *.jsonl -text
 *.json -text
