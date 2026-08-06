@@ -13,7 +13,8 @@ run) plus an AI-based accuracy checker that audits the extraction output.
 | `checker/` | The AI accuracy checker: for every non-empty extracted field, asks an LLM judge whether that content actually belongs under that field name (placement accuracy only — not a completeness or hallucination check). |
 | `results/` | `judge_accuracy_v500.xlsx` — the checker's output on the 500-product dataset, with human-review triage bands. `v500_products.xlsx` — the extraction run's own summary workbook. |
 | `model_selection/` | Which *model* should run the extraction? 13 models on 10 identical products, V4.4 unchanged, plus an LLM judge and human review. Consolidated in `model_selection/MODEL_DECISION_REPORT.md`. **Superseded by `hard30_run/`.** |
-| `hard30_run/` | **The current decision: `gpt-5.6-luna` ($49 for all 23,034 products).** 3 models on 30 hard-selected products using a new prompt version (V4.7), raw output only, with 38 hand-written review verdicts. Also records what V4.7 fixed, what it did not, and concrete suggested wording for the next prompt version. **Start here.** |
+| `hard30_run/` | How `gpt-5.6-luna` was chosen: 3 models on 30 hard-selected products using prompt V4.7, raw output only, with 38 hand-written review verdicts. Also records what V4.7 fixed, what it did not, and suggested wording for the next prompt version. |
+| `luna100_run/` | **The chosen model on 100 representative products — 99.4% of supplier text kept, nothing invented.** Includes `worked_example.xlsx` (one invented product showing every column), the manager review workbook, and the heading-mapping rules. **Start here.** |
 
 ## Headline numbers (500 products, 4,133 fields checked)
 
