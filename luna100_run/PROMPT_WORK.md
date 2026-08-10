@@ -34,7 +34,11 @@ cd code
 python run_extraction.py --build  # build the request file only — free, no API call
 python run_extraction.py          # submit + wait + download   (~$0.42, 3-4 min)
 python review_output.py           # check the result against the raw supplier text
+python export_extracted.py       # unpack the extracted fields to csv / json / xlsx
 ```
+
+**To just look at the data**, open
+`extracted/luna100_v4_8_3_extracted.xlsx` — no API key, nothing to run.
 
 `review_output.py` writes **`reports/section_review.xlsx`** — that is the file to
 open and review.
@@ -96,6 +100,24 @@ New runs also write `batch_input_*.jsonl` and `batch_id_*.json` here. The batch 
 is saved the moment a job is submitted, so an interrupted run resumes the same
 job rather than paying for a second one.
 
+### `extracted/` — the extracted data, readable
+
+**This is the actual output in usable form.** The files in `output/` are raw API
+envelopes with the fields buried inside a JSON string; these are unpacked.
+
+One set per run, `csv` / `json` / `xlsx`:
+
+| Format | Use it for |
+|---|---|
+| `.xlsx` | Reading. Raw supplier text sits beside the 29 extracted fields, header frozen, filters on |
+| `.csv` | Loading into anything |
+| `.json` | Code. Keyed by product id, with `raw_description`, `raw_booking_notes` and `extracted` |
+
+One row per product, 100 products, 29 fields — description and booking sides
+merged. `luna100_v4_8_3_extracted.xlsx` is the current one.
+
+Regenerate with `python export_extracted.py`.
+
 ### `data/` — inputs
 
 | File | What it is |
@@ -110,10 +132,12 @@ job rather than paying for a second one.
 |---|---|
 | `run_extraction.py` | Builds the batch, submits it, waits, downloads the result |
 | `review_output.py` | Checks a run against the raw text and writes the review workbook |
+| `export_extracted.py` | Unpacks the raw replies into `extracted/` as csv / json / xlsx |
 
-### `reports/` — generated, not committed
+### `reports/` — the review workbook
 
-`review_output.py` writes `section_review.xlsx` and `SECTION_STATUS.md` here.
+`section_review.xlsx` is committed, so it can be opened without running anything.
+`review_output.py` regenerates it.
 
 ---
 

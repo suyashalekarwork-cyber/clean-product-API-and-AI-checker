@@ -213,6 +213,9 @@ each re-run on these same 100 products.
 
 - **[`issues/SESSION_REPORT.md`](issues/SESSION_REPORT.md)** — what was done, what
   improved, what is still open. Start here.
+- **[`extracted/luna100_v4_8_3_extracted.xlsx`](extracted/)** — the extracted data
+  itself, 100 products x 29 fields, with the raw supplier text beside each row
+- [`reports/section_review.xlsx`](reports/) — the same run checked against the raw text
 - [`PROMPT_WORK.md`](PROMPT_WORK.md) — the folder guide and how to run it yourself
 - [`prompts/WHICH_PROMPT_TO_USE.md`](prompts/WHICH_PROMPT_TO_USE.md) — if in doubt
 

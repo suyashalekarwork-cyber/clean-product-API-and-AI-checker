@@ -5,6 +5,6 @@ __pycache__/
 ~$*.xlsx
 
 # luna100_run: generated on each run
-luna100_run/reports/
+luna100_run/reports/SECTION_STATUS.md
 luna100_run/output/batch_input_*.jsonl
 luna100_run/output/batch_id_*.json
