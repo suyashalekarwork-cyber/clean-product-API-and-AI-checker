@@ -208,8 +208,13 @@ The run described above used **V4.7**. Three fields have since been reworked —
 **Itinerary**, **FAQ** and **What's Included** — across four prompt versions,
 each re-run on these same 100 products.
 
-**See [`PROMPT_WORK.md`](PROMPT_WORK.md)** for what changed, the results, the
-issue lists, and code you can run yourself.
+**Current prompt: [`prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt`](prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt)**
+(booking side is still `SYSTEM_PROMPT_FH_BOOKING_V4_7.txt`).
+
+- **[`issues/SESSION_REPORT.md`](issues/SESSION_REPORT.md)** — what was done, what
+  improved, what is still open. Start here.
+- [`PROMPT_WORK.md`](PROMPT_WORK.md) — the folder guide and how to run it yourself
+- [`prompts/WHICH_PROMPT_TO_USE.md`](prompts/WHICH_PROMPT_TO_USE.md) — if in doubt
 
 | Field | V4.7 (this run) | V4.8.3 (now) |
 |---|---|---|

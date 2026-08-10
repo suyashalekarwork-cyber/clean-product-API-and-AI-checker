@@ -11,6 +11,18 @@ Everything here is self-contained. Clone, add an API key, and run.
 
 ---
 
+## Which prompt to use
+
+| Side | Prompt | Status |
+|---|---|---|
+| **Description** | `prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt` | **current — use this** |
+| **Booking** | `prompts/SYSTEM_PROMPT_FH_BOOKING_V4_7.txt` | current, unchanged throughout |
+
+V4.8, V4.8.1 and V4.8.2 are kept for comparison and rollback, not as
+alternatives. `run_extraction.py` uses V4.8.3 by default.
+
+---
+
 ## Quick start
 
 ```bash
