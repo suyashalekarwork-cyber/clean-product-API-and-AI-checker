@@ -37,8 +37,12 @@ python review_output.py           # check the result against the raw supplier te
 python export_extracted.py       # unpack the extracted fields to csv / json / xlsx
 ```
 
-**To just look at the data**, open
-`extracted/luna100_v4_8_3_extracted.xlsx` — no API key, nothing to run.
+**To just look at the data**, open these two — no API key, nothing to run:
+
+| | |
+|---|---|
+| `data/luna100_source_input.xlsx` | what went **in** — the supplier's text |
+| `extracted/luna100_v4_8_3_extracted.xlsx` | what came **out** — 29 fields per product |
 
 `review_output.py` writes **`reports/section_review.xlsx`** — that is the file to
 open and review.
@@ -118,12 +122,26 @@ merged. `luna100_v4_8_3_extracted.xlsx` is the current one.
 
 Regenerate with `python export_extracted.py`.
 
-### `data/` — inputs
+### `data/` — the SOURCE INPUT
+
+**`luna100_source_input.json` is the input.** The supplier's own text for all 100
+products — what goes *into* the extraction. No model output in it.
+
+Per product: `product_id`, `supplier`, `source`, `raw_description`,
+`raw_booking_notes`. Also as `.csv` and `.xlsx` for reading.
+
+100 products have description text; 66 also have booking notes — hence 166
+requests per run.
+
+Take this file, run it through any prompt or any model, and compare the result
+against `extracted/`.
 
 | File | What it is |
 |---|---|
-| `luna100_products.json` | The 100 product ids and the expected request count |
-| `luna100_screen_results.json` | Raw supplier text per product — the source of truth for every check |
+| **`luna100_source_input.json`** | **The input — supplier text per product** |
+| `luna100_source_input.csv` / `.xlsx` | The same, readable, with word counts |
+| `luna100_products.json` | The 100 product ids, how they were sampled, and the expected request count |
+| `luna100_screen_results.json` | The V4.7 screening run: raw text plus its coverage metrics. `run_extraction.py` reads the raw text from here |
 | `model_compatibility_final.json` | Per-model API parameter sets |
 
 ### `code/` — two scripts
@@ -133,6 +151,7 @@ Regenerate with `python export_extracted.py`.
 | `run_extraction.py` | Builds the batch, submits it, waits, downloads the result |
 | `review_output.py` | Checks a run against the raw text and writes the review workbook |
 | `export_extracted.py` | Unpacks the raw replies into `extracted/` as csv / json / xlsx |
+| `export_source_input.py` | Rebuilds `data/luna100_source_input.*` |
 
 ### `reports/` — the review workbook
 
