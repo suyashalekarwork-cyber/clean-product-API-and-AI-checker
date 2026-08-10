@@ -211,10 +211,15 @@ def main():
     ap.add_argument("--run", help="file in output/ (default: newest)")
     args = ap.parse_args()
 
-    # newest by mtime, not by name: "luna100_v4_8_output" sorts AFTER
-    # "luna100_v4_8_3_output" alphabetically, which picked the oldest run
-    runs = sorted(OUT.glob("luna100_*_output.jsonl"),
-                  key=lambda p: p.stat().st_mtime)
+    # Sort by parsed VERSION, not by name and not by mtime.
+    #   by name:  "luna100_v4_8_output" sorts after "luna100_v4_8_3_output"
+    #   by mtime: a fresh clone gives every file the same timestamp, so the
+    #             newest run is whichever git happened to write last
+    def version_key(p):
+        m = re.search(r"luna100_v(\d+(?:_\d+)*)_output", p.name)
+        return [int(x) for x in m.group(1).split("_")] if m else [0]
+
+    runs = sorted(OUT.glob("luna100_*_output.jsonl"), key=version_key)
     if not runs:
         raise SystemExit("no run output found -- run run_extraction.py first")
     path = OUT / args.run if args.run else runs[-1]
