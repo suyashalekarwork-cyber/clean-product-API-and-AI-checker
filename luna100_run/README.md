@@ -1,4 +1,76 @@
-# 100-Product Extraction Run — gpt-5.6-luna
+# 100-Product Extraction Run
+
+Fareharbor product descriptions turned into structured fields by an AI model,
+tested on the same 100 products throughout.
+
+**Current prompt: `prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt`**
+
+---
+
+## Just want to look? Open these three
+
+No API key, nothing to install.
+
+| # | File | What it shows |
+|---|---|---|
+| 1 | [`data/luna100_source_input.xlsx`](data/luna100_source_input.xlsx) | What goes **in** — the supplier's own text |
+| 2 | [`extracted/luna100_v4_8_3_extracted.xlsx`](extracted/luna100_v4_8_3_extracted.xlsx) | What comes **out** — 100 products x 29 fields |
+| 3 | [`reports/section_review.xlsx`](reports/section_review.xlsx) | The output **checked against the source**, with issues sorted to the top |
+
+Then read [`ISSUES_TO_REVIEW.md`](ISSUES_TO_REVIEW.md) — the open problems, and
+which need a decision.
+
+---
+
+## Want to run it yourself?
+
+Full instructions with the API key setup: [`HOW_TO_RUN.md`](HOW_TO_RUN.md)
+
+```bash
+pip install openai python-dotenv pandas openpyxl
+cd luna100_run/code
+
+python review_output.py       # free — reviews the runs already in this repo
+python run_extraction.py      # ~$0.42, 3-4 min — needs an API key
+```
+
+---
+
+## Where things are
+
+| Folder | Contents |
+|---|---|
+| `data/` | **The input.** Supplier text for the 100 products, as json / csv / xlsx |
+| `prompts/` | The system prompts, V4.7 through V4.8.3. See `prompts/WHICH_PROMPT_TO_USE.md` |
+| `extracted/` | **The output**, unpacked and readable — one row per product |
+| `output/` | Raw API replies, four runs |
+| `reports/` | The review workbook |
+| `issues/` | Findings, decision logs, the version log |
+| `code/` | Four scripts — run, review, export |
+
+---
+
+## What changed, and the results
+
+| Field | V4.7 | V4.8.3 |
+|---|---|---|
+| Itinerary | 30 filled, roughly half holding the wrong content | **12** |
+| FAQ | field did not exist | **new field** |
+| What's Included | 58 filled, 21 with no supplier heading | **41** |
+
+**No content was deleted in any change** — every value removed from a field was
+verified present elsewhere. **Zero invented content** across four runs, and zero
+technical failures in 664 requests.
+
+**11 of 14 automated checks pass.** The three failures are listed in
+[`ISSUES_TO_REVIEW.md`](ISSUES_TO_REVIEW.md).
+
+Detail: [`issues/SESSION_REPORT.md`](issues/SESSION_REPORT.md) ·
+[`PROMPT_WORK.md`](PROMPT_WORK.md)
+
+---
+
+# Appendix — the original V4.7 run (June baseline)
 
 **For review. Start with `worked_example.xlsx` to see the shape, then
 `luna100_manager_review.xlsx` for the real results.**
@@ -199,34 +271,3 @@ itineraries a clean score. Reading products by hand is what found them, and it
 is the check that has repeatedly caught what the automated measures missed.
 
 **Sample size:** 100 of 11,236 Fareharbor products.
-
----
-
-## Follow-on work: prompt changes since this run
-
-The run described above used **V4.7**. Three fields have since been reworked —
-**Itinerary**, **FAQ** and **What's Included** — across four prompt versions,
-each re-run on these same 100 products.
-
-**Current prompt: [`prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt`](prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt)**
-(booking side is still `SYSTEM_PROMPT_FH_BOOKING_V4_7.txt`).
-
-- **[`issues/SESSION_REPORT.md`](issues/SESSION_REPORT.md)** — what was done, what
-  improved, what is still open. Start here.
-- **[`data/luna100_source_input.json`](data/)** — the **input**: supplier text for
-  all 100 products, ready to run through any prompt or model
-- **[`extracted/luna100_v4_8_3_extracted.xlsx`](extracted/)** — the **output**:
-  100 products x 29 fields, with the raw supplier text beside each row
-- [`reports/section_review.xlsx`](reports/) — the same run checked against the raw text
-- [`PROMPT_WORK.md`](PROMPT_WORK.md) — the folder guide and how to run it yourself
-- [`prompts/WHICH_PROMPT_TO_USE.md`](prompts/WHICH_PROMPT_TO_USE.md) — if in doubt
-
-| Field | V4.7 (this run) | V4.8.3 (now) |
-|---|---|---|
-| Itinerary | 30 filled, roughly half holding the wrong content | **12** |
-| FAQ | field did not exist | **new `redo_desc_faqs` field** |
-| What's Included | 58 filled, 21 with no supplier heading | **41** |
-
-The "5 repeated sentences" figure above is also revised there: the screening
-script excluded cross-request duplicates by design, and the real count across
-all fields is higher.
