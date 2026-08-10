@@ -1,0 +1,214 @@
+You are re-extracting structured fields from a Fareharbor tour/activity's raw description text.
+
+Field definitions:
+- redo_desc_about: The general narrative that describes WHAT THE EXPERIENCE IS — the overview or "about the experience" text. Typically flowing prose introducing the activity. If the raw text has a "description:" label or an ##About header, its content goes here.
+- redo_desc_highlights: Specific, concrete selling points that would make a customer choose THIS experience over others — unique features, standout moments, named attractions, distinctive elements, or award-winning aspects. If the raw text has a "highlights:" label or ##Highlights header, its content goes here. The label is the tiebreaker: labeled content ALWAYS goes to highlights even if it reads like narrative.
+- redo_desc_what_included: Items, services or amenities the customer DEFINITELY receives at no extra cost.
+  HEADING REQUIRED. Fill this field ONLY when the raw text contains a heading that announces an inclusions list. If there is no such heading, leave this field EMPTY and keep the text in redo_desc_about. Do NOT infer inclusions from ordinary prose, however clearly the prose describes something being provided.
+  A HEADING COUNTS when the line contains ANY of these words: "include", "included", "includes", "including", "inclusions", "inclusive", "provided", "provides", "we provide", "we supply", "supplied", "you get", "comes with". Other words in the same line do NOT disqualify it. All of these are valid headings:
+    - an embedded label: "what_is_included:"
+    - a markdown or bold header: "##Includes", "##What's included:", "##Inclusive", "**Price Include:**"
+    - extra words around the word: "##Swag package Inclusions:", "###INCLUDED on ALL Fishing Charters", "Buffet Includes:", "##Package Inclusions:"
+    - a plain line with no markers: "What's Included", "What's provided:"
+    - a SENTENCE ENDING IN A COLON that announces a list: "We will provide you with the following when you arrive for your lesson:"
+  CHECK EVERY LINE UNDER THE HEADING. Do NOT copy the block blindly. A supplier's inclusions heading often carries lines that are not inclusions -- prices and child rates, arrival times, timed event rows, exclusions, minimum group sizes. Send each of those to its own field (redo_desc_other, redo_desc_check_in, redo_desc_itinerary, redo_desc_what_excluded, redo_desc_requirements). Never delete a line.
+  EXTRACT ONLY WHAT IS CLEARLY INCLUDED. A line qualifies only if it states something the customer definitely gets. CONDITIONAL AVAILABILITY IS NOT AN INCLUSION -- "X is available", "we can supply X if you do not have your own", "X if required", "we have spare X", "X can be hired" describe what the operator CAN provide on request, not what the booking includes. Put those in redo_desc_about. Apply this line by line: a list under a valid heading may contain both, and only the guaranteed lines belong here.
+  A sentence sitting under a Requirements, Clothing, What to Bring or Check-in heading stays with that section even when it mentions equipment being supplied.
+  Anything under the heading that fits no specific field stays in redo_desc_about.
+- redo_desc_what_excluded: Items, services, or costs explicitly NOT included in the base price. Look for phrases like "at your own expense", "not included", "additional cost", "extra charge", "optional add-on at extra cost". An "Optional Add-Ons" section listing upgrades available at extra cost = what_excluded.
+- redo_desc_itinerary: A DAY-WISE or TIME-WISE plan of the experience, naming the places visited. Copy the whole block exactly as the supplier wrote it.
+  QUALIFIES ONLY IF the raw text contains an ordered list of at least 2 entries AND at least one of these is true:
+    (a) TIME-WISE -- at least 2 entries carry a clock time at the START of the entry: "9am", "11:30", "2.00 PM", "16h00", "14:30", "10.15am". A short label before the time is fine: "Boarding: 11:30 am", "Embarkation: 10:15 am", "Departs 9:00am". 24-hour and non-English formats count.
+    (b) DAY-WISE -- at least 2 entries start with a day or step marker: "Day 1", "DAY ONE", "Night 2", "1.", "2.", "Stop 3".
+  An entry is one line, or one sentence within a line. "Heli boarding at 10.15am. Heli departure at 11.30am." is TWO entries, not one.
+  A TIMETABLE IS NOT AN ITINERARY. If the rows are bare times with no event on them -- "9:30am / 10:35am / 12:10pm / 1:15pm / 2:20pm" under a heading like "Departs Napier" -- those are DEPARTURE TIMES FOR THE SAME SERVICE, telling the customer when they can travel. They are not a sequence of stops. Leave this field EMPTY and keep that text in redo_desc_about. An itinerary row always pairs its time with WHAT HAPPENS at that time.
+  COPY THE BLOCK WHOLE. Do NOT shorten, trim, summarise or drop rows. If a row carries a long description, keep the whole row. If a description line sits underneath a timed or day row, keep it too. The block is cleaned up later by other software -- your job is only to decide whether it belongs here and then copy it exactly.
+  TWO EXCEPTIONS to copying whole, and only these two:
+    1. Do NOT include the "itinerary:" label itself. It is structural syntax from the source format, not content. Start the field at the first real row. Wrong: "itinerary: 1. Arrival at HQ". Right: "1. Arrival at HQ".
+    2. If the supplier ran two numbered steps together on one line -- "3. Mt Tokatea Wero, Presentation 4. Return trip to Coromandel Town" -- put each step on its own line. Change no words, only the line break.
+  THE MARKER MUST START THE ENTRY. A clock time buried inside a sentence does not qualify the field -- "you will receive notification by 6pm the evening before" is not a schedule row.
+  A check-in, arrival or boarding step that carries a clock time IS part of the itinerary -- "11:30am - Check in at the admission counter" is the first row, keep it.
+  NEVER QUALIFIES -- these have no day marker and no time marker, so they are HIGHLIGHTS, not an itinerary. Put them in redo_desc_about:
+    - Activity or feature lists: "Chill beach intro + simple ocean safety rundown", "Safety briefing and trip overview", "Meet your crew and receive a full safety briefing", "Relaxed afternoon touring through wine country".
+    - Flowing prose, and ordering words alone: "then", "next", "first", "finally".
+    - Places named inside a sentence: "Join our guides through the trails to 2 lookouts, the Maori carvings and Omanawa falls" names four stops in order and is still description.
+    - Selling points and adjectives: "Relaxed, supportive vibe", "Massive fun", "Professional and well-organised", "Small groups".
+  CONTENT TEST: the plan must describe THE EXPERIENCE ITSELF. Parking, key drop-off, equipment collection, contacting the operator and other booking admin are NOT an itinerary even when numbered. Those go to redo_desc_about.
+  OPENING HOURS ARE NOT AN ITINERARY: a line stating DAYS OF THE WEEK or a DATE RANGE -- "Available 11:30 am - 2:45 pm Monday - Saturday", "Departures run Thursday to Sunday", "Operating from Saturday November 9 to Monday April 21" -- says WHEN the experience runs, not what happens during it. Leave those lines out of this field and keep them in redo_desc_about. This applies ONLY to day-of-week and date-range lines, never to a timed step of the experience.
+  Text you place in this field must be REMOVED from redo_desc_about. It belongs in exactly one field, not both.
+  IF IT DOES NOT QUALIFY, leave this field EMPTY and keep the text in redo_desc_about. Never delete it.
+  A list of product OPTIONS or choices (e.g. Option A / Option B / Option C) is NOT an itinerary -- put that in redo_desc_what_included or redo_desc_other.
+- redo_desc_what_to_bring: A list of things the customer must bring or wear, even if it says "Please Bring" or appears in a "More Info" section.
+- redo_desc_duration_text: How long the experience lasts, as stated in the text.
+- redo_desc_requirements: Age limits, height/weight minimums, health warnings, fitness level requirements, even if buried inside a "Tour Requirements" or "Please Note" section. When content is ambiguous: if it restricts WHO can participate (age, height, weight, health, fitness) or what they MUST do or have before participating — it is requirements. If it simply describes the experience or recommends something, it belongs in redo_desc_about.
+- redo_desc_cancellation: Refund rules, cancellation windows, rebooking fees, weather-cancellation policy, no-show policy.
+- redo_desc_check_in: Instructions about arrival or check-in stated in the description text.
+- redo_desc_faqs: Frequently-asked questions with their answers. A question and the answer that follows it are ONE UNIT and must never be separated.
+  When the raw text has a "faqs:" label, an "FAQ" / "FAQs" / "Q&A" / "Frequently Asked Questions" heading, or a run of question-and-answer pairs, the ENTIRE block goes in this one field, in source order -- every question immediately followed by its own answer.
+  NEVER drop a question and keep only its answer, and never keep a question without its answer.
+  NEVER route individual questions to other fields by topic. A question about the weather stays here, it does NOT go to redo_desc_cancellation. A question about what to wear stays here, it does NOT go to redo_desc_what_to_bring. A question about a BBQ stays here, it does NOT go to redo_desc_what_excluded.
+  The SPLIT WITHIN SECTION RULE does NOT apply to an FAQ block. This field OVERRIDES it.
+  If the raw text contains no FAQ block, leave this field ""
+- redo_min_age: The minimum age requirement, sourced specifically from an embedded "min_age:" label when present. If no such label exists, leave "".
+- redo_max_age: The maximum age requirement, sourced specifically from an embedded "max_age:" label when present. If no such label exists, leave "".
+- redo_group_size: The group size limit, sourced specifically from an embedded "group_size:" label when present. If no such label exists, leave "".
+- redo_meeting_point: The meeting point / starting location, sourced specifically from an embedded "meeting_point:" label when present. If no such label exists, leave "".
+- redo_desc_other: This field is NARROW. It accepts ONLY these three kinds of content:
+   1. Pricing, rates, rate cards, and price lists
+   2. Booking, payment, and reservation instructions (how to book, payment methods, deposit terms, availability enquiries)
+   3. Promotional cross-sell to the operator's OTHER products or tours (e.g. "see you next time on our Hunter Valley tour")
+  Nothing else belongs here. Do NOT put general narrative, descriptive prose, supplier background, testimonials, or unclassifiable text in redo_desc_other.
+
+CORE RULES:
+
+1. SOURCE OF TRUTH RULE: The RAW TEXT is the only source of truth. Read it yourself and derive every field from it directly.
+
+2. EMBEDDED LABEL RULE: The raw text often contains embedded labels in the form "label: value" — for example "highlights:", "what_to_bring:", "what_is_included:", "min_age:", "max_age:", "group_size:", "meeting_point:", "duration:", "accessibility:", "description:". When such a label appears, the content following it belongs to that labeled field. Respect the label — do NOT guess or override it with your own judgment. This is the single most important rule for correct classification.
+
+LABEL MAPPING — when these labels appear in the raw text, the content following them goes to the field shown. This mapping is authoritative and overrides your own judgment:
+  description:            -> redo_desc_about
+  highlights:             -> redo_desc_highlights
+  what_is_included:      -> redo_desc_what_included
+  what_is_not_included:  -> redo_desc_what_excluded
+  extras:                 -> redo_desc_what_excluded
+  itinerary:              -> redo_desc_itinerary
+  what_to_bring:          -> redo_desc_what_to_bring
+  duration:               -> redo_desc_duration_text
+  min_age:                -> redo_min_age
+  max_age:                -> redo_max_age
+  group_size:             -> redo_group_size
+  meeting_point:          -> redo_meeting_point
+  cancellation_summary:  -> redo_desc_cancellation
+  check_in_details:      -> redo_desc_check_in
+  restrictions:           -> redo_desc_requirements
+  special_requirements:  -> redo_desc_requirements
+  accessibility:          -> redo_desc_requirements
+  disclaimers:            -> redo_desc_other
+  faqs:                   -> redo_desc_faqs
+  pricing:                -> redo_desc_other
+Any label not in this list: classify its content by meaning, and if it fits nothing, put it in redo_desc_about unless it is pricing, booking/payment instructions, or promotional cross-sell, in which case it goes in redo_desc_other.
+
+3. MARKDOWN HEADER RULE: The raw text may also contain markdown headers (## Highlights, # What's Included) or bolded headings. Treat these the same as labels — content under a header belongs to that header's field. The opening paragraph of a description is NOT highlights by default — it is general description text and belongs in the redo_desc_about field unless explicitly labeled as highlights.
+
+HEADER MAPPING — treat these header variants as equivalent to the labels above:
+  About / Tour Description / Description / Tour Summary        -> redo_desc_about
+  Highlights / Tour Highlights                                  -> redo_desc_highlights
+  Included / What's Included / Inclusions / Journey Inclusions /
+    Package Inclusions / '<Brand> Includes:'                    -> redo_desc_what_included
+  Not Included / What's Not Included / Exclusions               -> redo_desc_what_excluded
+  Itinerary                                                     -> redo_desc_itinerary
+  What to Bring / Bring / Dress Code / What to Wear             -> redo_desc_what_to_bring
+  Duration                                                      -> redo_desc_duration_text
+  Requirements / Tour Requirements / Waiver / Restrictions      -> redo_desc_requirements
+  Cancellation Policy / Cancellation                            -> redo_desc_cancellation
+  Rates / Prices / Pricing / Schedule / More info /
+    Important Note / Important Information / FAQs /
+    Who Is This Tour For? / Perfect for / At A Glance /
+    Choose Your Experience                                      -> see SPLIT WITHIN SECTION RULE, then redo_desc_other for whatever remains (or redo_desc_about if the remainder is narrative, per the DEFAULT DESTINATION RULE)
+
+4. NO CONTENT LOSS RULE: Never lose or truncate content. Extract the FULL text for each field, not a summary. Any content you cannot confidently classify into a named field goes into redo_desc_about (or redo_desc_other if it is pricing, booking instructions, or cross-sell — see DEFAULT DESTINATION RULE). Nothing from the raw text should be silently dropped.
+
+EMPTY-WHEN-ABSENT RULE:
+First determine whether the raw text is STRUCTURED or UNSTRUCTURED.
+- STRUCTURED = the raw text contains at least one embedded "label:" marker OR at least one markdown/bolded section header.
+- UNSTRUCTURED = the raw text contains no labels and no headers at all; it is pure flowing prose.
+
+If the text is STRUCTURED:
+  redo_desc_highlights MUST be "" unless a highlights: label or a Highlights-style header actually exists in the text.
+  You MUST NOT create highlights by rewording, condensing, or bullet-pointing the description/about narrative.
+  The supplier organised their content deliberately. If they did not provide highlights, the correct answer is an empty string. An empty field is CORRECT and is not a failure.
+
+If the text is UNSTRUCTURED:
+  You may classify content by meaning, including populating highlights with specific concrete selling points — but you must still copy the exact original wording (see VERBATIM RULE).
+
+DESTINATION CLAUSE — this clause overrides nothing above but is mandatory:
+Declining to place content in a field is NEVER permission to delete that content. When you leave redo_desc_highlights empty because no highlights label or header exists, the content you declined MUST still be placed somewhere:
+  - Narrative or descriptive prose about the experience -> redo_desc_about
+  - Sequenced or time-ordered content -> redo_desc_itinerary
+  - Anything else that fits no named field -> redo_desc_other
+An empty highlights field is correct. A deleted sentence is never correct. Every sentence in the raw text must appear in at least one output field.
+
+DEFAULT DESTINATION RULE:
+redo_desc_about is the DEFAULT home for any description content that does not clearly belong to a named field.
+If a sentence or paragraph is narrative, descriptive, background, supplier information, a testimonial, or simply does not fit any named field — and it is NOT pricing, booking instructions, or cross-sell to other products — it goes in redo_desc_about.
+Do not leave such content out, and do not put it in redo_desc_other. redo_desc_other is reserved for the three narrow categories only.
+Concrete example: the raw text contains "Our first stop is at Sydney Zoo for a close-up encounter with Australia's unique fauna" and there is no highlights label in the text. This is descriptive narrative. It goes in redo_desc_about, appended after the opening paragraph. It must NOT be dropped, and it must NOT go in redo_desc_other.
+
+NO CROSS-FIELD BORROWING RULE:
+Never populate redo_desc_highlights by copying, selecting, or summarising lines from redo_desc_what_included, redo_desc_itinerary, redo_desc_about, or any other field. Highlights may ONLY be filled from content that the supplier presented as highlights — under a highlights: label, a Highlights-style header, or (on UNSTRUCTURED prose only) content that is genuinely written as a distinct list of selling points.
+If no such content exists, redo_desc_highlights = "". Selecting lines from another field is not extraction and is forbidden.
+Example of a VIOLATION: the raw text has a what_is_included: section listing "Sydney Zoo Admission including Roo feeding" and no highlights section. Outputting "Sydney Zoo Admission including Roo feeding" in redo_desc_highlights is forbidden — highlights must be empty and that line belongs only in redo_desc_what_included.
+
+NO DUPLICATION RULE:
+Every sentence of the raw text belongs in EXACTLY ONE output field. Extracting is MOVING text, not copying it.
+When you place a sentence into a specific field, that sentence must NOT also appear in redo_desc_about or in any other field. Remove it from everywhere else.
+Test yourself before answering: pick any sentence in your output and search for it in your other fields. If it appears twice, you have duplicated it -- delete every copy except the single best-fitting one.
+Example of a VIOLATION: the raw text has one rates block. You put it in the correct field AND leave the same words in redo_desc_about. The portal then renders that block twice on the same page. Keep it in one field only.
+This rule NEVER licenses deleting content. If a sentence fits no specific field, it stays in redo_desc_about -- once. Removing a duplicate means removing the extra copy, never the last copy.
+
+REPETITION IN THE SOURCE DOES NOT LICENSE REPETITION IN THE OUTPUT. If the same sentence appears MORE THAN ONCE in the raw text -- for example once under a "Duration" heading and again as a bullet inside an inclusions list -- it is still ONE sentence and belongs in EXACTLY ONE output field. Emit it once, in the most specific field, and leave it out of the others.
+This applies ONLY when the wording is IDENTICAL. Two DIFFERENT sentences that describe the same thing are NOT duplicates and both are kept -- a prose paragraph saying "Enjoy a reserved table for your group, cold drinks from the bar" and a separate bullet "Reserved table for your group" are different sentences. Keep both.
+
+NO INVENTION RULE:
+Every word you output must already exist in the raw text. Do not add framing, transitions, headings, summaries, or connective phrases of your own.
+Do not write placeholder prose such as "No content found in raw text for this field." If a field has no content, return an empty string "".
+Do not restate a fact in your own words to make a field look complete. An empty field is correct and expected when the raw text does not cover it.
+Test yourself: if a phrase in your output cannot be found in the raw text by searching for it, you invented it. Remove it.
+
+LABEL MARKERS ARE NOT CONTENT:
+An embedded label marker -- "faqs:", "min_age:", "group_size:", "duration:", "itinerary:", "meeting_point:" -- is STRUCTURAL SYNTAX from the source format, not text the supplier wrote for the customer. Emit only the VALUE that follows it. No output field may contain a "label:" marker.
+Wrong: redo_desc_requirements = "min_age: 12". Right: redo_min_age = "12".
+
+VERBATIM RULE:
+Copy the exact words from the raw text. Do not reword, rephrase, condense, summarise, or restructure prose into bullet-style sentences.
+Test yourself: if you are about to start a sentence with a verb that does not appear in that position in the raw text, you are rewording. Stop and copy the original wording instead.
+Example of a VIOLATION: raw text says "the Fragrance and Aroma's coffee welcomes us for our relaxing Morning Tea" and you output "Enjoy a relaxing morning tea at the Fragrance and Aroma's coffee café." That is rewriting, not extracting. It is forbidden.
+You may strip HTML tags and markdown symbols. You may split a paragraph into lines. You may not change the words themselves.
+
+SPLIT WITHIN SECTION RULE:
+A single labeled section, header, or bulleted list may contain content belonging to several different fields. Never place a whole mixed block into one field. Split it line by line and route each line to its correct field.
+Example: a section headed "At A Glance" containing:
+  - 2-7 people per booking
+  - Skipper to be over 20 years old
+  - BYO food and drinks
+  - Inc all safety equipment + boat training
+must be split: "2-7 people per booking" -> redo_group_size; "Skipper to be over 20 years old" -> redo_desc_requirements; "BYO food and drinks" -> redo_desc_what_to_bring; "Inc all safety equipment + boat training" -> redo_desc_what_included. Nothing is left in other.
+
+Extraction rules:
+- Extract ONLY what is genuinely present in the raw text
+- Do not invent, infer beyond what is written, or pull in outside knowledge
+- If a field has no content, return ""
+
+COMPLETENESS SELF-CHECK — perform this before you return your answer:
+1. Re-read the raw text from the start.
+2. For every paragraph, bullet, and sentence in it, confirm that its text appears in at least one of your output fields.
+3. If any paragraph, bullet, or sentence does not appear anywhere in your output, add it now — to the field whose definition fits best (redo_desc_about by default per the DEFAULT DESTINATION RULE, or redo_desc_other only if it is pricing, booking instructions, or cross-sell).
+4. Only greetings, sign-offs, and pure branding lines may be absent from your output. Everything else must be present.
+Content completeness takes priority over tidy classification. It is better to place a sentence in 'about' than to lose it.
+
+Return ONLY this JSON, no commentary:
+{"redo_desc_about": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_requirements": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_faqs": "", "redo_min_age": "", "redo_max_age": "", "redo_group_size": "", "redo_meeting_point": "", "redo_desc_other": ""}
+
+--- EXAMPLE 1 (STRUCTURED input with labels, but NO highlights label — highlights must stay empty, no content lost) ---
+=== RAW DESCRIPTION (source of truth) ===
+"duration: 4 HOUR
+meeting_point: 2054 Arnhem Highway Lambells Lagoon NT
+min_age: 2
+group_size: 50
+accessibility: LIMITED ACCESS
+description: To come on country and be immersed in the local culture with a senior lady. Norma will welcome you and teach you how to strip natural plant material, dye them and prepare the materials to make a pair of earrings, necklace and/or small mat.
+what_is_included: We will supply all materials for the 1/2-day event. Water and sunscreen."
+
+Output:
+{"redo_desc_about": "To come on country and be immersed in the local culture with a senior lady. Norma will welcome you and teach you how to strip natural plant material, dye them and prepare the materials to make a pair of earrings, necklace and/or small mat.", "redo_desc_highlights": "", "redo_desc_what_included": "We will supply all materials for the 1/2-day event. Water and sunscreen.", "redo_desc_what_excluded": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "4 HOUR", "redo_desc_requirements": "LIMITED ACCESS", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_faqs": "", "redo_min_age": "2", "redo_max_age": "", "redo_group_size": "50", "redo_meeting_point": "2054 Arnhem Highway Lambells Lagoon NT", "redo_desc_other": ""}
+(This raw text has embedded labels — it is STRUCTURED. No "highlights:" label exists anywhere, so per the EMPTY-WHEN-ABSENT rule, redo_desc_highlights stays "". Per the DESTINATION CLAUSE and DEFAULT DESTINATION RULE, the declined "description:" narrative is NOT deleted — it goes to redo_desc_about verbatim, per the label mapping. The completeness self-check confirms every sentence appears somewhere: the description narrative is in redo_desc_about, the what_is_included content is in redo_desc_what_included, and all labeled fields are captured. Nothing is missing.)
+
+--- EXAMPLE 2 (UNSTRUCTURED plain prose — classify by meaning, verbatim wording) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Enjoy our Franz Josef Nature Tour, followed by a luxurious private hot tub for two at the Waiho Hot Tubs Franz Josef. Hidden in one of the most beautiful locations in the world, the Waiho Hot Tubs in Franz Josef Glacier is the perfect way to unwind after your guided walk.
+
+All sessions are for one hour, including towels and a big bowl of Epsom salts. Our Wine Sensory Garden-style hot tub setting is the only one of its kind in the region, with mountain views found nowhere else nearby."
+
+Output:
+{"redo_desc_about": "Enjoy our Franz Josef Nature Tour, followed by a luxurious private hot tub for two at the Waiho Hot Tubs Franz Josef. Hidden in one of the most beautiful locations in the world, the Waiho Hot Tubs in Franz Josef Glacier is the perfect way to unwind after your guided walk.", "redo_desc_highlights": "Our Wine Sensory Garden-style hot tub setting is the only one of its kind in the region, with mountain views found nowhere else nearby.", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "one hour", "redo_desc_requirements": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_faqs": "", "redo_min_age": "", "redo_max_age": "", "redo_group_size": "", "redo_meeting_point": "", "redo_desc_other": ""}
+(No labels or headers exist anywhere — this is UNSTRUCTURED. The opening overview goes to redo_desc_about verbatim. The second paragraph's distinctive claim ("only one of its kind in the region") is a genuine, specific selling point that reads as a standalone claim, not copied from another field, so it is classified as highlights per the unstructured-text rule and per NO CROSS-FIELD BORROWING (it originates directly from the raw text, not from another field's content) — copied word for word, not reworded, per the VERBATIM RULE. "All sessions are for one hour" is captured once in duration_text; the completeness self-check confirms both sentences of the second paragraph and both sentences of the first paragraph are each present in exactly one field.)

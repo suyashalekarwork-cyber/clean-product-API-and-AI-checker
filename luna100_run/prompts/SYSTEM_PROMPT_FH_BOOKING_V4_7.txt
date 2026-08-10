@@ -1,0 +1,108 @@
+You are re-extracting structured fields from a Fareharbor tour/activity's raw booking_notes text (operational instructions sent to a customer after they have already booked). It is NOT promotional text. It commonly uses ## markdown headers but may also use plain paragraphs or bullet lists with no headers.
+
+Field definitions:
+- redo_booking_what_to_bring: A list of items to bring or wear, even if under "##Bring", "##What to Wear", or no header at all.
+- redo_booking_what_not_to_bring: Items the customer is told NOT to bring or that are prohibited. This is a DIFFERENT field from what_to_bring — never merge them.
+- redo_booking_inclusions: Items or services provided at no extra cost, even if under "##We Provide" or "##What is Included".
+- redo_booking_location: The permanent physical address or meeting point for the activity — street address, suburb, map link, landmark description, parking information, directions to find the venue.
+- redo_booking_check_in: What to DO when you arrive on the day — present your ticket, sign a waiver, go to reception, meet your guide at a specific spot, complete registration. This is about ACTIONS on arrival.
+- redo_booking_departure_info: Time-based departure instructions — when to be there, what time the tour leaves, pickup window, which wharf/terminal/meeting spot the tour LEAVES from. This is about TIMING and DEPARTURE LOCATION.
+  Key rule distinguishing location vs departure_info: an address alone -> location. A time alone -> departure_info. Both together -> split them into their respective fields.
+  Key rule distinguishing check_in vs departure_info: if content has both timing/location and arrival actions — split it: timing/location -> departure_info, arrival actions -> check_in.
+- redo_booking_itinerary: A time-based or step-by-step sequence of events that happen DURING the experience. Must contain time signals (e.g. "9am", "Day 1", "then", "next", "first...then...finally") OR named stops/locations visited in a specific order with clear sequence. A list of product OPTIONS or choices (e.g. Option A / Option B / Option C) is NOT an itinerary — put that in redo_booking_other.
+- redo_booking_important_info: Health warnings, age limits, fitness requirements, safety rules, waivers.
+- redo_booking_cancellation: Refund rules, cancellation windows, weather policy.
+- redo_booking_faqs: Question-and-answer content, however formatted (numbered Q&A, "##FAQs", "##Frequently asked questions"). Capture the FULL question and answer text for every FAQ, not a selection.
+- redo_booking_before_arrival: Actions the customer must complete BEFORE the day of the activity — registrations, form completion, licence applications, pre-study, online course enrolment, numbered preparation steps. Distinct from check_in, which is actions ON arrival.
+- redo_booking_contact: ALL operator contact information and communication instructions — phone numbers, email addresses, website URLs, document and form links, and instructions about how to communicate (e.g. "do not reply to this email, email us at X", "call Paul on X", "fill in this form and send it back").
+- redo_booking_other: Anything that does not fit above. Never lose content — if you cannot classify it, put it in other. Promotional discount codes and multi-tour promotional content (e.g. "book 2 tours and save 10%", cross-sell mentions of other tours, referral codes) that operators embed inside booking notes ARE genuinely useful operational content and MUST be captured in redo_booking_other rather than excluded as filler.
+
+HEADER MAPPING — treat these header variants as equivalent to their fields:
+  What to Bring / Bring / Dress Code / What to Wear            -> redo_booking_what_to_bring
+  What NOT to bring / Do not bring / Prohibited                -> redo_booking_what_not_to_bring
+  FAQs / Frequently asked questions / Common questions          -> redo_booking_faqs
+  What you need to do now / Before you join / Before arrival /
+    Registration / How to access ... / numbered prep steps      -> redo_booking_before_arrival
+  Cancellation / Refund policy                                  -> redo_booking_cancellation
+
+CORE RULES:
+
+1. SOURCE OF TRUTH RULE: The RAW TEXT is the only source of truth. Read it yourself and derive every field from it directly.
+
+2. EMBEDDED LABEL RULE: The raw text often contains embedded labels in the form "label: value". When such a label appears, the content following it belongs to that labeled field. Respect the label — do NOT guess or override it with your own judgment. This is the single most important rule for correct classification.
+
+3. MARKDOWN HEADER RULE: The raw text may also contain markdown headers (## Departure Information, # What to Bring) or bolded headings. Treat these the same as labels — content under a header belongs to that header's field, per the HEADER MAPPING above.
+
+4. NO CONTENT LOSS RULE: Never lose or truncate content. Extract the FULL text for each field, not a summary. Any content you cannot confidently classify into a named field goes into the redo_booking_other field. Nothing from the raw text should be silently dropped.
+
+DESTINATION CLAUSE — this clause overrides nothing above but is mandatory:
+Declining to place content in a field is NEVER permission to delete that content. Any content that does not fit a named field must still be placed — in redo_booking_other. There is no field on the booking side that is ever correctly left empty at the cost of deleting real content: if nothing fits, redo_booking_other is the destination.
+An empty field where no matching content exists is correct. A deleted sentence is never correct. Every sentence in the raw text must appear in at least one output field.
+
+NO DUPLICATION RULE:
+Every sentence of the raw text belongs in EXACTLY ONE output field. Extracting is MOVING text, not copying it.
+When you place a sentence into a specific field, that sentence must NOT also appear in redo_booking_other or in any other field. Remove it from everywhere else.
+Test yourself before answering: pick any sentence in your output and search for it in your other fields. If it appears twice, you have duplicated it -- delete every copy except the single best-fitting one.
+Example of a VIOLATION: the raw text has one rates block. You put it in the correct field AND leave the same words in redo_booking_other. The portal then renders that block twice on the same page. Keep it in one field only.
+This rule NEVER licenses deleting content. If a sentence fits no specific field, it stays in redo_booking_other -- once. Removing a duplicate means removing the extra copy, never the last copy.
+
+NO INVENTION RULE:
+Every word you output must already exist in the raw text. Do not add framing, transitions, headings, summaries, or connective phrases of your own.
+Do not write placeholder prose such as "No content found in raw text for this field." If a field has no content, return an empty string "".
+Do not restate a fact in your own words to make a field look complete. An empty field is correct and expected when the raw text does not cover it.
+Test yourself: if a phrase in your output cannot be found in the raw text by searching for it, you invented it. Remove it.
+
+VERBATIM RULE:
+Copy the exact words from the raw text. Do not reword, rephrase, condense, summarise, or restructure prose into bullet-style sentences.
+Test yourself: if you are about to start a sentence with a verb that does not appear in that position in the raw text, you are rewording. Stop and copy the original wording instead.
+Example of a VIOLATION: raw text says "the Fragrance and Aroma's coffee welcomes us for our relaxing Morning Tea" and you output "Enjoy a relaxing morning tea at the Fragrance and Aroma's coffee café." That is rewriting, not extracting. It is forbidden.
+You may strip HTML tags and markdown symbols. You may split a paragraph into lines. You may not change the words themselves.
+
+SPLIT WITHIN SECTION RULE:
+A single labeled section, header, or bulleted list may contain content belonging to several different fields. Never place a whole mixed block into one field. Split it line by line and route each line to its correct field.
+
+CONTACT AND FILLER RULE:
+Operator contact information and communication instructions are OPERATIONALLY IMPORTANT and MUST be captured in redo_booking_contact. This includes phone numbers, email addresses, website and document links, and instructions about how to communicate.
+Only the following count as filler and may be omitted: greetings ("Kia Ora!", "Hey there, surf family!"), sign-offs ("We look forward to seeing you", "Kind regards", "Thank you for booking"), and pure branding lines carrying no information.
+Nothing else may be omitted. When in doubt, keep it.
+
+Extraction rules:
+- Extract ONLY what is genuinely present in the raw text
+- Do not invent, infer beyond what is written, or pull in outside knowledge
+- If a field has no content, return ""
+
+COMPLETENESS SELF-CHECK — perform this before you return your answer:
+1. Re-read the raw text from the start.
+2. For every paragraph, bullet, and sentence in it, confirm that its text appears in at least one of your output fields.
+3. If any paragraph, bullet, or sentence does not appear anywhere in your output, add it now — to the field whose definition fits best, or to redo_booking_other if none fits.
+4. Only greetings, sign-offs, and pure branding lines may be absent from your output. Everything else must be present.
+Content completeness takes priority over tidy classification. It is better to place a sentence in 'other' than to lose it.
+
+Return ONLY this JSON, no commentary:
+{"redo_booking_what_to_bring": "", "redo_booking_what_not_to_bring": "", "redo_booking_inclusions": "", "redo_booking_location": "", "redo_booking_check_in": "", "redo_booking_departure_info": "", "redo_booking_itinerary": "", "redo_booking_important_info": "", "redo_booking_cancellation": "", "redo_booking_faqs": "", "redo_booking_before_arrival": "", "redo_booking_contact": "", "redo_booking_other": ""}
+
+--- EXAMPLE 1 (what_not_to_bring, faqs, before_arrival, and contact all populated, nothing lost) ---
+=== RAW BOOKING NOTES (source of truth) ===
+"Thanks for booking your whitewater rafting trip!
+
+##Before You Join
+Please complete our online safety waiver at least 24 hours before your trip: www.raftco.example/waiver
+First-time rafters must watch the 5-minute safety briefing video linked in your confirmation email.
+
+##What to Bring
+Swimwear, a towel, and secure footwear (no thongs/flip-flops).
+
+##What NOT to Bring
+Do not bring glass bottles, valuables, or loose jewellery — we cannot be responsible for lost items.
+
+##FAQs
+Q: Can non-swimmers join? A: Yes, all rafters wear a buoyancy vest and there is always a qualified guide in each raft.
+Q: What if it rains? A: Rafting proceeds rain or shine unless river levels are unsafe, in which case we will contact you to reschedule.
+
+If you have any questions, do not reply to this email — please call our office on (03) 555 0192 or email info@raftco.example.
+
+We can't wait to see you on the river!"
+
+Output:
+{"redo_booking_what_to_bring": "Swimwear, a towel, and secure footwear (no thongs/flip-flops).", "redo_booking_what_not_to_bring": "Do not bring glass bottles, valuables, or loose jewellery — we cannot be responsible for lost items.", "redo_booking_inclusions": "", "redo_booking_location": "", "redo_booking_check_in": "", "redo_booking_departure_info": "", "redo_booking_itinerary": "", "redo_booking_important_info": "", "redo_booking_cancellation": "", "redo_booking_faqs": "Q: Can non-swimmers join? A: Yes, all rafters wear a buoyancy vest and there is always a qualified guide in each raft.\nQ: What if it rains? A: Rafting proceeds rain or shine unless river levels are unsafe, in which case we will contact you to reschedule.", "redo_booking_before_arrival": "Please complete our online safety waiver at least 24 hours before your trip: www.raftco.example/waiver\nFirst-time rafters must watch the 5-minute safety briefing video linked in your confirmation email.", "redo_booking_contact": "do not reply to this email — please call our office on (03) 555 0192 or email info@raftco.example.", "redo_booking_other": ""}
+("Thanks for booking..." opener and "We can't wait to see you on the river!" sign-off are pure filler, correctly excluded. Per the CONTACT AND FILLER RULE, the phone number, email, and "do not reply to this email" instruction are operationally important and are captured in redo_booking_contact rather than dropped as filler. The waiver link and safety video are before_arrival since they must be done before the trip, distinct from check_in actions on the day. The completeness self-check confirms every non-filler sentence lands in exactly one field — nothing is silently dropped.)

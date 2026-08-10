@@ -199,3 +199,24 @@ itineraries a clean score. Reading products by hand is what found them, and it
 is the check that has repeatedly caught what the automated measures missed.
 
 **Sample size:** 100 of 11,236 Fareharbor products.
+
+---
+
+## Follow-on work: prompt changes since this run
+
+The run described above used **V4.7**. Three fields have since been reworked —
+**Itinerary**, **FAQ** and **What's Included** — across four prompt versions,
+each re-run on these same 100 products.
+
+**See [`PROMPT_WORK.md`](PROMPT_WORK.md)** for what changed, the results, the
+issue lists, and code you can run yourself.
+
+| Field | V4.7 (this run) | V4.8.3 (now) |
+|---|---|---|
+| Itinerary | 30 filled, roughly half holding the wrong content | **12** |
+| FAQ | field did not exist | **new `redo_desc_faqs` field** |
+| What's Included | 58 filled, 21 with no supplier heading | **41** |
+
+The "5 repeated sentences" figure above is also revised there: the screening
+script excluded cross-request duplicates by design, and the real count across
+all fields is higher.
