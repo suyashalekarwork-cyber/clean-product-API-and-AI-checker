@@ -74,6 +74,42 @@ wrote twice. Out of scope for extraction.
 
 ---
 
+## Delivery plan — two phases
+
+**Phase 1 — ship now.** Accept both the supplier problems and our own, because
+at this scale they are few: **25 of 499 products (5.0%)** carry any known issue
+— 11 ours, 14 the supplier's — and only **5 (1.0%)** actually cost the customer
+information. The other **474 (95.0%) are clean**.
+
+That is good enough for the web dev team to build the product page against: the
+schema is settled, the columns are stable, and every known exception is listed
+by product ID in the priority matrix above and in the `Issues_Only` sheet of
+`v5_3_500_audit.xlsx`. Nothing is hidden — "accept" here means *known and
+listed*, not resolved.
+
+**Phase 2 — go inside the content.** Phase 1 routes by **heading**. Phase 2 goes
+a level deeper and checks each **line within** a section, routing it to the
+column it actually belongs to.
+
+The three `what_to_bring` cases are the model for this. On `327258` the
+supplier's heading says *What to bring* while the line under it says *"Salt
+Spray Surf School provides all surfboards... wetsuits are provided if need
+be."* — the opposite. Heading-gating obeyed the label, which is correct at
+Phase 1 and wrong for the customer. Extending the line test — which already
+exists for `itinerary` and `what_included` — is the mechanism.
+
+**Why split it this way.** The web team is blocked on schema, not on the last 5%
+of placement accuracy. Shipping Phase 1 unblocks them immediately, and the pages
+they build become the real feedback for Phase 2 — we learn which columns matter
+in practice before spending more prompt effort on them.
+
+**One caveat for whoever consumes Phase 1 data:** the 1% defect rate is *per
+run*, not a fixed set of products. See Repeatability below — a different run
+loses different sentences. Phase 1 output is a snapshot, which matters if it
+gets cached rather than regenerated.
+
+---
+
 ## Repeatability — the most important finding
 
 The 500 re-ran all 100 products from the previous run on the **identical**
@@ -159,17 +195,18 @@ prompt to look, not a verdict.
 
 ---
 
-## What is not fixed
+## What is not fixed — and which phase it belongs to
 
-1. **Content loss (3 products).** Needs a deterministic post-check, not more
-   prompt wording — three prompt versions running have each written a stronger
-   content-loss rule and it keeps returning somewhere new. The repeatability
-   data explains why: the loss is random.
-2. **`what_to_bring` line test.** The third point-wise column, with an equally
-   precise test. Needs a decision, because it means overriding a supplier's own
-   heading a second time (`what_included` already rejects "available for
-   purchase" under an `Inclusions:` heading).
-3. **Difficulty ratings.** Two lines of prompt; no downside.
+Accepted for **Phase 1**, carried into **Phase 2**:
+
+| # | Open item | Products | Phase | Why |
+|---|---|---|---|---|
+| 1 | **Content loss** | 3 | 2 | Needs a deterministic post-check, not more prompt wording. Three versions running have each written a stronger content-loss rule and it keeps returning somewhere new — Repeatability explains why: the loss is random, so no wording is a guarantee. |
+| 2 | **`what_to_bring` line test** | 3 | **2 — this is the core of Phase 2** | The third point-wise column, with an equally precise test. Needs a decision, because it means overriding a supplier's own heading a second time (`what_included` already rejects "available for purchase" under an `Inclusions:` heading). |
+| 3 | **Difficulty ratings** | 2 | 1 or 2 | Two lines of prompt, no downside. Small enough to fold into Phase 1 if a re-run happens anyway. |
+| 4 | **Supplier self-duplication** | 9 | neither | De-duplicate at render time. Changing extraction would mean inventing a reason to drop text the supplier deliberately wrote twice. |
+
+None of these block Phase 1. Items 1 and 2 are what Phase 2 exists to solve.
 
 ---
 
