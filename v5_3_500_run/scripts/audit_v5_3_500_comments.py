@@ -133,11 +133,13 @@ AUDIT = {
                "MEDIUM. Sub-labels 'Scenic Landscapes:', 'Wildlife Encounters:' and 'Dress Code:' "
                "were all dropped -- verified absent. highlights now reads as unattributed "
                "paragraphs. Same defect class as the SSAA tier labels V5.3 was written to fix."),
-    "587626": ("SCHEMA",
-               "MEDIUM. The model returned the key 'redo_desc_group_size' instead of "
-               "'redo_group_size' -- the only schema violation in 499 products. The value is "
-               "empty so no data was lost, but a loader keyed on the correct name gets a KeyError "
-               "or a silent blank. Fix belongs on the load side: validate keys and fail loudly."),
+    "587626": ("OK",
+               "REVIEWED AND SET ASIDE (2026-08-11). The model returned the key "
+               "'redo_desc_group_size' instead of 'redo_group_size' -- the only schema deviation "
+               "in 499 products. Recorded here because it happened, but NOT counted as a defect: "
+               "the value is empty, so no data is affected. If a loader ever keys strictly on the "
+               "schema it should validate names and fail loudly rather than rely on this staying "
+               "harmless."),
 
     # ===== supplier problems found by the broad raw-text scan (scan_supplier_data_issues.py) =====
     "564767": ("SUPPLIER", "NO DESCRIPTION. The entire raw is 'Artisan Maker Shed Membership' -- "

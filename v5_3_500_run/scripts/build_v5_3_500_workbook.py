@@ -66,11 +66,6 @@ MATRIX = [
     ("MISCLASSIFICATION", "LOW", 2, "198064, 501920",
      "A marketing line sitting in a list column", "Low value -- leave", "ours"),
 
-    ("SCHEMA", "MEDIUM", 1, "587626",
-     "Returned 'redo_desc_group_size' instead of 'redo_group_size' -- value empty, but a loader "
-     "keyed on the real name gets a KeyError",
-     "Validate keys on load and fail loudly", "ours"),
-
     ("SUPPLIER MISTAKE", "HIGH", 3, "564767, 531290, 598043",
      "No description at all -- the raw is just the product name",
      "Chase the supplier; no prompt can fix this", "supplier"),

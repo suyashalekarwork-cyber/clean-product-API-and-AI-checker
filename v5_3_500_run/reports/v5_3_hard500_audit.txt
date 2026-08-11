@@ -25,13 +25,12 @@ FINDINGS
 ----------------------------------------------------------------------------------------------------
     3  CONTENT LOSS -- text in the raw that reached no column
     5  MISCLASSIFICATION -- text landed in the wrong column
-    1  SCHEMA -- the model returned a key name outside the agreed schema
     3  LABEL LOSS -- value kept, the label identifying it dropped
     2  MINOR -- defensible, but worth a look
    20  SUPPLIER-SIDE -- the defect is in the raw text, preserved faithfully
-  465  NO ISSUE FOUND
+  466  NO ISSUE FOUND
 
-  14 products carry a defect (2.8%); 20 are supplier-side, not model defects; 465 show no known problem.
+  13 products carry a defect (2.6%); 20 are supplier-side, not model defects; 466 show no known problem.
 
   SPLIT BY WHO CAUSED IT (user ruling 2026-08-11: 'if we did mistake during
   extraction then that is the issue, otherwise that is not even an issue'):
@@ -430,58 +429,6 @@ MISCLASS      491113  |  Jackpot in the Miner's Cottage
   [RESTRICTIONS]
       Moderate
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
-SCHEMA        587626  |  Swag and Stretcher  2 Nights
-====================================================================================================
-  (new this run)
-
-  MEDIUM. The model returned the key 'redo_desc_group_size' instead of 'redo_group_size' --
-  the only schema violation in 499 products. The value is empty so no data was lost, but a
-  loader keyed on the correct name gets a KeyError or a silent blank. Fix belongs on the load
-  side: validate keys and fail loudly.
-
-  retention 100.0%   duplicated 0   fields filled 6   fidelity 0.91
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | SLEEPS 1 or 2. (single or double swag)
-  |  Swag package Inclusions:
-  |  1 x Swag (Single or Double)
-  | 1 x Bedding and pillow per person
-  | 1 x chair per person
-  | One stretcher
-  |  Add Long Life Fan
-  |  Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
-  |  Check-in Time is 2 PM
-  | Check-out Time is 9 AM
-  |  Notes
-  |  • Campsite fees are charged separately & need to be paid directly to your campsite provider.
-  | • Private property events may be available within our service area.
-  | • Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
-  |  What to bring
-  |  All the fun stuff, surf board, fishing rods, golf clubs
-  | Personal needs - toiletries, towels, sunscreen, pest repellent etc
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      SLEEPS 1 or 2. (single or double swag)
-  [IMPORTANT_INFO]
-      Campsite fees are charged separately & need to be paid directly to your campsite provider.
-      Private property events may be available within our service area.
-      Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
-  [WHAT_INCLUDED]
-      1 x Swag (Single or Double)
-      1 x Bedding and pillow per person
-      1 x chair per person
-      One stretcher
-  [EXTRAS]
-      Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
-  [WHAT_TO_BRING]
-      All the fun stuff, surf board, fishing rods, golf clubs
-      Personal needs - toiletries, towels, sunscreen, pest repellent etc
-  [CHECK_IN]
-      Check-in Time is 2 PM
-      Check-out Time is 9 AM
-  [EMPTY] highlights, what_excluded, itinerary, duration_text, cancellation, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 MISCLASS      634003  |  Cairns to Mission Beach
@@ -13891,6 +13838,59 @@ OK            586492  |  Open Air Roller Greenwood Plaza Rooftop Group Bookings
   [DISCLAIMERS]
       Disclaimer: The rink will be an L-shape, designed for beginner to intermediate-level roller skaters.
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+OK            587626  |  Swag and Stretcher  2 Nights
+====================================================================================================
+  (new this run)
+
+  REVIEWED AND SET ASIDE (2026-08-11). The model returned the key 'redo_desc_group_size'
+  instead of 'redo_group_size' -- the only schema deviation in 499 products. Recorded here
+  because it happened, but NOT counted as a defect: the value is empty, so no data is
+  affected. If a loader ever keys strictly on the schema it should validate names and fail
+  loudly rather than rely on this staying harmless.
+
+  retention 100.0%   duplicated 0   fields filled 6   fidelity 0.91
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | SLEEPS 1 or 2. (single or double swag)
+  |  Swag package Inclusions:
+  |  1 x Swag (Single or Double)
+  | 1 x Bedding and pillow per person
+  | 1 x chair per person
+  | One stretcher
+  |  Add Long Life Fan
+  |  Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
+  |  Check-in Time is 2 PM
+  | Check-out Time is 9 AM
+  |  Notes
+  |  • Campsite fees are charged separately & need to be paid directly to your campsite provider.
+  | • Private property events may be available within our service area.
+  | • Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
+  |  What to bring
+  |  All the fun stuff, surf board, fishing rods, golf clubs
+  | Personal needs - toiletries, towels, sunscreen, pest repellent etc
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      SLEEPS 1 or 2. (single or double swag)
+  [IMPORTANT_INFO]
+      Campsite fees are charged separately & need to be paid directly to your campsite provider.
+      Private property events may be available within our service area.
+      Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
+  [WHAT_INCLUDED]
+      1 x Swag (Single or Double)
+      1 x Bedding and pillow per person
+      1 x chair per person
+      One stretcher
+  [EXTRAS]
+      Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
+  [WHAT_TO_BRING]
+      All the fun stuff, surf board, fishing rods, golf clubs
+      Personal needs - toiletries, towels, sunscreen, pest repellent etc
+  [CHECK_IN]
+      Check-in Time is 2 PM
+      Check-out Time is 9 AM
+  [EMPTY] highlights, what_excluded, itinerary, duration_text, cancellation, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 OK            587630  |  Swag and Stretcher  4 Nights

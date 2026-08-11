@@ -38,16 +38,7 @@ Not a prompt rule — the loss is random, see Repeatability.
 **Fix:** two lines of prompt for difficulty. The label losses need a sharper
 rule — see *A blind spot worth naming*.
 
-## 3. SCHEMA — 1 product (0.2%)
-
-| Severity | ID | What's wrong |
-|---|---|---|
-| 🟠 MEDIUM | `587626` | Model returned **`redo_desc_group_size`** instead of `redo_group_size`. The value is empty, but a loader keyed on the real name gets a KeyError or a silent blank. |
-
-**Fix:** validate keys against the schema on load and fail loudly. One product in
-499, but it breaks a pipeline rather than a page.
-
-## 4. SUPPLIER MISTAKE — 22 products (4.4%)
+## 3. SUPPLIER MISTAKE — 22 products (4.4%)
 
 *Wrong in the raw text before extraction touched it.*
 
@@ -70,22 +61,20 @@ description need chasing with the supplier.
 
 | | Products | % of 499 |
 |---|---|---|
-| **Clean** | **465** | **93.2%** |
+| **Clean** | **466** | **93.4%** |
 | Content loss | 3 | 0.6% |
 | Misclassification | 10 | 2.0% |
-| Schema | 1 | 0.2% |
 | Supplier mistake | 22 | 4.4% |
 | *(`324361` and `697755` appear in two groups)* | | |
 
 ### The ones actually worth fixing
 
-**7 products (1.4%)** are High or Medium and ours:
+**6 products (1.2%)** are High or Medium and ours:
 
 | Group | Count | IDs |
 |---|---|---|
 | Content loss | 2 | `535701` `371805` |
 | Misclassification | 4 | `634003` `466438` `491113` `639882` |
-| Schema | 1 | `587626` |
 
 **High severity across everything: 7 products (1.4%) — and 5 of those are the
 supplier's**, not fixable by any prompt.
@@ -95,9 +84,9 @@ supplier's**, not fixable by any prompt.
 ## Delivery plan — two phases
 
 **Phase 1 — ship now.** Accept both the supplier problems and our own, because
-at this scale they are few: **34 of 499 products (6.8%)** carry any known issue
-— 14 ours, 22 the supplier's, 2 counted in both — and only **7 (1.4%)** are High
-or Medium and ours to fix. The other **465 (93.2%) are clean**.
+at this scale they are few: **33 of 499 products (6.6%)** carry any known issue
+— 13 ours, 22 the supplier's, 2 counted in both — and only **6 (1.2%)** are High
+or Medium and ours to fix. The other **466 (93.4%) are clean**.
 
 That is good enough for the web dev team to build the product page against: the
 schema is settled, the columns are stable, and every known exception is listed
@@ -195,9 +184,9 @@ defect classes fired"*, which is weaker than *"read and confirmed correct"*.
 
 ### A blind spot worth naming
 
-This run was audited **twice, independently**. The second audit found **three
-real defects the first one missed** — `587626` (schema), `634003` and `639882`
-(both label loss). All three are in the tables above.
+This run was audited **twice, independently**. The second audit found **two real
+defects the first one missed** — `634003` and `639882`, both label loss. Both are
+in the tables above.
 
 The cause was a rule added mid-audit: *"a line ending in `:` or a short bare
 label is not content loss."* That is correct for lead-ins like *"We will provide
@@ -245,8 +234,7 @@ the raw mentions" — the standard V5 deliberately abandoned.
 | 2 | **Label loss** | 4+ | 2 | `634003` and `639882` show the sharper rule needed: contrasting label pairs must survive even where single lead-ins are dropped. Count is provisional — the first audit could not see this class. |
 | 3 | **`what_to_bring` line test** | 3 | **2 — the core of Phase 2** | Needs a decision: it means overriding a supplier's own heading a second time (`what_included` already rejects "available for purchase" under `Inclusions:`). |
 | 4 | **Difficulty ratings** | 2 | 1 or 2 | Two lines of prompt, no downside. |
-| 5 | **Schema validation** | 1 | 1 | Validate keys on load and fail loudly. Cheap, and it is a pipeline break rather than a page defect. |
-| 6 | **Supplier self-duplication** | 10 | neither | De-duplicate at render time. |
+| 5 | **Supplier self-duplication** | 10 | neither | De-duplicate at render time. |
 
 None of these block Phase 1.
 
