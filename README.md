@@ -3,10 +3,13 @@
 Snapshot of the Fareharbor field-extraction pipeline plus an AI-based accuracy
 checker that audits the extraction output.
 
-**Current prompt: `luna100_run/prompts/SYSTEM_PROMPT_FH_DESC_V4_8_3.txt`**
+**Current prompt: `v5_3_500_run/prompts/SYSTEM_PROMPT_FH_DESC_V5_3.txt`**
 (description side) and `SYSTEM_PROMPT_FH_BOOKING_V4_7.txt` (booking side).
-The V4.4 prompt in `prompts/` is the 500-product run's version, kept for
-reference. See `luna100_run/issues/SESSION_REPORT.md` for the latest state.
+See `v5_3_500_run/README.md` for the latest state — V5.3 on 500 products.
+
+Earlier versions kept for reference: V4.8.3 in `luna100_run/prompts/` (the last
+meaning-based version, superseded by the heading gate) and V4.4 in `prompts/`
+(the original 500-product run's version).
 
 ## What's here
 
@@ -20,6 +23,7 @@ reference. See `luna100_run/issues/SESSION_REPORT.md` for the latest state.
 | `model_selection/` | Which *model* should run the extraction? 13 models on 10 identical products, V4.4 unchanged, plus an LLM judge and human review. Consolidated in `model_selection/MODEL_DECISION_REPORT.md`. **Superseded by `hard30_run/`.** |
 | `hard30_run/` | How `gpt-5.6-luna` was chosen: 3 models on 30 hard-selected products using prompt V4.7, raw output only, with 38 hand-written review verdicts. Also records what V4.7 fixed, what it did not, and suggested wording for the next prompt version. |
 | `luna100_run/` | **The chosen model on 100 representative products — 99.4% of supplier text kept, nothing invented.** Includes `worked_example.xlsx` (one invented product showing every column), the manager review workbook, and the heading-mapping rules. **Start here.** Prompt work since then — Itinerary, FAQ and What's Included, four versions through V4.8.3 — is in `luna100_run/PROMPT_WORK.md` and `luna100_run/issues/SESSION_REPORT.md`. |
+| `v5_3_500_run/` | **Latest. Prompt V5.3 — heading-gated extraction — on 500 products. 95.0% of products show no known issue; our extraction defects are 11 products (2.2%), of which 5 (1.0%) cost the customer information.** V5.3 fills a section ONLY when the supplier wrote a heading for it, replacing the meaning-based classification that put 89.4% of a failure sample under the wrong heading. Contains the priority matrix, the full per-product audit, and the finding that most defects do not reproduce between runs. |
 
 ## Headline numbers (500 products, 4,133 fields checked)
 
