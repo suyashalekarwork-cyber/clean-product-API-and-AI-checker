@@ -5,6 +5,18 @@ via `gpt-5.6-luna`. **499/499 completed, 0 failed, 0 truncated, 0 unparseable.**
 
 ---
 
+## To review this run, open these three
+
+| File | What it is |
+|---|---|
+| **`v5_3_500_audit.xlsx`** | The review workbook. Four sheets: `Priority_Matrix` (every issue by severity, with product IDs), `Issues_Only` (the 33 flagged products), `All_Products` (all 499 with a verdict and a written comment), `Per_Product` (each product's raw description beside all 22 extracted columns). **Start here** — filterable, and it holds the verdicts. |
+| **`prompts/SYSTEM_PROMPT_FH_DESC_V5_3.txt`** | The prompt that produced everything else. The rules the extraction actually followed, the 22-field output schema, and 6 worked examples. Read this to judge whether a given output is a defect or the rules working as written. |
+| **`reports/v5_3_hard500_audit.txt`** | The full per-product audit in plain text — 1.5 MB, issues first, clean products last. Each entry: verdict, comment, retention, the raw description, and every filled column. Use it to read a product end to end without opening Excel. |
+
+Same three are described in `FILE_DESCRIPTIONS.md`, with the rest of the folder.
+
+---
+
 # The issues
 
 Three groups of ours, plus the supplier's. Each rated High / Medium / Low.
