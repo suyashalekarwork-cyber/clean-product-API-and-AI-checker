@@ -24,13 +24,14 @@ Set: the whole 500-product pool, ordered by (flagged for review, lowest coverage
 FINDINGS
 ----------------------------------------------------------------------------------------------------
     3  CONTENT LOSS -- text in the raw that reached no column
-    3  MISCLASSIFICATION -- text landed in the wrong column
+    5  MISCLASSIFICATION -- text landed in the wrong column
+    1  SCHEMA -- the model returned a key name outside the agreed schema
     3  LABEL LOSS -- value kept, the label identifying it dropped
     2  MINOR -- defensible, but worth a look
-   14  SUPPLIER-SIDE -- the defect is in the raw text, preserved faithfully
-  474  NO ISSUE FOUND
+   20  SUPPLIER-SIDE -- the defect is in the raw text, preserved faithfully
+  465  NO ISSUE FOUND
 
-  11 products carry a defect (2.2%); 14 are supplier-side, not model defects; 474 show no known problem.
+  14 products carry a defect (2.8%); 20 are supplier-side, not model defects; 465 show no known problem.
 
   SPLIT BY WHO CAUSED IT (user ruling 2026-08-11: 'if we did mistake during
   extraction then that is the issue, otherwise that is not even an issue'):
@@ -429,6 +430,138 @@ MISCLASS      491113  |  Jackpot in the Miner's Cottage
   [RESTRICTIONS]
       Moderate
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+SCHEMA        587626  |  Swag and Stretcher  2 Nights
+====================================================================================================
+  (new this run)
+
+  MEDIUM. The model returned the key 'redo_desc_group_size' instead of 'redo_group_size' --
+  the only schema violation in 499 products. The value is empty so no data was lost, but a
+  loader keyed on the correct name gets a KeyError or a silent blank. Fix belongs on the load
+  side: validate keys and fail loudly.
+
+  retention 100.0%   duplicated 0   fields filled 6   fidelity 0.91
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | SLEEPS 1 or 2. (single or double swag)
+  |  Swag package Inclusions:
+  |  1 x Swag (Single or Double)
+  | 1 x Bedding and pillow per person
+  | 1 x chair per person
+  | One stretcher
+  |  Add Long Life Fan
+  |  Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
+  |  Check-in Time is 2 PM
+  | Check-out Time is 9 AM
+  |  Notes
+  |  • Campsite fees are charged separately & need to be paid directly to your campsite provider.
+  | • Private property events may be available within our service area.
+  | • Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
+  |  What to bring
+  |  All the fun stuff, surf board, fishing rods, golf clubs
+  | Personal needs - toiletries, towels, sunscreen, pest repellent etc
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      SLEEPS 1 or 2. (single or double swag)
+  [IMPORTANT_INFO]
+      Campsite fees are charged separately & need to be paid directly to your campsite provider.
+      Private property events may be available within our service area.
+      Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
+  [WHAT_INCLUDED]
+      1 x Swag (Single or Double)
+      1 x Bedding and pillow per person
+      1 x chair per person
+      One stretcher
+  [EXTRAS]
+      Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
+  [WHAT_TO_BRING]
+      All the fun stuff, surf board, fishing rods, golf clubs
+      Personal needs - toiletries, towels, sunscreen, pest repellent etc
+  [CHECK_IN]
+      Check-in Time is 2 PM
+      Check-out Time is 9 AM
+  [EMPTY] highlights, what_excluded, itinerary, duration_text, cancellation, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+MISCLASS      634003  |  Cairns to Mission Beach
+====================================================================================================
+  (new this run)
+
+  HIGH. The raw has two labelled lists -- 'Departure times' (Cairns Airport 2:30 PM, Cairns
+  Base Hospital 2:45 PM, Cairns Central 2:55 PM) and 'Arrival times' (Mission beach 5:30 PM).
+  BOTH labels were dropped and the two lists merged into one about block, so Mission Beach
+  5:30 PM now reads as a fourth pickup point. The first audit missed this: its detector only
+  flags text ABSENT from the output, and here every value survived -- only the labels went.
+
+  retention 100.0%   duplicated 0   fields filled 1   fidelity 0.83
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | Departure times
+  |  Cairns Airport 2:30 PM
+  | Cairns Base Hospital from 2:45 PM
+  | Cairns Central Shopping Centre 2:55 PM
+  |  Arrival times
+  |  Mission beach 5:30 PM
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Cairns Airport 2:30 PM
+      Cairns Base Hospital from 2:45 PM
+      Cairns Central Shopping Centre 2:55 PM
+      Mission beach 5:30 PM
+  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+MISCLASS      639882  |  Cradle Mountain Tour
+====================================================================================================
+  (new this run)
+
+  MEDIUM. Sub-labels 'Scenic Landscapes:', 'Wildlife Encounters:' and 'Dress Code:' were all
+  dropped -- verified absent. highlights now reads as unattributed paragraphs. Same defect
+  class as the SSAA tier labels V5.3 was written to fix.
+
+  retention 100.0%   duplicated 0   fields filled 3   fidelity 0.94
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | Embark on an unforgettable journey through Tasmania's natural beauty as we adventure to the iconic Cradle Mountain. You will be guided by a knowledgeable and local guide, and will travel in the comfort of a modern luxury minibus.
+  |  Book your adventure today and explore the hidden gems of Tasmania's stunning northwest with Coastline Tours Tasmania.
+  |  ***Explore Tasmania's Northwest Coast to Cradle Mountain
+  | 
+  |  Scenic Landscapes: Begin your journey from our breath taking beaches on the Coast and travel through the rich countryside and forests.
+  | 
+  |  Wildlife Encounters: Keep an eye out for charming Wallabies, Tasmanian Devils, Echidnas, Bandicoots and our variety of birds (especially the Raptors) along the way.
+  | 
+  |  Morning Tea Break: A quick rest stop to recharge along the way.
+  | 
+  |  ***Cradle Mountain National Park Adventure Passes are included for travel to Dove Lake via the shuttle buses.
+  | 
+  |  Visitor Centre Start: Begin your exploration at Cradle Mountain with a stop at the Cradle Mountain Visitors' Centre.
+  | 
+  |  Shuttle Service: Enjoy the ride into the heart of Cradle Mountain National Park on the shuttle bus.
+  | 
+  |  Eco-Friendly Exploration: Follow the guidance of Parks and Wildlife staff, adhere to path guidelines, and maintain a respectful distance from the wildlife (of 3 metres).
+  | 
+  |  ***Lunch at Cradle Mountain Lodge
+  |  Indulge in a delightful lunch at the Cradle Mountain Lodge – Peppers Resort. Please note that meals and drinks are not included in the price of the ticket (unless otherwise specified) and can be purchased separately by you at this location.
+  |  ***Dress Code: Please wear suitable attire for diverse terrain and weather conditions. Even though it may look warm and sunny outside, please bring appropriate clothing and footwear for all seasons as the Tasmanian weather is prone to change during the day.
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Embark on an unforgettable journey through Tasmania's natural beauty as we adventure to the iconic Cradle Mountain. You will be guided by a knowledgeable and local guide, and will travel in the comfort of a modern luxury minibus.
+      Book your adventure today and explore the hidden gems of Tasmania's stunning northwest with Coastline Tours Tasmania.
+      Explore Tasmania's Northwest Coast to Cradle Mountain
+      Cradle Mountain National Park Adventure Passes are included for travel to Dove Lake via the shuttle buses.
+      Morning Tea Break
+      Indulge in a delightful lunch at the Cradle Mountain Lodge – Peppers Resort. Please note that meals and drinks are not included in the price of the ticket (unless otherwise specified) and can be purchased separately by you at this location.
+  [HIGHLIGHTS]
+      Begin your journey from our breath taking beaches on the Coast and travel through the rich countryside and forests.
+      Keep an eye out for charming Wallabies, Tasmanian Devils, Echidnas, Bandicoots and our variety of birds (especially the Raptors) along the way.
+      A quick rest stop to recharge along the way.
+      Begin your exploration at Cradle Mountain with a stop at the Cradle Mountain Visitors' Centre.
+      Enjoy the ride into the heart of Cradle Mountain National Park on the shuttle bus.
+      Follow the guidance of Parks and Wildlife staff, adhere to path guidelines, and maintain a respectful distance from the wildlife (of 3 metres).
+  [WHAT_TO_BRING]
+      Please wear suitable attire for diverse terrain and weather conditions. Even though it may look warm and sunny outside, please bring appropriate clothing and footwear for all seasons as the Tasmanian weather is prone to change during the day.
+  [EMPTY] important_info, what_included, what_excluded, extras, itinerary, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 LABEL_LOSS    324361  |  Auckland to Waitomo Caves Private Tour
@@ -1109,6 +1242,63 @@ SUPPLIER      327258  |  School Holidays Program
   [EMPTY] highlights, what_included, what_excluded, extras, itinerary, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
+SUPPLIER      328897  |  Rotorua to Auckland via Hobbiton Movie Set and Waitomo Caves One-Way Private Tour
+====================================================================================================
+  (new this run)
+
+  'n/a' left in the raw as a placeholder the supplier never filled.
+
+  retention 100.0%   duplicated 0   fields filled 4   fidelity 0.98
+  MODEL'S OWN FLAGS:
+      what_included: moved 'Tour times: Rotorua 8am to Auckland 6pm (flexible).' -> about (general schedule information)
+      what_included: moved 'All tours support local eco-cultural initiatives.' -> about (general statement)
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | #Experience two iconic NZ visitor attractions in one amazing day starting in Rotorua and ending in Auckland. See the iconic Hobbiton Movie Set, the world-famous Waitomo Glowworm Caves and travel through the beautiful Waikato region.
+  | 
+  | ##Duration
+  | 10 hours
+  | ##About
+  | Combine a luxury transfer from Rotorua to Auckland with a visit to 2 world-famous attractions in New Zealand: Hobbiton Movie Set and Waitomo Glowworm Caves.
+  | 
+  | After pick-up in Rotorua, we drive across the Mamaku Plateau to the Hobbiton Movie Set near the rural town of Matamata, made world-famous as the original setting of Sir Peter Jackson’s “The Lord of the Rings” and “The Hobbit” trilogies. On the 2-hour tour of the Hobbiton Movie Set, get astonishing insights into how these movies were made and which parts of the movies were filmed here. Not only movie fans will enjoy this unique experience with inside views of the Hobbit village including Hobbit Holes, Bag End, The Green Dragon Inn and astonishing facts about the filmmaking and spectacular landscape all around.
+  | 
+  | We then continue on to Waitomo Caves, located in the King Country in the Waikato region. On this tour we travel via the Thermal Explorer Highway touring route, taking in the special region as we drive through the beautiful countryside of New Zealand’s North Island. At Waitomo, experience the underground wonderland that is Waitomo Glowworm Caves with thousands of Glowworms as the major attraction.
+  | 
+  | As we drive northward on the journey from Waitomo to Auckland, we show you sacred Taupiri Mountain as well as Ngaruawahia, the site of Turangawaewae Marae (Maori meeting place) and seat of New Zealand’s Maori King. Be dropped off in Auckland after combining a transfer from Rotorua to Auckland with exploring some of the most beautiful parts of Aotearoa / New Zealand. This Private One-Way Tour from Rotorua via Waitomo Glowworm Caves and Hobbiton Movie Set to Auckland allows you to see 2 of New Zealand’s most famous attractions in one amazing day.
+  | 
+  | ##More info
+  | **Inclusions:**
+  | Fully guided Private Tour in Mercedes luxury vehicle.
+  | Pick-up Rotorua and drop-off Auckland.
+  | Tour times: Rotorua 8am to Auckland 6pm (flexible).
+  | Complimentary snacks, water and lunch.
+  | Entry fees to Waitomo Caves and Hobbiton Movie Set GROUP Tours.
+  | All tours support local eco-cultural initiatives.
+  | 
+  | **Exclusions:**
+  | n/a
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Experience two iconic NZ visitor attractions in one amazing day starting in Rotorua and ending in Auckland. See the iconic Hobbiton Movie Set, the world-famous Waitomo Glowworm Caves and travel through the beautiful Waikato region.
+      Combine a luxury transfer from Rotorua to Auckland with a visit to 2 world-famous attractions in New Zealand: Hobbiton Movie Set and Waitomo Glowworm Caves.
+      After pick-up in Rotorua, we drive across the Mamaku Plateau to the Hobbiton Movie Set near the rural town of Matamata, made world-famous as the original setting of Sir Peter Jackson’s “The Lord of the Rings” and “The Hobbit” trilogies. On the 2-hour tour of the Hobbiton Movie Set, get astonishing insights into how these movies were made and which parts of the movies were filmed here. Not only movie fans will enjoy this unique experience with inside views of the Hobbit village including Hobbit Holes, Bag End, The Green Dragon Inn and astonishing facts about the filmmaking and spectacular landscape all around.
+      We then continue on to Waitomo Caves, located in the King Country in the Waikato region. On this tour we travel via the Thermal Explorer Highway touring route, taking in the special region as we drive through the beautiful countryside of New Zealand’s North Island. At Waitomo, experience the underground wonderland that is Waitomo Glowworm Caves with thousands of Glowworms as the major attraction.
+      As we drive northward on the journey from Waitomo to Auckland, we show you sacred Taupiri Mountain as well as Ngaruawahia, the site of Turangawaewae Marae (Maori meeting place) and seat of New Zealand’s Maori King. Be dropped off in Auckland after combining a transfer from Rotorua to Auckland with exploring some of the most beautiful parts of Aotearoa / New Zealand. This Private One-Way Tour from Rotorua via Waitomo Glowworm Caves and Hobbiton Movie Set to Auckland allows you to see 2 of New Zealand’s most famous attractions in one amazing day.
+      Tour times: Rotorua 8am to Auckland 6pm (flexible).
+      All tours support local eco-cultural initiatives.
+  [WHAT_INCLUDED]
+      Fully guided Private Tour in Mercedes luxury vehicle.
+      Pick-up Rotorua and drop-off Auckland.
+      Complimentary snacks, water and lunch.
+      Entry fees to Waitomo Caves and Hobbiton Movie Set GROUP Tours.
+  [WHAT_EXCLUDED]
+      n/a
+  [DURATION_TEXT]
+      10 hours
+  [EMPTY] important_info, highlights, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
 SUPPLIER      330482  |  Half Day Hire
 ====================================================================================================
   (carried over from the V5.2 50)
@@ -1202,6 +1392,130 @@ SUPPLIER      397465  |  Private Yarra Valley Wine Tour
   [DURATION_TEXT]
       8 hours
   [EMPTY] highlights, what_included, what_excluded, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+SUPPLIER      417608  |  Meet a Lizard
+====================================================================================================
+  (carried over from the V5.2 50)
+
+  Near-duplicate in the raw -- a line pasted and then lightly edited, so exact matching
+  missed it. Preserved faithfully.
+
+  retention 100.0%   duplicated 0   fields filled 4   fidelity 0.97
+  MODEL'S OWN FLAGS:
+      heading: 'Terms & Conditions' names no single column -> about
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | Lizard Encounter - Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard.
+  | 
+  |  Rates
+  |  Meet a Lizard - $35
+  | Meet a Lizard for a Group of 2 - $60
+  | Meet a Lizard for a Group of 4 - $115
+  |  Ages (4+ years, under 4 free)
+  |  Children under 4 years are able to participate with no charge when accompanying an adult paying to do the Meet a Lizard session.
+  | Children aged 4-12 years must pay and be accompanied by an adult also paying to do the same Meet a Lizard session.
+  |  About
+  |  Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard. Learn about the Lizards by name and character, as you interact with them.
+  |  You can take as many photos as you like on your own devices.
+  |  NOTE: Animal Interactions are an additional purchase upon Animal Park entry. Please ensure that Maru Entry tickets are purchased in addition to the Meet a Lizard.
+  |  Other Information
+  | - All interactions are at the keepers discretion and may be unavailable in extreme weather conditions to ensure the welfare and safety of our animals and visitors. If Maru cancels the experience for any reason, an alternative experience or full refund will be offered.
+  | - Animals at Maru have the freedom to choose if and how they interact with visitors during experiences, so up close touching and feeding usually occurs but is not guaranteed.
+  | - All tickets require the Credit/Debit Card along with photo ID and signature of the purchaser, or a valid company email/voucher to be presented upon arrival, otherwise entry will be refused.
+  |  Terms & Conditions
+  | It is important that you arrive early as the experience will not be delayed and will start at the advertised time. If you are late you will miss out on the experience and refunds will not be provided. Please dress appropriately for the forecast weather on the day. The Keepers have the right to cancel this and all animal experiences due to extreme weather or any other situation they feel may compromise the safety and welfare of the animals and visitors and in that instance a different experience may be offered or a full refund. For safety please wear closed in shoes, no thongs or sandals.
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Lizard Encounter - Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard.
+      Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard. Learn about the Lizards by name and character, as you interact with them.
+      You can take as many photos as you like on your own devices.
+      It is important that you arrive early as the experience will not be delayed and will start at the advertised time. If you are late you will miss out on the experience and refunds will not be provided. Please dress appropriately for the forecast weather on the day. The Keepers have the right to cancel this and all animal experiences due to extreme weather or any other situation they feel may compromise the safety and welfare of the animals and visitors and in that instance a different experience may be offered or a full refund. For safety please wear closed in shoes, no thongs or sandals.
+  [IMPORTANT_INFO]
+      NOTE: Animal Interactions are an additional purchase upon Animal Park entry. Please ensure that Maru Entry tickets are purchased in addition to the Meet a Lizard.
+      All interactions are at the keepers discretion and may be unavailable in extreme weather conditions to ensure the welfare and safety of our animals and visitors. If Maru cancels the experience for any reason, an alternative experience or full refund will be offered.
+      Animals at Maru have the freedom to choose if and how they interact with visitors during experiences, so up close touching and feeding usually occurs but is not guaranteed.
+      All tickets require the Credit/Debit Card along with photo ID and signature of the purchaser, or a valid company email/voucher to be presented upon arrival, otherwise entry will be refused.
+  [RESTRICTIONS]
+      Ages (4+ years, under 4 free)
+      Children under 4 years are able to participate with no charge when accompanying an adult paying to do the Meet a Lizard session.
+      Children aged 4-12 years must pay and be accompanied by an adult also paying to do the same Meet a Lizard session.
+  [PRICING]
+      Meet a Lizard - $35
+      Meet a Lizard for a Group of 2 - $60
+      Meet a Lizard for a Group of 4 - $115
+  [EMPTY] highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, special_requirements, faqs, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+SUPPLIER      442752  |  Canoe Hire
+====================================================================================================
+  (new this run)
+
+  A control character is embedded in the raw text (this is the one that broke the Excel
+  build). Extraction was unaffected.
+
+  retention 100.0%   duplicated 0   fields filled 5   fidelity 0.89
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | # Based in the Mid North Coast near Coffs Harbour, NSW, Bellingen Canoe Adventures offers canoe trips to all ages, from beginners to the more advanced!
+  | 
+  | ## Duration
+  | - 1 hour
+  | - 2 hours
+  | - Half Day (up to 4 hrs)
+  | 
+  | ##For all Ages!
+  | - Adults (ages 13+)
+  | - Children (ages 12 and under)
+  | 
+  | ## About
+  | Single, double or triple canoe/kayaks. Comfortable, stable, flat bottomed ….you won’t fall out ! They even have footrests and backrests for your comfort.
+  | Fantastic way to observe the rich ecosystems and wildlife, flora and fauna and the aquatic culture unique to the Bellinger River.
+  | Open 7 days including Public Holidays – rain, hail or shine!
+  | Bookings are essential, pricing is per person.
+  | 
+  | ## More info
+  | For a Half Day hire, we suggest to take a picnic, bathers and other provisions so that the day can be enjoyed, stopping along the banks. See our Requirements page for details of other things to bring.
+  | 
+  | ## What to bring
+  | Canoeing is great fun, but it’s best to be prepared… bring along:
+  | 
+  | - Towel
+  | - Bathers/Swimsuit
+  | - Hat/Sunglasses
+  | - Sunscreen
+  | - Water (but you can opt to buy cold water or other drinks at Bellingen Canoe Adventures)
+  | - Shoes (they may get wet)
+  | - Yourself!
+  | - If you have a snazzy camera, Bellingen Canoe Adventures have dry bags to purchase.You can also put your mobile and car keys in to keep them safe and dry.
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Based in the Mid North Coast near Coffs Harbour, NSW, Bellingen Canoe Adventures offers canoe trips to all ages, from beginners to the more advanced!
+      Single, double or triple canoe/kayaks. Comfortable, stable, flat bottomed ….you won’t fall out ! They even have footrests and backrests for your comfort.
+      Fantastic way to observe the rich ecosystems and wildlife, flora and fauna and the aquatic culture unique to the Bellinger River.
+      Open 7 days including Public Holidays – rain, hail or shine!
+      Bookings are essential, pricing is per person.
+  [IMPORTANT_INFO]
+      For a Half Day hire, we suggest to take a picnic, bathers and other provisions so that the day can be enjoyed, stopping along the banks. See our Requirements page for details of other things to bring.
+  [WHAT_TO_BRING]
+      Canoeing is great fun, but it’s best to be prepared… bring along:
+      Towel
+      Bathers/Swimsuit
+      Hat/Sunglasses
+      Sunscreen
+      Water (but you can opt to buy cold water or other drinks at Bellingen Canoe Adventures)
+      Shoes (they may get wet)
+      Yourself!
+      If you have a snazzy camera, Bellingen Canoe Adventures have dry bags to purchase.You can also put your mobile and car keys in to keep them safe and dry.
+  [DURATION_TEXT]
+      1 hour
+      2 hours
+      Half Day (up to 4 hrs)
+  [RESTRICTIONS]
+      For all Ages!
+      Adults (ages 13+)
+      Children (ages 12 and under)
+  [EMPTY] highlights, what_included, what_excluded, extras, itinerary, cancellation, check_in, accessibility, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 SUPPLIER      444088  |  Launceston Half Day Tour
@@ -1376,6 +1690,55 @@ SUPPLIER      509794  |  Australia Day Lunch Cruise MV Pearl
       10:15 am Eastern Pontoon, Circular Quay
       2.00 pm Eastern Pontoon, Circular Quay
   [EMPTY] about, highlights, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, min_age, max_age, group_size
+
+====================================================================================================
+SUPPLIER      531290  |  60 Minutes Guided Jetski Tour
+====================================================================================================
+  (new this run)
+
+  NO DESCRIPTION. The entire raw is '30 or 60 min Jet Ski Tour'.
+
+  retention 100.0%   duplicated 0   fields filled 1   fidelity 1.0
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | 30 or 60 min Jet Ski Tour
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      30 or 60 min Jet Ski Tour
+  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+SUPPLIER      564767  |  Membership
+====================================================================================================
+  (new this run)
+
+  NO DESCRIPTION. The entire raw is 'Artisan Maker Shed Membership' -- the product name and
+  nothing else. No prompt version can fix this; the page will render with a one-line About.
+
+  retention 100.0%   duplicated 0   fields filled 1   fidelity 1.0
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | Artisan Maker Shed Membership
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      Artisan Maker Shed Membership
+  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
+
+====================================================================================================
+SUPPLIER      598043  |  Double Kayak
+====================================================================================================
+  (new this run)
+
+  NO DESCRIPTION. The entire raw is '2 to 8 hours!'.
+
+  retention 0.0%   duplicated 0   fields filled 1   fidelity 1.0
+
+  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
+  | 2 to 8 hours!
+  ------------------------------------------- EXTRACTED ------------------------------------------
+  [ABOUT]
+      2 to 8 hours!
+  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 SUPPLIER      680927  |  Croc & Barra Adventure Package
@@ -5466,66 +5829,6 @@ OK            328673  |  General Admissions: Alice Springs School of the Air Gui
   [EMPTY] important_info, what_included, what_excluded, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            328897  |  Rotorua to Auckland via Hobbiton Movie Set and Waitomo Caves One-Way Private Tour
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 4   fidelity 0.98
-  MODEL'S OWN FLAGS:
-      what_included: moved 'Tour times: Rotorua 8am to Auckland 6pm (flexible).' -> about (general schedule information)
-      what_included: moved 'All tours support local eco-cultural initiatives.' -> about (general statement)
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | #Experience two iconic NZ visitor attractions in one amazing day starting in Rotorua and ending in Auckland. See the iconic Hobbiton Movie Set, the world-famous Waitomo Glowworm Caves and travel through the beautiful Waikato region.
-  | 
-  | ##Duration
-  | 10 hours
-  | ##About
-  | Combine a luxury transfer from Rotorua to Auckland with a visit to 2 world-famous attractions in New Zealand: Hobbiton Movie Set and Waitomo Glowworm Caves.
-  | 
-  | After pick-up in Rotorua, we drive across the Mamaku Plateau to the Hobbiton Movie Set near the rural town of Matamata, made world-famous as the original setting of Sir Peter Jackson’s “The Lord of the Rings” and “The Hobbit” trilogies. On the 2-hour tour of the Hobbiton Movie Set, get astonishing insights into how these movies were made and which parts of the movies were filmed here. Not only movie fans will enjoy this unique experience with inside views of the Hobbit village including Hobbit Holes, Bag End, The Green Dragon Inn and astonishing facts about the filmmaking and spectacular landscape all around.
-  | 
-  | We then continue on to Waitomo Caves, located in the King Country in the Waikato region. On this tour we travel via the Thermal Explorer Highway touring route, taking in the special region as we drive through the beautiful countryside of New Zealand’s North Island. At Waitomo, experience the underground wonderland that is Waitomo Glowworm Caves with thousands of Glowworms as the major attraction.
-  | 
-  | As we drive northward on the journey from Waitomo to Auckland, we show you sacred Taupiri Mountain as well as Ngaruawahia, the site of Turangawaewae Marae (Maori meeting place) and seat of New Zealand’s Maori King. Be dropped off in Auckland after combining a transfer from Rotorua to Auckland with exploring some of the most beautiful parts of Aotearoa / New Zealand. This Private One-Way Tour from Rotorua via Waitomo Glowworm Caves and Hobbiton Movie Set to Auckland allows you to see 2 of New Zealand’s most famous attractions in one amazing day.
-  | 
-  | ##More info
-  | **Inclusions:**
-  | Fully guided Private Tour in Mercedes luxury vehicle.
-  | Pick-up Rotorua and drop-off Auckland.
-  | Tour times: Rotorua 8am to Auckland 6pm (flexible).
-  | Complimentary snacks, water and lunch.
-  | Entry fees to Waitomo Caves and Hobbiton Movie Set GROUP Tours.
-  | All tours support local eco-cultural initiatives.
-  | 
-  | **Exclusions:**
-  | n/a
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Experience two iconic NZ visitor attractions in one amazing day starting in Rotorua and ending in Auckland. See the iconic Hobbiton Movie Set, the world-famous Waitomo Glowworm Caves and travel through the beautiful Waikato region.
-      Combine a luxury transfer from Rotorua to Auckland with a visit to 2 world-famous attractions in New Zealand: Hobbiton Movie Set and Waitomo Glowworm Caves.
-      After pick-up in Rotorua, we drive across the Mamaku Plateau to the Hobbiton Movie Set near the rural town of Matamata, made world-famous as the original setting of Sir Peter Jackson’s “The Lord of the Rings” and “The Hobbit” trilogies. On the 2-hour tour of the Hobbiton Movie Set, get astonishing insights into how these movies were made and which parts of the movies were filmed here. Not only movie fans will enjoy this unique experience with inside views of the Hobbit village including Hobbit Holes, Bag End, The Green Dragon Inn and astonishing facts about the filmmaking and spectacular landscape all around.
-      We then continue on to Waitomo Caves, located in the King Country in the Waikato region. On this tour we travel via the Thermal Explorer Highway touring route, taking in the special region as we drive through the beautiful countryside of New Zealand’s North Island. At Waitomo, experience the underground wonderland that is Waitomo Glowworm Caves with thousands of Glowworms as the major attraction.
-      As we drive northward on the journey from Waitomo to Auckland, we show you sacred Taupiri Mountain as well as Ngaruawahia, the site of Turangawaewae Marae (Maori meeting place) and seat of New Zealand’s Maori King. Be dropped off in Auckland after combining a transfer from Rotorua to Auckland with exploring some of the most beautiful parts of Aotearoa / New Zealand. This Private One-Way Tour from Rotorua via Waitomo Glowworm Caves and Hobbiton Movie Set to Auckland allows you to see 2 of New Zealand’s most famous attractions in one amazing day.
-      Tour times: Rotorua 8am to Auckland 6pm (flexible).
-      All tours support local eco-cultural initiatives.
-  [WHAT_INCLUDED]
-      Fully guided Private Tour in Mercedes luxury vehicle.
-      Pick-up Rotorua and drop-off Auckland.
-      Complimentary snacks, water and lunch.
-      Entry fees to Waitomo Caves and Hobbiton Movie Set GROUP Tours.
-  [WHAT_EXCLUDED]
-      n/a
-  [DURATION_TEXT]
-      10 hours
-  [EMPTY] important_info, highlights, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            329820  |  The Bus - Double Trouble - 2 People
 ====================================================================================================
   (new this run)
@@ -7374,61 +7677,6 @@ OK            410543  |  Twilight Wild Kiwi Bird Encounter Private Tour
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            417608  |  Meet a Lizard
-====================================================================================================
-  (carried over from the V5.2 50)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 4   fidelity 0.97
-  MODEL'S OWN FLAGS:
-      heading: 'Terms & Conditions' names no single column -> about
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | Lizard Encounter - Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard.
-  | 
-  |  Rates
-  |  Meet a Lizard - $35
-  | Meet a Lizard for a Group of 2 - $60
-  | Meet a Lizard for a Group of 4 - $115
-  |  Ages (4+ years, under 4 free)
-  |  Children under 4 years are able to participate with no charge when accompanying an adult paying to do the Meet a Lizard session.
-  | Children aged 4-12 years must pay and be accompanied by an adult also paying to do the same Meet a Lizard session.
-  |  About
-  |  Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard. Learn about the Lizards by name and character, as you interact with them.
-  |  You can take as many photos as you like on your own devices.
-  |  NOTE: Animal Interactions are an additional purchase upon Animal Park entry. Please ensure that Maru Entry tickets are purchased in addition to the Meet a Lizard.
-  |  Other Information
-  | - All interactions are at the keepers discretion and may be unavailable in extreme weather conditions to ensure the welfare and safety of our animals and visitors. If Maru cancels the experience for any reason, an alternative experience or full refund will be offered.
-  | - Animals at Maru have the freedom to choose if and how they interact with visitors during experiences, so up close touching and feeding usually occurs but is not guaranteed.
-  | - All tickets require the Credit/Debit Card along with photo ID and signature of the purchaser, or a valid company email/voucher to be presented upon arrival, otherwise entry will be refused.
-  |  Terms & Conditions
-  | It is important that you arrive early as the experience will not be delayed and will start at the advertised time. If you are late you will miss out on the experience and refunds will not be provided. Please dress appropriately for the forecast weather on the day. The Keepers have the right to cancel this and all animal experiences due to extreme weather or any other situation they feel may compromise the safety and welfare of the animals and visitors and in that instance a different experience may be offered or a full refund. For safety please wear closed in shoes, no thongs or sandals.
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Lizard Encounter - Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard.
-      Make your visit to Maru especially memorable by meeting a Shingleback or Blue-Tongue Lizard. Learn about the Lizards by name and character, as you interact with them.
-      You can take as many photos as you like on your own devices.
-      It is important that you arrive early as the experience will not be delayed and will start at the advertised time. If you are late you will miss out on the experience and refunds will not be provided. Please dress appropriately for the forecast weather on the day. The Keepers have the right to cancel this and all animal experiences due to extreme weather or any other situation they feel may compromise the safety and welfare of the animals and visitors and in that instance a different experience may be offered or a full refund. For safety please wear closed in shoes, no thongs or sandals.
-  [IMPORTANT_INFO]
-      NOTE: Animal Interactions are an additional purchase upon Animal Park entry. Please ensure that Maru Entry tickets are purchased in addition to the Meet a Lizard.
-      All interactions are at the keepers discretion and may be unavailable in extreme weather conditions to ensure the welfare and safety of our animals and visitors. If Maru cancels the experience for any reason, an alternative experience or full refund will be offered.
-      Animals at Maru have the freedom to choose if and how they interact with visitors during experiences, so up close touching and feeding usually occurs but is not guaranteed.
-      All tickets require the Credit/Debit Card along with photo ID and signature of the purchaser, or a valid company email/voucher to be presented upon arrival, otherwise entry will be refused.
-  [RESTRICTIONS]
-      Ages (4+ years, under 4 free)
-      Children under 4 years are able to participate with no charge when accompanying an adult paying to do the Meet a Lizard session.
-      Children aged 4-12 years must pay and be accompanied by an adult also paying to do the same Meet a Lizard session.
-  [PRICING]
-      Meet a Lizard - $35
-      Meet a Lizard for a Group of 2 - $60
-      Meet a Lizard for a Group of 4 - $115
-  [EMPTY] highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, special_requirements, faqs, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            418108  |  Red Route - Yarra Valley (In Region pick up + return)
 ====================================================================================================
   (new this run)
@@ -8188,79 +8436,6 @@ OK            441016  |  Fun day on the water
   [DURATION_TEXT]
       4 hours
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
-OK            442752  |  Canoe Hire
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 5   fidelity 0.89
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | # Based in the Mid North Coast near Coffs Harbour, NSW, Bellingen Canoe Adventures offers canoe trips to all ages, from beginners to the more advanced!
-  | 
-  | ## Duration
-  | - 1 hour
-  | - 2 hours
-  | - Half Day (up to 4 hrs)
-  | 
-  | ##For all Ages!
-  | - Adults (ages 13+)
-  | - Children (ages 12 and under)
-  | 
-  | ## About
-  | Single, double or triple canoe/kayaks. Comfortable, stable, flat bottomed ….you won’t fall out ! They even have footrests and backrests for your comfort.
-  | Fantastic way to observe the rich ecosystems and wildlife, flora and fauna and the aquatic culture unique to the Bellinger River.
-  | Open 7 days including Public Holidays – rain, hail or shine!
-  | Bookings are essential, pricing is per person.
-  | 
-  | ## More info
-  | For a Half Day hire, we suggest to take a picnic, bathers and other provisions so that the day can be enjoyed, stopping along the banks. See our Requirements page for details of other things to bring.
-  | 
-  | ## What to bring
-  | Canoeing is great fun, but it’s best to be prepared… bring along:
-  | 
-  | - Towel
-  | - Bathers/Swimsuit
-  | - Hat/Sunglasses
-  | - Sunscreen
-  | - Water (but you can opt to buy cold water or other drinks at Bellingen Canoe Adventures)
-  | - Shoes (they may get wet)
-  | - Yourself!
-  | - If you have a snazzy camera, Bellingen Canoe Adventures have dry bags to purchase.You can also put your mobile and car keys in to keep them safe and dry.
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Based in the Mid North Coast near Coffs Harbour, NSW, Bellingen Canoe Adventures offers canoe trips to all ages, from beginners to the more advanced!
-      Single, double or triple canoe/kayaks. Comfortable, stable, flat bottomed ….you won’t fall out ! They even have footrests and backrests for your comfort.
-      Fantastic way to observe the rich ecosystems and wildlife, flora and fauna and the aquatic culture unique to the Bellinger River.
-      Open 7 days including Public Holidays – rain, hail or shine!
-      Bookings are essential, pricing is per person.
-  [IMPORTANT_INFO]
-      For a Half Day hire, we suggest to take a picnic, bathers and other provisions so that the day can be enjoyed, stopping along the banks. See our Requirements page for details of other things to bring.
-  [WHAT_TO_BRING]
-      Canoeing is great fun, but it’s best to be prepared… bring along:
-      Towel
-      Bathers/Swimsuit
-      Hat/Sunglasses
-      Sunscreen
-      Water (but you can opt to buy cold water or other drinks at Bellingen Canoe Adventures)
-      Shoes (they may get wet)
-      Yourself!
-      If you have a snazzy camera, Bellingen Canoe Adventures have dry bags to purchase.You can also put your mobile and car keys in to keep them safe and dry.
-  [DURATION_TEXT]
-      1 hour
-      2 hours
-      Half Day (up to 4 hrs)
-  [RESTRICTIONS]
-      For all Ages!
-      Adults (ages 13+)
-      Children (ages 12 and under)
-  [EMPTY] highlights, what_included, what_excluded, extras, itinerary, cancellation, check_in, accessibility, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 OK            444205  |  Axe Throwing - Small Groups
@@ -11170,25 +11345,6 @@ OK            529363  |  Sorrento Private Hire
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            531290  |  60 Minutes Guided Jetski Tour
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 1   fidelity 1.0
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | 30 or 60 min Jet Ski Tour
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      30 or 60 min Jet Ski Tour
-  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            531293  |  Central Coast Day tour
 ====================================================================================================
   (new this run)
@@ -12669,25 +12825,6 @@ OK            563996  |  Mundi Mundi Bash Camel Sunrise/Sunset Tour
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            564767  |  Membership
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 1   fidelity 1.0
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | Artisan Maker Shed Membership
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Artisan Maker Shed Membership
-  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            565015  |  Clifton Pint & Plate Express
 ====================================================================================================
   (new this run)
@@ -13756,58 +13893,6 @@ OK            586492  |  Open Air Roller Greenwood Plaza Rooftop Group Bookings
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            587626  |  Swag and Stretcher  2 Nights
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 6   fidelity 0.91
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | SLEEPS 1 or 2. (single or double swag)
-  |  Swag package Inclusions:
-  |  1 x Swag (Single or Double)
-  | 1 x Bedding and pillow per person
-  | 1 x chair per person
-  | One stretcher
-  |  Add Long Life Fan
-  |  Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
-  |  Check-in Time is 2 PM
-  | Check-out Time is 9 AM
-  |  Notes
-  |  • Campsite fees are charged separately & need to be paid directly to your campsite provider.
-  | • Private property events may be available within our service area.
-  | • Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
-  |  What to bring
-  |  All the fun stuff, surf board, fishing rods, golf clubs
-  | Personal needs - toiletries, towels, sunscreen, pest repellent etc
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      SLEEPS 1 or 2. (single or double swag)
-  [IMPORTANT_INFO]
-      Campsite fees are charged separately & need to be paid directly to your campsite provider.
-      Private property events may be available within our service area.
-      Due to the risk of falling branches, Abracadabra Camping equipment is set up away from trees.
-  [WHAT_INCLUDED]
-      1 x Swag (Single or Double)
-      1 x Bedding and pillow per person
-      1 x chair per person
-      One stretcher
-  [EXTRAS]
-      Camping is about being in the great outdoors, and that can get hot on our beautiful balmy Queensland night. Hire our high power fan with power tool battery to keep you cool for the duration of your stay.
-  [WHAT_TO_BRING]
-      All the fun stuff, surf board, fishing rods, golf clubs
-      Personal needs - toiletries, towels, sunscreen, pest repellent etc
-  [CHECK_IN]
-      Check-in Time is 2 PM
-      Check-out Time is 9 AM
-  [EMPTY] highlights, what_excluded, itinerary, duration_text, cancellation, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            587630  |  Swag and Stretcher  4 Nights
 ====================================================================================================
   (new this run)
@@ -14074,25 +14159,6 @@ OK            596533  |  Big High Ropes Course
   ------------------------------------------- EXTRACTED ------------------------------------------
   [ABOUT]
       Our Big Treetop Ropes Course is offering an exciting challenge for those ready to take on new heights! From huge ziplines to suspended bridges, it’s an adventure like no other. The courses take you up to 20 meters above the ground, where you’ll face thrilling challenges and stunning views. It’s the perfect experience for those looking to push their limits and enjoy a fun, adrenaline-packed adventure!
-  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
-OK            598043  |  Double Kayak
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 0.0%   duplicated 0   fields filled 1   fidelity 1.0
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | 2 to 8 hours!
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      2 to 8 hours!
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
@@ -14722,33 +14788,6 @@ OK            632761  |  Camel Ride Ultimate Experience
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
-OK            634003  |  Cairns to Mission Beach
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 1   fidelity 0.83
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | Departure times
-  |  Cairns Airport 2:30 PM
-  | Cairns Base Hospital from 2:45 PM
-  | Cairns Central Shopping Centre 2:55 PM
-  |  Arrival times
-  |  Mission beach 5:30 PM
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Cairns Airport 2:30 PM
-      Cairns Base Hospital from 2:45 PM
-      Cairns Central Shopping Centre 2:55 PM
-      Mission beach 5:30 PM
-  [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
 OK            634881  |  Estate Tuscany
 ====================================================================================================
   (new this run)
@@ -15060,59 +15099,6 @@ OK            639371  |  Workshop - Build A Johnson Su Compost Bioreactor
       A practical, guided session to construct and fill a Johnson-Su compost bioreactor.
       Gain the skills and confidence to build your own system.
   [EMPTY] important_info, highlights, what_included, what_excluded, extras, itinerary, what_to_bring, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
-
-====================================================================================================
-OK            639882  |  Cradle Mountain Tour
-====================================================================================================
-  (new this run)
-
-  None of the known defect classes fired: no duplication, no unaccounted-for text,
-  pricing/cancellation definitions respected, no difficulty rating in restrictions, no
-  non-item lines in what_to_bring. Not individually hand-read -- see the method note at the
-  top of this report.
-
-  retention 100.0%   duplicated 0   fields filled 3   fidelity 0.94
-
-  ---------------------------------------- RAW DESCRIPTION ---------------------------------------
-  | Embark on an unforgettable journey through Tasmania's natural beauty as we adventure to the iconic Cradle Mountain. You will be guided by a knowledgeable and local guide, and will travel in the comfort of a modern luxury minibus.
-  |  Book your adventure today and explore the hidden gems of Tasmania's stunning northwest with Coastline Tours Tasmania.
-  |  ***Explore Tasmania's Northwest Coast to Cradle Mountain
-  | 
-  |  Scenic Landscapes: Begin your journey from our breath taking beaches on the Coast and travel through the rich countryside and forests.
-  | 
-  |  Wildlife Encounters: Keep an eye out for charming Wallabies, Tasmanian Devils, Echidnas, Bandicoots and our variety of birds (especially the Raptors) along the way.
-  | 
-  |  Morning Tea Break: A quick rest stop to recharge along the way.
-  | 
-  |  ***Cradle Mountain National Park Adventure Passes are included for travel to Dove Lake via the shuttle buses.
-  | 
-  |  Visitor Centre Start: Begin your exploration at Cradle Mountain with a stop at the Cradle Mountain Visitors' Centre.
-  | 
-  |  Shuttle Service: Enjoy the ride into the heart of Cradle Mountain National Park on the shuttle bus.
-  | 
-  |  Eco-Friendly Exploration: Follow the guidance of Parks and Wildlife staff, adhere to path guidelines, and maintain a respectful distance from the wildlife (of 3 metres).
-  | 
-  |  ***Lunch at Cradle Mountain Lodge
-  |  Indulge in a delightful lunch at the Cradle Mountain Lodge – Peppers Resort. Please note that meals and drinks are not included in the price of the ticket (unless otherwise specified) and can be purchased separately by you at this location.
-  |  ***Dress Code: Please wear suitable attire for diverse terrain and weather conditions. Even though it may look warm and sunny outside, please bring appropriate clothing and footwear for all seasons as the Tasmanian weather is prone to change during the day.
-  ------------------------------------------- EXTRACTED ------------------------------------------
-  [ABOUT]
-      Embark on an unforgettable journey through Tasmania's natural beauty as we adventure to the iconic Cradle Mountain. You will be guided by a knowledgeable and local guide, and will travel in the comfort of a modern luxury minibus.
-      Book your adventure today and explore the hidden gems of Tasmania's stunning northwest with Coastline Tours Tasmania.
-      Explore Tasmania's Northwest Coast to Cradle Mountain
-      Cradle Mountain National Park Adventure Passes are included for travel to Dove Lake via the shuttle buses.
-      Morning Tea Break
-      Indulge in a delightful lunch at the Cradle Mountain Lodge – Peppers Resort. Please note that meals and drinks are not included in the price of the ticket (unless otherwise specified) and can be purchased separately by you at this location.
-  [HIGHLIGHTS]
-      Begin your journey from our breath taking beaches on the Coast and travel through the rich countryside and forests.
-      Keep an eye out for charming Wallabies, Tasmanian Devils, Echidnas, Bandicoots and our variety of birds (especially the Raptors) along the way.
-      A quick rest stop to recharge along the way.
-      Begin your exploration at Cradle Mountain with a stop at the Cradle Mountain Visitors' Centre.
-      Enjoy the ride into the heart of Cradle Mountain National Park on the shuttle bus.
-      Follow the guidance of Parks and Wildlife staff, adhere to path guidelines, and maintain a respectful distance from the wildlife (of 3 metres).
-  [WHAT_TO_BRING]
-      Please wear suitable attire for diverse terrain and weather conditions. Even though it may look warm and sunny outside, please bring appropriate clothing and footwear for all seasons as the Tasmanian weather is prone to change during the day.
-  [EMPTY] important_info, what_included, what_excluded, extras, itinerary, duration_text, cancellation, check_in, accessibility, restrictions, special_requirements, faqs, pricing, disclaimers, meeting_point, min_age, max_age, group_size
 
 ====================================================================================================
 OK            639991  |  Private Skate Lesson (1–6 pax)

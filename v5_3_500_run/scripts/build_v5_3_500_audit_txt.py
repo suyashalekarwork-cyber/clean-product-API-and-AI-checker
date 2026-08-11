@@ -22,13 +22,14 @@ from build_model_comparison_batches import strip_html, find_raw_file  # noqa: E4
 from audit_v5_3_500_comments import verdict as audit_verdict  # noqa: E402
 
 OUT = ROOT / "reports" / "v5_3_hard500_audit.txt"
-SEVERITY = {"DUPLICATION": 0, "CONTENT_LOSS": 1, "MISCLASS": 2,
+SEVERITY = {"DUPLICATION": 0, "CONTENT_LOSS": 1, "MISCLASS": 2, "SCHEMA": 2,
             "LABEL_LOSS": 3, "MINOR": 4, "SUPPLIER": 5, "OK": 9}
 HEAD = {
     "DUPLICATION": "DUPLICATION -- same sentence in two columns (breaks the "
                    "extraction-is-a-MOVE rule)",
     "CONTENT_LOSS": "CONTENT LOSS -- text in the raw that reached no column",
     "MISCLASS": "MISCLASSIFICATION -- text landed in the wrong column",
+    "SCHEMA": "SCHEMA -- the model returned a key name outside the agreed schema",
     "LABEL_LOSS": "LABEL LOSS -- value kept, the label identifying it dropped",
     "MINOR": "MINOR -- defensible, but worth a look",
     "SUPPLIER": "SUPPLIER-SIDE -- the defect is in the raw text, preserved faithfully",
@@ -107,13 +108,13 @@ def main():
     A("-" * 100)
     A("FINDINGS")
     A("-" * 100)
-    for k in ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "LABEL_LOSS", "MINOR",
+    for k in ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "SCHEMA", "LABEL_LOSS", "MINOR",
               "SUPPLIER", "OK"):
         if counts.get(k):
             A(f"  {counts[k]:>3}  {HEAD[k]}")
     A("")
     real = sum(counts.get(k, 0) for k in
-               ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "LABEL_LOSS", "MINOR"))
+               ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "SCHEMA", "LABEL_LOSS", "MINOR"))
     A(f"  {real} products carry a defect ({100*real/max(1,len(rows)):.1f}%); "
       f"{counts.get('SUPPLIER', 0)} are supplier-side, not model defects; "
       f"{counts.get('OK', 0)} show no known problem.")
@@ -220,7 +221,7 @@ def main():
     OUT.write_text("\n".join(L), encoding="utf-8")
     print(f"wrote {OUT}")
     print(f"  {len(rows)} products, {len(L)} lines, {OUT.stat().st_size:,} bytes")
-    for k in ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "LABEL_LOSS", "MINOR",
+    for k in ("DUPLICATION", "CONTENT_LOSS", "MISCLASS", "SCHEMA", "LABEL_LOSS", "MINOR",
               "SUPPLIER", "OK"):
         if counts.get(k):
             print(f"  {counts[k]:>3}  {k}")

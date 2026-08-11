@@ -121,6 +121,36 @@ AUDIT = {
                "Label: value and filed it under meeting_point. Faithful; nothing else it could "
                "sensibly do. Supplier data accident, not an extraction defect."),
 
+    # ========== found by the SECOND, independent audit; verified and accepted ==========
+    "634003": ("MISCLASS",
+               "HIGH. The raw has two labelled lists -- 'Departure times' (Cairns Airport 2:30 PM, "
+               "Cairns Base Hospital 2:45 PM, Cairns Central 2:55 PM) and 'Arrival times' (Mission "
+               "beach 5:30 PM). BOTH labels were dropped and the two lists merged into one about "
+               "block, so Mission Beach 5:30 PM now reads as a fourth pickup point. The first "
+               "audit missed this: its detector only flags text ABSENT from the output, and here "
+               "every value survived -- only the labels went."),
+    "639882": ("MISCLASS",
+               "MEDIUM. Sub-labels 'Scenic Landscapes:', 'Wildlife Encounters:' and 'Dress Code:' "
+               "were all dropped -- verified absent. highlights now reads as unattributed "
+               "paragraphs. Same defect class as the SSAA tier labels V5.3 was written to fix."),
+    "587626": ("SCHEMA",
+               "MEDIUM. The model returned the key 'redo_desc_group_size' instead of "
+               "'redo_group_size' -- the only schema violation in 499 products. The value is "
+               "empty so no data was lost, but a loader keyed on the correct name gets a KeyError "
+               "or a silent blank. Fix belongs on the load side: validate keys and fail loudly."),
+
+    # ===== supplier problems found by the broad raw-text scan (scan_supplier_data_issues.py) =====
+    "564767": ("SUPPLIER", "NO DESCRIPTION. The entire raw is 'Artisan Maker Shed Membership' -- "
+                           "the product name and nothing else. No prompt version can fix this; the "
+                           "page will render with a one-line About."),
+    "531290": ("SUPPLIER", "NO DESCRIPTION. The entire raw is '30 or 60 min Jet Ski Tour'."),
+    "598043": ("SUPPLIER", "NO DESCRIPTION. The entire raw is '2 to 8 hours!'."),
+    "417608": ("SUPPLIER", "Near-duplicate in the raw -- a line pasted and then lightly edited, so "
+                           "exact matching missed it. Preserved faithfully."),
+    "442752": ("SUPPLIER", "A control character is embedded in the raw text (this is the one that "
+                           "broke the Excel build). Extraction was unaffected."),
+    "328897": ("SUPPLIER", "'n/a' left in the raw as a placeholder the supplier never filled."),
+
     # ================= detector hits OVERTURNED on reading =================
     "210832": ("OK", "Detector flagged 'About The Christmas in July Dinner Train' as lost. "
                      "OVERTURNED: it is an About heading naming the product -- a label, and the "

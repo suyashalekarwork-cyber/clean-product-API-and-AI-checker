@@ -38,43 +38,61 @@ NICE = {f: f.replace("redo_desc_", "").replace("redo_", "") for f in FIELDS}
 
 # One source of truth for the matrix -- the README quotes these same rows.
 MATRIX = [
-    ("P1", "Content loss", 3, "371805, 535701, 293135",
-     "Facts gone from the page entirely",
-     "Deterministic post-check, not a prompt rule -- the loss is random, see Repeatability",
-     "OURS"),
-    ("P1", "what_to_bring misleads the customer", 3, "327258, 156525, 500245",
-     "The box lists things the customer does NOT need to bring",
-     "Extend the line test to what_to_bring as the third point-wise column",
-     "SUPPLIER (we can override)"),
-    ("P2", "Difficulty rating filed as a restriction", 2, "466438, 491113",
-     "Restrictions box reads 'Moderate' / 'Level: Hard'",
-     "Two lines of prompt: difficulty names no column -> about",
-     "OURS"),
-    ("P2", "Content overrode the heading", 1, "251713",
-     "Answer is arguably better, but the heading gate was bypassed",
-     "Watch only -- do not fix yet",
-     "OURS (debatable)"),
-    ("P3", "Inline label stripped", 3, "713497, 324361, 697755",
-     "Every value survived; the section just has no title",
-     "Covered by the existing STEP 1D rule if tightened",
-     "OURS (cosmetic)"),
-    ("P3", "Marketing swept into a list column", 2, "198064, 501920",
-     "One line reads oddly in extras / what_included",
-     "Low value -- leave",
-     "OURS (cosmetic)"),
-    ("P4", "Supplier's raw text repeats itself", 9,
-     "509794, 203555, 249729, 330482, 279178, 444088, 397465, 319096, 171361",
-     "Same sentence rendered twice on the page",
-     "De-duplicate at render time; do NOT change extraction",
-     "SUPPLIER"),
-    ("P4", "Field name pasted into the description", 1, "266189",
-     "Raw description is literally 'meeting_point: Te Anau'",
-     "Nothing to do -- reproduced faithfully",
-     "SUPPLIER"),
-    ("P4", "Headings with no content under them", 1, "680927",
-     "All columns empty",
-     "Correct behaviour; exclude from scoring",
-     "SUPPLIER"),
+    ("CONTENT LOSS", "HIGH", 1, "535701",
+     "\"Please order your protein at the time of booking\" -- an instruction the customer must act on",
+     "Post-extraction check that returns orphaned sentences to about", "ours"),
+    ("CONTENT LOSS", "MEDIUM", 1, "371805",
+     "Engine spec dropped -- happens every run, the only repeatable loss",
+     "Post-extraction check", "ours"),
+    ("CONTENT LOSS", "LOW", 1, "293135", "Opening tagline dropped",
+     "Post-extraction check", "ours"),
+
+    ("MISCLASSIFICATION", "HIGH", 1, "634003",
+     "'Departure times' and 'Arrival times' both dropped, the two lists merged -- Mission Beach "
+     "5:30 PM reads as a fourth pickup point",
+     "Contrasting label pairs must survive even where single lead-ins are dropped", "ours"),
+    ("MISCLASSIFICATION", "MEDIUM", 2, "466438, 491113",
+     "Difficulty rating in the Restrictions box -- reads 'Moderate' / 'Level: Hard'",
+     "Two lines of prompt: difficulty names no column -> about", "ours"),
+    ("MISCLASSIFICATION", "MEDIUM", 1, "639882",
+     "Sub-labels 'Scenic Landscapes:', 'Wildlife Encounters:', 'Dress Code:' dropped",
+     "Same label-pair rule as 634003", "ours"),
+    ("MISCLASSIFICATION", "LOW", 3, "713497, 324361, 697755",
+     "Label stripped -- every value survived, the section just has no title",
+     "Tighten the inline-label rule", "ours"),
+    ("MISCLASSIFICATION", "LOW", 1, "251713",
+     "Content overrode the heading (the answer is arguably better)",
+     "Watch only -- do not fix yet", "ours"),
+    ("MISCLASSIFICATION", "LOW", 2, "198064, 501920",
+     "A marketing line sitting in a list column", "Low value -- leave", "ours"),
+
+    ("SCHEMA", "MEDIUM", 1, "587626",
+     "Returned 'redo_desc_group_size' instead of 'redo_group_size' -- value empty, but a loader "
+     "keyed on the real name gets a KeyError",
+     "Validate keys on load and fail loudly", "ours"),
+
+    ("SUPPLIER MISTAKE", "HIGH", 3, "564767, 531290, 598043",
+     "No description at all -- the raw is just the product name",
+     "Chase the supplier; no prompt can fix this", "supplier"),
+    ("SUPPLIER MISTAKE", "HIGH", 1, "327258",
+     "What-to-Bring says the supplier PROVIDES everything -- the opposite",
+     "Phase 2: extend the line test to what_to_bring", "supplier"),
+    ("SUPPLIER MISTAKE", "HIGH", 1, "266189",
+     "The whole description is the string 'meeting_point: Te Anau'",
+     "Nothing to do -- reproduced faithfully", "supplier"),
+    ("SUPPLIER MISTAKE", "MEDIUM", 2, "156525, 500245",
+     "Notes / cancellation terms filed under the supplier's own 'What to bring' heading",
+     "Phase 2: extend the line test to what_to_bring", "supplier"),
+    ("SUPPLIER MISTAKE", "MEDIUM", 1, "680927",
+     "Headings written with no content under them", "Correct behaviour; exclude from scoring",
+     "supplier"),
+    ("SUPPLIER MISTAKE", "LOW", 10,
+     "509794, 203555, 249729, 330482, 279178, 444088, 397465, 319096, 171361, 324361",
+     "Raw repeats itself -- the text shows twice on the page",
+     "De-duplicate at render time; do NOT change extraction", "supplier"),
+    ("SUPPLIER MISTAKE", "LOW", 4, "417608, 442752, 328897, 697755",
+     "Near-duplicate, control character, 'n/a' placeholder, template keys pasted in",
+     "Mostly nothing to do", "supplier"),
 ]
 
 
@@ -136,15 +154,15 @@ def main():
         rec["model_flags"] = xl(fields.get("redo_flags", ""))
         perp.append(rec)
 
-    SEV = {"CONTENT_LOSS": 0, "MISCLASS": 1, "DUPLICATION": 2, "LABEL_LOSS": 3,
+    SEV = {"CONTENT_LOSS": 0, "MISCLASS": 1, "SCHEMA": 2, "DUPLICATION": 2, "LABEL_LOSS": 3,
            "MINOR": 4, "SUPPLIER": 5, "OK": 9}
     df_all = pd.DataFrame(allp).assign(
         _s=lambda d: d["VERDICT"].map(SEV)).sort_values(["_s", "product_id"]).drop(columns="_s")
     df_iss = df_all[df_all["VERDICT"] != "OK"].copy()
     df_pp = pd.DataFrame(perp)
     df_mx = pd.DataFrame(MATRIX, columns=[
-        "Priority", "Issue", "Products", "Product IDs", "Customer impact",
-        "Fix", "Whose defect"])
+        "Group", "Severity", "Products", "Product IDs", "What is wrong",
+        "Fix", "Whose"])
 
     with pd.ExcelWriter(OUT, engine="openpyxl") as w:
         df_mx.to_excel(w, index=False, sheet_name="Priority_Matrix")
@@ -154,7 +172,7 @@ def main():
 
         head_fill = PatternFill("solid", fgColor="1F4E79")
         head_font = Font(color="FFFFFF", bold=True)
-        widths = {"Priority": 9, "Issue": 38, "Products": 9, "Product IDs": 46,
+        widths = {"Group": 20, "Severity": 10, "What is wrong": 60, "Whose": 10, "Issue": 38, "Products": 9, "Product IDs": 46,
                   "Customer impact": 44, "Fix": 52, "Whose defect": 20,
                   "product_id": 12, "product_name": 34, "VERDICT": 14,
                   "COMMENT": 90, "RAW_DESCRIPTION": 70, "fields_filled": 9,
