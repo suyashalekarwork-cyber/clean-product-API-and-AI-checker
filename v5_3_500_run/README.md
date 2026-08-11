@@ -5,37 +5,6 @@ via `gpt-5.6-luna`. **499/499 completed, 0 failed, 0 truncated, 0 unparseable.**
 
 ---
 
-## Two ways to read the score — both are true
-
-| | Products | Clean |
-|---|---|---|
-| All products | 499 | **93.2%** |
-| Products where **one column only** was filled — no placement decision was made | 238 | 96.2% |
-| Products where **two or more columns** were filled — placement actually exercised | 261 | **78.2%** |
-
-**The 78.2% is the number that means something.** Roughly 1 in 5 products that
-require a real placement decision has some defect. The headline 93% includes 238
-products that could not fail, because everything went to About and there was
-nothing to get wrong.
-
-Quoting only the 93% would flatter the result. Both are here so neither can be
-quoted alone.
-
----
-
-## What V5.3 does differently
-
-Earlier versions let the model decide which section a *sentence* belonged to.
-Measured on a 329-failure sample, **294 (89.4%) were real text filed under the
-wrong heading** — and a wrong section is worse than an empty one, because the
-portal shows it to a travel agent as fact.
-
-V5.3 extracts a section **only when the supplier wrote a heading for it**. No
-heading → the field stays empty and the text stays in About. An empty field is a
-correct answer.
-
----
-
 # The issues
 
 Three groups of ours, plus the supplier's. Each rated High / Medium / Low.
@@ -185,9 +154,11 @@ different sentences.
 
 ## The strongest evidence: products with no heading at all
 
-51% of the run (254 products) has **no heading naming a column** — the exact
-situation that produced the original 89% misclassification, because the model
-has nothing to go on.
+51% of the run (254 products) has **no heading naming a column**. This is the
+situation V5.3 exists for: with nothing to go on, earlier versions guessed which
+section a sentence belonged to, and on a 329-failure sample 294 (89.4%) of those
+guesses filed real text under the wrong heading. V5.3's rule is that no heading
+means the text stays in About.
 
 | Group | Products | Issues found |
 |---|---|---|
