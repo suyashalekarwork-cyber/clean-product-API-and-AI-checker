@@ -5,14 +5,15 @@ checker that audits the extraction output.
 
 **Current prompts:**
 `v5_3_1000_run/prompts/SYSTEM_PROMPT_FH_DESC_V5_3.txt` (description side) and
-`booking_v5_3_run/prompts/SYSTEM_PROMPT_FH_BOOKING_V5_3.txt` (booking side).
+`booking_v5_4_1000_run/prompts/SYSTEM_PROMPT_FH_BOOKING_V5_4.txt` (booking side).
 
 **Both sides are now heading-gated.** The booking side moved from V4.7 straight
 to V5.3 — its first heading-gated prompt, and the first time booking output has
 been checked at all.
 
 **Where to start:** `v5_3_full_run/` — the whole catalogue, all 11,069 products,
-99.37% retention · `booking_v5_3_run/` for the booking side ·
+99.37% retention · `booking_v5_4_1000_run/` for the booking side, the first
+booking run that is representative rather than difficulty-selected ·
 `checker_v1_run/` for the independent AI checker that audits the output against
 the supplier's original.
 
@@ -34,6 +35,7 @@ meaning-based version, superseded by the heading gate) and V4.4 in `prompts/`
 | `luna100_run/` | **The chosen model on 100 representative products — 99.4% of supplier text kept, nothing invented.** Includes `worked_example.xlsx` (one invented product showing every column), the manager review workbook, and the heading-mapping rules. **Start here.** Prompt work since then — Itinerary, FAQ and What's Included, four versions through V4.8.3 — is in `luna100_run/PROMPT_WORK.md` and `luna100_run/issues/SESSION_REPORT.md`. |
 | `v5_3_full_run/` | **The FULL catalogue — V5.3 on all 11,069 products with a description. 99.37% content retention, 10,853 products at 100%, 8,450 (76.3%) with no finding at all.** Not a sample. Two flags were sampled and verified before publishing (~90% of each is real); the rest are marked as upper bounds. Also records the two things that went wrong on the way: the org's 40M enqueued-token cap rejecting two of four chunks, and a runner bug that reported a failed batch as done. |
 | `v5_3_1000_run/` | **The representative description run — V5.3 on 1,000 RANDOM products. 99.17% retention, 977 of 1,000 products at 100%, 97.5% with no known defect.** Every earlier set was ordered hardest-first, so every rate quoted before this one came from the worst corner of the catalogue. Our defects here are 1.2% against 2.6% on the hardest-500 — roughly 2× apart, same prompt. The gap between the two is the honest error bar for a full-catalogue run. |
+| `booking_v5_4_1000_run/` | **The booking side at catalogue scale — V5.4 on 1,000 RANDOM products, and the first booking run that is representative.** Every earlier booking set was chosen for difficulty, so every booking rate published before this one was the pessimistic end. **83.7% of products have nothing flagged, against 65.2% on the hardest-500. Zero invented text in 1,000 products. Duplication — the gate that failed three prompt versions — drops from 9.4% to 0.4%.** Mean retention reads *lower* (96.5% vs 97.9%) purely because random products are short: 85.4% are at 100%. V5.4's one change from V5.3 is that image markdown keeps its URLs. |
 | `booking_v5_3_run/` | **The booking side — V5.3 on 100 products, and the first booking output anyone has ever read.** The QA screener had discarded the booking half of every previous run. 15 columns → 25, derived from a census of all 8,244 products with booking notes (17,212 headings, 3,729 distinct wordings). URL loss dropped from 72 to 6; text copied out of the prompt's own examples from 1 product to 0. Includes the two report-only passes that record what extraction missed **and which heading it belonged under**. **Note: 100 products, where the description runs are 500 and 1,000 — thinner evidence.** |
 | `checker_v1_run/` | **The independent AI checker.** Reads the supplier's original next to all 22 extracted boxes — including the empty ones — and reports four fault types, each labelled ours or the supplier's. A second marker then argues each fault down; only survivors count, which cuts false alarms from ~42% to 4%. Scoring is plain code, not the model. It had to pass 73 human-judged products before being trusted, and found **42** label-loss faults in 1,000 tours where the old method found **2**. |
 | `v5_3_500_run/` | **Prompt V5.3 — heading-gated extraction — on the 500 HARDEST products. 95.0% of products show no known issue; our extraction defects are 11 products (2.2%), of which 5 (1.0%) cost the customer information.** V5.3 fills a section ONLY when the supplier wrote a heading for it, replacing the meaning-based classification that put 89.4% of a failure sample under the wrong heading. Contains the priority matrix, the full per-product audit, the two-phase delivery plan (Phase 1 ships to the web dev team now; Phase 2 routes content line-by-line), and the finding that most defects do not reproduce between runs. |
