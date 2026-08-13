@@ -1,0 +1,3624 @@
+================================================================================================
+FAREHARBOR UNIFIED TABLE - 10 RANDOM PRODUCTS FOR MANUAL CHECK
+================================================================================================
+
+Sample     : 10 products drawn at random (seed 42) from the 500-product set.
+Sources    : API/ETL fareharbor_etl_v2.csv | description V5.3 | booking notes V5.4
+Built by   : scripts/build_fareharbor_unified.py
+Design doc : reports/FAREHARBOR_500_COLUMN_INVENTORY.md
+
+HOW TO CHECK EACH PRODUCT
+  1. Read the RAW DESCRIPTION and RAW BOOKING NOTES blocks first.
+  2. Then read the 48 unified columns underneath.
+  3. For each column ask: is this value actually in the raw text above,
+     and is it under the right heading?
+  4. An EMPTY column is usually CORRECT - a field only fills when the supplier
+     wrote a heading naming it. Empty means 'no heading', not 'we missed it'.
+
+SOURCE TAGS shown after each value
+  [api]      straight from the Fareharbor API
+  [desc]     from the description extraction
+  [booking]  from the booking-notes extraction
+  [desc+booking (DIFFERENT, score NN)]  both sides had content and it differed,
+             so BOTH texts were kept, joined by a blank line
+  [... (REWORDED-REVIEW, score NN)]     both sides similar but not identical -
+             kept both, flagged as worth a human look
+  [... (SAME ..., kept longer)]         both sides said the same thing, one kept
+
+KNOWN ACCEPTED DEFECT
+  In list fields (What's Included, Itinerary, What to Bring, Highlights,
+  What's Not Included, What Not to Bring) a DIFFERENT/REWORDED merge can repeat
+  bullets that appear on both sides. This was reviewed and accepted - no content
+  is lost, and de-duplicating can be added later. Flag it if you see it, but it
+  is expected, not a new bug.
+
+
+================================================================================================
+PRODUCT 1 of 10   |   id 541076   |   Booking Calendar | Paekākāriki Beach
+supplier: wellingtonsurflessons
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Important - Please read this first!
+    Here you can book in lessons for you and your friends on the available calendar dates.
+    If you have a package deal or gift voucher coupon code, then please book in a time and
+      enter your code in the coupon code section under CHOOSE OPTIONS. If you have a gift
+      card please enter this at check out.
+    For discounts on multiple surf lessons and a progressive lesson approach, please see our
+      Package Deals!
+    Important:
+    New lesson times will be added to the calendar each week so please check the booking
+      calendar regularly for available times slots.
+    Download The App / Free Surf Lesson Notifications!
+    Our classes run every day surf is up and by downloading the Wellington Surf Lessons App
+      you can receive notifications on your phone 2-3 days prior to when we are running
+      classes. This is important as lessons are surf/weather dependant which means we may
+      not have all our lesson times available on the calendar until a few days prior.
+    Note: If you have booked a surf lesson in advance and the weather conditions are not
+      suitable for surfing we will offer you an alternative day to book.
+    Cost
+    $89 / surfer (Includes all equipment!)
+    For discounts on multiple surf lessons - please see Surf Lesson Packages (For individual
+      surfers only)
+    Duration
+    2 Hours
+    About
+    Wellington Surf Lesson offer super fun group classes for both beginner through to
+      intermediate level students and cater for students of all ages, from kids as young as
+      7 years old surfing with their parents through to adults of all ages.
+    Lessons are progressive so we recommend students take 2-3 beginner lessons alongside
+      some practise rentals then 2-3 intermediate classes.
+    See Package Deals!
+    Once you've got your surfing to where it needs to be, you can book a FREE Consultation
+      with one of our instructors on the best equipment to buy based on your current surfing
+      ability and goals.
+    Classes To Choose From
+    Beginners Classes (Option 1)
+    Beginner classes will focus on all the important fundamentals you should know before
+      hitting the water by yourself E.g. beach safety, body positioning, basic pop up
+      techniques, catching waves in the white water and more. After taking a few classes we
+      highly recommend students do some practise rentals to practise by them selves.
+    Intermediate Classes (Option 2)
+    Intermediate classes will focus on riding unbroken waves, how to get through the waves
+      properly, correct positioning to catch unbroken waves, how to turn and ride across the
+      wave, advance pop up techniques and much more! These classes are suitable for students
+      who have taken at least 2-3 beginner classes, had some practise by them selves and are
+      feeling confident with their pop up in white water.
+    Recommended Lesson Plan
+    The lessons are progressive so we recommend students take the following lesson plan:
+    x3 beginner lessons alongside some practise rentals
+    x3 intermediate classes alongside some practise rentals
+    Private lessons with our expert instructors to fine tune your surfing further
+    For discounts on multiple surf lessons and a progressive lesson approach, please see our
+      Package Deals!
+    Whats Included
+    We use the Surfing NZ Approved Softboards which are easy to balance, paddle, stand &
+      turn on
+    Super warm C-Skins wetsuits
+    2 hours of expert instruction from qualified Surfing NZ Instructors
+    Discounts on boards, wetsuits and accessories at our surf shop called Wellington Surf Co
+      based in Miramar
+    Extra Accessories
+    Booties, gloves and hoods are $10 a pair and need to be booked and paid for on arrival.
+      Will be first in first served on available sizes.
+    Need some individual help during the classes?
+    If you need some individual help during our group classes, don't hesitate to chat with
+      just one of the team at the start of the lesson about your current surfing experience
+      and what you feel you need help with. We will then give you some individual help
+      during the class to fine tune your surfing.
+    About Kids
+    The group lessons are a mixed class of adults and kids so you can surf with your kids!
+      Or if you prefer, a private group lesson or birthday party can be arranged just for
+      the kids. All kids are provided with the right surfboard and wetsuit to get them
+      having the most fun and learning quicker.
+    Important: For less experienced kids or kids younger than 11 we require the parent to
+      supervise them at knee height in the water at all times during the class.
+    What To Bring
+    Swim wear
+    Towel
+    Drinking water
+    Sunscreen
+    Download The App
+    Download the Wellington Surf Lessons App and you'll receive:
+    Notifications on your phone 2-3 days prior to when the surf is best and we are running
+      surf classes & rentals.
+    Chat with a supportive group of like minded surfers who are also learning to surf
+    Get your questions answered by the community and our instructor team
+    Buy and or sell surf equipment
+    Download the Wellington Surf Lessons App for FREE!
+    Surf Shop
+    Loving your surfing and keen to buy your own surf equipment this summer??? Well come
+      check out our surf shop in Miramar!
+    We are offer our students discounts on all our surf school approved equipment.
+    Come in and talk to our friendly team. We are here to fit you with the right equipment
+      and give you all the guidance and support you need.
+    Simply text us on 0211764073 to make a time to meet us at the shop.
+    Wellington Surf Shop
+    Location
+    We are a mobile surf school and our trailer is located by the entrance to the
+      Paekākāriki Beach Surf Life Saving Club. Please meet 30min before your lesson at the
+      trailer for check-in.
+    Paekākāriki Surf Lifeguards, End of, The Parade, Paekākāriki 5034
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    CONGRATS you are now booked in for your surf lessons, so get ready for an awesome surf
+      experience!
+
+    Please make sure you arrive and check in 30 minutes prior.
+
+    Our trailer will be parked by the entrance to the Paekākāriki Beach Surf Life Saving
+      Club. Please meet 30min before your lesson at the trailer for check-in.
+
+    Paekākāriki Surf Lifeguards, End of, The Parade, Paekākāriki 5034
+
+    Please make sure you have your phone's turned on at all times in case we need to contact
+      you.
+
+    Our cell number is 0211764073 if you need to contact us.
+
+    Please see below info on your lesson such as location and what to bring etc.
+
+    Also make sure you have signed the online digital wavier which will be sent to you at
+      the time of booking.
+
+    **Download the App**
+    Please download the [**Wellington Surf Lessons App**](https://wellington-surf-lessons-
+      community.mn.co/share/sWWYBQEyNGIJ0nFX?utm_source=manual)  to receive important
+      notices regarding your lesson, updates on the best days to surf, view your lesson
+      photos and join the learn to surf community. Our instructors will also be in the chats
+      to answer any of your questions :)
+
+    See you at the beach soon!
+
+    Team at WSL
+
+
+    #INFO ABOUT YOUR LESSON
+
+    Please read below info about your upcoming surf lesson.
+
+    ![Description of image](https://cdn.filestackcontent.com/JSPy0VDQx6whLGPNareg)
+
+    #Duration
+    2 Hours
+
+    #About
+    Wellington Surf Lesson offer super fun group classes for both beginner through to
+      intermediate level students and cater for students of all ages, from kids as young as
+      7 years old surfing with their parents through to adults of all ages.
+
+    #Whats Included
+
+    - We use the Surfing NZ Approved Softboards which are easy to balance, paddle, stand &
+      turn on
+
+    - Super warm C-Skins wetsuits
+
+    - 2 hours of expert instruction from qualified Surfing NZ Instructors
+
+    - Discounts on boards, wetsuits and accessories at our surf shop based in Miramar
+      [**Shop Now & Collect At The Beach**](https://wellingtonsurfshop.co.nz/)
+
+    #Extra Accessories
+    Booties, gloves and hoods are $10 a pair and need to be booked / paid for on arrival.
+      Will be first in first served on available sizes so please arrive early.
+
+    #Need some individual help during the classes?
+    If you need some individual help during our group classes, please don't hesitate to chat
+      with  just one of the team at the start of the lesson about your current surfing
+      experience and what you feel you need help with. We will then give you some individual
+      help during the class to fine tune your surfing.
+
+    #About Kids
+    The group lessons are a mixed class of adults and kids so you can surf with your kids!
+      Or if you prefer, a private group lesson or birthday party can be arranged just for
+      the kids. All kids are provided with the right surfboard and wetsuit to get them
+      having the most fun and learning quicker.
+
+    **Important: For less experienced kids or kids younger than 11 we require the parent to
+      supervise them at knee height in the water at all times during the class.**
+
+    #What To Bring
+    - Swim wear
+    - Towel
+    - Drinking water
+    - Sunscreen
+
+    #No Changing Rooms At Beach / Hooded Towels
+
+    The easiest way to get changed at the beach is to use a hooded towel and you can buy one
+      at the beach when you see us at the trailer during check in. Just let us know on
+      arrival that you'd like to buy one.
+
+    ![Description of image](https://cdn.filestackcontent.com/k34SIsxRTG6rhINNVM5i)
+
+    #Location
+    We are a mobile surf school and our trailer is located by the entrance to the
+      Paekākāriki Beach Surf Life Saving Club. Please meet 30min before your lesson at the
+      trailer for check-in.
+
+    Paekākāriki Surf Lifeguards, End of, The Parade, Paekākāriki 5034
+
+    ![Description of image](https://cdn.filestackcontent.com/Mh2jp2HoQ0WSewaiRjmv)
+
+    ![Description of image](https://cdn.filestackcontent.com/QhyrhlVQCjncN5CC88Qx)
+
+    --------
+
+    #Surf Shop
+
+    Loving your surfing and keen to get your own surf equipment this summer??? Well come
+      check out our surf shop in Miramar!
+
+    We are offer exclusive discounts on all our surf school approved equipment.
+
+    Come in and talk to our friendly team. We are here to fit you with the right equipment
+      and give you all the guidance and support you need.
+
+    Simply text us on 0211764073 to make a time to meet us at the shop.
+
+    **[Wellington Surf Shop](https://wellingtonsurfshop.co.nz/)**
+
+    ![Description of image](https://cdn.filestackcontent.com/YmZkFdyXSBObP79rjlst)
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (6 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    detail_what_is_included          desc+booking (REWORDED-REVIEW, score 96)
+    detail_important_info            desc+booking (DIFFERENT, score 44)
+    detail_meeting_point             booking (SAME as desc, score 100, kept longer)
+    detail_what_to_bring             booking (SAME as desc, score 100, kept longer)
+    detail_extras                    booking (SAME as desc, score 97, kept longer)
+    product_duration                 booking (SAME as desc, score 100, kept longer)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (25 filled, 23 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      541076|Fareharbor
+  product_id   <api>
+      541076
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Booking Calendar | Paekākāriki Beach
+  product_headline   <api>
+      Public Group Classes • All ages •  2 Hours • All Equipment Included • Great for
+        famlies and friends
+  product_price   <api>
+      89.0
+  product_currency   <api>
+      NZD
+  product_price_options   <api>
+      Beginner: $77.39 | Intermediate: $77.39
+  product_duration   <booking (SAME as desc, score 100, kept longer)>
+      Duration: 2 Hours
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/qOcjh3KRumbSbkER41Bw
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/qOcjh3KRumbSbkER41Bw",
+        "https://cdn.filestackcontent.com/fTIGHeWlQgeKBdXOlRm1"]
+  product_category
+      (empty)
+
+  [LOCATION]
+  location_street
+      (empty)
+  location_city
+      (empty)
+  location_state
+      (empty)
+  location_country
+      (empty)
+  location_postcode
+      (empty)
+  location_latitude
+      (empty)
+  location_longitude
+      (empty)
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Download The App / Free Surf Lesson Notifications!
+      Our classes run every day surf is up and by downloading the Wellington Surf Lessons
+        App you can receive notifications on your phone 2-3 days prior to when we are
+        running classes. This is important as lessons are surf/weather dependant which
+        means we may not have all our lesson times available on the calendar until a few
+        days prior.
+      Wellington Surf Lesson offer super fun group classes for both beginner through to
+        intermediate level students and cater for students of all ages, from kids as young
+        as 7 years old surfing with their parents through to adults of all ages.
+      Lessons are progressive so we recommend students take 2-3 beginner lessons alongside
+        some practise rentals then 2-3 intermediate classes.
+      See Package Deals!
+      Once you've got your surfing to where it needs to be, you can book a FREE
+        Consultation with one of our instructors on the best equipment to buy based on
+        your current surfing ability and goals.
+      Beginners Classes (Option 1) - Beginner classes will focus on all the important
+        fundamentals you should know before hitting the water by yourself E.g. beach
+        safety, body positioning, basic pop up techniques, catching waves in the white
+        water and more. After taking a few classes we highly recommend students do some
+        practise rentals to practise by them selves.
+      Intermediate Classes (Option 2) - Intermediate classes will focus on riding unbroken
+        waves, how to get through the waves properly, correct positioning to catch
+        unbroken waves, how to turn and ride across the wave, advance pop up techniques
+        and much more! These classes are suitable for students who have taken at least 2-3
+        beginner classes, had some practise by them selves and are feeling confident with
+        their pop up in white water.
+      The lessons are progressive so we recommend students take the following lesson plan:
+      x3 beginner lessons alongside some practise rentals
+      x3 intermediate classes alongside some practise rentals
+      Private lessons with our expert instructors to fine tune your surfing further
+      For discounts on multiple surf lessons and a progressive lesson approach, please see
+        our Package Deals!
+      Need some individual help during the classes?
+      If you need some individual help during our group classes, don't hesitate to chat
+        with just one of the team at the start of the lesson about your current surfing
+        experience and what you feel you need help with. We will then give you some
+        individual help during the class to fine tune your surfing.
+      The group lessons are a mixed class of adults and kids so you can surf with your
+        kids! Or if you prefer, a private group lesson or birthday party can be arranged
+        just for the kids. All kids are provided with the right surfboard and wetsuit to
+        get them having the most fun and learning quicker.
+      Download The App
+      Download the Wellington Surf Lessons App and you'll receive:
+      Notifications on your phone 2-3 days prior to when the surf is best and we are
+        running surf classes & rentals.
+      Chat with a supportive group of like minded surfers who are also learning to surf
+      Get your questions answered by the community and our instructor team
+      Buy and or sell surf equipment
+      Download the Wellington Surf Lessons App for FREE!
+      Loving your surfing and keen to buy your own surf equipment this summer??? Well come
+        check out our surf shop in Miramar!
+      We are offer our students discounts on all our surf school approved equipment.
+      Come in and talk to our friendly team. We are here to fit you with the right
+        equipment and give you all the guidance and support you need.
+      Simply text us on 0211764073 to make a time to meet us at the shop.
+  detail_highlights
+      (empty)
+  detail_what_is_included   <desc+booking (REWORDED-REVIEW, score 96)>
+      We use the Surfing NZ Approved Softboards which are easy to balance, paddle, stand &
+        turn on
+      Super warm C-Skins wetsuits
+      2 hours of expert instruction from qualified Surfing NZ Instructors
+      Discounts on boards, wetsuits and accessories at our surf shop called Wellington
+        Surf Co based in Miramar
+
+      We use the Surfing NZ Approved Softboards which are easy to balance, paddle, stand &
+        turn on
+      Super warm C-Skins wetsuits
+      2 hours of expert instruction from qualified Surfing NZ Instructors
+      Discounts on boards, wetsuits and accessories at our surf shop based in Miramar Shop
+        Now & Collect At The Beach (https://wellingtonsurfshop.co.nz/)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info   <desc+booking (DIFFERENT, score 44)>
+      INFO ABOUT YOUR LESSON: Please read below info about your upcoming surf lesson.
+      Description of image (https://cdn.filestackcontent.com/JSPy0VDQx6whLGPNareg)
+
+      Important - Please read this first!
+      Here you can book in lessons for you and your friends on the available calendar
+        dates.
+      If you have a package deal or gift voucher coupon code, then please book in a time
+        and enter your code in the coupon code section under CHOOSE OPTIONS. If you have a
+        gift card please enter this at check out.
+      For discounts on multiple surf lessons and a progressive lesson approach, please see
+        our Package Deals!
+      New lesson times will be added to the calendar each week so please check the booking
+        calendar regularly for available times slots.
+      Note: If you have booked a surf lesson in advance and the weather conditions are not
+        suitable for surfing we will offer you an alternative day to book.
+  detail_booking_notes   <booking>
+      Please make sure you arrive and check in 30 minutes prior.
+      Our trailer will be parked by the entrance to the Paekākāriki Beach Surf Life Saving
+        Club.
+      Please make sure you have your phone's turned on at all times in case we need to
+        contact you.
+      Our cell number is 0211764073 if you need to contact us.
+      Please see below info on your lesson such as location and what to bring etc.
+      Also make sure you have signed the online digital wavier which will be sent to you
+        at the time of booking.
+      Download the App: Please download the Wellington Surf Lessons App
+        (https://wellington-surf-lessons-
+        community.mn.co/share/sWWYBQEyNGIJ0nFX?utm_source=manual) to receive important
+        notices regarding your lesson, updates on the best days to surf, view your lesson
+        photos and join the learn to surf community. Our instructors will also be in the
+        chats to answer any of your questions :)
+      Description of image (https://cdn.filestackcontent.com/JSPy0VDQx6whLGPNareg)
+      About: Wellington Surf Lesson offer super fun group classes for both beginner
+        through to intermediate level students and cater for students of all ages, from
+        kids as young as 7 years old surfing with their parents through to adults of all
+        ages.
+      Need some individual help during the classes?: Q: Need some individual help during
+        the classes? A: If you need some individual help during our group classes, please
+        don't hesitate to chat with just one of the team at the start of the lesson about
+        your current surfing experience and what you feel you need help with. We will then
+        give you some individual help during the class to fine tune your surfing.
+      About Kids: The group lessons are a mixed class of adults and kids so you can surf
+        with your kids! Or if you prefer, a private group lesson or birthday party can be
+        arranged just for the kids. All kids are provided with the right surfboard and
+        wetsuit to get them having the most fun and learning quicker.
+      Important: For less experienced kids or kids younger than 11 we require the parent
+        to supervise them at knee height in the water at all times during the class.
+      No Changing Rooms At Beach / Hooded Towels: The easiest way to get changed at the
+        beach is to use a hooded towel and you can buy one at the beach when you see us at
+        the trailer during check in. Just let us know on arrival that you'd like to buy
+        one.
+      Description of image (https://cdn.filestackcontent.com/k34SIsxRTG6rhINNVM5i)
+      Surf Shop: Loving your surfing and keen to get your own surf equipment this
+        summer??? Well come check out our surf shop in Miramar!
+      We are offer exclusive discounts on all our surf school approved equipment.
+      Come in and talk to our friendly team. We are here to fit you with the right
+        equipment and give you all the guidance and support you need.
+      Simply text us on 0211764073 to make a time to meet us at the shop.
+      Wellington Surf Shop (https://wellingtonsurfshop.co.nz/)
+      Description of image (https://cdn.filestackcontent.com/YmZkFdyXSBObP79rjlst)
+  detail_meeting_point   <booking (SAME as desc, score 100, kept longer)>
+      Location: We are a mobile surf school and our trailer is located by the entrance to
+        the Paekākāriki Beach Surf Life Saving Club. Please meet 30min before your lesson
+        at the trailer for check-in.
+      Paekākāriki Surf Lifeguards, End of, The Parade, Paekākāriki 5034
+      Description of image (https://cdn.filestackcontent.com/Mh2jp2HoQ0WSewaiRjmv)
+      Description of image (https://cdn.filestackcontent.com/QhyrhlVQCjncN5CC88Qx)
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <booking (SAME as desc, score 100, kept longer)>
+      Swim wear
+      Towel
+      Drinking water
+      Sunscreen
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions   <desc>
+      For less experienced kids or kids younger than 11 we require the parent to supervise
+        them at knee height in the water at all times during the class.
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras   <booking (SAME as desc, score 97, kept longer)>
+      Extra Accessories: Booties, gloves and hoods are $10 a pair and need to be booked /
+        paid for on arrival. Will be first in first served on available sizes so please
+        arrive early.
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      You must CALL & TEXT to rebook prior to your lesson. Rebooking your lesson to a new
+        date or time with less than 3 days notice is $25 / person. Regardless of
+        circumstances if you cancel the lesson 24 hours before your lesson time you will
+        be charged the full lesson rate.
+
+      If we need to cancel our activity for any reason we will re-book you free of charge
+        or offer you a full refund.
+
+      Surf Lesson Gift Vouchers & Package Deals are valid for up to x1 year and can be
+        used anytime during the surf season which will run from mid October through until
+        April.
+
+      Package Deals and Gift Vouchers are valid for individual surfers only.
+      E.g. You won't be able to book in your friends for lessons using the same package
+        deal or gift voucher coupon code.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      15
+  detail_pricing_notes   <desc>
+      $89 / surfer (Includes all equipment!)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      wellingtonsurflessons
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 2 of 10   |   id 215423   |   Nundah Cemetery Haunted History Tour
+supplier: historicaustralia
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Meet at the gates of one of Australia’s most historic and intimate graveyards – Nundah
+      Cemetery. Although officially gazetted in 1862, the first European burials took place
+      here in 1846.
+    Be led on a 1.5 hour historic ghost tour and hear real ghost stories from within the
+      cemetery and of those who are buried there – true tales researched from archives,
+      libraries, former grave diggers & local people – cemetery symbolism, poisoned
+      chocolates, lively statues & aboriginal warriors. Featured stories include Death by
+      Chocolate, The Ghost Girl, The Premonition, The Ghost Ship & the Professor.
+    Tour Includes
+    ✔ 1.5 hour historic ghost tour with experienced guide through this haunted site
+    ✔ Restricted tour size
+    ✔ Donation to Ghost Tours’ Haunted Heritage Fund
+    Important Information
+    ✔ BRING YOUR OWN TORCH - A torch is required for the tour. Each guest must bring 1 torch
+      per person (Phone apps are suitable)
+    ✔ NO TOILET FACILITIES WILL BE AVAILABLE AT THIS SITE , please use facilities elsewhere
+      before joining us at this site
+    ✔ WEAR FLAT ENCLOSED SHOES - All guests must wear flat enclosed shoes. Other shoes will
+      not be accepted.
+    ✔ BRING A WATER BOTTLE -To keep you hydrated during the tour
+    ✔ TOURS WILL STILL RUN IN THE RAIN - We believe the weather really adds to the
+      atmosphere of a tour. If there is rain, please bring an umbrella and or raincoat, and
+      enjoy the tour. Tours will only be cancelled if conditions become dangerous - we will
+      notify you in these circumstances close to the tour time.
+    ALCOHOL/ ILLICIT SUBSTANCE USE
+    The consumption of alcohol and use of illegal substances are not permitted BEFORE or
+      DURING a tour, any client believed to be intoxicated, inebriated, or otherwise under
+      the influence of drugs and/or alcohol will not be admitted at time of check-in.
+    SMOKING
+    Smoking/ vaping is not permitted at any time during our tours. If anyone forgets this,
+      and starts smoking, they will be asked to immediately cease. If they do not, they will
+      be asked to leave the tour.
+    MOBILE / TABLET DEVICE USE
+    Mobile and tablet devices are only to be used on tour whilst taking photographs or in an
+      emergency. If you use your phone/ tablet for any other purpose during any of our
+      tours, you will be asked to stop. Refusal to do so may result in you being asked to
+      leave the tour.
+    Paranormal investigation / ghost hunting is strictly not permitted
+    This includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+      video and still photography, psychic, medium and clairvoyant channelling of spirits.
+    Please always:
+    • Respect the role/authority of the tour guides.
+    • Respect other client’s experience.
+    • Respect the historic sites visited.
+    Accessibility
+    CLICK HERE for accessibility information
+    Suitability
+    Tours are not suitable for children under 10 years. Parents and guardians are advised
+      that this tour features strong content in the form of true historic information and
+      tales delivered through storytelling. The stories may include gruesome and macabre
+      material including murders, crimes, violence, deaths, executions, and suicide. The
+      stories can be frightening, scary and distressing especially for young children.
+    Under 10's not permitted on tour. Those under the age of 18 must be
+      accompanied/supervised by an adult.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    ###Reminder
+    Please ensure that this booking confirmation is circulated to all those that you have
+      booked for. Please also ask them all to read the important information, tour rules and
+      health and safety information included.
+
+    ###OUR MOST IMPORTANT (*but not our only*) TOUR RULES:
+    •       **Guests must be wearing flat-soled enclosed shoes.** Thongs, sandals and high
+      heels will not be permitted on tour.
+    •       **Each guest is required to bring their own torch.** Torch apps on smart phones
+      are suitable. Torches must be turned on when directed to move, however they can be
+      turned off when stopped for atmosphere. Anyone found to be deliberately flashing
+      torches into another's face will be immediately removed from the tour.
+    •       We believe the weather really adds to the atmosphere of a tour. **If there is
+      rain, please bring an umbrella and or raincoat, and enjoy the tour.** Tours will only
+      be cancelled if conditions become dangerous - we will notify you in these
+      circumstances close to the tour time.
+    •      Please bring a water bottle with you to keep hydrated during 2 hr walking tour.
+    •      Please arrive no later than 15 minutes before your tour is due to start.
+    •      Under 18's must be accompanied by an adult. Under 10's not permitted on tour.
+
+
+    ---
+
+    ###Accessibility
+    [CLICK HERE for accessibility
+      information](https://ghosttoursaustralia.com.au/disability-access-companion-cards/)
+
+    ###Suitability
+    Tours are not suitable for children under 10 years (unless otherwise stated). Children
+      under 10 will not be permitted on any tour (unless otherwise stated). Parents and
+      guardians are advised that this tour features strong content in the form of true
+      historic stories and tales delivered in a dramatic style. The stories may include
+      gruesome and macabre material including murders, crimes, violence, deaths, executions
+      and suicide. The stories can be frightening, scary and distressing especially for
+      young children.
+
+    Those under the age of 18 must be accompanied/supervised by an adult.
+
+    ###Reminder of our Tour Rules/ Company Policy:
+    By undertaking one of our tours, all clients agree to abide by the following rules. Any
+      person not abiding by the rules will not be permitted on the tour. No refund or
+      transfer will be granted.
+
+    •       There are **no toilet facilities** available at site. Please use facilities
+      elsewhere before joining us at this site.
+    •       The consumption of alcohol and use of illegal substances are not permitted
+      BEFORE or DURING a tour, any guest believed to be intoxicated, inebriated, or
+      otherwise under the influence of drugs and/or alcohol will not be admitted at time of
+      check-in.
+    •       Smoking/ vaping is not permitted at any time during our tours. If anyone forgets
+      this, and starts smoking, they will be asked to immediately cease. If they do not,
+      they will be asked to leave the tour.
+    •       Proof of age or other identification may be required upon request for clients
+      claiming concessions.
+    •       Once tours have commenced, guests will be unable to leave the tour group.
+      Visitors must stay with the tour group at all times for their own safety
+    •       Historic Australia reserves the right to change a tour itinerary and/or Tour
+      Guide(s) without notice.
+    •       Mobile and tablet devices are only to be used on tour whilst taking photographs
+      or in an emergency. If you use your phone/ tablet for any other purpose during any of
+      our tours, you will be asked to stop. Refusal to do so may result in you being asked
+      to leave the tour.
+    •       Video cameras and recording devices of any sort are NOT permitted.
+    •       All tours, stories, tales etc are the intellectual property of Jack Sim and
+      Historic Australia and may not be recorded or reproduced in any form without written
+      permission prior to the commencement of a tour.
+    •       Horror costumes/ makeup/ masks are not permitted to be worn. Historic Australia
+      reserves the right to refuse admission to anyone wearing a horror costume that is
+      deemed inappropriate or distasteful.
+    •       Paranormal investigation / ghost hunting is strictly *not* permitted on tours.
+      This includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+      video and still photography, psychic, medium and clairvoyant channelling of spirits.
+    •       Certified guide, hearing, assistance and companion animals are the **only**
+      animals permitted on tours.
+    •       Management reserves the right to refuse admission for any reason.
+    •       Guests engaging in inappropriate behaviour will be removed and not be entitled
+      to a refund.
+    •       Historic Australia reserves the right to refuse entry to any child or person
+      whom is deemed to be at risk from the material presented.
+    •       Guests engaging in criminal offences such as stealing, deliberately damaging or
+      vandalising sites will be removed and may face prosecution.
+    •       Historic Australia accepts no responsibility for lost or stolen property.
+    •       Knives, sharp implements, weapons, pens, pencils, permanent markers, glass
+      bottles, cans, hot food, are strictly not permitted during a tour.
+    •       Loitering at sites at the conclusion of tour is not permitted.
+    •       Undertaking a Historic Australia Tour is at your own risk.
+
+    Please always:
+    •       Respect the role/authority of the tour guides.
+    •       Respect other client’s experience.
+    •       Respect the historic sites visited.
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (3 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    detail_important_info            desc+booking (DIFFERENT, score 46)
+    detail_accessibility             booking (SAME as desc, score 100, kept longer)
+    detail_restrictions              booking (SAME as desc, score 97, kept longer)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (28 filled, 20 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      215423|Fareharbor
+  product_id   <api>
+      215423
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Nundah Cemetery Haunted History Tour
+  product_headline   <api>
+      From $38 • 1.5 Hours • Ages 10+ • One of Australia's most historic and intimate
+        graveyards
+  product_price   <api>
+      38.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      Adult: $34.55 | Concession: $31.82 | Teenager: $22.73 | Companion Card - Additional
+        Ticket for Carer: $0.00
+  product_duration
+      (empty)
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/Bs7KvM0QRbKlmaDY5Qex
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/Bs7KvM0QRbKlmaDY5Qex",
+        "https://cdn.filestackcontent.com/aJzRQga4RKuBTrNdgM0z"]
+  product_category   <api>
+      History Tour
+
+  [LOCATION]
+  location_street   <api>
+      Nundah Cemetery Gates, 86 Hedley Avenue
+  location_city   <api>
+      Nundah
+  location_state   <api>
+      QLD
+  location_country   <api>
+      AU
+  location_postcode   <api>
+      4012
+  location_latitude   <api>
+      -27.407849
+  location_longitude   <api>
+      153.067439
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Meet at the gates of one of Australia’s most historic and intimate graveyards –
+        Nundah Cemetery. Although officially gazetted in 1862, the first European burials
+        took place here in 1846.
+      Be led on a 1.5 hour historic ghost tour and hear real ghost stories from within the
+        cemetery and of those who are buried there – true tales researched from archives,
+        libraries, former grave diggers & local people – cemetery symbolism, poisoned
+        chocolates, lively statues & aboriginal warriors. Featured stories include Death
+        by Chocolate, The Ghost Girl, The Premonition, The Ghost Ship & the Professor.
+  detail_highlights
+      (empty)
+  detail_what_is_included   <desc>
+      1.5 hour historic ghost tour with experienced guide through this haunted site
+      Restricted tour size
+      Donation to Ghost Tours’ Haunted Heritage Fund
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info   <desc+booking (DIFFERENT, score 46)>
+      Reminder: Please ensure that this booking confirmation is circulated to all those
+        that you have booked for. Please also ask them all to read the important
+        information, tour rules and health and safety information included.
+
+      BRING YOUR OWN TORCH - A torch is required for the tour. Each guest must bring 1
+        torch per person (Phone apps are suitable)
+      NO TOILET FACILITIES WILL BE AVAILABLE AT THIS SITE, please use facilities elsewhere
+        before joining us at this site
+      WEAR FLAT ENCLOSED SHOES - All guests must wear flat enclosed shoes. Other shoes
+        will not be accepted.
+      BRING A WATER BOTTLE -To keep you hydrated during the tour
+      TOURS WILL STILL RUN IN THE RAIN - We believe the weather really adds to the
+        atmosphere of a tour. If there is rain, please bring an umbrella and or raincoat,
+        and enjoy the tour. Tours will only be cancelled if conditions become dangerous -
+        we will notify you in these circumstances close to the tour time.
+  detail_booking_notes
+      (empty)
+  detail_meeting_point
+      (empty)
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring
+      (empty)
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility   <booking (SAME as desc, score 100, kept longer)>
+      Accessibility: CLICK HERE for accessibility information
+        (https://ghosttoursaustralia.com.au/disability-access-companion-cards/)
+  detail_restrictions   <booking (SAME as desc, score 97, kept longer)>
+      OUR MOST IMPORTANT (but not our only) TOUR RULES:
+      Guests must be wearing flat-soled enclosed shoes. (required) Thongs, sandals and
+        high heels will not be permitted on tour.
+      Each guest is required to bring their own torch. (required) Torch apps on smart
+        phones are suitable. Torches must be turned on when directed to move, however they
+        can be turned off when stopped for atmosphere. Anyone found to be deliberately
+        flashing torches into another's face will be immediately removed from the tour.
+      We believe the weather really adds to the atmosphere of a tour. If there is rain,
+        please bring an umbrella and or raincoat, and enjoy the tour. (required) Tours
+        will only be cancelled if conditions become dangerous - we will notify you in
+        these circumstances close to the tour time.
+      Please bring a water bottle with you to keep hydrated during 2 hr walking tour.
+      Please arrive no later than 15 minutes before your tour is due to start.
+      Under 18's must be accompanied by an adult. Under 10's not permitted on tour.
+      Suitability: Tours are not suitable for children under 10 years (unless otherwise
+        stated). Children under 10 will not be permitted on any tour (unless otherwise
+        stated). Parents and guardians are advised that this tour features strong content
+        in the form of true historic stories and tales delivered in a dramatic style. The
+        stories may include gruesome and macabre material including murders, crimes,
+        violence, deaths, executions and suicide. The stories can be frightening, scary
+        and distressing especially for young children.
+      Those under the age of 18 must be accompanied/supervised by an adult.
+      Reminder of our Tour Rules/ Company Policy: By undertaking one of our tours, all
+        clients agree to abide by the following rules. Any person not abiding by the rules
+        will not be permitted on the tour. No refund or transfer will be granted.
+      There are no toilet facilities available at site. Please use facilities elsewhere
+        before joining us at this site.
+      The consumption of alcohol and use of illegal substances are not permitted BEFORE or
+        DURING a tour, any guest believed to be intoxicated, inebriated, or otherwise
+        under the influence of drugs and/or alcohol will not be admitted at time of check-
+        in.
+      Smoking/ vaping is not permitted at any time during our tours. If anyone forgets
+        this, and starts smoking, they will be asked to immediately cease. If they do not,
+        they will be asked to leave the tour.
+      Proof of age or other identification may be required upon request for clients
+        claiming concessions.
+      Once tours have commenced, guests will be unable to leave the tour group. Visitors
+        must stay with the tour group at all times for their own safety
+      Historic Australia reserves the right to change a tour itinerary and/or Tour
+        Guide(s) without notice.
+      Mobile and tablet devices are only to be used on tour whilst taking photographs or
+        in an emergency. If you use your phone/ tablet for any other purpose during any of
+        our tours, you will be asked to stop. Refusal to do so may result in you being
+        asked to leave the tour.
+      Video cameras and recording devices of any sort are NOT permitted.
+      All tours, stories, tales etc are the intellectual property of Jack Sim and Historic
+        Australia and may not be recorded or reproduced in any form without written
+        permission prior to the commencement of a tour.
+      Horror costumes/ makeup/ masks are not permitted to be worn. Historic Australia
+        reserves the right to refuse admission to anyone wearing a horror costume that is
+        deemed inappropriate or distasteful.
+      Paranormal investigation / ghost hunting is strictly not permitted on tours. This
+        includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+        video and still photography, psychic, medium and clairvoyant channelling of
+        spirits.
+      Certified guide, hearing, assistance and companion animals are the only animals
+        permitted on tours.
+      Management reserves the right to refuse admission for any reason.
+      Guests engaging in inappropriate behaviour will be removed and not be entitled to a
+        refund.
+      Historic Australia reserves the right to refuse entry to any child or person whom is
+        deemed to be at risk from the material presented.
+      Guests engaging in criminal offences such as stealing, deliberately damaging or
+        vandalising sites will be removed and may face prosecution.
+      Historic Australia accepts no responsibility for lost or stolen property.
+      Knives, sharp implements, weapons, pens, pencils, permanent markers, glass bottles,
+        cans, hot food, are strictly not permitted during a tour.
+      Loitering at sites at the conclusion of tour is not permitted.
+      Undertaking a Historic Australia Tour is at your own risk.
+      Please always:
+      Respect the role/authority of the tour guides.
+      Respect other client’s experience.
+      Respect the historic sites visited.
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      **If a tour booking is cancelled by a customer, or if any member of the tour group
+        cancels, the following policies apply:**
+
+      • Cancellation **0-4 business days** prior to tour date – Non-refundable.
+      Tickets can be transferred to friends or family members. Please ensure you **contact
+        us via email** to inform us of the new booking name/contact. Once a booking has
+        been transferred, the booking will not be able to be transferred again, and is not
+        eligible for a refund.
+
+      • Cancellation **5-10 business days** prior to tour date – Non-refundable.
+      Tickets can be transferred to an alternative date for the same tour. Please ensure
+        you **contact us via email** to inform us of your request. Once a booking has been
+        transferred, the booking will not be able to be transferred again, and is not
+        eligible for a refund.
+
+      • Cancellation **11 or more business days** prior to tour date – 75% Refund
+        (excluding credit card surcharge).
+
+      •       Historic Australia must be advised of cancellation in writing by the person
+        who booked the tour.
+      •       Failure to attend the tour is deemed to be a cancellation. Refunds will not
+        apply.
+      •       PLEASE NOTE: COVID-19 is no longer an unforeseen circumstance and regular
+        cancellation fees apply - If you are unable to attend at short notice due to covid
+        or any other illness, please try to find someone else to use your tickets. Please
+        ensure you contact us via email to inform us of the new booking name/contact.
+
+      •       All cancellations and transfer requests for bookings must adhere to our
+        business hours and be notified by written communication via email to
+        **bookings@historicaustralia.com.au**
+
+
+      **If a tour is cancelled by Historic Australia, the following policies apply:**
+      •       Historic Australia reserves the right to cancel a tour without notice.
+      •       Historic Australia tours are rarely cancelled and would only be cancelled
+        due to unforeseen circumstances. These include, but are not limited to - sick
+        staff member, staff unavailability, injury or unexpected dangerous weather
+        conditions, an emergency/dangerous situation.
+      •       Historic Australia will contact customers promptly via phone & email to let
+        them know the tour is cancelled and to make rescheduling or refunding
+        arrangements.
+      •       Tours cancelled by Historic Australia will be rescheduled & customers will
+        be transferred to another agreed upon tour of the same value as soon as possible.
+        A full refund (excluding credit card surcharge) provided to those who are unable
+        to rebook.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      historicaustralia
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 3 of 10   |   id 107735   |   18,000ft Skydive – Franz Josef
+supplier: skydivefranz
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Skydive Franz Josef - 10,000ft Tandem Skydive Experience
+    Nestled between New Zealand’s highest mountains, the Tasman Sea, stunning temperate
+      rainforest, glowing glaciers, mirror lakes and braided river beds, Franz Josef Glacier
+      has been described as one of the most beautiful place on earth. For this reason and
+      many others, the region was included in the Te Wahipounamu World Heritage Area. Get up
+      here at Skydive Franz Josef :
+    experience up to 85 seconds freefall
+    enjoy up to 30-minute flight to altitude
+    a majestic 3 to 5-minute flight under canopy
+    You’ll be paired with an experienced Tandem Master, guiding you every step of the way
+      for a safe, exhilarating adventure. Jump with zero regrets knowing that all the
+      spectacular, once-in-a-lifetime moments are there to remember forever!
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    Please complete this online waiver before you arrive for your check in
+    https://waiver.smartwaiver.com/w/5dade31899d8a/web/
+
+    This confirmation is a tax invoice for your booking.
+    INFLITE - GST: 109-091-502
+
+    #Need to contact us?
+
+    [Facebook Messenger](m.me/skydivefranz)
+    [Phone: +64 3 752 0714](tel:+6437520714)
+    [Freephone: 0800 800 702](tel: 0800800702)
+    [LiveChat with Us](https://direct.lc.chat/9864310/)
+
+    #What Should You Bring
+    - Closed shoes (without metal lace loops-Lace up Sneakers or Trainers are ideal)
+    - Warm clothing / a few layers (regardless of season)
+    -If you wear any head covering that cannot be removed, please wear the lowest-profile
+      option possible. During the gear-up process, you will be fitted with a customer hat
+      and goggles, so any head covering may need to be adjusted to ensure a secure and
+      comfortable fit under the hat. For safety reasons, please remove any sharp hair
+      accessories, such as hairpins, before your skydive.
+    - A big smile!
+
+    #Should you eat?
+    In general, it is better to have something in your stomach and eat beforehand. However
+      some people may be susceptible to stomach upset and/or motion sickness from all the
+      excitement.
+    Please arrive 30 minutes before your booked time at 63 Cron Street, Franz Josef so our
+      team can get you checked in and ready for your skydive, and allow 2-.5-3 hours for the
+      whole experience.
+
+    If you haven’t already added a media package, you can upgrade on the day OR  give us a
+      call or email to upgrade and relive the experience forever:
+
+    Personal Photographer
+    A personal photographer is a separate skydiver (camera flyer) who jumps with you wearing
+      the camera equipment on their helmet. The outside perspective includes full panoramic
+      views over the beautiful region, during your free-fall experience. A jumping buddy
+      that will capture you pre-jump, and meet you on the ground for a post jump interview.
+
+    Instructor Cam
+    Choose to be filmed by your Tandem Master and get up-close shots that will capture every
+      expression as you free fall from the plane. This package films the entire skydive
+      experience from a close – up wide-angle lens mounted on the Tandem Masters wrist.
+
+    Best of Both Worlds
+    Capture the experience of a lifetime from all the best angles with both the Personal
+      Photographer and Instructor Cam combined for the most epic memories of your skydive
+      experience. Includes photos and videos from both your Tandem Masters camera and a
+      separate skydiver (camera flyer) who jumps at the same time as you, wearing the camera
+      equipment on their helmet.
+
+    After the jump for those that selected a media package:
+    To access your photos and video:
+
+    Click the link delivered via email (to the email address you provided ) and download
+      your media to a computer or hard drive.
+
+    Your media will be available for 30 days only – after that, it will be permanently
+      deleted, so please ensure you download your footage in time.
+
+    Important tips:
+    Please be sure to check your "Junk" and "others" folders.
+
+    Make sure you’re on a stable internet connection to avoid any issues while downloading.
+
+    Your media will be available for 30 days only – after that, it will be permanently
+      deleted, so please ensure you download your footage in time.
+
+    A red countdown bar at the top of the download page will show how many days you have
+      left.
+
+    If you haven’t received your media within 48 hours, please get in touch with us via
+      email or phone and we’ll look into it for you.
+
+    You can also download the Revl app, which gives you access to your files and the option
+      to change the music to one of your choice.
+
+
+    ##Terms & Conditions
+    Please view our full terms and conditions [HERE](https://www.infliteexperiences.co.nz/Pi
+      csHotel/infliteMicrosites2017/Brochure/Terms%20and%20Conditions.pdf)
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (0 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    (none)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (31 filled, 17 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      107735|Fareharbor
+  product_id   <api>
+      107735
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      18,000ft Skydive – Franz Josef
+  product_headline   <api>
+      85+ SECONDS OF FREEFALL!
+  product_price   <api>
+      799.0
+  product_currency   <api>
+      NZD
+  product_price_options   <api>
+      Person: $694.78
+  product_duration   <api>
+      Allow around 2-3 hours for the experience
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/W5yLzBEdTPCxbA6BtxYI
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/ZTIipgaRWm3KK04e3GKC",
+        "https://cdn.filestackcontent.com/E6m1QMLRpaAmb0jk0tF4",
+        "https://cdn.filestackcontent.com/q3zDHOXSSZ6J8iMj2ypu",
+        "https://cdn.filestackcontent.com/uxZ42ZQ2RBKONbURPmiq"]
+  product_category   <api>
+      Skydive
+
+  [LOCATION]
+  location_street   <api>
+      63 Cron Street
+  location_city   <api>
+      Franz Josef / Waiau
+  location_state   <api>
+      West Coast Region
+  location_country   <api>
+      NZ
+  location_postcode   <api>
+      7886
+  location_latitude   <api>
+      -43.383794
+  location_longitude   <api>
+      170.18315
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Skydive Franz Josef - 10,000ft Tandem Skydive Experience
+      Nestled between New Zealand’s highest mountains, the Tasman Sea, stunning temperate
+        rainforest, glowing glaciers, mirror lakes and braided river beds, Franz Josef
+        Glacier has been described as one of the most beautiful place on earth. For this
+        reason and many others, the region was included in the Te Wahipounamu World
+        Heritage Area. Get up here at Skydive Franz Josef :
+
+      experience up to 85 seconds freefall
+      enjoy up to 30-minute flight to altitude
+      a majestic 3 to 5-minute flight under canopy
+
+      You’ll be paired with an experienced Tandem Master, guiding you every step of the
+        way for a safe, exhilarating adventure. Jump with zero regrets knowing that all
+        the spectacular, once-in-a-lifetime moments are there to remember forever!
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info
+      (empty)
+  detail_booking_notes   <booking>
+      Please complete this online waiver before you arrive for your check in
+      https://waiver.smartwaiver.com/w/5dade31899d8a/web/
+
+      This confirmation is a tax invoice for your booking.
+      INFLITE - GST: 109-091-502
+
+      If you haven’t already added a media package, you can upgrade on the day OR give us
+        a call or email to upgrade and relive the experience forever:
+
+      Please arrive 30 minutes before your booked time at 63 Cron Street, Franz Josef so
+        our team can get you checked in and ready for your skydive, and allow 2-.5-3 hours
+        for the whole experience.
+
+      After the jump for those that selected a media package:
+      To access your photos and video: Click the link delivered via email (to the email
+        address you provided ) and download your media to a computer or hard drive.
+      Your media will be available for 30 days only – after that, it will be permanently
+        deleted, so please ensure you download your footage in time.
+      Important tips: Please be sure to check your "Junk" and "others" folders.
+      Make sure you’re on a stable internet connection to avoid any issues while
+        downloading.
+      A red countdown bar at the top of the download page will show how many days you have
+        left.
+      If you haven’t received your media within 48 hours, please get in touch with us via
+        email or phone and we’ll look into it for you.
+      You can also download the Revl app, which gives you access to your files and the
+        option to change the music to one of your choice.
+  detail_meeting_point
+      (empty)
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <booking>
+      Closed shoes (without metal lace loops-Lace up Sneakers or Trainers are ideal)
+      Warm clothing / a few layers (regardless of season)
+      If you wear any head covering that cannot be removed, please wear the lowest-profile
+        option possible. During the gear-up process, you will be fitted with a customer
+        hat and goggles, so any head covering may need to be adjusted to ensure a secure
+        and comfortable fit under the hat. For safety reasons, please remove any sharp
+        hair accessories, such as hairpins, before your skydive.
+      A big smile!
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions
+      (empty)
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs   <booking>
+      Q: Should you eat? A: In general, it is better to have something in your stomach and
+        eat beforehand. However some people may be susceptible to stomach upset and/or
+        motion sickness from all the excitement.
+  detail_extras   <booking>
+      Personal Photographer: A personal photographer is a separate skydiver (camera flyer)
+        who jumps with you wearing the camera equipment on their helmet. The outside
+        perspective includes full panoramic views over the beautiful region, during your
+        free-fall experience. A jumping buddy that will capture you pre-jump, and meet you
+        on the ground for a post jump interview.
+
+      Instructor Cam: Choose to be filmed by your Tandem Master and get up-close shots
+        that will capture every expression as you free fall from the plane. This package
+        films the entire skydive experience from a close – up wide-angle lens mounted on
+        the Tandem Masters wrist.
+
+      Best of Both Worlds: Capture the experience of a lifetime from all the best angles
+        with both the Personal Photographer and Instructor Cam combined for the most epic
+        memories of your skydive experience. Includes photos and videos from both your
+        Tandem Masters camera and a separate skydiver (camera flyer) who jumps at the same
+        time as you, wearing the camera equipment on their helmet.
+  detail_disclaimers   <booking>
+      Terms & Conditions: Please view our full terms and conditions HERE (https://www.infl
+        iteexperiences.co.nz/PicsHotel/infliteMicrosites2017/Brochure/Terms%20and%20Condit
+        ions.pdf)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      By completing any booking with INFLITE West Coast, you agree to our Standard terms
+        and conditions found [here.](https://inflite.nz/tandc) If you'd like to request a
+        change to your booking, please contact reservations@inflite.nz with your booking
+        reference.
+      Please be aware that failure to show for your trip will incur cancellation charges.
+  detail_cancellation_hours   <api>
+      48.0
+  detail_tax_percentage   <api>
+      15
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      skydivefranz
+  detail_operator_contact   <booking>
+      Need to contact us?: Facebook Messenger (m.me/skydivefranz)
+      Phone: +64 3 752 0714 (tel:+6437520714)
+      Freephone: 0800 800 702 (tel:0800800702)
+      LiveChat with Us (https://direct.lc.chat/9864310/)
+
+
+================================================================================================
+PRODUCT 4 of 10   |   id 612139   |   Milford Sound Business Class | Fly Back to Queenstow
+supplier: wayfaregroup
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Experience the ultimate luxury and comfort on this exclusive Milford Sound experience.
+      Enjoy a private, small-group journey with personalised service, breathtaking scenic
+      stops, a five-course tasting menu, 2 hour cruise on the stunning Milford Sound and a
+      scenic flight back to Queenstown with Glenorchy Air.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    ##If joining this tour from our Visitor Centre, please check-in 15 minutes before your
+      departure
+
+    ##Includes return scenic flight to Queenstown with Glenorchy Air
+
+    ##What to bring
+    •       Non-slip shoes/boots
+    •       Waterproof jacket
+    •       Warm sweater/fleece jacket
+    •       Sunscreen/ sunglasses
+    •       Insect repellent
+    •       Camera/phone
+    •       Personal medication, including for asthma and allergies
+
+    Drinks and snacks are available for purchase. This is a cashless experience so please
+      come prepared.
+
+    ##Milford Sound Risk Disclosure
+
+    Visitors to Milford Sound should be aware of various natural hazards when going to
+      Milford Sound.
+
+    **Aotearoa New Zealand**
+    - Powerful natural forces have shaped Aotearoa New Zealand over millions of years.
+      Earthquakes and volcanoes lifted these beautiful islands out of the Pacific Ocean.
+      They have created the dramatic landscapes we enjoy today.
+    - Natural hazards are part of life here. Around 20,000 earthquakes are recorded each
+      year. Most are small and go unnoticed, but larger events can cause damage.
+      Understanding the hazards and how to stay safe is an important part of planning your
+      visit.
+
+    **Piopiotahi Milford Sound**
+    - Dramatic and ever-changing, Piopiotahi Milford Sound is one of the world’s most
+      spectacular and special environments. Its steep, glacier-carved mountains and deep
+      fiord have been shaped by powerful geological forces over millions of years.
+    - The area is exposed to risk from a range of natural hazards. These can occur at any
+      time, and some can happen without warning. Of all the hazards, large earthquakes,
+      landslides and tsunamis pose the greatest risk to people at Piopiotahi Milford Sound.
+    - It is extremely unlikely that one will happen during your visit, especially for a
+      short stay. However, there is a risk and the longer you spend there, the higher it
+      becomes. Once you are there, your safety options are limited and it is important you
+      understand the risks, before you go.
+
+    **Earthquakes at Piopiotahi Milford Sound**
+    - Like the rest of Aotearoa New Zealand, small earthquakes occur regularly in Fiordland.
+      We don’t feel them and they don’t bother us. These small movements are a normal part
+      of how the land works and do not pose a risk to people.
+    Sometimes, earthquakes in or near Fiordland are felt at Piopiotahi Milford Sound. They
+      might shake objects on a shelf or rattle a window, but they do not cause major impacts
+      or disrupt your visit.
+    - Occasionally, a stronger earthquake can trigger avalanches, rockfall or landslides.
+      These can cause debris to fall onto roads, jetties and tracks, and may disrupt your
+      travel plans if you happen to be nearby.
+    - Large earthquakes are rare, and extremely unlikely to happen during a short visit. But
+      they will happen again.
+    - The Alpine Fault runs almost the entire length of the South Island and crosses the
+      entrance to Piopiotahi Milford Sound. It can generate earthquakes of magnitude 8 or
+      greater, occurring on average every 300 years. There is a 75% chance of this happening
+      in the next 50 years (find out more at [af8.org.nz)](https://af8.org.nz/). An
+      earthquake of this size would almost certainly affect the narrow waterway and
+      surrounding area.
+
+    **What to do in an earthquake:**
+    - DROP, COVER and HOLD until shaking stops. Most injuries from earthquakes happen when
+      you try and move during the shaking. The lower to the ground/floor you are, the less
+      likely you are to be injured.
+    - Follow staff instructions and/or move up and away from waterways (the fiord and
+      rivers) as quickly as possible.
+
+    For more detailed information, please visit [Emergency Management
+      Southland](https://civildefencesouthland.govt.nz/piopiotahi-milford-sound) or
+      [AF8](https://af8.org.nz/).
+
+
+    **Contact Us**
+    For enquiries about your reservation, please contact the RealNZ team on
+      [contact@realnz.com](mailto:contact@realnz.com) or [0800 65 65 01](tel:08006565010).
+      For transport enquiries within 24 hours of your departure, please contact Altitude
+      Tours on [03 441 4788](tel:0344147880).
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (0 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    (none)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (23 filled, 25 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      612139|Fareharbor
+  product_id   <api>
+      612139
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Milford Sound Business Class | Fly Back to Queenstown (Fixed Wing)
+  product_headline
+      (empty)
+  product_price   <api>
+      1284.0
+  product_currency   <api>
+      NZD
+  product_price_options   <api>
+      Adult (Active): $1116.52 | Child (Active): $710.43
+  product_duration   <api>
+      9-13 hours
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/JMq19hnOR76l0BPjUz32
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/JMq19hnOR76l0BPjUz32",
+        "https://cdn.filestackcontent.com/vWwcsiEDQyO0o7jDfhJo",
+        "https://cdn.filestackcontent.com/YKIrfflaRGadJrDbmhKf",
+        "https://cdn.filestackcontent.com/Dd1tgQshQ3yIu0AWdf9l",
+        "https://cdn.filestackcontent.com/jgSOGnkBR6GP6YisMsxQ"]
+  product_category   <api>
+      Airplane | Boat Tour | Guided Tour
+
+  [LOCATION]
+  location_street
+      (empty)
+  location_city
+      (empty)
+  location_state
+      (empty)
+  location_country
+      (empty)
+  location_postcode
+      (empty)
+  location_latitude
+      (empty)
+  location_longitude
+      (empty)
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Experience the ultimate luxury and comfort on this exclusive Milford Sound
+        experience. Enjoy a private, small-group journey with personalised service,
+        breathtaking scenic stops, a five-course tasting menu, 2 hour cruise on the
+        stunning Milford Sound and a scenic flight back to Queenstown with Glenorchy Air.
+  detail_highlights
+      (empty)
+  detail_what_is_included   <booking>
+      Includes: return scenic flight to Queenstown with Glenorchy Air
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info
+      (empty)
+  detail_booking_notes   <booking>
+      Drinks and snacks are available for purchase. This is a cashless experience so
+        please come prepared.
+  detail_meeting_point
+      (empty)
+  detail_check_in   <booking>
+      If joining this tour from our Visitor Centre, please check-in 15 minutes before your
+        departure
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <booking>
+      Non-slip shoes/boots
+      Waterproof jacket
+      Warm sweater/fleece jacket
+      Sunscreen/ sunglasses
+      Insect repellent
+      Camera/phone
+      Personal medication, including for asthma and allergies
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions
+      (empty)
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers   <booking>
+      Milford Sound Risk Disclosure: Visitors to Milford Sound should be aware of various
+        natural hazards when going to Milford Sound.
+      Aotearoa New Zealand: Powerful natural forces have shaped Aotearoa New Zealand over
+        millions of years. Earthquakes and volcanoes lifted these beautiful islands out of
+        the Pacific Ocean. They have created the dramatic landscapes we enjoy today.
+      Natural hazards are part of life here. Around 20,000 earthquakes are recorded each
+        year. Most are small and go unnoticed, but larger events can cause damage.
+        Understanding the hazards and how to stay safe is an important part of planning
+        your visit.
+      Piopiotahi Milford Sound: Dramatic and ever-changing, Piopiotahi Milford Sound is
+        one of the world’s most spectacular and special environments. Its steep, glacier-
+        carved mountains and deep fiord have been shaped by powerful geological forces
+        over millions of years.
+      The area is exposed to risk from a range of natural hazards. These can occur at any
+        time, and some can happen without warning. Of all the hazards, large earthquakes,
+        landslides and tsunamis pose the greatest risk to people at Piopiotahi Milford
+        Sound.
+      It is extremely unlikely that one will happen during your visit, especially for a
+        short stay. However, there is a risk and the longer you spend there, the higher it
+        becomes. Once you are there, your safety options are limited and it is important
+        you understand the risks, before you go.
+      Earthquakes at Piopiotahi Milford Sound: Like the rest of Aotearoa New Zealand,
+        small earthquakes occur regularly in Fiordland. We don’t feel them and they don’t
+        bother us. These small movements are a normal part of how the land works and do
+        not pose a risk to people.
+      Sometimes, earthquakes in or near Fiordland are felt at Piopiotahi Milford Sound.
+        They might shake objects on a shelf or rattle a window, but they do not cause
+        major impacts or disrupt your visit.
+      Occasionally, a stronger earthquake can trigger avalanches, rockfall or landslides.
+        These can cause debris to fall onto roads, jetties and tracks, and may disrupt
+        your travel plans if you happen to be nearby.
+      Large earthquakes are rare, and extremely unlikely to happen during a short visit.
+        But they will happen again.
+      The Alpine Fault runs almost the entire length of the South Island and crosses the
+        entrance to Piopiotahi Milford Sound. It can generate earthquakes of magnitude 8
+        or greater, occurring on average every 300 years. There is a 75% chance of this
+        happening in the next 50 years (find out more at af8.org.nz
+        (https://af8.org.nz/)). An earthquake of this size would almost certainly affect
+        the narrow waterway and surrounding area.
+      What to do in an earthquake: DROP, COVER and HOLD until shaking stops. Most injuries
+        from earthquakes happen when you try and move during the shaking. The lower to the
+        ground/floor you are, the less likely you are to be injured.
+      Follow staff instructions and/or move up and away from waterways (the fiord and
+        rivers) as quickly as possible.
+      For more detailed information, please visit Emergency Management Southland
+        (https://civildefencesouthland.govt.nz/piopiotahi-milford-sound) or AF8
+        (https://af8.org.nz/).
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      ##Terms and Conditions
+      Your acceptance of the terms and conditions outlined are required to process your
+        reservation.
+      Prepayment by credit card and subsequent confirmation by RealNZ is accepted as
+        confirmation of your booking.
+      All transactions are conducted in New Zealand Dollars (NZD). Due to exchange rate
+        fluctuations, at times there may be some variance in the amounts refunded compared
+        to the amount initially charged. RealNZ (and associated companies) does not accept
+        any liability for these variances or any subsequent credit card/bank charges
+        relating to these transfers to customer’s accounts.
+      RealNZ (and associated companies) reserve the right to amend timetables, cancel
+        departures, substitute plant and equipment, amend specials or offers and alter
+        ticket prices at any time.
+      All agreements and contracts shall be subject solely to New Zealand law and the
+        exclusive jurisdiction of the New Zealand courts. In the event of a cancellation
+        or amendment to your booking, notification period is in NZ time (NZST).
+      We strongly recommend travel insurance for all our experiences, especially for those
+        that require longer notification periods for cancellation (see below).
+      By making a booking and consenting to our terms & conditions, you are agreeing to
+        receiving emails from us. Please ensure you have read and understand our [Privacy
+        Policy](https://www.realnz.com/en/privacy-policy/).
+      The majority of our vessels and all coaches are smoke-free zones, no smoking will be
+        permitted onboard. Smoking is only allowed in the designated area on our overnight
+        and multi-day cruises.
+
+      **Cancellations:** In the event of a cancellation or amendment to your booking,
+        refunds will only be granted when RealNZ receives notification at least 24 hours
+        prior (NZ time) to departure date.
+
+      ##Contact Us
+
+      RealNZ
+      Freephone (within NZ): 0800 65 65 01
+      Freephone (within Australia): 1800 65 65 01
+      Phone (international): +64 3 249 6000
+      Email info@Realnz.com
+      GST # 13-393-311
+  detail_cancellation_hours   <api>
+      48.0
+  detail_tax_percentage   <api>
+      15
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      wayfaregroup
+  detail_operator_contact   <booking>
+      Contact Us: For enquiries about your reservation, please contact the RealNZ team on
+        contact@realnz.com (mailto:contact@realnz.com) or 0800 65 65 01 (tel:08006565010).
+        For transport enquiries within 24 hours of your departure, please contact Altitude
+        Tours on 03 441 4788 (tel:0344147880).
+
+
+================================================================================================
+PRODUCT 5 of 10   |   id 310276   |   Tuff Nutterz - Centennial Park
+supplier: tuffnutterz
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Heads up Sydney! We are back!!!
+    Tuff Nutterz is a fantastic family-friendly event that promises a day filled with fun
+      and excitement for everyone. The event features Australia's biggest inflatable
+      obstacle course, which is sure to provide an exhilarating experience for both kids and
+      adults alike.​
+    With Tuff Nutterz, there's no need to worry about age restrictions because the event
+      welcomes all ages to participate and enjoy the fun. Parents with children under 5
+      years old are offered a special accompanying parent ticket.
+    Our inflatables are carefully designed to challenge and test your skills as you navigate
+      through a series of obstacles, including numerous climbing walls, slides, and other
+      exciting features. You'll need to climb, slide, jump, and crawl your way to the finish
+      line, all while having a blast with your family and friends.
+    In addition to the obstacle course, Tuff Nutterz also offers other fun activities and
+      attractions, such as a miniature Obstacle Course, a giant 6m tall slide called "Tuff
+      Slide" and occasional visits from our Friendly Vegan dancing T-rex "Tuffy".
+    There are also food and drinks available, so you can refuel and recharge before tackling
+      the next challenge.
+    Overall, Tuff Nutterz is an amazing event that promises a day filled with laughter, fun,
+      and unforgettable memories. So, gather your family and friends and get ready to tackle
+      the School holiday's most exciting activity!!
+    Opening hours
+    Every day from 9 Am - 4:45 Pm.
+    About
+    We tour the country bringing fun and excitement wherever we go. Some of the most iconic
+      locations we've been to include Centennial Park, Darling Harbour, ICC, Parliamentary
+      Triangle, Byron Bay and many more.
+    Ages
+    Suitable for all ages
+    Under 5’s require an accompanying parent/carer. (Grab our toddler ticket which includes
+      a parent ticket )
+    Responsible adults MUST remain within the premises for all minors.
+    Important Ticket Info
+    Tickets can be purchased at the door, availability dependent. We strongly suggest
+      booking online to avoid disappointment.
+    Each Toddler ticket includes a parent ticket. Purchase the toddler ticket and an extra
+      wristband will be automatically provided when you check-in at the event.
+    Only participants entering the actual inflatables need tickets. Spectators can remain on
+      the premises without a ticket as long as they are not entering the games.
+    Group bookings can include toddlers. Hence,  have in mind the number of toddlers so you
+      make sure you are not overbooking. Tick the checkbox if a group rate ticket correspond
+      to a toddler so we can provide an extra ticket upon check in.
+    What happens if it rains?
+    We won’t let wind or light rain stop the fun! For light rain, we recommend you bring a
+      spare set of clothes.
+    Take extra care if surfaces are slippery for instance due to the weather. It is
+      recommended to wear socks with grip tread soles.
+    In the event of thunderstorms, heavy rain/winds or extreme weather conditions that could
+      represent a risk we reserve the right to postpone, reschedule or cancel sessions or
+      the event. We keep a close eye on the weather ahead of our events and will communicate
+      any changes as soon as we can to ticket holders via email.
+    If an event session/day is cancelled/postponed on account of the weather, customers will
+      be issued a gift card to be used anytime in the future.
+    What to bring
+    Socks (preferably grip soles), water bottle (No glass), sunscreen, picnic blanket and
+      some form of shade if needed.
+    Please bring your QR Code and signed online waivers, either on your phone or hard copy.
+      Make your way to the ticket office to check in and get your wristbands. You can keep
+      your wristband as a memento.
+    Storage
+    Lockers are not available at the event, but you can leave your belongings safely with
+      our staff at the ticket office, at no charge.
+    Food & Drinks
+    We will have coffee, ice cream and yummy food available for purchase at our events
+      (availability dependent).
+    You may bring your own food/drinks too. No alcohol is permitted.
+    No food or drinks are allowed on or near the inflatables.
+    No glass is permitted on the premises for safety reasons.
+    Cancellation Policy
+    All sales are final, however, bookings can be re-scheduled or cancelled up to 24hs
+      before your booking date. Go to your confirmation email and find "change booking" or
+      "cancel booking" below your booking date and time. Click on it and follow the process
+      to change your booking or to cancel and receive a gift card to rebook at your
+      convenience.
+    In the case we need to cancel due to bad weather you will automatically receive a gift
+      card to rebook for another day.
+    Didn't make it? Chill out, no shows will also be issued with a gift card upon request to
+      come back another day.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    ![Description of image](https://cdn.filestackcontent.com/7nrNEH9lR4aJzAf3Qt14)
+
+    We require **all visitors who are participating** in any of our activities to **sign a
+      waiver** as, like with any high-intensity activity, it informs you of the risks
+      involved. It also asks for a few things in return from you, as our guests, to keep
+      yourselves, your group, and our staff safe. If participants are under the age of 18, a
+      parent or legal guardian must sign the waiver on their behalf. Please **forward the
+      waiver link to other parents/legal guardians in your group**.
+
+    The Waiver is to make sure you:
+
+    Understand and agree to abide by our safety rules
+    Agree to follow any rules or advice from our staff on site
+    Agree to make sure that any children you are responsible for abiding by our rules
+    Understand that you, and any children you are responsible for, participate at your own
+      risk
+
+    **Once waivers are signed online just bring your booking QR Code either on your phone or
+      hard copy (waivers will link to this) and make your way to the office to check in and
+      get your wristbands.
+
+    Please ensure you allow enough time for the check-in process. We recommend at least 30
+      minutes before the start of your session.
+
+    Late arrivals can join at any time, however, the end of your session will remain the
+      same, as your session booked.
+
+    ##Rules & Conditions of entry
+    All participants MUST have a signed waiver before entry.
+
+    Under 5’s require an accompanying parent/carer at ALL TIMES.
+
+    Adults MUST remain within the premises for all minors.
+
+    No food, no shoes, no sharp objects (including keys), no glasses, no glass, no
+      jewellery, no candy, no gum, no mobile phones, no pets, no smoking, no alcohol or
+      drugs or being under the influence of alcohol/drugs/medication.
+
+    No running, please take your time, no rushing or rushing others.
+
+    Allow plenty of space for the person in front of you.
+
+    ALWAYS look up whilst climbing. Do not climb underneath someone climbing above you.
+      People can slip and fall whilst climbing. Use straps while climbing and take one step
+      at a time.
+
+    No climbing or hanging from outside walls.
+
+    Make sure the landing area is clear of all people before jumping or sliding. Jump ONE at
+      a time.
+
+    The correct sliding position on the slides is to have arms crossed across your chest
+      with feet and legs together.
+
+    If sliding with another DO NOT hold hands. Slide separately.
+
+    Do not slide down any area that has climbing handles attached.
+
+    No pushing or rough play.
+
+    Smaller children should always be given right of way.
+
+    No tumbling or flipping and no diving.
+
+    Tread carefully and show caution as the course is uneven and spongy.
+
+    The course is only for use during public opening hours when obstacle course staff are on
+      duty.
+
+    Obstacle Course staff directions must always be followed.
+
+    No medical conditions (Heart conditions, pregnancy, etc).Maximum weight 100Kg.
+
+    You may hear a whistle or megaphone announcement meaning stop and listen, wait for
+      instructions in case of an emergency.
+
+    Enter at your own risk
+
+    ##What to bring
+    Socks (preferably grip soles), water bottle (No glass), sunscreen, picnic blanket and
+      some form of shade if needed.
+
+    Please bring your QR Code and signed online waivers, either on your phone or hard copy.
+      Make your way to the ticket office to check in and get your wristbands. You can keep
+      your wristband as a memento.
+
+    ##What happens if it rains?
+
+    We won’t let wind or light rain stop the fun! For light rain, we recommend you bring a
+      spare set of clothes.
+    Take extra care if surfaces are slippery for instance due to the weather. It is
+      recommended to wear socks with grip tread soles.
+    In the event of thunderstorms, heavy rain/winds or extreme weather conditions that could
+      represent a risk we reserve the right to postpone, reschedule or cancel sessions or
+      the event. We keep a close eye on the weather ahead of our events and will communicate
+      any changes as soon as we can to ticket holders via email.
+    If an event session/day is cancelled/postponed on account of the weather, customers will
+      be issued with a gift card to be used anytime in the future.
+
+    ##Storage
+    Lockers are not available at the event, but you can leave your belongings at the ticket
+      office with our staff if needed.
+
+    ##Food & Drinks
+    We will have coffee, ice cream and yummy food available for purchase at our events.
+    You may bring your own food/drinks too. No alcohol is permitted.
+    No food or drinks are allowed on or near the inflatables.
+    No glass is permitted on the premises for safety reasons.
+
+    ##Check in
+    Please bring your QR Code and signed online waivers, either on your phone or hard copy.
+      Make your way to the office to check in and get your wristbands. You can keep your
+      wristband as a memento.
+    Please ensure you allow enough time for the check-in process. We recommend at least 30
+      minutes before the start of your session.
+    Late arrivals can join at any time, however, the end of your session will remain the
+      same, as your session booked.
+
+    ##Change of booking
+    Go to your confirmation email and find "change booking" below your booking date and
+      time. Click on it and follow the process to change your booking.
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (3 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    detail_important_info            desc (SAME as booking, score 100, kept longer)
+    detail_what_to_bring             booking (SAME as desc, score 100, kept longer)
+    detail_restrictions              desc+booking (DIFFERENT, score 67)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (28 filled, 20 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      310276|Fareharbor
+  product_id   <api>
+      310276
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Tuff Nutterz - Centennial Park
+  product_headline   <api>
+      9th to 19th July 2026  • 9:00am - 4:45pm • All ages welcome
+  product_price   <api>
+      25.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      Bounce Pass - Group Rate (1 hour & 45 Mins ): $22.73 | Bounce Pass (1 hour & 45
+        Mins): $27.27 | Bounce Pass - Toddler + Caregiver  ( 1 hour & 45 Mins): $40.91 |
+        Bounce & Slide ( 1 hour & 45 Mins): $36.36 | Bounce & Slide - Toddler + Caregiver
+        ( 1 hour & 45 Mins): $54.55 | Bounce & Slide - Group rate  ( 1 hour & 45 Mins):
+        $31.82
+  product_duration
+      (empty)
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/shV4t5cSISamZeyWC9gm
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/shV4t5cSISamZeyWC9gm",
+        "https://cdn.filestackcontent.com/3CWI8pgITFC7gITclkKA",
+        "https://cdn.filestackcontent.com/QZLOBR4aRG2D2lz01tZN",
+        "https://cdn.filestackcontent.com/mcfCc9oWSCWbHQOV7hSe",
+        "https://cdn.filestackcontent.com/e8mBtwEjTUaqsf6k217q",
+        "https://cdn.filestackcontent.com/vzCQj92xQzRTKBUtOBSS",
+        "https://cdn.filestackcontent.com/iMt1B4V9RGmaz5pEDlns",
+        "https://cdn.filestackcontent.com/Xe7r5vsQ72Mtw17hk4oR"]
+  product_category
+      (empty)
+
+  [LOCATION]
+  location_street   <api>
+      Brazilian fields, Centennial Park
+  location_city   <api>
+      Sydney
+  location_state   <api>
+      NSW
+  location_country   <api>
+      AU
+  location_postcode   <api>
+      2021
+  location_latitude   <api>
+      -33.8981
+  location_longitude   <api>
+      151.234047
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Heads up Sydney! We are back!!!
+      Tuff Nutterz is a fantastic family-friendly event that promises a day filled with
+        fun and excitement for everyone. The event features Australia's biggest inflatable
+        obstacle course, which is sure to provide an exhilarating experience for both kids
+        and adults alike.
+      With Tuff Nutterz, there's no need to worry about age restrictions because the event
+        welcomes all ages to participate and enjoy the fun. Parents with children under 5
+        years old are offered a special accompanying parent ticket.
+      Our inflatables are carefully designed to challenge and test your skills as you
+        navigate through a series of obstacles, including numerous climbing walls, slides,
+        and other exciting features. You'll need to climb, slide, jump, and crawl your way
+        to the finish line, all while having a blast with your family and friends.
+      In addition to the obstacle course, Tuff Nutterz also offers other fun activities
+        and attractions, such as a miniature Obstacle Course, a giant 6m tall slide called
+        "Tuff Slide" and occasional visits from our Friendly Vegan dancing T-rex "Tuffy".
+      There are also food and drinks available, so you can refuel and recharge before
+        tackling the next challenge.
+      Overall, Tuff Nutterz is an amazing event that promises a day filled with laughter,
+        fun, and unforgettable memories. So, gather your family and friends and get ready
+        to tackle the School holiday's most exciting activity!!
+      Every day from 9 Am - 4:45 Pm.
+      We tour the country bringing fun and excitement wherever we go. Some of the most
+        iconic locations we've been to include Centennial Park, Darling Harbour, ICC,
+        Parliamentary Triangle, Byron Bay and many more.
+      Lockers are not available at the event, but you can leave your belongings safely
+        with our staff at the ticket office, at no charge.
+      We will have coffee, ice cream and yummy food available for purchase at our events
+        (availability dependent).
+      You may bring your own food/drinks too. No alcohol is permitted.
+      No food or drinks are allowed on or near the inflatables.
+      No glass is permitted on the premises for safety reasons.
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info   <desc (SAME as booking, score 100, kept longer)>
+      Tickets can be purchased at the door, availability dependent. We strongly suggest
+        booking online to avoid disappointment.
+      Each Toddler ticket includes a parent ticket. Purchase the toddler ticket and an
+        extra wristband will be automatically provided when you check-in at the event.
+      Only participants entering the actual inflatables need tickets. Spectators can
+        remain on the premises without a ticket as long as they are not entering the
+        games.
+      Group bookings can include toddlers. Hence, have in mind the number of toddlers so
+        you make sure you are not overbooking. Tick the checkbox if a group rate ticket
+        correspond to a toddler so we can provide an extra ticket upon check in.
+      What happens if it rains?
+      We won’t let wind or light rain stop the fun! For light rain, we recommend you bring
+        a spare set of clothes.
+      Take extra care if surfaces are slippery for instance due to the weather. It is
+        recommended to wear socks with grip tread soles.
+      In the event of thunderstorms, heavy rain/winds or extreme weather conditions that
+        could represent a risk we reserve the right to postpone, reschedule or cancel
+        sessions or the event. We keep a close eye on the weather ahead of our events and
+        will communicate any changes as soon as we can to ticket holders via email.
+  detail_booking_notes   <booking>
+      Description of image (https://cdn.filestackcontent.com/7nrNEH9lR4aJzAf3Qt14)
+
+      We require all visitors who are participating in any of our activities to sign a
+        waiver as, like with any high-intensity activity, it informs you of the risks
+        involved. It also asks for a few things in return from you, as our guests, to keep
+        yourselves, your group, and our staff safe. If participants are under the age of
+        18, a parent or legal guardian must sign the waiver on their behalf. Please
+        forward the waiver link to other parents/legal guardians in your group.
+
+      The Waiver is to make sure you:
+
+      Understand and agree to abide by our safety rules
+      Agree to follow any rules or advice from our staff on site
+      Agree to make sure that any children you are responsible for abiding by our rules
+      Understand that you, and any children you are responsible for, participate at your
+        own risk
+
+      Once waivers are signed online just bring your booking QR Code either on your phone
+        or hard copy (waivers will link to this) and make your way to the office to check
+        in and get your wristbands.
+
+      Please ensure you allow enough time for the check-in process. We recommend at least
+        30 minutes before the start of your session.
+
+      Late arrivals can join at any time, however, the end of your session will remain the
+        same, as your session booked.
+
+      Storage: Lockers are not available at the event, but you can leave your belongings
+        at the ticket office with our staff if needed.
+
+      Food & Drinks: We will have coffee, ice cream and yummy food available for purchase
+        at our events.
+      You may bring your own food/drinks too. No alcohol is permitted.
+      No food or drinks are allowed on or near the inflatables.
+      No glass is permitted on the premises for safety reasons.
+  detail_meeting_point
+      (empty)
+  detail_check_in   <booking>
+      Please bring your QR Code and signed online waivers, either on your phone or hard
+        copy. Make your way to the office to check in and get your wristbands. You can
+        keep your wristband as a memento.
+      Please ensure you allow enough time for the check-in process. We recommend at least
+        30 minutes before the start of your session.
+      Late arrivals can join at any time, however, the end of your session will remain the
+        same, as your session booked.
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <booking (SAME as desc, score 100, kept longer)>
+      Socks (preferably grip soles), water bottle (No glass), sunscreen, picnic blanket
+        and some form of shade if needed.
+
+      Please bring your QR Code and signed online waivers, either on your phone or hard
+        copy. Make your way to the ticket office to check in and get your wristbands. You
+        can keep your wristband as a memento.
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions   <desc+booking (DIFFERENT, score 67)>
+      All participants MUST have a signed waiver before entry.
+
+      Under 5’s require an accompanying parent/carer at ALL TIMES.
+
+      Adults MUST remain within the premises for all minors.
+
+      No food, no shoes, no sharp objects (including keys), no glasses, no glass, no
+        jewellery, no candy, no gum, no mobile phones, no pets, no smoking, no alcohol or
+        drugs or being under the influence of alcohol/drugs/medication.
+
+      No running, please take your time, no rushing or rushing others.
+
+      Allow plenty of space for the person in front of you.
+
+      ALWAYS look up whilst climbing. Do not climb underneath someone climbing above you.
+        People can slip and fall whilst climbing. Use straps while climbing and take one
+        step at a time.
+
+      No climbing or hanging from outside walls.
+
+      Make sure the landing area is clear of all people before jumping or sliding. Jump
+        ONE at a time.
+
+      The correct sliding position on the slides is to have arms crossed across your chest
+        with feet and legs together.
+
+      If sliding with another DO NOT hold hands. Slide separately.
+
+      Do not slide down any area that has climbing handles attached.
+
+      No pushing or rough play.
+
+      Smaller children should always be given right of way.
+
+      No tumbling or flipping and no diving.
+
+      Tread carefully and show caution as the course is uneven and spongy.
+
+      The course is only for use during public opening hours when obstacle course staff
+        are on duty.
+
+      Obstacle Course staff directions must always be followed.
+
+      No medical conditions (Heart conditions, pregnancy, etc).Maximum weight 100Kg.
+
+      You may hear a whistle or megaphone announcement meaning stop and listen, wait for
+        instructions in case of an emergency.
+
+      Enter at your own risk
+
+      Suitable for all ages
+      Under 5’s require an accompanying parent/carer. (Grab our toddler ticket which
+        includes a parent ticket )
+      Responsible adults MUST remain within the premises for all minors.
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      All sales are final, however, bookings can be re-scheduled or cancelled up to 24hs
+        before your booking date.  Go to your confirmation email and find "change booking"
+        or "cancel booking" below your booking date and time. Click on it and follow the
+        process to change your booking or to cancel and receive a gift-card to rebook at
+        your convenience.
+
+      In the case we need to cancel due to bad weather you will automatically receive a
+        gift card to rebook for another day.
+
+      Didn't make it? Chill out, no shows will also be issued with a gift card upon
+        request to come back another day.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      tuffnutterz
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 6 of 10   |   id 294924   |   Yellow Horse Bunk Room
+supplier: hackfarm
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    $47.50 per person per night (incl. fees & taxes)
+    Comfortable rooms in a historic farmhouse
+    Duration
+    Book for 1-7 nights (if you would like to stay longer please contact us)
+    Please note: Pricing is per person - max capacity is 4 people.
+    About
+    Our bunkroom is located in our funky horse themed homestead. The perfect choice for a
+      group of friends and our comfortable bunk beds will give you the perfect place to rest
+      your head after a day of adventures in our beautiful Golden Bay.
+    Facilities
+    Fully equipped kitchen, communal lounge/dining area, outdoor wood-fired pizza oven,
+      communal TV unit, wifi.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    Yeehaah, we're looking forward to welcoming you to our place!
+
+    Please note that check-in time is between 3pm and 7pm for your stay and check-out is by
+      11:30am. Early/Late Check-ins can be organized by arrangement.
+
+    We provide all bedding/towels but if you would like to bring your own bedding that is
+      perfectly fine too.
+
+    Just a small reminder, we are an actively working farm with the expected hazards that go
+      with a herd of horses/traffic/machinery. We ask that children under 5 be supervised at
+      all time for their safety and that you read through our hazard list on check in.
+
+    If your dog is joining you for your stay please ensure you keep your dog in your vehicle
+      until we're able to properly introduce our farm dog Moe :)
+
+    If you have any other questions please don't hesitate to give us a ring or drop us a
+      message and one of our team will get back to you :)
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (0 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    (none)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (27 filled, 21 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      294924|Fareharbor
+  product_id   <api>
+      294924
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Yellow Horse Bunk Room
+  product_headline   <api>
+      From $47.50 Incl. fees & taxes • Bunk Beds • per person pricing • 1-7 nights
+        available
+  product_price   <api>
+      45.14
+  product_currency   <api>
+      NZD
+  product_price_options   <api>
+      Person for One Night: $39.25 | Person for Two Nights: $78.51 | Person for Three
+        Nights: $117.77 | Person for Four Nights: $157.03 | Person for Five Nights:
+        $196.28 | Person for Six Nights: $235.54 | Person for Seven Nights: $274.79
+  product_duration   <desc>
+      Book for 1-7 nights (if you would like to stay longer please contact us)
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/Xzdub0erRpq3bgmUy433
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/Xzdub0erRpq3bgmUy433",
+        "https://cdn.filestackcontent.com/Gfn1nccxTsa6Iv4V6ked",
+        "https://cdn.filestackcontent.com/jkfTm6noR1u4WonooMzZ"]
+  product_category   <api>
+      Horse
+
+  [LOCATION]
+  location_street   <api>
+      22 Grant Road
+  location_city   <api>
+      Puramahoi
+  location_state   <api>
+      Takaka
+  location_country   <api>
+      NZ
+  location_postcode   <api>
+      7182
+  location_latitude   <api>
+      -40.79349
+  location_longitude   <api>
+      172.739228
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      $47.50 per person per night (incl. fees & taxes)
+      Comfortable rooms in a historic farmhouse
+      Our bunkroom is located in our funky horse themed homestead. The perfect choice for
+        a group of friends and our comfortable bunk beds will give you the perfect place
+        to rest your head after a day of adventures in our beautiful Golden Bay.
+      Fully equipped kitchen, communal lounge/dining area, outdoor wood-fired pizza oven,
+        communal TV unit, wifi.
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info   <desc>
+      Please note: Pricing is per person - max capacity is 4 people.
+  detail_booking_notes   <booking>
+      Please note that check-in time is between 3pm and 7pm for your stay and check-out is
+        by 11:30am. Early/Late Check-ins can be organized by arrangement.
+
+      We provide all bedding/towels but if you would like to bring your own bedding that
+        is perfectly fine too.
+
+      Just a small reminder, we are an actively working farm with the expected hazards
+        that go with a herd of horses/traffic/machinery. We ask that children under 5 be
+        supervised at all time for their safety and that you read through our hazard list
+        on check in.
+
+      If your dog is joining you for your stay please ensure you keep your dog in your
+        vehicle until we're able to properly introduce our farm dog Moe :)
+
+      If you have any other questions please don't hesitate to give us a ring or drop us a
+        message and one of our team will get back to you :)
+  detail_meeting_point
+      (empty)
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring
+      (empty)
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions
+      (empty)
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      Customers will receive a full refund or credit with 24 hours notice of cancellation.
+        Customers will also receive a full refund or credit in case of operator
+        cancellation due to weather or other unforeseen circumstances. Contact us by phone
+        to cancel or inquire about a cancellation. No-shows will be charged the full
+        price.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      15
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      hackfarm
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 7 of 10   |   id 278212   |   Double Kayak - Sit On
+supplier: cottagepointkiosk
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Our Sit on kayaks are great for beginners
+    Double Kayak Hire
+    Ages 8+ and MUST be able to swim unassisted • Eldest must be at least 16yrs old and be a
+      strong swimmer • Max weight: 200kg
+    2 Hours (minimum)
+    10% surcharge on public holidays
+    Life jacket included.
+    About
+    Our SIT ON kayaks are great for beginners. They are very stable and easy.
+    Kayakers MUST be able to swim.
+    Plus Refundable bond: $50
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    ##**PLEASE READ CAREFULLY**
+
+    ##ONLINE WAIVER
+    You will receive a separate email with a link to our online waiver, which outlines our
+      Hire Conditions. The Primary Operator and any Additional Operators must complete the
+      waiver at least 12 hours before the hire. Passengers not operating the vessel do not
+      need to complete the waiver. Please read the conditions carefully to understand what
+      you are agreeing to. If you have any questions, contact us before your booking.
+
+    ##PARKING
+    Your kayak hire booking does not automatically include a car parking space.  If you
+      would like to use our off-street customer parking, you must book a parking bay
+      separately. Spaces are limited, fees apply, and bookings must be made at least 12
+      hours before your hire.
+
+    [Click here to book a parking bay.]
+      (https://fareharbor.com/embeds/book/cottagepointkiosk/items/632085/?full-
+      items=yes&flow=1397166)
+
+    Free on-street parking is available but spaces can be hard to find during busy times
+      such as weekends, public holidays and school holidays.
+
+    Please plan ahead and allow extra time to park and check in before your scheduled hire
+      time.
+
+    ##CHECK IN
+    Please arrive at least **20 minutes** before your booking start time to allow for
+      parking and check-in. On weekends, arrive at least **30 minutes** early.
+
+    On arrival, check in at the Kiosk counter located upstairs in the main Kiosk building.
+
+    Once all required paperwork and the security bond payment are complete, you’ll receive a
+      safety briefing on your vessel at your scheduled start time.
+    - The briefing is included in your hire time and takes approximately 5–10 minutes.
+    - If you arrive late, you may need to wait for the next available staff member for your
+      briefing, which may reduce your time on the water.
+    - Hire time begins from your booked start time, not when you depart, unless a delay is
+      caused by Kiosk operations.
+
+    If you are more than 30 minutes late and have not contacted us, your booking will be
+      cancelled and the vessel released.
+
+    ##WHAT TO BRING
+    - Driver's Licence or other photo ID (compulsory)
+    - Bond Payment (compulsory)
+    - Mobile Phone (compulsory)
+    - Hat, sunscreen, poncho, fishing gear, change of clothes etc
+
+    ##BOND PAYMENT
+    A refundable security bond is payable at check-in. The bond can be paid by cash or card.
+
+    At the end of your hire, **the Hirer must attend the Kiosk counter to check out so we
+      can process the bond refund**. The bond refund is not automatic and fees apply for
+      late bond claims.
+
+    ##KIOSK CAFE
+    If you plan to dine at the Kiosk café before or after your hire we strongly recommend
+      booking a table in advance. [Click here to book a table at the Kiosk Cafe](https://boo
+      kings.nowbookit.com/?accountid=2a933780-ebf1-4717-980c-
+      a9b158ba8b79&venueid=1463&theme=light&colors=hex,01579b)
+
+    If you plan to order take away food, please note that there can be significant wait
+      times on weekends so consider this when planning your day.
+
+    ##QUESTIONS?
+    Please refer to the [FAQs page](https://cottagepointkiosk.com.au/faq/#boat) on our
+      website or call us directly.
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (1 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    detail_pricing_notes             desc+booking (DIFFERENT, score 64)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (31 filled, 17 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      278212|Fareharbor
+  product_id   <api>
+      278212
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Double Kayak - Sit On
+  product_headline   <api>
+      Double Kayaks - Ages 8+ • Great for beginners. Very stable!
+  product_price   <api>
+      65.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      Two Hours - Double Sit On Kayak: $59.09 | Three Hours - Double Sit On Kayak: $68.18
+        | Four Hours - Double Sit On Kayak: $77.27 | Five Hours - Double Sit On Kayak:
+        $86.36 | Six Hours - Double Sit On Kayak: $95.45 | Seven Hours - Double Sit On
+        Kayak: $104.55 | Eight Hours - Double Sit On Kayak: $113.64
+  product_duration
+      (empty)
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/97JoKohPSjCgGMvdokkk
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/97JoKohPSjCgGMvdokkk"]
+  product_category   <api>
+      Water Activities
+
+  [LOCATION]
+  location_street   <api>
+      1 Notting Lane, Cottage Point
+  location_city   <api>
+      Sydney
+  location_state   <api>
+      NSW
+  location_country   <api>
+      AU
+  location_postcode   <api>
+      2084
+  location_latitude   <api>
+      -33.616002
+  location_longitude   <api>
+      151.206618
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Our Sit on kayaks are great for beginners
+      Double Kayak Hire - Ages 8+ and MUST be able to swim unassisted • Eldest must be at
+        least 16yrs old and be a strong swimmer • Max weight: 200kg
+      2 Hours (minimum)
+      10% surcharge on public holidays
+      Life jacket included.
+      Our SIT ON kayaks are great for beginners. They are very stable and easy.
+      Kayakers MUST be able to swim.
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info
+      (empty)
+  detail_booking_notes   <booking>
+      KIOSK CAFE: If you plan to dine at the Kiosk café before or after your hire we
+        strongly recommend booking a table in advance. Click here to book a table at the
+        Kiosk Cafe (https://bookings.nowbookit.com/?accountid=2a933780-ebf1-4717-980c-
+        a9b158ba8b79&venueid=1463&theme=light&colors=hex,01579b)
+      If you plan to order take away food, please note that there can be significant wait
+        times on weekends so consider this when planning your day.
+  detail_meeting_point   <booking>
+      PARKING: Your kayak hire booking does not automatically include a car parking space.
+        If you would like to use our off-street customer parking, you must book a parking
+        bay separately. Spaces are limited, fees apply, and bookings must be made at least
+        12 hours before your hire.
+      Click here to book a parking bay.
+        (https://fareharbor.com/embeds/book/cottagepointkiosk/items/632085/?full-
+        items=yes&flow=1397166)
+      Free on-street parking is available but spaces can be hard to find during busy times
+        such as weekends, public holidays and school holidays.
+      Please plan ahead and allow extra time to park and check in before your scheduled
+        hire time.
+  detail_check_in   <booking>
+      CHECK IN: Please arrive at least 20 minutes before your booking start time to allow
+        for parking and check-in. On weekends, arrive at least 30 minutes early.
+      On arrival, check in at the Kiosk counter located upstairs in the main Kiosk
+        building.
+      Once all required paperwork and the security bond payment are complete, you’ll
+        receive a safety briefing on your vessel at your scheduled start time.
+      The briefing is included in your hire time and takes approximately 5–10 minutes.
+      If you arrive late, you may need to wait for the next available staff member for
+        your briefing, which may reduce your time on the water.
+      Hire time begins from your booked start time, not when you depart, unless a delay is
+        caused by Kiosk operations.
+      If you are more than 30 minutes late and have not contacted us, your booking will be
+        cancelled and the vessel released.
+  detail_departure_info
+      (empty)
+  detail_before_arrival   <booking>
+      ONLINE WAIVER: You will receive a separate email with a link to our online waiver,
+        which outlines our Hire Conditions. The Primary Operator and any Additional
+        Operators must complete the waiver at least 12 hours before the hire. Passengers
+        not operating the vessel do not need to complete the waiver. Please read the
+        conditions carefully to understand what you are agreeing to. If you have any
+        questions, contact us before your booking.
+  detail_what_to_bring   <booking>
+      WHAT TO BRING: Driver's Licence or other photo ID (compulsory)
+      Bond Payment (compulsory)
+      Mobile Phone (compulsory)
+      Hat, sunscreen, poncho, fishing gear, change of clothes etc
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions
+      (empty)
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs   <booking>
+      QUESTIONS?: Please refer to the FAQs page
+        (https://cottagepointkiosk.com.au/faq/#boat) on our website or call us directly.
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      Cancellations made up to 24 hours in advance of the booking time are fully
+        refundable.
+
+      Cancellations made within 24 hours of the booking time are non-refundable and non-
+        transferrable
+
+      All hires will proceed regardless of the weather conditions (e.g. rain, wind) unless
+        the operator deems it dangerous to do so.  If the operator deems the conditions to
+        be unsafe and the hire is cancelled, a full refund will be given.
+
+      If the hirer wishes to cancel based on a weather forecast, they must do so with more
+        than 24 hours notice of the booking time to receive a refund.  No credits or
+        refunds will be given for cancellations made within a 24-hour notice period.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes   <desc+booking (DIFFERENT, score 64)>
+      BOND PAYMENT: A refundable security bond is payable at check-in. The bond can be
+        paid by cash or card.
+      At the end of your hire, the Hirer must attend the Kiosk counter to check out so we
+        can process the bond refund. The bond refund is not automatic and fees apply for
+        late bond claims.
+
+      Plus Refundable bond: $50
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      cottagepointkiosk
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 8 of 10   |   id 238353   |   Peninsula Paddle Pinot & Pools
+supplier: wildadventuresmelbourne
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    The Peninsula's Greatest Adventure full of active adventure, epicurean delights and
+      relaxation on the spectacular Mornington Peninsula. This day lets you experience
+      everything there is to love about this stunning region.
+    Ages
+    8+
+    Duration
+    9 hours
+    About
+    SUP lesson/guided tour exploring the gorgeous Peninsula coastline
+    Delicious picnic lunch at an awesome viewpoint
+    Guided nature walk with wildlife spotting opportunities along the way, >Optional Bathing
+      at some of the worlds best thermal hot springs
+    Wine tasting at a beautiful winery
+    The day includes lunch, SUP lesson and tour, guided bushwalk, wine tasting, refreshments
+      and transport for the day, (plus discounted bathing at The Peninsula Hot Springs),
+      meeting point is on the Mornington Peninsula (please contact us if you would like to
+      discuss a pick up at your Mornington Peninsula accommodation)
+    What to Bring
+    Please bring hat, swimwear, sunglasses, camera, comfortable clothes suitable for the
+      activities and weather (including warmer clothes and rainjacket), closed shoes
+      comfortable for bushwalking, sandals/flips flops/jandals/thongs), change of clothes
+      for the trip back.
+    Physical Requirements
+    This adventure includes multiple activities so a moderate level of fitness is advised.
+      Hiking and Stand Up Paddleboarding are done at a leisurely pace. While Stand Up
+      Paddleboarding experience is not necessary, you do need to be able to swim for this
+      tour. You must be 8 years old or over to participate in this adventure (under 18 must
+      be accompanied by an adult). If you are unsure if this adventure is suitable for you,
+      please contact us or check out our other adventure tours.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    Thanks for choosing your adventure with WAM! We can't wait for you to join us on a
+      spectacular journey into nature.
+
+    Just by booking with us, you have done a lot of good for the planet, congratulations!
+      (read on for more details of how)
+
+    Before we do so, please take a minute to read some important information about your
+      tour:
+
+    - WAM Adventures require a minimum of 4 people to run. We almost always run our trips
+      but we'll be in contact as we get closer to the date for updates.
+    - You’ll start receiving emails as we get closer to the date.
+    - Once you have a date confirmed, if you need to cancel, we require a minimum 7 days
+      notice to provide a refund (please read our T&C's for other options)
+
+    ##Pick up Location
+    We meet outside the Peninsula Hot Springs on the Mornington Peninsula. Please contact us
+      if you would like to discuss an alternative pick up location.
+
+    ##Gift vouchers
+    If you have a gift voucher, you'll need to redeem it at some stage by returning to the
+      relevant tour page, selecting a date and entering the voucher code at the checkout -
+      think of your voucher as like a pre-paid credit card
+    Also, we can’t extend the use-by date on gift vouchers past three years (three years is
+      pretty good!)
+
+    ##Premium Service
+    - We include everything you need on your adventure including activities, equipment, food
+      and refreshments.
+
+    - To maximise your comfort we even provide you with eco-pack for the day which includes
+      some special products from local businesses that directly support the environment.
+      This includes free sunscreen and a towel service. You simply hand these back at the
+      end of your experience. Its a bit like a pack you may get on a first class flight or a
+      luxury hotel, except ours is good for the planet!
+
+    ##Now for the deep and meaningful:
+    By booking an adventure with us you have directly helped make a long-term positive
+      environmental and social impact by:
+    - Planting native trees on the Mornington Peninsula with MP Koalas to capture carbon
+      emissions, protect our climate, enhance soil and water quality, and restore habitat
+      for native wildlife.
+    - Regenerate reefs and native kelp locally with The Nature Conservancy, providing marine
+      habitat, filtering seawater, removing nitrogen and phosphate, and preventing used
+      shell from entering landfill.
+    - Support female education with The Stars Foundation which empowers and supports
+      Indigenous young women and girls to complete education and find work.
+    - Protect and plant mangroves to protect our coastlines, wildlife and support blue
+      carbon projects.
+
+    You'll find additional information relevant to your adventure on the Wild Adventures
+      Melbourne website. Please check the website for exactly what items we recommend
+      bringing with you on the day.
+
+    ##Green is our Gold Commitment:
+
+    As members of Australia’s tourism industry, we believe a land as precious
+    as ours should be preserved for generations to come. As a visitor, we ask that you do
+      the same. That’s why we’ve set some unwritten rules that have kept our backyard
+      beautiful for thousands of years.
+
+    Passed down through story and practice, they’re how we walk gently, listen deeply, tread
+      with care – and look out for each other along the way.
+
+    By following them throughout your visit, you too can care for Australia when you Come
+      and say G’day.
+
+    Consider these principles a bit of local knowledge. A few fundamentals to help you
+      respect this place and have an unforgettable stay in the process.
+
+    The Guiding Principles:
+
+    Celebrate Community
+    The best part of an Australian visit is the people you meet.
+    Shop local, engage with communities, and you’ll leave with new mates aplenty.
+
+    Embrace Culture
+    Australia’s cultural diversity stretches from ancient songlines to city laneways.
+      Immerse yourself in it all - honour First Nations cultures, embrace our diversity, and
+      you’ll leave with new knowledge and new friends.
+
+    Preserve Place
+    In Australia you’ll find some of the most unspoilt landscapes on Earth. Help keep them
+      that way by minimising your impact wherever you go.
+
+    Respect Wildlife
+    Australia has some of the most unique animals on the planet. Take as many photos as you
+      like but remember to give them space and respect their homes.
+
+    Take Care
+    We look out for one another in Australia, but it’s important to take care of yourself
+      too. Listen to the land, respect it, and always put safety first.
+
+
+    If you have any questions between now and your trip with us, please don't hesitate to
+      email or call me directly.
+
+    Looking forward to adventuring with you soon,
+
+    Nic 'Coops' Cooper
+    WAM Founder
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (0 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    (none)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (28 filled, 20 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      238353|Fareharbor
+  product_id   <api>
+      238353
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Peninsula Paddle Pinot & Pools
+  product_headline   <api>
+      Ages 8+ • 9 hrs • The Ultimate Adventure • SUP & Hike • Hot Springs, Lunch, Wine
+        Tasting Included
+  product_price   <api>
+      315.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      Adult: $286.36 | Child: $246.36
+  product_duration   <api>
+      9 hours
+  product_duration_minutes   <api>
+      540.0
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/2CRvz8LaRuqsVHJ21kAg
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/2CRvz8LaRuqsVHJ21kAg",
+        "https://cdn.filestackcontent.com/FEwCS9CQXavTdeZhChOg",
+        "https://cdn.filestackcontent.com/rIBRKyD5RbeLTqeCwwbq",
+        "https://cdn.filestackcontent.com/maMBHVRmRdWl4S8fmIiw",
+        "https://cdn.filestackcontent.com/TwsOBuNgQdWYzhoungvv",
+        "https://cdn.filestackcontent.com/O3RLfYbQSgeadptOzeSj",
+        "https://cdn.filestackcontent.com/cagppsH6Rzi95KIdhBmO",
+        "https://cdn.filestackcontent.com/wI1G3NJT4GtFnN4nEl3S",
+        "https://cdn.filestackcontent.com/AxdXfRuITLm8VbZGckbQ"]
+  product_category   <api>
+      Eco Tour | SUP | Water Activities | Wellness | Wildlife | Wine
+
+  [LOCATION]
+  location_street   <api>
+      140 Springs Lane
+  location_city   <api>
+      Fingal
+  location_state   <api>
+      Victoria
+  location_country   <api>
+      AU
+  location_postcode   <api>
+      3939
+  location_latitude
+      (empty)
+  location_longitude
+      (empty)
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      The Peninsula's Greatest Adventure full of active adventure, epicurean delights and
+        relaxation on the spectacular Mornington Peninsula. This day lets you experience
+        everything there is to love about this stunning region.
+      SUP lesson/guided tour exploring the gorgeous Peninsula coastline
+      Delicious picnic lunch at an awesome viewpoint
+      Guided nature walk with wildlife spotting opportunities along the way, Optional
+        Bathing at some of the worlds best thermal hot springs
+      Wine tasting at a beautiful winery
+      The day includes lunch, SUP lesson and tour, guided bushwalk, wine tasting,
+        refreshments and transport for the day, (plus discounted bathing at The Peninsula
+        Hot Springs), meeting point is on the Mornington Peninsula (please contact us if
+        you would like to discuss a pick up at your Mornington Peninsula accommodation)
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info
+      (empty)
+  detail_booking_notes   <booking>
+      Just by booking with us, you have done a lot of good for the planet,
+        congratulations! (read on for more details of how)
+
+      Before we do so, please take a minute to read some important information about your
+        tour:
+
+      WAM Adventures require a minimum of 4 people to run. We almost always run our trips
+        but we'll be in contact as we get closer to the date for updates.
+      You’ll start receiving emails as we get closer to the date.
+      Once you have a date confirmed, if you need to cancel, we require a minimum 7 days
+        notice to provide a refund (please read our T&C's for other options)
+
+      Gift vouchers: If you have a gift voucher, you'll need to redeem it at some stage by
+        returning to the relevant tour page, selecting a date and entering the voucher
+        code at the checkout - think of your voucher as like a pre-paid credit card
+      Also, we can’t extend the use-by date on gift vouchers past three years (three years
+        is pretty good!)
+
+      Premium Service: We include everything you need on your adventure including
+        activities, equipment, food and refreshments.
+
+      To maximise your comfort we even provide you with eco-pack for the day which
+        includes some special products from local businesses that directly support the
+        environment. This includes free sunscreen and a towel service. You simply hand
+        these back at the end of your experience. Its a bit like a pack you may get on a
+        first class flight or a luxury hotel, except ours is good for the planet!
+
+      Now for the deep and meaningful:
+      By booking an adventure with us you have directly helped make a long-term positive
+        environmental and social impact by:
+      Planting native trees on the Mornington Peninsula with MP Koalas to capture carbon
+        emissions, protect our climate, enhance soil and water quality, and restore
+        habitat for native wildlife.
+      Regenerate reefs and native kelp locally with The Nature Conservancy, providing
+        marine habitat, filtering seawater, removing nitrogen and phosphate, and
+        preventing used shell from entering landfill.
+      Support female education with The Stars Foundation which empowers and supports
+        Indigenous young women and girls to complete education and find work.
+      Protect and plant mangroves to protect our coastlines, wildlife and support blue
+        carbon projects.
+
+      You'll find additional information relevant to your adventure on the Wild Adventures
+        Melbourne website. Please check the website for exactly what items we recommend
+        bringing with you on the day.
+
+      Green is our Gold Commitment:
+
+      As members of Australia’s tourism industry, we believe a land as precious
+      as ours should be preserved for generations to come. As a visitor, we ask that you
+        do the same. That’s why we’ve set some unwritten rules that have kept our backyard
+        beautiful for thousands of years.
+
+      Passed down through story and practice, they’re how we walk gently, listen deeply,
+        tread with care – and look out for each other along the way.
+
+      By following them throughout your visit, you too can care for Australia when you
+        Come and say G’day.
+
+      Consider these principles a bit of local knowledge. A few fundamentals to help you
+        respect this place and have an unforgettable stay in the process.
+
+      The Guiding Principles:
+
+      Celebrate Community: The best part of an Australian visit is the people you meet.
+      Shop local, engage with communities, and you’ll leave with new mates aplenty.
+
+      Embrace Culture: Australia’s cultural diversity stretches from ancient songlines to
+        city laneways. Immerse yourself in it all - honour First Nations cultures, embrace
+        our diversity, and you’ll leave with new knowledge and new friends.
+
+      Preserve Place: In Australia you’ll find some of the most unspoilt landscapes on
+        Earth. Help keep them that way by minimising your impact wherever you go.
+
+      Respect Wildlife: Australia has some of the most unique animals on the planet. Take
+        as many photos as you like but remember to give them space and respect their
+        homes.
+
+      Take Care: We look out for one another in Australia, but it’s important to take care
+        of yourself too. Listen to the land, respect it, and always put safety first.
+
+      If you have any questions between now and your trip with us, please don't hesitate
+        to email or call me directly.
+  detail_meeting_point   <booking>
+      Pick up Location: We meet outside the Peninsula Hot Springs on the Mornington
+        Peninsula. Please contact us if you would like to discuss an alternative pick up
+        location.
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <desc>
+      Please bring hat, swimwear, sunglasses, camera, comfortable clothes suitable for the
+        activities and weather (including warmer clothes and rainjacket), closed shoes
+        comfortable for bushwalking, sandals/flips flops/jandals/thongs), change of
+        clothes for the trip back.
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions   <desc>
+      8+
+      This adventure includes multiple activities so a moderate level of fitness is
+        advised. Hiking and Stand Up Paddleboarding are done at a leisurely pace. While
+        Stand Up Paddleboarding experience is not necessary, you do need to be able to
+        swim for this tour. You must be 8 years old or over to participate in this
+        adventure (under 18 must be accompanied by an adult). If you are unsure if this
+        adventure is suitable for you, please contact us or check out our other adventure
+        tours.
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      VARIATIONS AND CANCELLATIONS
+      WAM is committed to providing its customers (you) with an enjoyable and safe trip.
+        Trips can occasionally be affected by weather, and other unforeseen factors
+        outside of our control (including adverse weather conditions, or an insufficient
+        number of passengers for us to run the trip) may require us to alter routes,
+        itineraries, fares, days of operation or even cancel tours. We retain the right to
+        do any of these things without notice (however, where practical we will endeavour
+        to provide you with notice of alterations or cancellations). We require a minimum
+        of 4 passengers to run a trip and have a maximum of 8 passengers. If we need to
+        cancel a trip due to there being less than 4 passengers, we will endeavour to
+        provide you with at least 12 hours’ notice of such cancellation.
+
+      In the event of unforeseen circumstances such as extreme weather, we may be unable
+        to operate the tour on a specific day. In this case, you will be offered an
+        alternative date. If however you are not able to attend a trip on a different
+        date, we will provide you with a full refund. To the extent permitted by law, no
+        refunds will be provided due to alterations to any aspect of the trip.
+      If you cancel a trip booking at least 7 days in advance of the trip, we will provide
+        you with your choice of a refund of any trip fares already paid, or a credit note
+        for a future trip. No refund will be provided for cancellations within 7 days of
+        the trip date, however we will allow you to transfer that trip booking into
+        another person’s name. A $25 administrative fee will apply to all booking changes
+        within 7 days of departure.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      wildadventuresmelbourne
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+PRODUCT 9 of 10   |   id 598754   |   Light to Light Walk Transfers
+supplier: navigateexpeditions
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Hike the 30km Light to Light Walk in Beowa National Park and be rewarded with
+      exceptional coastal scenery. Navigate Expeditions is the exclusive transfer provider
+      for the Light to Light Walk in collaboration with NSW National Parks.
+    Self-Drive walkers: Park your vehicle at Green Cape on the first morning of your walk,
+      and we’ll transfer you straight to the trailhead at Boyds Tower. This allows you to
+      hike at your own leisure and arrive back at your car on your own schedule.
+    Need a custom pickup? If you require a transfer from Merimbula or Eden to Boyds Tower,
+      Green Cape, or any intermediate drive-in locations (such as Saltwater Creek or
+      Bittangabee Bay), please get in touch. We can easily arrange a private transfer or
+      slot you into one of our existing departures.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    Thanks for Booking Your Light to Light Transfer with Navigate Expeditions! Now it’s time
+      to **get prepped and ready** to explore the wild beauty of Beowa National Park!
+
+    Below you'll find key info to help you prepare, including meeting points, parking
+      options, and bonus tips to make the most of your time here on the far South Coast.
+
+    **Pick-Up & Drop-Off Locations:**
+    • Green Cape Lighthouse Car Park - Park here and we’ll shuttle you to Boyds Tower to
+      start your southbound journey
+    • Boyds Tower Car Park
+
+    **National Parks Entry Pass**
+    NSW National Parks require a valid day-use or camping pass. **Save time** and buy yours
+      online before arrival:
+     [Beowa National Park Info & Passes](https://www.nationalparks.nsw.gov.au/visit-a-
+      park/parks/beowa-national-park).
+
+    **Arrival Time & Safety**
+    **IMPORTANT** Phone reception is limited at Green Cape. Please arrive on time
+    — we can **ONLY** wait a maximum of 15 minutes past your scheduled pick-up. **Missed
+      pick-ups** will be reported for safety. We recommend carrying an emergency
+      communication device. You can hire for free a PLB (Personal Locator Beacon) from
+      [Merimbula NPNSW]
+    (https://www.nationalparks.nsw.gov.au/safety/bushwalking-safety/personal-locator-
+      beacon).
+
+    **Contact and Weather Updates:**
+    For any queries or concerns, contact **Navigate Expeditions** 1300 030 902 or +61 (0)2
+      7258 2191 or email Jess@navigateexpeditions.com
+
+    **Important Terms and Conditions:**
+    Please familiarise yourself with our terms and conditions on our website
+    [Click here to view them](https://cdn.filestackcontent.com/kKpPA0xSt1UC0NzIH9sw).
+      Joining us on this tour is an acceptance of our
+    terms and conditions and this includes an acceptance of risk.
+
+    **Your Essential Pre-Walk Checklist**
+    Please take a moment to review these resources before your transfer.
+     [Light to Light Walk Guide](https://navigateexpeditions.com/2025/08/17/jess-on-the-
+      light-to-light-walk/).
+     [Tips for the Light to Light Walk](https://navigateexpeditions.com/2025/07/27/hiking-
+      with-baby/).
+     [Light to Light Packing List](https://navigateexpeditions.com/2025/07/26/a-light-to-
+      light-packing-list/).
+    Please quickly check our **FAQ** on the
+      [website](https://navigateexpeditions.com/tour/light-to-light-walk-transfers/) for any
+      last-minute policy or departure questions.
+
+    **Want to Extend Your Adventure?** with 10% off?
+    You’re already in paradise — why not make the most of it? Try our award-winning
+      [kayaking tours](https://navigateexpeditions.com/tours/kayaking-tours/) from amazing
+      locations like; Bermagui, Bega, Brogo Dam and Pambula River . Choose from:
+    • Classic Nature Kayak
+    • Kayak & Shuck (with fresh oysters!)
+    • Aboriginal Cultural Kayak Experience
+
+    ✨ Use code Navigate10 for 10% off your booking.
+    Private group tours (4+ people) available at times that suit you.
+
+    **Love Your Experience?**
+    Please share your journey far and wide!... and the discount code above for booking!
+
+    **Choosing Eco-friendly Travel**
+    Every tour sold, allows us to make valuable contributions to local environmental,
+      community, and cultural initiatives.
+    *Together, we’re making a lasting impact, one adventure at a time.*
+
+    At **Navigate Expeditions**, we are committed to reconciliation and acknowledge the
+      **Traditional Custodians of Australia**, respecting elders past, present, and future.
+
+    We can’t wait to see you on the trail!
+    — The Navigate Expeditions Team
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (0 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    (none)
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (25 filled, 23 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      598754|Fareharbor
+  product_id   <api>
+      598754
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Light to Light Walk Transfers
+  product_headline   <api>
+      Seamless Light to Light Walk transfers with National Parks NSW partner.
+  product_price   <api>
+      110.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      One way Adult: $100.00 | One way Child: $81.82
+  product_duration   <api>
+      1 - 2 Hours
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/6oLqmMgQ7SA4MpVOgaEF
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/6oLqmMgQ7SA4MpVOgaEF"]
+  product_category
+      (empty)
+
+  [LOCATION]
+  location_street
+      (empty)
+  location_city
+      (empty)
+  location_state
+      (empty)
+  location_country
+      (empty)
+  location_postcode
+      (empty)
+  location_latitude
+      (empty)
+  location_longitude
+      (empty)
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Hike the 30km Light to Light Walk in Beowa National Park and be rewarded with
+        exceptional coastal scenery. Navigate Expeditions is the exclusive transfer
+        provider for the Light to Light Walk in collaboration with NSW National Parks.
+      Self-Drive walkers: Park your vehicle at Green Cape on the first morning of your
+        walk, and we’ll transfer you straight to the trailhead at Boyds Tower. This allows
+        you to hike at your own leisure and arrive back at your car on your own schedule.
+      Need a custom pickup? If you require a transfer from Merimbula or Eden to Boyds
+        Tower, Green Cape, or any intermediate drive-in locations (such as Saltwater Creek
+        or Bittangabee Bay), please get in touch. We can easily arrange a private transfer
+        or slot you into one of our existing departures.
+  detail_highlights
+      (empty)
+  detail_what_is_included
+      (empty)
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info
+      (empty)
+  detail_booking_notes   <booking>
+      Thanks for Booking Your Light to Light Transfer with Navigate Expeditions! Now it’s
+        time to get prepped and ready to explore the wild beauty of Beowa National Park!
+
+      Below you'll find key info to help you prepare, including meeting points, parking
+        options, and bonus tips to make the most of your time here on the far South Coast.
+
+      National Parks Entry Pass: NSW National Parks require a valid day-use or camping
+        pass. Save time and buy yours online before arrival: Beowa National Park Info &
+        Passes (https://www.nationalparks.nsw.gov.au/visit-a-park/parks/beowa-national-
+        park).
+
+      Love Your Experience?: Please share your journey far and wide!... and the discount
+        code above for booking!
+
+      Choosing Eco-friendly Travel: Every tour sold, allows us to make valuable
+        contributions to local environmental, community, and cultural initiatives.
+      Together, we’re making a lasting impact, one adventure at a time.
+
+      At Navigate Expeditions, we are committed to reconciliation and acknowledge the
+        Traditional Custodians of Australia, respecting elders past, present, and future.
+  detail_meeting_point   <booking>
+      Pick-Up & Drop-Off Locations:
+      Green Cape Lighthouse Car Park - Park here and we’ll shuttle you to Boyds Tower to
+        start your southbound journey
+      Boyds Tower Car Park
+  detail_check_in   <booking>
+      Arrival Time & Safety: IMPORTANT Phone reception is limited at Green Cape. Please
+        arrive on time — we can ONLY wait a maximum of 15 minutes past your scheduled
+        pick-up.
+  detail_departure_info
+      (empty)
+  detail_before_arrival   <booking>
+      Your Essential Pre-Walk Checklist: Please take a moment to review these resources
+        before your transfer.
+      Light to Light Walk Guide (https://navigateexpeditions.com/2025/08/17/jess-on-the-
+        light-to-light-walk/).
+      Tips for the Light to Light Walk (https://navigateexpeditions.com/2025/07/27/hiking-
+        with-baby/).
+      Light to Light Packing List (https://navigateexpeditions.com/2025/07/26/a-light-to-
+        light-packing-list/).
+      Please quickly check our FAQ on the website
+        (https://navigateexpeditions.com/tour/light-to-light-walk-transfers/) for any
+        last-minute policy or departure questions.
+  detail_what_to_bring
+      (empty)
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility
+      (empty)
+  detail_restrictions
+      (empty)
+  detail_special_requirements
+      (empty)
+  detail_health_safety   <booking>
+      Arrival Time & Safety: Missed pick-ups will be reported for safety. We recommend
+        carrying an emergency communication device. You can hire for free a PLB (Personal
+        Locator Beacon) from Merimbula NPNSW
+        (https://www.nationalparks.nsw.gov.au/safety/bushwalking-safety/personal-locator-
+        beacon).
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras   <booking>
+      Want to Extend Your Adventure? with 10% off?: You’re already in paradise — why not
+        make the most of it? Try our award-winning kayaking tours
+        (https://navigateexpeditions.com/tours/kayaking-tours/) from amazing locations
+        like; Bermagui, Bega, Brogo Dam and Pambula River . Choose from:
+      Classic Nature Kayak
+      Kayak & Shuck (with fresh oysters!)
+      Aboriginal Cultural Kayak Experience
+      Use code Navigate10 for 10% off your booking.
+      Private group tours (4+ people) available at times that suit you.
+  detail_disclaimers   <booking>
+      Important Terms and Conditions: Please familiarise yourself with our terms and
+        conditions on our website Click here to view them
+        (https://cdn.filestackcontent.com/kKpPA0xSt1UC0NzIH9sw). Joining us on this tour
+        is an acceptance of our terms and conditions and this includes an acceptance of
+        risk.
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      - All transfers operate on demand. A minimum of 4 guests is required for a
+        guaranteed transfer.
+      - To guarantee departure for 3 people or less please ensure you tick the box on the
+        booking details screen to indicate you agree to pay the additional fare(s). The
+        total minimum payment for a confirmed transfer with fewer than 4 guests is $440.
+      If your group is less than 4 and you have flexible dates, email us to inquire about
+        combining your transfer with other groups.
+      - In the event that the minimum of 4 guests isn’t met one week before the transfer,
+        you will receive an email with the following options:
+      1. Pay the minimum fare of $440 (with potential refunds if additional guests join)
+      2. Transfer your booking to another date with a confirmed departure.
+      3. Cancel your booking for a full refund.
+
+      - If we cancel a tour due to weather or operational requirements, we will notify you
+        as soon as possible and offer you a full refund or alternative activity.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      navigateexpeditions
+  detail_operator_contact   <booking>
+      Contact and Weather Updates: For any queries or concerns, contact Navigate
+        Expeditions 1300 030 902 or +61 (0)2 7258 2191 or email
+        Jess@navigateexpeditions.com
+
+
+================================================================================================
+PRODUCT 10 of 10   |   id 215245   |   Haunted Brisbane CBD Ghost Tour
+supplier: historicaustralia
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+RAW DESCRIPTION  (the text the description extraction read)
+------------------------------------------------------------------------------------------------
+    Brisbane is haunted by 200 years of crime and tragedy. Discover the ghosts of The River
+      City on a guided walk of the CBD. Hear historic ghost stories - The Haunted Hotel,
+      Printer's Devil, Victoria Bridge and The Tyrant of Moreton Bay.
+    Tour Includes
+    ✔ 2 hours historic ghost tour with experienced guide through this haunted site
+    ✔ Restricted tour size
+    ✔ Donation to Ghost Tours’ Haunted Heritage Fund
+    Important Information
+    ✔ NO TOILET FACILITIES WILL BE AVAILABLE AT THIS SITE , please use facilities elsewhere
+      before joining us at this site
+    ✔ WEAR FLAT ENCLOSED SHOES - All guests must wear flat enclosed shoes. Other shoes will
+      not be accepted.
+    ✔ BRING A WATER BOTTLE -To keep you hydrated during the tour
+    ✔ TOURS WILL STILL RUN IN THE RAIN - We believe the weather really adds to the
+      atmosphere of a tour. If there is rain, please bring an umbrella and or raincoat, and
+      enjoy the tour. Tours will only be cancelled if conditions become dangerous - we will
+      notify you in these circumstances close to the tour time.
+    ALCOHOL/ ILLICIT SUBSTANCE USE
+    The consumption of alcohol and use of illegal substances are not permitted BEFORE or
+      DURING a tour, any client believed to be intoxicated, inebriated, or otherwise under
+      the influence of drugs and/or alcohol will not be admitted at time of check-in.
+    SMOKING
+    Smoking/ vaping is not permitted at any time during our tours. If anyone forgets this,
+      and starts smoking, they will be asked to immediately cease. If they do not, they will
+      be asked to leave the tour.
+    MOBILE / TABLET DEVICE USE
+    Mobile and tablet devices are only to be used on tour whilst taking photographs or in an
+      emergency. If you use your phone/ tablet for any other purpose during any of our
+      tours, you will be asked to stop. Refusal to do so may result in you being asked to
+      leave the tour.
+    Paranormal investigation / ghost hunting is strictly not permitted
+    This includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+      video and still photography, psychic, medium and clairvoyant channelling of spirits.
+    Please always:
+    • Respect the role/authority of the tour guides.
+    • Respect other client’s experience.
+    • Respect the historic sites visited.
+    Accessibility
+    CLICK HERE for accessibility information
+    Suitability
+    Tours are not suitable for children under 10 years. Parents and guardians are advised
+      that this tour features strong content in the form of true historic information and
+      tales delivered through storytelling. The stories may include gruesome and macabre
+      material including murders, crimes, violence, deaths, executions, and suicide. The
+      stories can be frightening, scary and distressing especially for young children.
+    Under 10's not permitted on tour. Those under the age of 18 must be
+      accompanied/supervised by an adult.
+
+------------------------------------------------------------------------------------------------
+RAW BOOKING NOTES  (the text the booking extraction read)
+------------------------------------------------------------------------------------------------
+    ###Reminder
+    Please ensure that this booking confirmation is circulated to all those that you have
+      booked for. Please also ask them all to read the important information, tour rules and
+      health and safety information included.
+
+    ###OUR MOST IMPORTANT (*but not our only*) TOUR RULES:
+    •       **Guests must be wearing flat-soled enclosed shoes.** Thongs, sandals and high
+      heels will not be permitted on tour.
+    •       We believe the weather really adds to the atmosphere of a tour. **If there is
+      rain, please bring an umbrella and or raincoat, and enjoy the tour.** Tours will only
+      be cancelled if conditions become dangerous - we will notify you in these
+      circumstances close to the tour time.
+    •      Please bring a water bottle with you to keep hydrated during 2 hr walking tour.
+    •      Please arrive no later than 15 minutes before your tour is due to start.
+    •      Under 18's must be accompanied by an adult. Under 10's not permitted on tour.
+
+    *Read more Important Tour Rules below*
+
+    ---
+
+    ###Accessibility
+    [CLICK HERE for accessibility
+      information](https://ghosttoursaustralia.com.au/disability-access-companion-cards/)
+
+    ###Suitability
+    Tours are not suitable for children under 10 years (unless otherwise stated). Children
+      under 10 will not be permitted on any tour (unless otherwise stated). Parents and
+      guardians are advised that this tour features strong content in the form of true
+      historic stories and tales delivered in a dramatic style. The stories may include
+      gruesome and macabre material including murders, crimes, violence, deaths, executions
+      and suicide. The stories can be frightening, scary and distressing especially for
+      young children.
+
+    Those under the age of 18 must be accompanied/supervised by an adult.
+
+    ###Reminder of our Tour Rules / Company Policy:
+    By undertaking one of our tours, all clients agree to abide by the following rules. Any
+      person not abiding by the rules will not be permitted on the tour. No refund or
+      transfer will be granted.
+
+    •       There are **no toilet facilities** available at site. Please use facilities
+      elsewhere before joining us at this site.
+    •       The consumption of alcohol and use of illegal substances are not permitted
+      BEFORE or DURING a tour, any guest believed to be intoxicated, inebriated, or
+      otherwise under the influence of drugs and/or alcohol will not be admitted at time of
+      check-in.
+    •       Smoking/ vaping is not permitted at any time during our tours. If anyone forgets
+      this, and starts smoking, they will be asked to immediately cease. If they do not,
+      they will be asked to leave the tour.
+    •       Proof of age or other identification may be required upon request for clients
+      claiming concessions.
+    •       Once tours have commenced, guests will be unable to leave the tour group.
+      Visitors must stay with the tour group at all times for their own safety
+    •       Historic Australia reserves the right to change a tour itinerary and/or Tour
+      Guide(s) without notice.
+    •       Mobile and tablet devices are only to be used on tour whilst taking photographs
+      or in an emergency. If you use your phone/ tablet for any other purpose during any of
+      our tours, you will be asked to stop. Refusal to do so may result in you being asked
+      to leave the tour.
+    •       Video cameras and recording devices of any sort are NOT permitted.
+    •       All tours, stories, tales etc are the intellectual property of Jack Sim and
+      Historic Australia and may not be recorded or reproduced in any form without written
+      permission prior to the commencement of a tour.
+    •       Horror costumes/ makeup/ masks are not permitted to be worn. Historic Australia
+      reserves the right to refuse admission to anyone wearing a horror costume that is
+      deemed inappropriate or distasteful.
+    •       Paranormal investigation / ghost hunting is strictly *not* permitted on tours.
+      This includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+      video and still photography, psychic, medium and clairvoyant channelling of spirits.
+    •       Certified guide, hearing, assistance and companion animals are the **only**
+      animals permitted on tours.
+    •       Management reserves the right to refuse admission for any reason.
+    •       Guests engaging in inappropriate behaviour will be removed and not be entitled
+      to a refund.
+    •       Historic Australia reserves the right to refuse entry to any child or person
+      whom is deemed to be at risk from the material presented.
+    •       Guests engaging in criminal offences such as stealing, deliberately damaging or
+      vandalising sites will be removed and may face prosecution.
+    •       Historic Australia accepts no responsibility for lost or stolen property.
+    •       Knives, sharp implements, weapons, pens, pencils, permanent markers, glass
+      bottles, cans, hot food, are strictly not permitted during a tour.
+    •       Loitering at sites at the conclusion of tour is not permitted.
+    •       Undertaking a Historic Australia Tour is at your own risk.
+
+    Please always:
+    •       Respect the role/authority of the tour guides.
+    •       Respect other client’s experience.
+    •       Respect the historic sites visited.
+
+------------------------------------------------------------------------------------------------
+MERGES ON THIS PRODUCT  (3 field(s) where BOTH sides had content)
+------------------------------------------------------------------------------------------------
+    detail_important_info            desc+booking (DIFFERENT, score 49)
+    detail_accessibility             booking (SAME as desc, score 100, kept longer)
+    detail_restrictions              booking (SAME as desc, score 97, kept longer)
+
+    NOTES:
+      - accessibility is link-only text, not accessibility data
+
+------------------------------------------------------------------------------------------------
+UNIFIED ROW - 48 COLUMNS  (29 filled, 19 empty)
+------------------------------------------------------------------------------------------------
+
+  [PRODUCT]
+  compound_key   <api>
+      215245|Fareharbor
+  product_id   <api>
+      215245
+  source   <api>
+      Fareharbor
+  product_name   <api>
+      Haunted Brisbane CBD Ghost Tour
+  product_headline   <api>
+      From $38 • Ages 10+ • 2 Hours • Walk the streets of Queensland’s creepy capital –
+        Brisbane
+  product_price   <api>
+      38.0
+  product_currency   <api>
+      AUD
+  product_price_options   <api>
+      Adult: $34.55 | Concession: $31.82 | Teenager: $22.73 | Companion Card - Additional
+        Ticket for Carer: $0.00
+  product_duration
+      (empty)
+  product_duration_minutes
+      (empty)
+
+  [MEDIA & CATEGORY]
+  product_main_image   <api>
+      https://cdn.filestackcontent.com/TpNeREXOR3KyVsTx548Z
+  product_images   <api>
+      ["https://cdn.filestackcontent.com/TpNeREXOR3KyVsTx548Z"]
+  product_category   <api>
+      Ghost Tour
+
+  [LOCATION]
+  location_street   <api>
+      Brisbane City Hall - King George Square Entrance
+  location_city   <api>
+      Brisbane
+  location_state   <api>
+      QLD
+  location_country   <api>
+      AU
+  location_postcode   <api>
+      4000
+  location_latitude   <api>
+      -27.468659
+  location_longitude   <api>
+      153.023902
+
+  [DETAIL PAGE]
+  detail_description   <desc>
+      Brisbane is haunted by 200 years of crime and tragedy. Discover the ghosts of The
+        River City on a guided walk of the CBD. Hear historic ghost stories - The Haunted
+        Hotel, Printer's Devil, Victoria Bridge and The Tyrant of Moreton Bay.
+  detail_highlights
+      (empty)
+  detail_what_is_included   <desc>
+      2 hours historic ghost tour with experienced guide through this haunted site
+      Restricted tour size
+      Donation to Ghost Tours’ Haunted Heritage Fund
+  detail_what_is_not_included
+      (empty)
+  detail_itinerary
+      (empty)
+  detail_important_info   <desc+booking (DIFFERENT, score 49)>
+      Please ensure that this booking confirmation is circulated to all those that you
+        have booked for. Please also ask them all to read the important information, tour
+        rules and health and safety information included.
+
+      NO TOILET FACILITIES WILL BE AVAILABLE AT THIS SITE, please use facilities elsewhere
+        before joining us at this site
+      TOURS WILL STILL RUN IN THE RAIN - We believe the weather really adds to the
+        atmosphere of a tour. If there is rain, please bring an umbrella and or raincoat,
+        and enjoy the tour. Tours will only be cancelled if conditions become dangerous -
+        we will notify you in these circumstances close to the tour time.
+  detail_booking_notes
+      (empty)
+  detail_meeting_point
+      (empty)
+  detail_check_in
+      (empty)
+  detail_departure_info
+      (empty)
+  detail_before_arrival
+      (empty)
+  detail_what_to_bring   <desc>
+      WEAR FLAT ENCLOSED SHOES - All guests must wear flat enclosed shoes. Other shoes
+        will not be accepted.
+      BRING A WATER BOTTLE -To keep you hydrated during the tour
+  detail_what_not_to_bring
+      (empty)
+  detail_accessibility   <booking (SAME as desc, score 100, kept longer)>
+      CLICK HERE for accessibility information
+        (https://ghosttoursaustralia.com.au/disability-access-companion-cards/)
+  detail_restrictions   <booking (SAME as desc, score 97, kept longer)>
+      Guests must be wearing flat-soled enclosed shoes. Thongs, sandals and high heels
+        will not be permitted on tour.
+      We believe the weather really adds to the atmosphere of a tour. If there is rain,
+        please bring an umbrella and or raincoat, and enjoy the tour. Tours will only be
+        cancelled if conditions become dangerous - we will notify you in these
+        circumstances close to the tour time.
+      Please bring a water bottle with you to keep hydrated during 2 hr walking tour.
+      Please arrive no later than 15 minutes before your tour is due to start.
+      Under 18's must be accompanied by an adult. Under 10's not permitted on tour.
+      Read more Important Tour Rules below
+      Tours are not suitable for children under 10 years (unless otherwise stated).
+        Children under 10 will not be permitted on any tour (unless otherwise stated).
+        Parents and guardians are advised that this tour features strong content in the
+        form of true historic stories and tales delivered in a dramatic style. The stories
+        may include gruesome and macabre material including murders, crimes, violence,
+        deaths, executions and suicide. The stories can be frightening, scary and
+        distressing especially for young children.
+      Those under the age of 18 must be accompanied/supervised by an adult.
+      By undertaking one of our tours, all clients agree to abide by the following rules.
+        Any person not abiding by the rules will not be permitted on the tour. No refund
+        or transfer will be granted.
+      There are no toilet facilities available at site. Please use facilities elsewhere
+        before joining us at this site.
+      The consumption of alcohol and use of illegal substances are not permitted BEFORE or
+        DURING a tour, any guest believed to be intoxicated, inebriated, or otherwise
+        under the influence of drugs and/or alcohol will not be admitted at time of check-
+        in.
+      Smoking/ vaping is not permitted at any time during our tours. If anyone forgets
+        this, and starts smoking, they will be asked to immediately cease. If they do not,
+        they will be asked to leave the tour.
+      Proof of age or other identification may be required upon request for clients
+        claiming concessions.
+      Once tours have commenced, guests will be unable to leave the tour group. Visitors
+        must stay with the tour group at all times for their own safety
+      Historic Australia reserves the right to change a tour itinerary and/or Tour
+        Guide(s) without notice.
+      Mobile and tablet devices are only to be used on tour whilst taking photographs or
+        in an emergency. If you use your phone/ tablet for any other purpose during any of
+        our tours, you will be asked to stop. Refusal to do so may result in you being
+        asked to leave the tour.
+      Video cameras and recording devices of any sort are NOT permitted.
+      All tours, stories, tales etc are the intellectual property of Jack Sim and Historic
+        Australia and may not be recorded or reproduced in any form without written
+        permission prior to the commencement of a tour.
+      Horror costumes/ makeup/ masks are not permitted to be worn. Historic Australia
+        reserves the right to refuse admission to anyone wearing a horror costume that is
+        deemed inappropriate or distasteful.
+      Paranormal investigation / ghost hunting is strictly not permitted on tours. This
+        includes but is not limited to: apps on mobile devices, Ouija boards, pendulums,
+        video and still photography, psychic, medium and clairvoyant channelling of
+        spirits.
+      Certified guide, hearing, assistance and companion animals are the only animals
+        permitted on tours.
+      Management reserves the right to refuse admission for any reason.
+      Guests engaging in inappropriate behaviour will be removed and not be entitled to a
+        refund.
+      Historic Australia reserves the right to refuse entry to any child or person whom is
+        deemed to be at risk from the material presented.
+      Guests engaging in criminal offences such as stealing, deliberately damaging or
+        vandalising sites will be removed and may face prosecution.
+      Historic Australia accepts no responsibility for lost or stolen property.
+      Knives, sharp implements, weapons, pens, pencils, permanent markers, glass bottles,
+        cans, hot food, are strictly not permitted during a tour.
+      Loitering at sites at the conclusion of tour is not permitted.
+      Undertaking a Historic Australia Tour is at your own risk.
+      Please always:
+      Respect the role/authority of the tour guides.
+      Respect other client’s experience.
+      Respect the historic sites visited.
+  detail_special_requirements
+      (empty)
+  detail_health_safety
+      (empty)
+  detail_group_size
+      (empty)
+  detail_faqs
+      (empty)
+  detail_extras
+      (empty)
+  detail_disclaimers
+      (empty)
+
+  [POLICY & COMMERCIAL]
+  detail_cancellation_policy   <api>
+      **If a tour booking is cancelled by a customer, or if any member of the tour group
+        cancels, the following policies apply:**
+
+      • Cancellation **0-4 business days** prior to tour date – Non-refundable.
+      Tickets can be transferred to friends or family members. Please ensure you **contact
+        us via email** to inform us of the new booking name/contact. Once a booking has
+        been transferred, the booking will not be able to be transferred again, and is not
+        eligible for a refund.
+
+      • Cancellation **5-10 business days** prior to tour date – Non-refundable.
+      Tickets can be transferred to an alternative date for the same tour. Please ensure
+        you **contact us via email** to inform us of your request. Once a booking has been
+        transferred, the booking will not be able to be transferred again, and is not
+        eligible for a refund.
+
+      • Cancellation **11 or more business days** prior to tour date – 75% Refund
+        (excluding credit card surcharge).
+
+      •       Historic Australia must be advised of cancellation or rebooking **in writing
+        by the person who booked the tour.**
+      •       Failure to attend the tour is deemed to be a cancellation. Refunds will not
+        apply.
+      •       PLEASE NOTE: COVID-19 is no longer an unforeseen circumstance and regular
+        cancellation fees apply - If you are unable to attend at short notice due to covid
+        or any other illness, please try to find someone else to use your tickets. Please
+        ensure you contact us via email to inform us of the new booking name/contact.
+
+      •       All cancellations and transfer requests for bookings must adhere to our
+        business hours and be notified by written communication via email to
+        **bookings@historicaustralia.com.au**
+
+
+      **If a tour is cancelled by Historic Australia, the following policies apply:**
+      •       Historic Australia reserves the right to cancel a tour without notice.
+      •       Historic Australia tours are rarely cancelled and would only be cancelled
+        due to unforeseen circumstances. These include, but are not limited to - sick
+        staff member, staff unavailability, injury or unexpected dangerous weather
+        conditions, an emergency/dangerous situation.
+      •       Historic Australia will contact customers promptly via phone & email to let
+        them know the tour is cancelled and to make rescheduling or refunding
+        arrangements.
+      •       Tours cancelled by Historic Australia will be rescheduled & customers will
+        be transferred to another agreed upon tour of the same value as soon as possible.
+        A full refund (excluding credit card surcharge) provided to those who are unable
+        to rebook.
+  detail_cancellation_hours   <api>
+      24.0
+  detail_tax_percentage   <api>
+      10
+  detail_pricing_notes
+      (empty)
+  detail_pickup_available   <api>
+      False
+
+  [SUPPLIER]
+  meta_supplier_name   <api>
+      historicaustralia
+  detail_operator_contact
+      (empty)
+
+
+================================================================================================
+END OF SAMPLE
+================================================================================================
