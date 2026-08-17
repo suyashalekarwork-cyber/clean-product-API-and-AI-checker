@@ -1,0 +1,306 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "1 Day Uluru Tour - Start Ayers Rock / End Alice Springs",
+    "shortDescription": "1 Day Uluru with Sunset BBQ Tour\r\n\r\nOperates - April to October - Mon, Wed, Fri & Sat; November to March - Mon, Wed & Sat",
+    "description": "<p><b>SEE THE STUNNING SIGHTS OF ULURU</b></p><p>Experience the wonders of Uluru as part of your Northern Territory adventure.&nbsp;</p><p><br></p><p>Travel in air-conditioned comfort, hear intriguing stories and learn the secrets of this unique world-renowned destination. We provide a BBQ, beverages and snacks so all you have to do is focus on your incredible surroundings.&nbsp;</p><p><br></p><p>Combining luxury with exploration and discovery, this day tour is one of the most popular things to do during an authentic outback discovery holiday.</p><p><br></p><p><b>1 DAY ULURU &amp; SUNSET BBQ TOUR HIGHLIGHTS</b></p><p>This day trip to see the sights of Uluru is a memorable experience for holidaymakers of all ages.&nbsp;</p><p><b><br></b></p><p>All activities are considered very safe for all age groups. They do not require a high level of fitness or agility.&nbsp;</p><p><b><br></b></p><p>You’ll enjoy:&nbsp;</p><ul><li><p>Watching the sunset at the sacred site of Uluru with a glass of bubbly</p></li><li><p>Uluru: Guided Mala Walk</p></li><li>Uluru: Guided Mutitjulu Waterhole Walk</li></ul><ul><li><p>Aboriginal Cultural Centre</p></li><li><p>Mount Connor Lookout (Alice Springs start only)</p></li></ul><p><br></p><p></p><p><b>WHAT’S INCLUDED</b></p><p><br></p><p>Your Uluru day trip includes the following:&nbsp;</p><ul><li><p>Experienced and accredited tour guide</p></li><li><p>Air-conditioned vehicle</p></li><li><p>BBQ at sunset with sparkling wine</p></li><li>Accommodation pick-up &amp; drop-off</li></ul><br><p><b><i>**Exclusions – From 1 April 2026</i></b><b><i></i></b></p><p><b><i>Uluru-Kata Tjuta National Park Pass ($38)</i></b><b><i></i></b></p><p><i>Please purchase your Uluru-Kata Tjuta Park Pass before your tour and ensure you bring a copy on the day of the tour</i></p><p><i><br></i></p><p>Spaces for this popular day trip fill fast. Book today to avoid disappointment.&nbsp;</p><p><br></p><p><b>TOUR ITINERARY: 1 DAY ULURU TOUR</b></p><p></p><p>Our professional tour guides show you the real outback on this one day tour.&nbsp;<br></p><p><b><br></b></p><p><b>EARLY MORNING</b></p><p>Starting your tour in Alice Springs? We will collect you from outside your Alice Springs accommodation and head to the first stop of our day tour at Erldunda (home of the Emu) where you can purchase breakfast.<br></p><p><b><br></b></p><p><b>LATE MORNING</b></p><p>If you’re starting your tour from Ayers Rock Resort, we collect you from your Ayers Rock Resort accommodation.</p><p><b><br></b></p><p><b>EARLY AFTERNOON</b></p><p><b><br></b></p><p><b>Aboriginal Cultural Centre</b></p><p>Your tour then visits the Aboriginal Cultural Centre. Here, you will have time to learn about the local Pitjantjatjara people and buy souvenirs.&nbsp;</p><p><b><br></b></p><p>Built from 90,000 mud bricks, the Cultural Centre was created with the help of the local Anangu people. The sacred site it is built on has special meaning to its traditional owners.</p><p><b><br></b></p><p><b>MID-LATE AFTERNOON</b></p><p><b><br></b></p><p><b>Uluru – Mala Walk</b></p><p>Head to the base of the majestic Uluru (Ayers Rock). From here, your tour guide will take you on a guided Mala Walk. Please note; tourists are no longer permitted to climb Uluru due to its cultural significance.&nbsp;</p><p><b><br></b></p><p>The Mala Walk follows the north-west side of Uluru, where you will see many fascinating examples of Anangu rock art. Along the way, your guide will tell ancient stories of the Anangu People.</p><p><b><br></b></p><p><b>Uluru – Mutitjulu Waterhole</b></p><p>Travel by coach to the back section of Uluru and start a guided walk to the Mutitjulu Waterhole.&nbsp;</p><p><b><br></b></p><p>Your guide will take you along a short track to the waterhole – home of an ancestral water snake called Wanampi. You’ll hear stories of local traditions and learn how the Anangu people traditionally used the waterhole for hunting. The caves containing rock art were used in the past by the Anangu people, whose ancestors are still alive today.</p><p><b><br></b></p><p><b>SUNSET</b></p><p><b><br></b></p><p><b>The Sunset BBQ</b></p><p>This is an unforgettable Australian experience and something everyone should visit Uluru for at least once in their lives.&nbsp;</p><p><b><br></b></p><p>Take in a breathtaking Uluru sunset with a glass of bubbly (or BYO beer) and a delicious Aussie BBQ dinner.&nbsp;</p><p><b><br></b></p><p><b>AFTER SUNSET</b></p><p>After sunset and the dinner, we head to the Ayers Rock Resort to drop off those finishing their tour at Ayers Rock Resort Accommodation.&nbsp;</p><p><br></p><p>We then make the return journey to Alice Springs and drop off those passengers finishing their tour at Alice Springs Accommodation.&nbsp;</p><p><br></p><p><i>Effective&nbsp;</i><i>17 May 2023, a 1.6%</i><i>&nbsp;credit card surcharge will be added at checkout</i><i>&nbsp;and is non-refundable.</i></p><p></p><p></p>",
+    "productCode": "PJSFJP",
+    "internalCode": "BIAD_AR_AS",
+    "supplierId": 64976,
+    "supplierAlias": "emurun",
+    "supplierName": "Emu Run Experience",
+    "timezone": "Australia/Darwin",
+    "advertisedPrice": 345.0,
+    "priceOptions": [
+      {
+        "price": 345.0,
+        "label": "Adult",
+        "id": 30917016,
+        "seatsUsed": 1,
+        "productCode": "PJSFJP"
+      },
+      {
+        "price": 189.0,
+        "label": "Child",
+        "id": 25024827,
+        "seatsUsed": 1,
+        "productCode": "PJSFJP"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "images": [
+      {
+        "id": 3515816,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/64976/78ae4004e3064c1fbe79dd9bed15388fCopy_of_Oeclipsephotoclass_166.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/64976/78ae4004e3064c1fbe79dd9bed15388fCopy_of_Oeclipsephotoclass_166_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/64976/78ae4004e3064c1fbe79dd9bed15388fCopy_of_Oeclipsephotoclass_166_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/64976/78ae4004e3064c1fbe79dd9bed15388fCopy_of_Oeclipsephotoclass_166_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "extras": [
+      {
+        "name": "UKTN Park Pass (adult)",
+        "description": "Uluru Kata Tjuta National Park Pass for adults(18 years and above). This park pass is required for participants joining any of the Uluru tours.",
+        "price": 38.0,
+        "extraPriceType": "ANY"
+      },
+      {
+        "name": "EMU RUN - Fly Net (regular)",
+        "description": "This is a must-have for any tour! Flies get really annoying in Central Australia so why not save yourself the annoyance and get a fly net hat on the day of your tour.\r\n\r\nIncluded in the kit is.\r\n*1x Fly Hat",
+        "price": 7.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 3685454,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/0a9ff80edf504084adee2aed1e1e5517image.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/0a9ff80edf504084adee2aed1e1e5517image_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/0a9ff80edf504084adee2aed1e1e5517image_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/0a9ff80edf504084adee2aed1e1e5517image_lg.png"
+        }
+      },
+      {
+        "name": "EMU RUN - Fly Net (big & ringed)",
+        "description": "This is a must-have for any tour! Flies get really annoying in Central Australia so why not save yourself the annoyance and get a bigger fly net hat on the day of your tour?\r\n\r\nIncluded in the kit is.\r\n*1x Fly Net Hat",
+        "price": 12.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 4046131,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/big_flynet.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/big_flynet_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/big_flynet_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/big_flynet_lg.png"
+        }
+      },
+      {
+        "name": "EMU RUN - Metal Water Bottle",
+        "description": "When you travel with us you are required to bring a water bottle to make sure you stay hydrated throughout the day, so why not collect our water bottle on the day of your tour.\r\n\r\nIncluded in the kit is.\r\n*1x EMU RUN - 600 mL Metal Water Bottle",
+        "price": 13.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 4234789,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Subject.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Subject_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Subject_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Subject_lg.png"
+        }
+      },
+      {
+        "name": "EMU RUN - Enamel Cup",
+        "description": "Perfect for drinking a hot beverage around a campfire.",
+        "price": 12.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2274265,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Cup.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Cup_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Cup_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Cup_lg.jpg"
+        }
+      },
+      {
+        "name": "EMU RUN - Stubbie Cooler",
+        "description": "Want to keep your favourite canned beverage cold and have something to remember us by? Then why not grab an Emu Run Stubbie cooler",
+        "price": 8.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2274256,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Stubbie.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Stubbie_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Stubbie_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Emu_Stubbie_lg.jpg"
+        }
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Date of birth",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "Date"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Dietary (Only 1 can be selected - no combinations)",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "listOptions": "No Dietary Requirement\r\nVegetarian\r\nGluten Free\r\nDairy Free",
+        "fieldType": "List"
+      },
+      {
+        "label": "Nut Allergy",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "listOptions": "Yes\r\nNo",
+        "fieldType": "List"
+      },
+      {
+        "label": "Product Code",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "Hidden"
+      },
+      {
+        "label": "Medical Conditions",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "UKTN Park Pass",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "listOptions": "Yes, purchased with Emu Run\r\nYes, passenger-purchased, please check\r\nNo",
+        "fieldType": "List"
+      },
+      {
+        "label": "Pay in full or lock in your spot with a 25% deposit. Balance due 14 days before your tour. Unpaid bookings may be cancelled.",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -23.6696502,
+    "longitude": 133.8667634,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2021-07-09T03:25:35Z",
+    "minimumNoticeMinutes": 60,
+    "durationMinutes": 720,
+    "dateUpdated": "2026-04-23T00:08:45Z",
+    "pickupId": 14655,
+    "locationAddress": {
+      "addressLine": "275 Stuart Highway",
+      "postCode": "0870",
+      "city": "Alice Springs",
+      "state": "NT",
+      "countryCode": "au",
+      "latitude": -23.6696502,
+      "longitude": 133.8667634
+    },
+    "additionalInformation": "<h3><p style=\"margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-weight: normal; font-width: normal; line-height: normal; font-family: &quot;Helvetica Neue&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;\"><span style=\"text-decoration-line: underline;\"><b><span style=\"text-align: start; color: rgb(25, 35, 45); font-size: 13px;\">IMPORTANT NOTE: </span></b></span><b>Effective to all travel beginning 1st of April 2026</b>&nbsp;- Your tour package does not include entry to the Uluru Kata Tjuta National Park.</p><p style=\"margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-weight: normal; font-width: normal; line-height: normal; font-family: &quot;Helvetica Neue&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;\"><span class=\"wysiwyg-font-size-medium\"><br></span></p><p style=\"margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-weight: normal; font-width: normal; line-height: normal; font-family: &quot;Helvetica Neue&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;\">You can book the Uluru Kata Tjuta&nbsp;National Park (UKTNP) Pass in advance <a rel=\"nofollow\" target=\"_blank\" href=\"https://parksaustralia.gov.au/uluru/plan/passes/\">here</a>. Please ensure you bring your park pass with you on the day of your tour. If you purchased your pass through us, kindly take note of the park pass policy located in <i>Section 6</i> of our <a rel=\"nofollow\" target=\"_blank\" href=\"https://www.emurun.com.au/terms-and-conditions/\">Terms &amp; Conditions</a><span style=\"text-align: start; color: rgb(25, 35, 45); font-size: 13px;\">.</span></p></h3><h3 style=\"font-family: Roboto, Helvetica, Arial, sans-serif; color: rgb(43, 60, 78);\"><br></h3><h3 style=\"font-family: Roboto, Helvetica, Arial, sans-serif; color: rgb(43, 60, 78);\">-------------------------</h3><h3 style=\"font-family: Roboto, Helvetica, Arial, sans-serif; color: rgb(43, 60, 78);\">WHAT TO BRING</h3><div>Travel voucher, water bottle (capacity 1.5 litres), strong non-slip walking shoes, hat (wide brimmed is best), flynet, sunglasses, sunscreen, camera, casual and comfortable clothing (cool, light clothing is best in summer and warm clothing for winter), travel pillow, cash for purchasing dot painting directly from artists at&nbsp;sunset.</div>",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "AGE:Adult",
+      "SUITABILITY:Family",
+      "AGE:Teenager",
+      "AGE:Senior",
+      "CATEGORY:Coach Tours",
+      "INTEREST:Sightseeing",
+      "INTENSITY:Quiet",
+      "SKILL_LEVEL:Intermediate",
+      "SUITABILITY:Schools",
+      "SUITABILITY:Groups",
+      "AGE:Child",
+      "INTEREST:Cultural",
+      "INTEREST:Family",
+      "TYPE:Tour"
+    ],
+    "taxes": [
+      {
+        "supplierId": 64976,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "REL_CANONICAL",
+        "attrKey": "rel-canonical",
+        "attrValue": "https://www.emurun.com.au/tours/1-day-uluru-tour/",
+        "productCode": "PJSFJP"
+      },
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "PJSFJP"
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

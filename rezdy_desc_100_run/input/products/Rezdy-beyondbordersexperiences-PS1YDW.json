@@ -1,0 +1,181 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "PRIVATE SOUTH COAST FULL-DAY EXPERIENCE",
+    "shortDescription": "DISCOVER DRAMATIC COASTAL CLIFFS, SEA CLIFF BRIDGE & KIAMA BLOWHOLE",
+    "description": "<h3><b>YOUR EXPERIENCE</b></h3><h5>A PRIVATE SOUTH COAST JOURNEY SHAPED BY SCENERY, COMFORT, AND FLEXIBILITY</h5><p>Leave Sydney behind and settle into a private full-day journey designed for guests who want to experience the coast in a more relaxed and personal way.</p><p>From dramatic cliffside roads and ocean lookouts to charming seaside towns and the famous Kiama Blowhole, the South Coast unfolds at a comfortable pace with time to properly enjoy each stop rather than simply pass through it.</p><p>Travel in a private luxury vehicle as the day moves from scenic national park landscapes to sweeping coastal views, lighthouse settings, and memorable photo locations. The experience is thoughtfully paced to let the scenery breathe and to give you the freedom to enjoy the journey without feeling rushed.</p><p>Rather than following a rigid group schedule, the day is shaped around comfort, flexibility, and genuine enjoyment. Whether you are drawn to coastal drives, relaxed stops by the water, or a more leisurely day beyond the city, this experience offers a refined and seamless way to discover one of New South Wales’ most beautiful regions.</p><h3><b><br></b><b>YOUR DAY ON THE SOUTH COAST</b></h3><h5>A THOUGHTFULLY PACED PRIVATE COASTAL EXPERIENCE</h5><br><p><b>YOUR DAY BEGINS</b></p><p>Your private South Coast experience begins with pickup from your hotel, cruise terminal, or Sydney airport. Settle into your private luxury vehicle and leave the city behind as the journey opens into one of New South Wales’ most scenic coastal routes. The day begins in comfort, with time to ease into the experience at a relaxed and enjoyable pace.</p><p><b>ROYAL NATIONAL PARK</b></p><p>As you travel south, pass through the Royal National Park, where coastal bushland, cliff edges, and ocean views set the tone for the day ahead. This early stretch of the journey offers a beautiful transition from the city to the coast, with scenery that immediately feels more open, calm, and refreshing.</p><p>PASS BY</p><p><b>WATTAMOLLA BEACH</b></p><p>Visit Wattamolla, a peaceful coastal spot where a natural lagoon meets the ocean, framed by bushland and rocky headlands. It is a quiet and scenic stop, perfect for taking in the fresh air, enjoying the setting, and capturing some of the first memorable views of the day.</p><p>Allow around thirty minutes</p><p><b>BALD HILL LOOKOUT &amp; HANG GLIDING SPOT</b></p><p>Pause at Bald Hill for sweeping views across Stanwell Park and the dramatic coastline below. Known for its elevated position and open ocean outlook, this is one of the South Coast’s most striking viewpoints and a wonderful place to slow down, take photographs, and appreciate the scale of the landscape.</p><p>Allow around thirty minutes</p><p><b>SEA CLIFF BRIDGE</b></p><p>Travel across Sea Cliff Bridge, one of New South Wales’ most iconic coastal drives, suspended above the ocean and wrapped by uninterrupted cliffside views. This part of the journey is less about rushing through and more about enjoying the drive itself, with the coastline unfolding beside you in a way that feels distinctly memorable.</p><p>PASS BY</p><p><b>SOUTHERN GATEWAY CENTRE</b></p><p>Stop at the Southern Gateway Centre for elevated views across the Illawarra coastline and escarpment. It is a well-placed pause in the journey, offering time to stretch your legs, take in the panorama, and enjoy another perspective of the coastline before continuing south.</p><p>Allow around twenty minutes</p><p><b>WOLLONGONG LIGHTHOUSE</b></p><p>Continue to Wollongong Lighthouse, where expansive ocean views, open foreshore scenery, and a relaxed coastal atmosphere make this a rewarding stop. It is a lovely place to take in the water, capture photographs, and enjoy the feel of the coast at an easy pace.</p><p>Allow around thirty minutes</p><p><b>GERRINGONG</b></p><p>Spend time in Gerringong, a charming South Coast township known for its rolling green surrounds and coastal character. Depending on your pace and preferences, this part of the day may also include a relaxed visit to a local winery or scenic countryside stop, adding another layer to the experience beyond the ocean views.</p><p><i>Selected venues are subject to availability. Where needed, a comparable alternative may be arranged.</i></p><p>Allow around one hour</p><p><b>SHELL HARBOUR</b></p><p>Enjoy a relaxed stop in Shellharbour, where you may take time for lunch, explore the waterfront, or simply unwind in a more laid-back seaside setting. This part of the day brings a softer rhythm to the journey, balancing the dramatic lookouts with time to enjoy the coastal atmosphere more slowly.</p><p>Allow around thirty minutes</p><p>&nbsp;<b>KIAMA BLOWHOLE</b></p><p>Visit the famous Kiama Blowhole, one of the South Coast’s most recognised natural landmarks. With ocean waves surging through the rock formation below, this final major stop offers a dramatic and memorable finish to the journey, together with sweeping ocean views and a beautiful clifftop setting.</p><p>Allow around thirty minutes</p><p>&nbsp;<b>RETURN / DROP-OFF</b></p><p>At the end of the day, return in comfort to your hotel, cruise terminal, or Sydney airport, with time to reflect on a beautifully paced journey through cliffs, coastal towns, ocean lookouts, and some of the South Coast’s most iconic scenery.</p><p>&nbsp;</p><h3><b>WHAT’S INCLUDED</b></h3><p><b>TRANSPORT</b></p><p>Private luxury vehicle throughout the day</p><p><b>DOOR-TO-DOOR SERVICE</b></p><p>Private pickup and drop off from Sydney hotels, cruise terminals, and airport locations</p><p><b>LOCAL EXPERT GUIDE</b></p><p>Travel with a knowledgeable local guide throughout your experience</p><p><b>TAILORED ITINERARY</b></p><p>A flexible day shaped around your pace, interests, and preferred stops</p><p><b>REFRESHMENTS</b></p><p>Complimentary bottled water provided throughout the journey</p><p><b>CHILD SEATS</b></p><p>Child seats available on request for a safe and comfortable journey</p><p><b>WIFI ON BOARD</b></p><p>Complimentary onboard WiFi available for added comfort and convenience</p>",
+    "productCode": "PS1YDW",
+    "internalCode": "BBE-SC",
+    "supplierId": 260552,
+    "supplierAlias": "beyondbordersexperiences",
+    "supplierName": "Beyond Borders Experiences",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 1299.0,
+    "priceOptions": [
+      {
+        "price": 1299.0,
+        "label": "Group from 1 to 2",
+        "id": 62429383,
+        "seatsUsed": 1,
+        "minQuantity": 1,
+        "maxQuantity": 2,
+        "priceGroupType": "TOTAL",
+        "productCode": "PS1YDW"
+      },
+      {
+        "price": 1399.0,
+        "label": "Group from 3 to 4",
+        "id": 63152359,
+        "seatsUsed": 1,
+        "minQuantity": 3,
+        "maxQuantity": 4,
+        "priceGroupType": "TOTAL",
+        "productCode": "PS1YDW"
+      },
+      {
+        "price": 1499.0,
+        "label": "Group from 5 to 6",
+        "id": 63152361,
+        "seatsUsed": 1,
+        "minQuantity": 5,
+        "maxQuantity": 6,
+        "priceGroupType": "TOTAL",
+        "productCode": "PS1YDW"
+      },
+      {
+        "price": 1599.0,
+        "label": "Group of 7",
+        "id": 63152360,
+        "seatsUsed": 1,
+        "minQuantity": 7,
+        "maxQuantity": 7,
+        "priceGroupType": "TOTAL",
+        "productCode": "PS1YDW"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 7,
+    "images": [
+      {
+        "id": 4436340,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/South_Coast_REDZY.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/South_Coast_REDZY_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/South_Coast_REDZY_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/South_Coast_REDZY_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Pick-up Location",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": " Please list the ages of any children under 8 years old who will join the tour. (This ensures we install the correct infant and child car seats as required under NSW law)",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2026-02-22T08:16:39Z",
+    "minimumNoticeMinutes": 720,
+    "durationMinutes": 600,
+    "dateUpdated": "2026-04-22T02:16:27Z",
+    "locationAddress": {
+      "addressLine": "",
+      "postCode": "",
+      "city": "",
+      "state": "",
+      "countryCode": "",
+      "latitude": 0.0,
+      "longitude": 0.0
+    },
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "CATEGORY:Day Tours",
+      "TYPE:Daytour"
+    ],
+    "taxes": [
+      {
+        "supplierId": 260552,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

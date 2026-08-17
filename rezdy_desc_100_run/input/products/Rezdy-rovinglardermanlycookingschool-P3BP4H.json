@@ -1,0 +1,227 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "LESSON",
+    "name": "Handcrafted Gnocchi from Sicily",
+    "shortDescription": "Picture soft, pillowy gnocchi embraced by zesty lemon ricotta. Fresh pistachio pesto swirls through—a perfect harmony of bright, Sicilian flavours!",
+    "description": "<h3>HANDCRAFTED GNOCCHIItalian Cook &amp; Dine Experience</h3><h3>Winter Warmers Edition</h3><p>Cold outside.<br>Inside? <strong>Golden arancini. Pillowy gnocchi. Lemon ricotta. Pistachio pesto. Crisp cannoli.</strong></p><p>This is winter, but with Italian sunshine on the table.</p><p><strong>Handcrafted Gnocchi</strong> is Roving Larder’s Italian Cook &amp; Dine experience — hands-on, generous, bright, comforting, and absolutely worth leaving the couch for.</p><p>You’ll cook.<br>You’ll sip.<br>You’ll learn.<br>Then you’ll sit down at our long table and enjoy a beautiful Italian-inspired meal you helped create.</p><p>It’s part cooking class, part dinner party, part little escape to Italy.</p><p>No passport required.<br>Just closed shoes and an appetite.</p><b>WHY YOU’LL LOVE IT</b><p>This is not just a gnocchi class.</p><p>It’s a full Italian night out — with you in the kitchen.</p><p>You’ll learn how to make soft, pillowy gnocchi from scratch, create flavour-packed sauces, fry golden arancini, and finish with crisp cannoli filled with lemon curd and mascarpone.</p><p>It’s relaxed, hands-on, social, and deliciously satisfying.</p><p>Perfect for date nights, birthdays, gifts, catch-ups with friends, team celebrations, or anyone who believes winter should come with arancini, gnocchi, cannoli, and wine.</p><b>HANDS-ON COOKING &amp; DINING EXPERIENCE</b><p>This is not a cooking demo where you sit quietly while the chef does all the fun bits.</p><p>At Roving Larder, you get involved.</p><p>Your chef will guide you step by step through the menu, sharing practical techniques, timing tips, and little kitchen tricks that make Italian cooking feel achievable at home.</p><p>You’ll roll gnocchi, shape arancini, build beautiful sauces, fill cannoli, taste as you go, and enjoy the buzz of a warm kitchen.</p><p>Then comes the best part.</p><p>You sit down at the long table and enjoy the meal you helped create — with good company, a drink in hand, and that very smug little feeling of, “Yes, I made this.”</p><b>WHAT YOU’LL COOK</b><h3>Starter</h3><p><strong>Arancini with Bocconcini &amp; Tomato Sauce</strong><br>Crispy risotto balls with melted bocconcini centres, fried until golden and served with a bright, tangy tomato sauce.</p><h3>Main</h3><p><strong>Handcrafted Gnocchi with Lemon Ricotta &amp; Pistachio Pesto</strong><br>Delicate homemade gnocchi tossed with zesty lemon ricotta and finished with vibrant, nutty pistachio pesto.</p><h3>Dessert</h3><p><strong>Cannoli with Lemon Curd &amp; Mascarpone</strong><br>Golden, crisp cannoli shells filled with tangy lemon curd and mascarpone, topped with white chocolate and pistachios.</p><b>TECHNIQUES YOU’LL LEARN</b><p>During this Italian Cook &amp; Dine experience, you’ll learn how to:</p><ul><li><p>Make gnocchi dough from scratch</p></li><li><p>Roll and shape light, pillowy gnocchi</p></li><li><p>Create a vibrant lemon ricotta and pistachio pesto finish</p></li><li><p>Prepare golden arancini with bocconcini centres</p></li><li><p>Fry safely and confidently</p></li><li><p>Fill cannoli with lemon curd and mascarpone</p></li><li><p>Add simple finishing touches with white chocolate and pistachio</p></li><li><p>Plate your dishes beautifully without overcomplicating them</p></li></ul><b>WHAT’S INCLUDED</b><p>Your experience includes:</p><ul><li><p>Chef-led, hands-on cooking</p></li><li><p>All ingredients and equipment</p></li><li><p>Apron use during the class</p></li><li><p>Welcome nibbles</p></li><li><p>Welcome drink</p></li><li><p>A generous Italian-inspired meal</p></li><li><p>Curated beverages with the meal</p></li><li><p>Recipes to recreate the dishes at home</p></li><li><p>Long-table dining in a relaxed, welcoming setting</p></li></ul><b>ITINERARY</b><p>Please arrive <strong>15 minutes before the class start time</strong> so we can welcome you properly.</p><p>We’ll begin with nibbles and a welcome drink while everyone settles in.</p><p>Your chef will then introduce the menu, explain the flow of the class, and guide the group through the cooking experience.</p><p>You’ll cook, taste, ask questions, learn new techniques, and enjoy the rhythm of a warm, buzzing kitchen.</p><p>Once everything is ready, we gather at the long table to share the meal together.</p><p>Good food.<br>Good drinks.<br>Good people.<br>A very good winter night.</p><b>WHO IT’S PERFECT FOR</b><p>This experience is perfect for:</p><ul><li><p>Gnocchi lovers</p></li><li><p>Italian food lovers</p></li><li><p>Couples looking for a cosy winter date night</p></li><li><p>Friends who want something better than another restaurant booking</p></li><li><p>Birthday celebrations</p></li><li><p>Gift experiences</p></li><li><p>Team outings and small groups</p></li><li><p>Anyone who thinks homemade gnocchi and cannoli sound like a very sensible life decision</p></li></ul><b>PLEASE NOTE</b><p>Menus may vary slightly depending on seasonal produce and ingredient availability.</p><p>Please wear <strong>closed shoes</strong> for safety in the kitchen.</p><p><b>If you have dietary requirements, please let us know at the time of booking so we can do our best to accommodate you.</b></p><b>BOOK YOUR ITALIAN WINTER ESCAPE</b><p>Don’t just sit through winter.</p><p>Make it delicious.</p><p>Join us for <strong>Handcrafted Gnocchi</strong> — a warm, hands-on Italian Cook &amp; Dine experience.</p><p></p><p></p><p></p><p></p>",
+    "productCode": "P3BP4H",
+    "internalCode": "RLMSCDITHGFS",
+    "supplierId": 228835,
+    "supplierAlias": "rovinglardermanlycookingschool",
+    "supplierName": "ROVING LARDER MANLY COOKING SCHOOL",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 199.0,
+    "priceOptions": [
+      {
+        "price": 199.0,
+        "label": "Quantity",
+        "id": 44284905,
+        "seatsUsed": 1,
+        "productCode": "P3BP4H"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 16,
+    "images": [
+      {
+        "id": 3603597,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3efb97a932064ef3a34e91944f6054c6Roving_Larder_brown_butter_sage_gnocchi.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3efb97a932064ef3a34e91944f6054c6Roving_Larder_brown_butter_sage_gnocchi_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3efb97a932064ef3a34e91944f6054c6Roving_Larder_brown_butter_sage_gnocchi_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3efb97a932064ef3a34e91944f6054c6Roving_Larder_brown_butter_sage_gnocchi_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "https://rovinglarder.com.au/tncs",
+    "extras": [
+      {
+        "name": "Bottle of Wine",
+        "description": "Add a bottle (or two! or...) to elevate your event and make it even more memorable!\r\nEnhance your private event with an extra bottle of wine to enjoy alongside your delicious creations! Perfect for celebrating special occasions or simply savouring the moment, this add-on is part of a curated list of red, white, or sparkling options.\r\nWe will offer guidance to help you choose the wine that best complements the flavours of your menu.",
+        "price": 49.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 3956091,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/cce6198b6774447887e395bc0e35c1adwine.jpeg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/cce6198b6774447887e395bc0e35c1adwine_tb.jpeg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/cce6198b6774447887e395bc0e35c1adwine_med.jpeg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/cce6198b6774447887e395bc0e35c1adwine_lg.jpeg"
+        }
+      },
+      {
+        "name": "Cocktail",
+        "description": "Take your evening to the next level by adding one or two extra cocktails to your experience. These carefully curated options allow you to explore a broader range of flavours and techniques, making your culinary and mixology journey even more memorable.",
+        "price": 20.0,
+        "extraPriceType": "ANY"
+      },
+      {
+        "name": "Glass of Wine",
+        "description": "Enhance your cooking experience with a complimentary glass of wine. Perfectly paired with the meal you'll prepare, this touch of elegance sets the mood for an unforgettable culinary journey. Cheers to learning, laughter, and great flavours!",
+        "price": 15.0,
+        "extraPriceType": "QUANTITY",
+        "image": {
+          "id": 3978062,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/ef365305f92349939f1dae5f503c2d4cRL_wine.jpeg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/ef365305f92349939f1dae5f503c2d4cRL_wine_tb.jpeg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/ef365305f92349939f1dae5f503c2d4cRL_wine_med.jpeg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/ef365305f92349939f1dae5f503c2d4cRL_wine_lg.jpeg"
+        }
+      },
+      {
+        "name": "Moet & Chandon Bottle",
+        "description": "Moet & Chandon Brut Imperial NV Champagne 750ml",
+        "price": 99.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 3913515,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Moet.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Moet_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Moet_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Moet_lg.jpg"
+        }
+      },
+      {
+        "name": "Unlimited Drinks",
+        "description": "Add an extra touch of celebration to your event with our Unlimited Drinks Package! For three hours, enjoy an unlimited selection of wine, beer, and non-alcoholic beverages to sip and savour while you cook, dine, and connect.\r\nUnlimited Refreshments: Enjoy as many drinks as you like throughout your 3-hour event.\r\nVariety of Choices: Select from a curated list of wines, a range of beers, and refreshing non-alcoholic options.\r\nPerfect Pairings: Each drink is chosen to complement the flavours of your meal, enhancing your culinary experience.\r\nThis add-on creates a relaxed, festive atmosphere, making your event even more memorable!",
+        "price": 29.0,
+        "extraPriceType": "QUANTITY",
+        "image": {
+          "id": 3913519,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/unlimited_drinks.jpeg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/unlimited_drinks_tb.jpeg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/unlimited_drinks_med.jpeg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/unlimited_drinks_lg.jpeg"
+        }
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Allergies, intollerances, or food dislikes...",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -33.809524242939,
+    "longitude": 151.29826131657,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 18.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2024-04-02T23:41:55Z",
+    "minimumNoticeMinutes": 4320,
+    "durationMinutes": 180,
+    "dateUpdated": "2026-06-04T11:21:42Z",
+    "locationAddress": {
+      "addressLine": "2 Gunner Road",
+      "postCode": "2095",
+      "city": "MANLY",
+      "state": "New South Wales",
+      "countryCode": "au",
+      "latitude": -33.809524242939,
+      "longitude": 151.29826131657
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "AGE:Adult",
+      "SUITABILITY:Gift Voucher",
+      "TYPE:Activity",
+      "INTEREST:Special Interest",
+      "SUITABILITY:Night Time",
+      "SKILL_LEVEL:Beginner",
+      "SUITABILITY:Any Weather",
+      "INTENSITY:Relaxed",
+      "CATEGORY:Cooking Lessons",
+      "INTEREST:Lifestyle"
+    ],
+    "taxes": [
+      {
+        "supplierId": 228835,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "META_NAME",
+        "attrKey": "description",
+        "attrValue": "Make gnocchi, arancini and cannoli in this hands-on Italian cooking class in Manly. Cook, dine and enjoy a cosy long-table experience at Roving Larder.",
+        "productCode": "P3BP4H"
+      },
+      {
+        "metaType": "REL_CANONICAL",
+        "attrKey": "rel-canonical",
+        "attrValue": "https://rovinglarder.com.au/gnocchi",
+        "productCode": "P3BP4H"
+      },
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "P3BP4H"
+      },
+      {
+        "metaType": "TITLE",
+        "attrKey": "title",
+        "attrValue": "Hands-On Italian Cooking Class Manly | Gnocchi & Cannoli",
+        "productCode": "P3BP4H"
+      }
+    ],
+    "waitListingEnabled": true,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

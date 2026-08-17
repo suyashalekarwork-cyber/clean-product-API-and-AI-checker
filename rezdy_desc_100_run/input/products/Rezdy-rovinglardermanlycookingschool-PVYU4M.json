@@ -1,0 +1,176 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "LESSON",
+    "name": "With Love From Paris",
+    "shortDescription": "A romantic French Cook & Dine dinner made for Mother’s Day. Cook scallops with Paris mash, silky butter sauce and a heavenly chocolate fondant, then gather at the long table for a beautiful shared dinner — with love, from Paris",
+    "description": "<h3>WITH LOVE FROM PARISFrench Cook &amp; Dine Experience</h3><h3>Winter Warmers Edition</h3><p>Cold outside.<br>Inside? <strong>Golden scallops. Butter sauce. Silky Paris mash. Chocolate fondant.</strong></p><p>This is winter, but make it Paris.</p><p><strong>With Love from Paris</strong> is Roving Larder’s elegant French Cook &amp; Dine experience — designed for people who want more than dinner out.</p><p>You’ll cook.<br>You’ll sip.<br>You’ll learn.<br>Then you’ll sit down and enjoy a beautiful French-inspired meal at our long table.</p><p>It’s hands-on, generous, delicious, and just indulgent enough to feel like you’ve escaped to a little Parisian bistro for the evening.</p><p>No passport required.<br>Just closed shoes and an appetite.</p><b>WHY YOU’LL LOVE IT</b><p>This is the kind of winter night that gets you off the couch.</p><p>You’ll learn how to cook scallops properly, make a rich butter sauce, create silky Paris-style mash, dress a salad the French way, and finish with a warm chocolate fondant that delivers the real prize: that glorious molten centre.</p><p>It’s elegant, but not intimidating.<br>French, but not fussy.<br>Impressive, but actually achievable.</p><p>Perfect for date nights, catch-ups with friends, birthday gifts, team celebrations, or anyone who thinks winter deserves better than takeaway and trackies<b>.</b></p><b>HANDS-ON COOKING &amp; DINING EXPERIENCE</b><p>This is not a cooking demo where you sit politely and watch someone else have all the fun.</p><p>At Roving Larder, you get involved.</p><p>Your chef will guide you step by step through the evening’s menu, sharing the techniques, timing, and little kitchen secrets that make French food feel less scary and much more delicious.</p><p>You’ll cook together, taste as you go, ask questions, and build real skills you can use again at home.</p><p>Then comes the best part.</p><p>You sit down at the long table and enjoy the meal you’ve helped create — with good company, a drink in hand, and that very satisfying feeling of, “Yes, I made this.”</p><b>ITINERARY</b><p>Please arrive <strong>15 minutes before the class start time</strong> so we can welcome you in properly.</p><p>We’ll start with nibbles and a welcome drink while everyone settles in.</p><p>Your chef will then introduce the menu, explain the flow of the class, and guide the group through the cooking experience.</p><p>You’ll prepare the dishes, learn the techniques, and enjoy the rhythm of a warm, buzzing kitchen.</p><p>Once everything is ready, we gather around the table to share the meal together.</p><p>Good food.<br>Good wine.<br>Good people.<br>A very good winter night.</p><b>TECHNIQUES YOU’LL LEARN</b><p>During this French Cook &amp; Dine experience, you’ll learn practical techniques including:</p><ol><li><p><strong>How to cook scallops properly</strong><br>Golden on the outside. Tender in the centre. No rubbery disasters.</p></li><li><p><strong>How to make a rich butter sauce</strong><br>Glossy, balanced, and deeply French.</p></li><li><p><strong>How to create Paris-style mash</strong><br>Silky, smooth, luxurious, and absolutely worth leaving the house for.</p></li><li><p><strong>How to dress a salad with French vinaigrette</strong><br>Simple, sharp, elegant — the French do not drown lettuce, and neither will you.</p></li><li><p><strong>How to master chocolate fondant timing</strong><br>Set on the outside, molten in the centre, dramatic in the best possible way.</p></li><li><p><strong>How to plate with bistro-style elegance</strong><br>So your food looks as good as it tastes.</p></li></ol><b>SAMPLE MENU</b><h3>Main</h3><p><strong>Golden Scallops with Butter Sauce &amp; Paris Mash</strong><br>Perfectly seared scallops served with a rich butter sauce and silky Paris-style mash.</p><p>Elegant, comforting, and very French.</p><h3>Side</h3><p>Served with a green salad seasoned with a classic French vinaigrette.</p><h3>Dessert</h3><p><strong>Chocolate Fondant with Vanilla Custard &amp; Winter Berries</strong><br>Warm chocolate fondant with a molten centre, served with smooth vanilla custard and seasonal berries.</p><p>The kind of dessert people pretend they’re going to share… until they taste it.</p><b>WHAT’S INCLUDED</b><p>Your experience includes:</p><ul><li><p>Chef-led, hands-on cooking</p></li><li><p>All ingredients and equipment</p></li><li><p>Apron use during the class</p></li><li><p>Welcome nibbles</p></li><li><p>Welcome drink</p></li><li><p>A generous French-inspired meal</p></li><li><p>Curated beverages with the meal</p></li><li><p>Recipes to recreate the dishes at home</p></li><li><p>Long-table dining in a relaxed, welcoming setting</p></li></ul><b>WHO IT’S PERFECT FOR</b><p>This experience is perfect for:</p><ul><li><p>Couples looking for a cosy winter date night</p></li><li><p>Friends who want something more memorable than another restaurant booking</p></li><li><p>Food lovers who want to learn proper French techniques</p></li><li><p>Gift experiences</p></li><li><p>Birthday celebrations</p></li><li><p>Small groups and team outings</p></li><li><p>Anyone who loves scallops, butter sauce, chocolate fondant, or Parisian bistro energy</p></li></ul><b>PLEASE NOTE</b><p>Menus may vary slightly depending on seasonal produce and ingredient availability.</p><p>Please wear <strong>closed shoes</strong> for safety.</p><p>If you have dietary requirements, please let us know at the time of booking so we can do our best to accommodate you.</p><b>BON APPÉTIT</b><p>Don’t just survive winter.</p><p>Make it delicious.</p><p>Join us for <strong>With Love from Paris</strong> — a warm, elegant French Cook &amp; Dine experience filled with scallops, butter sauce, chocolate fondant, and all the cosy bistro magic you can handle.</p>",
+    "productCode": "PVYU4M",
+    "internalCode": "RLMSCDWLP",
+    "supplierId": 228835,
+    "supplierAlias": "rovinglardermanlycookingschool",
+    "supplierName": "ROVING LARDER MANLY COOKING SCHOOL",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 199.0,
+    "priceOptions": [
+      {
+        "price": 199.0,
+        "label": "Quantity",
+        "id": 44284903,
+        "seatsUsed": 1,
+        "productCode": "PVYU4M"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 16,
+    "images": [
+      {
+        "id": 3973765,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3643ab77e4104068a1fa10529572c6bfbistro.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3643ab77e4104068a1fa10529572c6bfbistro_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3643ab77e4104068a1fa10529572c6bfbistro_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/228835/3643ab77e4104068a1fa10529572c6bfbistro_lg.png"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "https://rovinglarder.com.au/tncs",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "I agree to receive marketing emails",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Allergies, intollerances, or food dislikes...",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -33.8095209,
+    "longitude": 151.2982412,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 18.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2024-12-11T01:24:51Z",
+    "minimumNoticeMinutes": 4320,
+    "durationMinutes": 180,
+    "dateUpdated": "2026-06-02T04:21:17Z",
+    "locationAddress": {
+      "addressLine": "2 Gunner Road",
+      "postCode": "2095",
+      "city": "MANLY",
+      "state": "New South Wales",
+      "countryCode": "au",
+      "latitude": -33.8095209,
+      "longitude": 151.2982412
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "AGE:Adult",
+      "SUITABILITY:Gift Voucher",
+      "TYPE:Activity",
+      "INTEREST:Special Interest",
+      "SUITABILITY:Night Time",
+      "SKILL_LEVEL:Beginner",
+      "INTENSITY:Relaxed",
+      "SUITABILITY:Any Weather",
+      "CATEGORY:Cooking Lessons"
+    ],
+    "taxes": [
+      {
+        "supplierId": 228835,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "TITLE",
+        "attrKey": "title",
+        "attrValue": "French Cooking Class Manly | With Love from Paris",
+        "productCode": "PVYU4M"
+      },
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "PVYU4M"
+      },
+      {
+        "metaType": "META_NAME",
+        "attrKey": "description",
+        "attrValue": "French cooking class in Manly with golden scallops, butter sauce, Paris mash and chocolate fondant. A cosy winter Cook & Dine experience at Roving Larder.",
+        "productCode": "PVYU4M"
+      }
+    ],
+    "waitListingEnabled": true,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

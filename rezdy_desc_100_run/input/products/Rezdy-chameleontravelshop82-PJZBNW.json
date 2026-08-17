@@ -1,0 +1,210 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "PRIVATE_TOUR",
+    "name": "Perth Walking Tour",
+    "shortDescription": "Perth is full of history and beautiful places. Visit historic buildings and areas influenced by the gold rush in this trail through Perth city. Besides all that, the city is full of parks, art and cultural heritage. Enjoy your time in Perth",
+    "description": "<p>This private program begins by meeting our local expert in your hotel lobby to start this journey on foot. We start from Wellington Street and it´s historical buildings influenced by the gold rush.&nbsp;</p><p>Next, we move to Hay Street, the central spine of the administration of the Government of Perth, as well as being central to many of the state's major cultural institutions, such the Perth Town House and the Government House.</p><p>Continuing, we pass through the Government Printing Office and dive into Perth’s history.</p><p>You will next visit the Fire Station and the Perth Mint. At the end of this unique tour, your expert guide will take you back to your hotel.</p><p>•\tPick up: Perth Railway Station.</p><p><br></p><p>You will then learn about the following important points:</p><p>PERTH RAILWAY STATION&nbsp;</p><p>GLOBE HOTEL</p><p>ROYAL HOTEL&nbsp;</p><p>GLYDE CHAMBERS&nbsp;</p><p>KING STREET</p><p>PRINCE LANE</p><p>CITY HOTEL</p><p>HIS MAJESTY'S THEATRE&nbsp;</p><p>PALACE HOTEL&nbsp;</p><p>LONDON COURT&nbsp;</p><p>THE METROPOLE HOTEL &amp; THEATRE ROYAL</p><p>HAY STREET MALL</p><p>MCNESS BUILDING&nbsp;</p><p>PERTH TOWN HALL&nbsp;</p><p>THE DEANERY&nbsp;</p><p>GOVERNMENT HOUSE&nbsp;</p><p>OLD COURT HOUSE LAW MUSEUM&nbsp;</p><p>SUPREME COURT&nbsp;</p><p>GOVERNMENT PRINTING OFFICE&nbsp;</p><p>FIRE STATION NO.1 &amp; MUSEUM</p><p>ST MARY’S CATHEDRAL</p><p>THE PERTH MINT</p><p><br></p><p><br></p><p>Duration 3 hours</p><p>Languages: English and Spanish</p>",
+    "productCode": "PJZBNW",
+    "internalCode": "",
+    "supplierId": 237223,
+    "supplierAlias": "chameleontravelshop82",
+    "supplierName": "Chameleon Travel Shop",
+    "timezone": "America/Chicago",
+    "advertisedPrice": 257.0,
+    "priceOptions": [
+      {
+        "price": 257.0,
+        "label": "Group from 1 to 4",
+        "id": 29267819,
+        "seatsUsed": 1,
+        "minQuantity": 1,
+        "maxQuantity": 4,
+        "priceGroupType": "TOTAL",
+        "productCode": "PJZBNW"
+      },
+      {
+        "price": 319.0,
+        "label": "Group from 5 to 12",
+        "id": 29267818,
+        "seatsUsed": 1,
+        "minQuantity": 5,
+        "maxQuantity": 12,
+        "priceGroupType": "TOTAL",
+        "productCode": "PJZBNW"
+      }
+    ],
+    "currency": "USD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 12,
+    "images": [
+      {
+        "id": 3571869,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/a07a748b52a14a72b3c6b26077c27413145__1_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/a07a748b52a14a72b3c6b26077c27413145__1__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/a07a748b52a14a72b3c6b26077c27413145__1__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/a07a748b52a14a72b3c6b26077c27413145__1__lg.jpg"
+      },
+      {
+        "id": 3571870,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/bac51956d4474309b25e6111ffbc5ad5145.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/bac51956d4474309b25e6111ffbc5ad5145_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/bac51956d4474309b25e6111ffbc5ad5145_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/bac51956d4474309b25e6111ffbc5ad5145_lg.jpg"
+      },
+      {
+        "id": 3571871,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/516877fb5170421085552a6f208db877145__6_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/516877fb5170421085552a6f208db877145__6__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/516877fb5170421085552a6f208db877145__6__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/516877fb5170421085552a6f208db877145__6__lg.jpg"
+      },
+      {
+        "id": 3571865,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/26b7bd52e4b0495a8a6bc7e079d221e4145__3_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/26b7bd52e4b0495a8a6bc7e079d221e4145__3__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/26b7bd52e4b0495a8a6bc7e079d221e4145__3__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/26b7bd52e4b0495a8a6bc7e079d221e4145__3__lg.jpg"
+      },
+      {
+        "id": 3571866,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/9474ae1bd2704511bb8d3117fb967d9e145__5_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/9474ae1bd2704511bb8d3117fb967d9e145__5__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/9474ae1bd2704511bb8d3117fb967d9e145__5__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/9474ae1bd2704511bb8d3117fb967d9e145__5__lg.jpg"
+      },
+      {
+        "id": 3571867,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/79418cb80a7748d7849b932a5de3cf59145__2_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/79418cb80a7748d7849b932a5de3cf59145__2__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/79418cb80a7748d7849b932a5de3cf59145__2__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/79418cb80a7748d7849b932a5de3cf59145__2__lg.jpg"
+      },
+      {
+        "id": 3571868,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/383cc3a67c9a4f7a8b3babd4deb78191145__4_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/383cc3a67c9a4f7a8b3babd4deb78191145__4__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/383cc3a67c9a4f7a8b3babd4deb78191145__4__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/237223/383cc3a67c9a4f7a8b3babd4deb78191145__4__lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": true,
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Hotel Address",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -31.9513993,
+    "longitude": 115.8616783,
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 18.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2024-03-05T18:35:36Z",
+    "minimumNoticeMinutes": 2880,
+    "durationMinutes": 180,
+    "dateUpdated": "2024-04-12T15:04:56Z",
+    "pickupId": 25835,
+    "locationAddress": {
+      "addressLine": "",
+      "postCode": "",
+      "city": "Perth",
+      "state": "",
+      "countryCode": "au",
+      "latitude": -31.9513993,
+      "longitude": 115.8616783
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "AGE:Adult",
+      "SKILL_LEVEL:Beginner",
+      "AGE:Teenager",
+      "AGE:Child",
+      "AGE:Infant",
+      "AGE:Senior",
+      "INTENSITY:Relaxed",
+      "INTEREST:Cultural",
+      "INTEREST:Family",
+      "CATEGORY:Walking Tours",
+      "TYPE:Tour"
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "PJZBNW"
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

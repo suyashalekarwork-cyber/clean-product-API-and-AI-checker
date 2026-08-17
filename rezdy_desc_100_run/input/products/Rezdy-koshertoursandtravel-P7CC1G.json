@@ -1,0 +1,421 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "PRIVATE_TOUR",
+    "name": "Wellington Jewish Heritage Tour ",
+    "shortDescription": "A personal journey through New Zealand's Jewish story.\r\n",
+    "description": "<p>Jewish families journeyed from across the world to build new lives in Aotearoa. This tour traces those stories alongside Wellington’s wider heritage, Polynesian migrations, early settlers, and the Jewish immigrants who helped shape the capital. Visit historic synagogues and neighbourhoods with a guide who shares these stories with warmth and personal connection.</p><p>Hosted by Aaron, your guide, historian and award-winning cook, this is more than a sightseeing tour. As a local with deep roots in the community, Aaron will walk you through a living history from the earliest Jewish traders who arrived on New Zealand Company ships in 1840, to the families who fled persecution in Eastern Europe and found refuge in what was once called “The Great Jewish Hospital.”</p><b>YOUR&nbsp;</b><b>JEWISH HERITAGE EXPERIENCE&nbsp;</b><b>TOUR INCLUDES:</b><br><p><i><b>Full-day tour (6 hours). Kosher lunch, entry fees and guided commentary included. Available Wednesday to Sunday.</b></i></p><b><u>Sexton’s Cottage</u></b><br><p>Learn about the New Zealand Company and its earliest Jewish traders who flourished on these shores.</p><p>Jews arrived on one of the first New Zealand Company ships to Wellington in 1840, including Solomon Levy, Benjamin Levy and Abraham Hort. Hort’s journey was noted in the Anglo-Jewish publication The Voice of Jacob, which promoted New Zealand as a suitable destination for Jewish colonists, praising its favourable “climate, soil and commercial possibilities.” Although the hope of mass Jewish immigration never came to fruition, a vibrant community took root.</p><b>Bolton Street Cemetery</b><br><p>The first Jewish cemetery in Wellington, established in 1843 as a designated section within the Bolton Street Cemetery. Following a request by Abraham Hort, a specific area was allocated for Jewish burials, separating it from the Anglican and public sections. Visit the burial sites of the first settlers, Lipman Levy and Solomon Levy.</p><b>Holocaust Centre — “My Origin Story”</b><br><p>Aaron shares his family’s own story of forced migration from the Lithuanian Duchy. Russian Jewish migration was historically driven by state-sponsored antisemitism, pogroms and mass expulsions — over two million Jews fled the Russian Empire between 1881 and 1920.</p><p>Hear the remarkable story of Annie and Max Deckston, who arrived from Russia in 1900 and farmed in the Hutt Valley before making a fortune in Wellington. Childless themselves, they used their wealth to bring 20 children to New Zealand from orphanages in Bialystok, Poland, setting up a home in Berhampore that became an island of orthodox Jewish observance in the city. Learn why the Aron and Beder families journeyed from Belarus in the 1930s and were assisted by those earliest immigrants who had already called New Zealand home.</p><b>Jewish Community Centre and Heritage Buildings</b><br><p>Visit the Jewish community centre and historical buildings connected to Wellington’s Hebrew leadership. Your guide will share the stories of the families and individuals who built and sustained the community over nearly two centuries.</p><b>Kosher Lunch</b><br><p>Enjoy a main meal and a beverage at a pre-booked venue. Weekday tours visit Bond Street Deli (kosher), with Best Ugly Bagel or Ernesto’s (great vegetarian options) available as weekend alternatives.</p><p>Sample menu: kosher hot dogs, sabich and kugel, gefilte fish and caviar, bagels and challah, matzo ball soup, salads and pickles, potato latkes, lox and a schmear, rugelach and babka.</p><b>Parliament Grounds and The Beehive</b><br><p>Visit Parliament House on Lambton Quay, home to the debating chamber, Speaker’s office, and committee rooms. Built between 1914 and 1922, it replaced an earlier building lost to fire in 1907. Next door stands The Beehive, the iconic Executive Wing whose distinctive shape is reminiscent of a traditional woven skep. A Category I heritage building, it has housed the offices of government ministers since 1979 — including the Prime Minister’s office on the famous 9th floor.</p><b>Mount Victoria Lookout</b><br><p>A prominent feature of the Wellington landscape, the summit offers spectacular panoramic 360-degree views of the city, the harbour, and the hills to the west. A perfect way to get your bearings and take in the full sweep of the capital.</p><p>Your tour concludes after the heritage experience. Your guide will then drop you back at your designated hotel or at the cruise ship.</p><br><b>ADDITIONAL STOPS (GUIDE’S DISCRETION)</b><br><p><i>If time allows, your guide may also include one or more of the following stops.</i></p><b>The Painted Ladies</b><br><p>Wellington’s iconic, colourful 19th-century Victorian and Edwardian villas. Visit a famous, historic, family-owned example on the slopes of Mt Victoria and see the prominent row known as the “Seven Sisters” on Oriental Parade.</p><b>The Wellington Sign</b><br><p>Positioned on a hillside in Miramar, this landmark offers a picturesque backdrop for photos and panoramic views of the surrounding area.</p><b>The Roxy Cinema</b><br><p>Tour the beautifully restored Roxy Cinema and discover its art deco features and cinematic history. Hear anecdotes about the theatre’s transformation from its origins as a 1920s venue to its current status as a modern cultural landmark.</p><b>The Weta Cave</b><br><p>Step behind the scenes at the creative home of Weta in Wellington. Take an exclusive glimpse through the windows of the Weta Cave and learn about the making of movie effects — from armour to aliens, creatures to costumes, and makeup to miniatures.</p><b>Wellington Cable Car</b><br><p>The highlight of any visit to Wellington. In just five minutes, you’ll reach the top of the Botanic Garden where panoramic views of the city and harbour await. Visit the Cable Car Museum to see the original cars and winding machinery and explore the Space Place Observatory.</p><b>Wellington Botanic Garden</b><br><p>Just a short walk from the Cable Car, the Lady Norwood Rose Garden features 110 beds set out in a formal geometric design with colonnades on three sides and the Begonia House as a backdrop. The flowering season runs from November through to the end of April.</p><b>RAINY DAY OPTIONS</b><br><p><i>Wellington is famously unpredictable, so your guide has indoor alternatives ready if the weather turns.</i></p><b>Old Government Building</b><br><p>Commissioned in the early 1870s, this remarkable building was originally planned in concrete and timber, but cost led to a decision to build in timber alone. Designed in the Italianate, Neo-Renaissance style — usually the domain of stone — the building is crafted to mimic an Italian stone palace.&nbsp; It remains one of the largest wooden buildings in the Southern Hemisphere.</p><b>Old Saint Paul’s</b><br><p>Marvel at the gothic-revival grandeur of Old St Paul’s, renowned for its exquisite wooden interiors and vibrant stained-glass windows. Your guide will share captivating stories about the church’s construction and its enduring significance within Wellington’s cultural fabric.</p><p><i>Please be mindful that fewer than 5,500 Jewish people remain in New Zealand today. This tour is a tribute to their enduring story.</i></p>",
+    "productCode": "P7CC1G",
+    "internalCode": "JEWISH-HERITAGE TOUR",
+    "supplierId": 262203,
+    "supplierAlias": "koshertoursandtravel",
+    "supplierName": "Kosher Tours and Travel",
+    "timezone": "Pacific/Auckland",
+    "advertisedPrice": 1300.0,
+    "priceOptions": [
+      {
+        "price": 1300.0,
+        "label": "Group of 1",
+        "id": 63777374,
+        "seatsUsed": 1,
+        "minQuantity": 1,
+        "maxQuantity": 1,
+        "priceGroupType": "EACH",
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 650.0,
+        "label": "Group of 2",
+        "id": 63777370,
+        "seatsUsed": 1,
+        "minQuantity": 2,
+        "maxQuantity": 2,
+        "priceGroupType": "EACH",
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 480.0,
+        "label": "Group of 3",
+        "id": 63777373,
+        "seatsUsed": 1,
+        "minQuantity": 3,
+        "maxQuantity": 3,
+        "priceGroupType": "EACH",
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 400.0,
+        "label": "Group from 4 to 11",
+        "id": 63777368,
+        "seatsUsed": 1,
+        "minQuantity": 4,
+        "maxQuantity": 11,
+        "priceGroupType": "EACH",
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 100.0,
+        "label": "Child",
+        "id": 63777372,
+        "seatsUsed": 1,
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 100.0,
+        "label": "Infant",
+        "id": 63777369,
+        "seatsUsed": 1,
+        "productCode": "P7CC1G"
+      },
+      {
+        "price": 100.0,
+        "label": "Teenager",
+        "id": 63777371,
+        "seatsUsed": 1,
+        "productCode": "P7CC1G"
+      }
+    ],
+    "currency": "NZD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 11,
+    "images": [
+      {
+        "id": 4408111,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Jewish_crowd_bond_street_.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Jewish_crowd_bond_street__tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Jewish_crowd_bond_street__med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Jewish_crowd_bond_street__lg.png"
+      },
+      {
+        "id": 4408092,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Screenshot__160__jewish_OGB.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Screenshot__160__jewish_OGB_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Screenshot__160__jewish_OGB_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Screenshot__160__jewish_OGB_lg.png"
+      },
+      {
+        "id": 4408068,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Welly_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Welly_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Welly_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Welly_1280_lg.jpg"
+      },
+      {
+        "id": 4408070,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/OGB_front.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/OGB_front_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/OGB_front_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/OGB_front_lg.png"
+      },
+      {
+        "id": 4408078,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ODB_stairs.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ODB_stairs_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ODB_stairs_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ODB_stairs_lg.png"
+      },
+      {
+        "id": 4408106,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/holocaust_musem_resized_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/holocaust_musem_resized_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/holocaust_musem_resized_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/holocaust_musem_resized_1280_lg.jpg"
+      },
+      {
+        "id": 4408094,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beth_el_resized.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beth_el_resized_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beth_el_resized_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beth_el_resized_lg.jpg"
+      },
+      {
+        "id": 4408101,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Joel_Polack_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Joel_Polack_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Joel_Polack_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Joel_Polack_1280_lg.jpg"
+      },
+      {
+        "id": 4408108,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/hort_grave_yard.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/hort_grave_yard_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/hort_grave_yard_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/hort_grave_yard_lg.jpg"
+      },
+      {
+        "id": 4408072,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Resized_1280_Old_St_Paul_s_church__Wellington__2016_01_25_7.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Resized_1280_Old_St_Paul_s_church__Wellington__2016_01_25_7_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Resized_1280_Old_St_Paul_s_church__Wellington__2016_01_25_7_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Resized_1280_Old_St_Paul_s_church__Wellington__2016_01_25_7_lg.jpg"
+      },
+      {
+        "id": 4408073,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/inside_Old_St_Paui_s_Hero_Image.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/inside_Old_St_Paui_s_Hero_Image_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/inside_Old_St_Paui_s_Hero_Image_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/inside_Old_St_Paui_s_Hero_Image_lg.jpg"
+      },
+      {
+        "id": 4408081,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/roxy1280.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/roxy1280_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/roxy1280_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/roxy1280_lg.png"
+      },
+      {
+        "id": 4408113,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lipman_Levy_1280.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lipman_Levy_1280_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lipman_Levy_1280_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lipman_Levy_1280_lg.png"
+      },
+      {
+        "id": 4408114,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Levi_Lipman_coin.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Levi_Lipman_coin_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Levi_Lipman_coin_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Levi_Lipman_coin_lg.jpg"
+      },
+      {
+        "id": 4408109,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/72b4f33f091444bab7d1bfe8b815a34aEarly_New_Zealand_Jewish_Settler__Solomon_Levy_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/72b4f33f091444bab7d1bfe8b815a34aEarly_New_Zealand_Jewish_Settler__Solomon_Levy_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/72b4f33f091444bab7d1bfe8b815a34aEarly_New_Zealand_Jewish_Settler__Solomon_Levy_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/72b4f33f091444bab7d1bfe8b815a34aEarly_New_Zealand_Jewish_Settler__Solomon_Levy_1280_lg.jpg"
+      },
+      {
+        "id": 4408103,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Julius_Vogel__ca_1870s_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Julius_Vogel__ca_1870s_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Julius_Vogel__ca_1870s_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Julius_Vogel__ca_1870s_1280_lg.jpg"
+      },
+      {
+        "id": 4408102,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Sir_Francis_Henry_Dillon_Bell__ca_1924_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Sir_Francis_Henry_Dillon_Bell__ca_1924_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Sir_Francis_Henry_Dillon_Bell__ca_1924_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Sir_Francis_Henry_Dillon_Bell__ca_1924_1280_lg.jpg"
+      },
+      {
+        "id": 4408105,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/John_Key_Pentagon_2014_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/John_Key_Pentagon_2014_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/John_Key_Pentagon_2014_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/John_Key_Pentagon_2014_1280_lg.jpg"
+      },
+      {
+        "id": 4408088,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Painted_ladies_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Painted_ladies__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Painted_ladies__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Painted_ladies__lg.jpg"
+      },
+      {
+        "id": 4408080,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/wind_turbine_brooklyn_with_family_.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/wind_turbine_brooklyn_with_family__tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/wind_turbine_brooklyn_with_family__med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/wind_turbine_brooklyn_with_family__lg.png"
+      },
+      {
+        "id": 4408104,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/solomon_levy_headstone_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/solomon_levy_headstone_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/solomon_levy_headstone_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/solomon_levy_headstone_1280_lg.jpg"
+      },
+      {
+        "id": 4408087,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Brooklyn_view.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Brooklyn_view_tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Brooklyn_view_med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Brooklyn_view_lg.png"
+      },
+      {
+        "id": 4408074,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/cable_car_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/cable_car_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/cable_car_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/cable_car_1280_lg.jpg"
+      },
+      {
+        "id": 4408075,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lady_norwwod_rose_.png",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lady_norwwod_rose__tb.png",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lady_norwwod_rose__med.png",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Lady_norwwod_rose__lg.png"
+      },
+      {
+        "id": 4408086,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ad2fc651c59a436d94660f09c14fdda70.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ad2fc651c59a436d94660f09c14fdda70_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ad2fc651c59a436d94660f09c14fdda70_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/ad2fc651c59a436d94660f09c14fdda70_lg.jpg"
+      },
+      {
+        "id": 4408082,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Parliament_Grounds_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Parliament_Grounds_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Parliament_Grounds_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Parliament_Grounds_1280_lg.jpg"
+      },
+      {
+        "id": 4408077,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beehive_with_Sedon_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beehive_with_Sedon_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beehive_with_Sedon_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Beehive_with_Sedon_1280_lg.jpg"
+      },
+      {
+        "id": 4408084,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Edited_car_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Edited_car__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Edited_car__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Edited_car__lg.jpg"
+      },
+      {
+        "id": 4408071,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Kai_Cabin_1280.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Kai_Cabin_1280_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Kai_Cabin_1280_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/262203/Kai_Cabin_1280_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": true,
+    "terms": "Please note that this tour is not wheelchair accessible. Our vehicles and tour locations are unable to accommodate wheelchairs or mobility devices. Please contact us prior to booking if you have any accessibility questions.",
+    "bookingFields": [
+      {
+        "label": "Title",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "To get the right sized vehicle how many guests are over 6ft 4 tall or over 2 meters ",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "To assign the correct vehicle how many guests are 3XL plus  ",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "DEPARTURE Pickup address (Greater Wellington)",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -41.2910512,
+    "longitude": 174.7808482,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 23.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2026-03-14T00:08:12Z",
+    "minimumNoticeMinutes": 60,
+    "durationMinutes": 360,
+    "dateUpdated": "2026-04-23T08:15:04Z",
+    "pickupId": 32654,
+    "locationAddress": {
+      "addressLine": "50 cable street ",
+      "postCode": "",
+      "city": "wellington",
+      "state": "",
+      "countryCode": "nz",
+      "latitude": -41.2910512,
+      "longitude": 174.7808482
+    },
+    "additionalInformation": "Hi there<div><br></div><div>Thanks for your booking.&nbsp;</div><div><br></div><div>Wellington is the only port in New Zealand that allows operators such as myself to meet you at the ship. For all other bookings we will meet you at your accommodation or a designated pickup point.</div><div><br></div><div>Aaron&nbsp;</div>",
+    "languages": [
+      "en_gb"
+    ],
+    "tags": [],
+    "taxes": [
+      {
+        "supplierId": 262203,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 15.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

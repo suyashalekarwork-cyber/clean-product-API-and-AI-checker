@@ -1,0 +1,181 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "PRIVATE SYDNEY CITY FULL-DAY EXPERIENCE",
+    "shortDescription": "DISCOVER SYDNEY’S ICONS, HARBOUR & COASTAL BEAUTY",
+    "description": "<h3><b>YOUR EXPERIENCE</b></h3><h5>A PRIVATE FULL-DAY SYDNEY EXPERIENCE, DESIGNED AROUND YOUR PACE</h5><p>Discover Sydney on a private full-day experience designed for comfort, flexibility, and a more personal way to explore the city.</p><p>From iconic landmarks such as the Sydney Opera House and Harbour Bridge to scenic coastal favourites including Watsons Bay, Bondi, and North Head, the day unfolds at a relaxed and well-considered pace.</p><p>Rather than following a rigid group schedule, your experience is shaped around you. Spend more time where you wish, move comfortably between stops in a private luxury vehicle, and enjoy local insight along the way.</p><p>Whether it is your first time in Sydney or a return visit, this experience offers a seamless and unhurried way to enjoy the city’s harbour beauty, famous icons, and coastal character in greater comfort.</p><p><b><br></b></p><h3><b>YOUR DAY IN SYDNEY</b></h3><h5>A THOUGHTFULLY PACED PRIVATE EXPERIENCE</h5><br><p><b>YOUR DAY BEGINS</b></p><p>Your private day begins with pickup from your hotel, cruise terminal, or Sydney airport. Settle into your private luxury vehicle and begin exploring Sydney at a comfortable pace, with the day shaped around your interests and preferences.</p><p><b>THE ROCKS</b></p><p>Drive through The Rocks, Sydney’s oldest neighbourhood, where sandstone streets, heritage buildings, and harbour views reveal the city’s earliest history and character. It is a charming introduction to old Sydney, rich with atmosphere and stories from the city’s colonial beginnings.</p><p>PASS BY</p><p><b>SYDNEY OPERA HOUSE</b></p><p>Visit the world-famous Sydney Opera House and enjoy time around its striking harbour setting. This is one of the city’s most recognisable landmarks and a perfect place for memorable photos and a closer look at Sydney’s architectural icon.</p><p>Allow around thirty minutes</p><p><b>LA PEROUSE</b></p><p>Visit La Perouse, a scenic coastal point at the entrance to Botany Bay, known for its ocean views, historic significance, and relaxed atmosphere away from the city centre. It offers a quieter and more reflective side of Sydney, where coastline and local history come together beautifully.</p><p>Allow around twenty minutes</p><p><b>SYDNEY HARBOUR BRIDGE</b></p><p>Drive past the Sydney Harbour Bridge, one of the city’s defining landmarks, while enjoying beautiful harbour views and a different perspective on Sydney’s famous skyline.</p><p>PASS BY</p><p><b>KIRRIBILLI LOOKOUT</b></p><p>Stop in Kirribilli for a beautiful harbour perspective, with clear views back toward the Sydney skyline, the Harbour Bridge, and the foreshore below. It is a short but rewarding stop, ideal for taking in one of the city’s classic outlooks.</p><p>Allow around ten minutes</p><p><b>NORTH HEAD LOOKOUT</b></p><p>Visit North Head Lookout, where dramatic cliffs meet sweeping views over the Pacific Ocean and the entrance to Sydney Harbour. It is one of the city’s most striking coastal vantage points, offering a wider sense of Sydney’s natural beauty beyond the harbour.</p><p>Allow around twenty minutes</p><p><b>MANLY BEACH</b></p><p>Enjoy time in Manly, where the harbour meets the surf. Walk along the beachfront, pause for a coffee, or simply take in the relaxed coastal atmosphere that makes this area one of Sydney’s most loved seaside destinations.</p><p>Allow around Forty-five minutes</p><p><b>PARLIAMENT OF NEW SOUTH WALES</b></p><p>Drive past Parliament House, one of Sydney’s most historic civic buildings, located within the Macquarie Street precinct and closely tied to the city’s colonial and political history.</p><p>PASS BY</p><p><b>MRS MACQUARIE'S CHAIR</b></p><p>Stop at Mrs Macquarie’s Chair, one of Sydney’s most celebrated viewpoints, with postcard views across the harbour toward the Opera House and Harbour Bridge. It is one of the best places in the city to pause, take photographs, and appreciate Sydney’s iconic waterfront setting.</p><p>Allow around Twenty-five minutes</p><p><b>ST. MARY'S CATHEDRAL</b></p><p>Drive past St Mary’s Cathedral and the surrounding Hyde Park precinct, where Sydney’s grand civic and religious architecture adds another layer to the city’s character.</p><p>PASS BY</p><p><b>KINGS CROSS</b></p><p>Pass through Kings Cross as your guide shares the story of one of Sydney’s most colourful and ever-evolving neighbourhoods.</p><p>PASS BY</p><p><b>ROSE BAY</b></p><p>Travel through Rose Bay, a harbourside suburb known for its elegant waterfront setting, marinas, and relaxed eastern suburbs atmosphere. It adds a quieter and more refined harbour-side contrast to the day.</p><p>PASS BY</p><p><b>WATSONS BAY</b></p><p>Pause at Watsons Bay for dramatic coastal scenery, harbour-edge charm, and one of Sydney’s most memorable waterside settings. This stop offers a beautiful contrast between Sydney’s calm harbour and the open ocean beyond.</p><p>Allow around Twenty minutes</p><p><b>DUDLEY PAGE RESERVE</b></p><p>Stop at Dudley Page Reserve for one of Sydney’s finest skyline outlooks, with sweeping views across the harbour, city skyline, Opera House, and Harbour Bridge in the distance. It is a peaceful and well-placed stop for taking in the city from above.</p><p>Allow around Ten minutes</p><p><b>Bondi Beach</b></p><p>Visit Bondi Beach, Australia’s most famous beach, where golden sand, rolling surf, and Sydney’s coastal lifestyle come together in one iconic setting. It is a vibrant and memorable stop that captures the city’s beach culture at its best.</p><p>Allow around Thirty minutes</p><p><b>RETURN / DROP-OFF</b></p><p>At the end of the day, return in comfort to your hotel, cruise terminal, or airport, with time to relax after a full day across Sydney’s harbour and coastline.</p><p><b><br></b></p><h3><b>WHAT’S INCLUDED</b></h3><p><b>TRANSPORT</b></p><p>Private luxury vehicle throughout the day</p><p><b>DOOR-TO-DOOR SERVICE</b></p><p>Private pickup and drop-off from hotels, cruise terminals, and airport locations</p><p><b>LOCAL EXPERT GUIDE</b></p><p>Local insight and personalised hosting throughout your experience</p><p><b>TAILORED ITINERARY</b></p><p>A flexible day shaped around your pace, interests, and preferred stops</p><p><b>REFRESHMENTS</b></p><p>Complimentary bottled water throughout the journey</p><p><b>CHILD SEATS</b></p><p>Available on request for a safe and comfortable journey</p><p><b>WIFI ON BOARD</b></p><p>Complimentary onboard WiFi for added comfort and convenience</p><p>&nbsp;</p>",
+    "productCode": "PAYXFR",
+    "internalCode": "BBE-CT-FD",
+    "supplierId": 260552,
+    "supplierAlias": "beyondbordersexperiences",
+    "supplierName": "Beyond Borders Experiences",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 1199.0,
+    "priceOptions": [
+      {
+        "price": 1199.0,
+        "label": "Group from 1 to 2",
+        "id": 62428973,
+        "seatsUsed": 1,
+        "minQuantity": 1,
+        "maxQuantity": 2,
+        "priceGroupType": "TOTAL",
+        "productCode": "PAYXFR"
+      },
+      {
+        "price": 1299.0,
+        "label": "Group from 3 to 4",
+        "id": 63150331,
+        "seatsUsed": 1,
+        "minQuantity": 3,
+        "maxQuantity": 4,
+        "priceGroupType": "TOTAL",
+        "productCode": "PAYXFR"
+      },
+      {
+        "price": 1399.0,
+        "label": "Group from 5 to 6",
+        "id": 63150333,
+        "seatsUsed": 1,
+        "minQuantity": 5,
+        "maxQuantity": 6,
+        "priceGroupType": "TOTAL",
+        "productCode": "PAYXFR"
+      },
+      {
+        "price": 1499.0,
+        "label": "Group of 7",
+        "id": 63150332,
+        "seatsUsed": 1,
+        "minQuantity": 7,
+        "maxQuantity": 7,
+        "priceGroupType": "TOTAL",
+        "productCode": "PAYXFR"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 7,
+    "images": [
+      {
+        "id": 4431756,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/CT_Redzy.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/CT_Redzy_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/CT_Redzy_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/260552/CT_Redzy_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Pick-up Location",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": " Please list the ages of any children under 8 years old who will join the tour. (This ensures we install the correct infant and child car seats as required under NSW law)",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2026-02-22T07:59:30Z",
+    "minimumNoticeMinutes": 720,
+    "durationMinutes": 480,
+    "dateUpdated": "2026-04-22T02:16:43Z",
+    "locationAddress": {
+      "addressLine": "",
+      "postCode": "",
+      "city": "",
+      "state": "",
+      "countryCode": "",
+      "latitude": 0.0,
+      "longitude": 0.0
+    },
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "CATEGORY:Day Tours",
+      "TYPE:Daytour"
+    ],
+    "taxes": [
+      {
+        "supplierId": 260552,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

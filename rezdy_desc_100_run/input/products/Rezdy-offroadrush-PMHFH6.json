@@ -1,0 +1,211 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "ACTIVITY",
+    "name": " Ipswich - V8 Race Buggy - 10 Drive Laps + 2 Hot Laps",
+    "shortDescription": "10 Laps Self Drive, 2  Hot laps with Professional Driver\r\n",
+    "description": "<p><br></p>Live the Ultimate Off-Road Racing Dream<br><p>It’s every racer’s fantasy — a roaring V8 engine, a dirt circuit full of twists and turns, and the freedom to push the limits. Now, that dream can be your reality. Wannabe racers are lining up to go wild <strong>buggy-style</strong>!</p><br><p>This is your chance to experience something truly unique — an off-road adventure that feels straight out of an action movie.</p><br><h3>The Experience</h3><br><p>When you arrive for your <strong>Off Road Racing Experience</strong>, you’ll kick off with a <strong>Drivers Briefing</strong> to cover the rules, track layout, and safety details. Then it’s time to suit up and jump behind the wheel!</p><br><p>You’ll take control of a <strong>real V8 race buggy</strong>, powered by a Chev LS1<strong>&nbsp;V8 engine</strong>, with an instructor in the passenger seat acting as your navigator — offering expert tips on car control, drifting, and race technique.</p><br><p>As each lap goes by, your confidence builds. Your speed increases down the back straight, your turns get smoother, and your grin gets bigger. This is full-throttle fun at its best — sideways slides, dirt flying, and adrenaline surging!</p><br><p>Throughout the experience, you’ll be fully equipped with:</p><ul><li><p>A <strong>full-face helmet</strong></p></li><li><p><strong>Racing overalls</strong></p></li><li><p>A <strong>race harness</strong> for complete safety</p></li></ul><p>And when you think you’ve had enough excitement — you’ll swap seats and experience a <strong>Hot Lap</strong> with a professional driver at the wheel. Hang on tight — this is where the adrenaline really peaks!</p><br><h3>Guidelines</h3><ul><li>Drivers aged <strong>12 years and over</strong> welcome — the only motorsport experience in Australia that offers this!</li><li><strong>Teenager pricing</strong> for ages 12–17</li><li><strong>Adult pricing</strong> for ages 18+</li><li><strong>No manual driving experience required</strong> — we’ll teach you everything you need to know on the day</li><li>Strict <strong>zero alcohol and drug policy</strong> applies</li><li><strong>Maximum weight:</strong> 140kg | <strong>Maximum height:</strong> 210cm</li></ul><h3>Venue</h3><p><strong>Off Road Rush Pty Ltd – Ipswich Circuit</strong><br>Ipswich Motorsport Precinct<br>133 Champions Way, Willowbank QLD</p><h3>Session Length</h3><p>Please allow up to <strong>2 hours</strong> for your full experience.<br>Session times:</p><ul><li><p>Morning: 8:30am – 10:30am or 10:30am – 12:30pm</p></li><li><p>Afternoon: 12:30pm – 2:30pm or 2:30pm – 4:30pm</p></li></ul><h3>What to Wear</h3><p>We’ll supply your <strong>race suit and helmet</strong> — all you need are <strong>enclosed shoes</strong> and your sense of adventure.</p><h3>Weather</h3><br><p>This experience does not operate in extreme weather conditions.<br>If we need to reschedule, we’ll contact you via <strong>text or email</strong> as soon as possible.</p><h3>Participant Changes</h3><br><p><strong>Name changes:</strong> Free of charge</p><p><strong>Rebooking fee:</strong> $55 applies for any changes within 7 days of your experience date</p><p>No changes allowed within <strong>24 hours</strong> of your event (except in extreme circumstances)<br><strong>No-shows</strong> forfeit their experience and are not eligible for a refund or rebooking</p><br><h3>Spectators</h3><p>Spectators are welcome and can enjoy excellent track viewing areas.<br>You’re welcome to stay with the driver until their session begins.<br>Our venue is <strong>family-friendly</strong>, with plenty of open space for children to play safely.</p><br><br><h3>Accessibility</h3><p>Our facilities are accessible for both <strong>prams and wheelchairs</strong>, ensuring everyone can join in the excitement.</p><br><br><h3>Additional Information</h3><h3>All participants must sign a <strong>Motor Sport Waiver</strong> before driving.</h3><h3>Please arrive <strong>15 minutes before</strong> your start time for registration</h3><h3><strong>SD cards</strong> with footage are available for <strong>$40</strong></h3><h3><strong>Extra drive laps</strong> and <strong>Hot Laps</strong> for passengers can be added on the day for <strong>$25</strong>.</h3><h3><strong>No EFTPOS available</strong> on site — please bring <strong>cash</strong> for any extra purchases.</h3><h3>No canteen facilities are available, so feel free to <strong>bring your own food and drinks</strong>.We provide <strong>tea, coffee, and bottled water</strong> free of charge.</h3><h3><br></h3><h3>Get Ready to Feel the Rush</h3><br><p>This is the real deal — raw power, flying dirt, and heart-thumping excitement.<br><br>Whether you’re chasing a lifelong dream or looking for the ultimate gift, the <strong>Off Road Rush V8 Buggy Experience</strong> is one ride you’ll never forget.</p>",
+    "productCode": "PMHFH6",
+    "internalCode": "V810+2IPS",
+    "supplierId": 12876,
+    "supplierAlias": "offroadrush",
+    "supplierName": "OFF ROAD RUSH QUEENSLAND  - GOLD COAST + IPSWICH",
+    "timezone": "Australia/Brisbane",
+    "advertisedPrice": 395.0,
+    "priceOptions": [
+      {
+        "price": 395.0,
+        "label": "Adult",
+        "id": 64345853,
+        "seatsUsed": 1,
+        "productCode": "PMHFH6"
+      },
+      {
+        "price": 375.0,
+        "label": "Teenager",
+        "id": 64345854,
+        "seatsUsed": 1,
+        "productCode": "PMHFH6"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Driver",
+    "unitLabelPlural": "Drivers",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 10,
+    "images": [
+      {
+        "id": 2362298,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217074540_1870720226441276_5034296348990193004_n.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217074540_1870720226441276_5034296348990193004_n_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217074540_1870720226441276_5034296348990193004_n_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217074540_1870720226441276_5034296348990193004_n_lg.jpg"
+      },
+      {
+        "id": 2362299,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/219394341_1870719893107976_6377266551364019761_n.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/219394341_1870719893107976_6377266551364019761_n_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/219394341_1870719893107976_6377266551364019761_n_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/219394341_1870719893107976_6377266551364019761_n_lg.jpg"
+      },
+      {
+        "id": 2362301,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217558777_1870719959774636_7442619812604698430_n__1_.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217558777_1870719959774636_7442619812604698430_n__1__tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217558777_1870719959774636_7442619812604698430_n__1__med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/12876/217558777_1870719959774636_7442619812604698430_n__1__lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "Any changes to your booking, a re-booking fee of $55 will apply within 7 days of your experience date. \r\n\r\nWe do NOT allow any changes 24 hours prior to your event, unless in extreme circumstances. \r\n\r\nNo refunds will be given as per our Terms and Conditions, unless in extreme circumstances, and this will be at Off Road Rush's discretion.\r\nNo shows will not be refunded or rescheduled.\r\nTeenager prices valid for Drivers aged 12-17 years\r\nAdults prices from 18 years and up",
+    "extras": [
+      {
+        "name": "Upgrade Hot Lap/Passenger Lap",
+        "description": "We offer Hot laps for all drivers on the day. You may already have this in your package but if your wanting more we offer you the opportunity to do so. Any spectators that may come along on the day are able to join in on the fun and have a hot lap too!",
+        "price": 50.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 248420,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/f6f940802e6242b1984bea41fe130fabv8 2.jpeg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/f6f940802e6242b1984bea41fe130fabv8 2_tb.jpeg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/f6f940802e6242b1984bea41fe130fabv8 2_med.jpeg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/f6f940802e6242b1984bea41fe130fabv8 2_lg.jpeg"
+        }
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Date of birth",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "Date"
+      },
+      {
+        "label": "Address",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "City",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "State/County/Region",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Postcode/ZIP",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -27.6913193,
+    "longitude": 152.65984249999997,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 1,
+    "dateCreated": "2021-08-11T01:41:03Z",
+    "minimumNoticeMinutes": 60,
+    "durationMinutes": 120,
+    "dateUpdated": "2026-03-24T00:22:43Z",
+    "locationAddress": {
+      "addressLine": "champions Way ",
+      "postCode": "",
+      "city": "Willowbank",
+      "state": "QLD",
+      "countryCode": "",
+      "latitude": -27.6913193,
+      "longitude": 152.65984249999997
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

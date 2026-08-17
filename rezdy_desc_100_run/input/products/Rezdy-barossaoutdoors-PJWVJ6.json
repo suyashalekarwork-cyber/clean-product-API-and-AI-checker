@@ -1,0 +1,195 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "Fully Guided Kayak Tour ",
+    "shortDescription": "Fully guided kayak tour option",
+    "description": "<p><b><u>Fully guided kayak tour option (approx 2 hour duration) $65 per person</u></b></p><p><b><u><br></u></b></p><p><b>Explore the serenity&nbsp;of Warren Reservoir with an accredited Paddle SA kayak guide leading the way. Learn about the history of the local area and importance of the reservoir system whilst spotting the local fauna and flora.</b><u><br></u></p><p><b><br></b></p><p><b>Minimum number of persons required 5*</b></p><p><b>Maximum number 8</b></p><p><b>(for larger group numbers please contact Barossa Kayak Hire to discuss options and available discounts)</b></p><p><b>*smaller numbers may be accommodated&nbsp;upon request</b></p><p><b><br></b></p><p><b>Please remember to request your kayak preference either single or double at time of booking. If none specified the tour guide will allocate upon arrival.</b><br></p><p><b><br></b></p><p><b>This tour is suitable for all abilities however it is recommended that children are onboard a double kayak.</b></p><p><b><u><br></u></b></p><p><b><u>What's included&nbsp;</u></b></p><p>Choice of either a&nbsp;</p><p><b>Single kayak</b>&nbsp;- suitable for 1 x adult/youth (Max. weight 120kgs) OR</p><p><b>Double kayak</b>&nbsp;- suitable for up to 2 x adults and 1 child (Max. weight 220kgs)</p><p>Package includes hire of&nbsp;kayaks, life vests (up to 3 per double kayak), paddles and use of dry bags.</p><p><br></p><p><br></p><p><b>IMPORTANT INFO</b></p><p>&nbsp;<br></p><h4>\"Safety First!\"</h4><p>At Barossa Kayak Hire we want you to feel confident and most importantly safe on the water, even if you have never kayaked before. So if you are a complete novice don't worry. We provide all the equipment and local knowledge you will need to get started - making your hire a relaxing and enjoyable experience on the tranquil reservoir waters. We do ask that you comply with the following conditions regarding&nbsp;Weight Capacities, Lifejackets and the, Online Pre-Check In&nbsp;to help us ensure your safety and enjoyment on the reservoir waters.</p><p>​</p><p><u><b>Weight Capacities</b></u></p><h5>Maximum passenger weights:</h5><ul><li><h5>Single kayak&nbsp; - individual&nbsp; passenger 120kgs max.<br></h5></li><li><h5>Double kayak&nbsp; - combined&nbsp; passenger weight 220kgs max.</h5></li><li><b>Junior kayak - individual passenger 40kgs max</b><br></li></ul><p>The maximum passenger weight for single kayaks is 120kgs.&nbsp; For doubles the maximum combined weight of all passengers must not exceed 220kgs, and for junior kayaks 40kgs. In the interest of safety, these maximum weight capacities MUST be adhered to. BKH reserves the right to alter the kayak manifest regarding passenger weights to ensure maximum stability on the water.</p><p><u><b>PFDs and Life Vests</b></u></p><ul><li><p>We only supply P.F.Ds. (Personal Flotation Devices/Buoyancy Aids) for adults over 40kg and for children over 25kgs. PFDs are only suitable to persons who can swim in the case of an emergency.</p></li><li><p>Our PFDs may not be suitable for some persons with physical disabilities.</p></li><li><p>We do not stock life-vests or life jackets for non-swimmers*. Non-swimmers wishing to kayak with us must supply their own life-vest/jacket and present to a member of BKH for a water safety compliance inspection prior to commencing the hire.</p></li></ul><p>​</p><p>*(i.e. persons who CAN NOT swim.) With the exception of toddlers and small children with a weight between 15kg and 25kg. Limited life-vests (Level 100) are available for this category and can be hired on a first come, first served basis.</p><p>&nbsp;</p><p><u><b>Important - Online Pre-Check In procedure</b></u></p><h5>Please note in the interest of safety it is vitally important that all persons who will be onboard&nbsp; our kayaks complete a Pre-Check In as soon as possible after&nbsp; making a booking request. Accurate weights and information must be &nbsp;provided.&nbsp; This is for insurance, water safety and to help us plan for your day.</h5><h5>A Pre-Check In MUST be completed for ALL child passengers.</h5><p>Please follow the link to complete yours -</p><h5><a href=\"https://web.wherewolf.co.nz/ss8fvh\">Wherewolf</a></h5><h5>&nbsp;</h5><p><br></p><p><b><u>Discount Vouchers</u></b></p><p><b>Group Bookings</b>&nbsp;- 10 or more kayaks 15% off. Simply enter Promo Code GIMME15 at the Checkout.<br></p><p><br></p><p><b><u>Gift eCards Available</u></b></p><p>Select this option at Checkout. No need to choose the date until time of booking. Gift eCards valid for 12 months</p><p><br></p><p><b><u>Didn't receive your Booking Confirmation?</u></b></p><p>Please check your email Junk and Spam Folders.</p><p>&nbsp;</p><p><b><u>Find Us</u></b></p><p>Location:</p><p><a href=\"https://goo.gl/maps/t6wNDVsZ6P4qZqdi6\" target=\"_blank\">Warren Reservoir Second Car Park</a></p><p>Warren Road, Mount Crawford&nbsp;</p><p>​</p><p><b><u>Contact Us</u></b></p><p>Email:</p><p><a href=\"mailto:barossakayakhire@gmail.com?subject=Kayak%20Hire\" target=\"_self\">barossakayakhire@gmail.com</a></p><p>Phone:</p><p>General Enquiries &amp; Group Bookings&nbsp;</p><p><a href=\"tel:0499500604\">0499 500 604</a></p><p>​</p>",
+    "productCode": "PJWVJ6",
+    "internalCode": "",
+    "supplierId": 191538,
+    "supplierAlias": "barossaoutdoors",
+    "supplierName": "Barossa Outdoors",
+    "timezone": "Australia/Adelaide",
+    "advertisedPrice": 79.0,
+    "priceOptions": [
+      {
+        "price": 79.0,
+        "label": "Quantity",
+        "id": 17926900,
+        "seatsUsed": 1,
+        "productCode": "PJWVJ6"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 8,
+    "images": [
+      {
+        "id": 2464847,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/240722793_403847847821628_915892164098698961_n.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/240722793_403847847821628_915892164098698961_n_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/240722793_403847847821628_915892164098698961_n_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/240722793_403847847821628_915892164098698961_n_lg.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "id": "KDeTilpEkZI",
+        "platform": "youtube",
+        "url": "https://www.youtube.com/watch?v=KDeTilpEkZI"
+      }
+    ],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "extras": [
+      {
+        "name": "Donation to Barossa Wildlife Rescue",
+        "description": "Pay it forward with a $5 donation to Barossa Wildlife Rescue",
+        "price": 5.0,
+        "extraPriceType": "FIXED",
+        "image": {
+          "id": 2381229,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/R.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/R_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/R_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/R_lg.png"
+        }
+      },
+      {
+        "name": "Keep updated on Barossa Outdoors wellness events",
+        "description": "Opt in to hear first about our limited ticketed wellness events like our popular 'Kayak, Yoga and Lo-Tox Living' experience. Learn about the use of essential oils with Faye from Young Living and the benefits to your overall health and wellbeing.",
+        "price": 0.0,
+        "extraPriceType": "FIXED",
+        "image": {
+          "id": 2820133,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1_.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__lg.png"
+        }
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Address",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "City",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "State/County/Region",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Postcode/ZIP",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -34.7082333,
+    "longitude": 138.9368402,
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 1,
+    "dateCreated": "2021-12-07T10:13:38Z",
+    "minimumNoticeMinutes": 240,
+    "durationMinutes": 120,
+    "dateUpdated": "2022-11-21T09:32:11Z",
+    "locationAddress": {
+      "addressLine": "Warren Reservoir Second Car park",
+      "postCode": "SA5351",
+      "city": "Mount Crawford",
+      "state": "South Australia",
+      "countryCode": "au",
+      "latitude": -34.7082333,
+      "longitude": 138.9368402
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "CATEGORY:Kayaking",
+      "TYPE:Daytour"
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

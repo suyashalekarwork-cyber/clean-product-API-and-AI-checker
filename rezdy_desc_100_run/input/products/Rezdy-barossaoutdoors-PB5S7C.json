@@ -1,0 +1,218 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "ACTIVITY",
+    "name": "SINGLE KAYAK HIRE - up to 2 hours",
+    "shortDescription": "Single and Double Kayak hire - up to 2 hours",
+    "description": "<p><b><u>PRE-BOOKING ESSENTIAL</u></b></p><p><b><u><br></u></b></p><p><u><b>Important - Online Pre-Check In procedure</b></u></p><h5>Please note in the interest of safety it is vitally important that all persons who will be onboard&nbsp; our kayaks complete a&nbsp;</h5><h5>Pre-Check In/waiver as soon as possible after making a booking request.&nbsp;</h5><h5><br></h5><h5>Accurate weights and information must be &nbsp;provided.&nbsp; This is for insurance, water safety and to help us plan for your day.</h5><h5><br></h5><h5>A Check In Form MUST be completed for ALL child passengers. Failure to complete a waiver before your arrival may result in a&nbsp; delay in commencing your activity.</h5><p><br></p><p><b>Please follow the link to print, complete and bring along yours -</b></p><h3><a href=\"https://www.barossaoutdoors.com.au/\">CHECK IN FORM</a><a href=\"https://www.barossaoutdoors.com.au/\"><br></a>&nbsp;</h3><p><br></p><p><b><u>Kayak and equipment hire - up to 2 hours&nbsp;</u></b></p><p><b>Junior kayak</b>&nbsp;- suitable for kids from 5 years to 9 years old (Max. weight 40kgs)<br></p><p><b>Single kayak</b>&nbsp;- suitable for 1 x adult/youth (Max. weight 120kgs)</p><p><b>Double kayak</b>&nbsp;- suitable for up to 2 x adults and 1 child (Max. weight 220kgs)</p><p>Package includes hire of&nbsp;kayaks, life vests (up to 3 per double kayak), paddles and use of dry bags. Extra lifejackets can be hired upon request.</p><p>&nbsp;<br></p><h4>\"Safety First!\"</h4><p>At Barossa Kayak Hire we want you to feel confident and most importantly safe on the water, even if you have never kayaked before. So if you are a complete novice don't worry. We provide all the equipment and local knowledge you will need to get started - making your hire a relaxing and enjoyable experience on the tranquil reservoir waters. We do ask that you comply with the following conditions regarding&nbsp;Weight Capacities, Lifejackets and the, Online Pre-Check In&nbsp;to help us ensure your safety and enjoyment on the reservoir waters.</p><p>In the interest of safety, these maximum weight capacities MUST be adhered to. BKH reserves the right to alter the kayak manifest regarding passenger weights to ensure maximum stability on the water.</p><p><br></p><p><u><b>PFDs and Life Vests</b></u></p><ul><li><p>We only supply P.F.Ds. (Personal Flotation Devices/Buoyancy Aids) for adults over 40kg and for children over 25kgs. PFDs are only suitable to persons who can swim in the case of an emergency.</p></li><li><p>Our PFDs may not be suitable for some persons with physical disabilities.</p></li><li><p>We do not stock limited numbers of life-vests or life jackets for non-swimmers. Please advise if you require a lifevest for a non-swimmer</p></li></ul><p>&nbsp;</p><p><b><u>Discount Vouchers</u></b></p><p><b>Family Deal&nbsp;</b>- Book 2 x double kayaks for $149. Simply enter Promo Code&nbsp;<b>FAMILYKAYAKS</b>&nbsp;at the Checkout.</p><p><b>Group Bookings</b>&nbsp;- 10 or more kayaks 15% off. Simply enter Promo Code GIMME15 at the Checkout.</p><p><br></p><p><b><u>Gift eCards Available</u></b></p><p>Select this option at Checkout. Choose a date. Gift eCards valid for 12 months from the date chosen.</p><p><br></p><p><b><u>Didn't receive your Booking Confirmation?</u></b></p><p>Please check your email Junk and Spam Folders.</p><p>&nbsp;</p><p><b><u>Find Us</u></b></p><p>Location:</p><p><a href=\"https://maps.app.goo.gl/RbwuWCHydj9wc3SB9\">Warren Reservoir Reserve</a></p><p>Warren Road<br></p><p>Mount Crawford</p><p>South Australia</p><p>SA5351&nbsp;</p><p>​</p><p><b><u>Contact Us</u></b></p><p>Email:</p><p><a href=\"mailto:barossakayakhire@gmail.com?subject=Kayak%20Hire\">barossaoutdoors@gmail.com</a></p><p>Phone:</p><p>General Enquiries &amp; Group Bookings&nbsp;</p><p>+61 (0) 499 500 604&nbsp;or</p><p>+61 (0) 423 386 854</p><p>​</p>",
+    "productCode": "PB5S7C",
+    "internalCode": "PB5S7C",
+    "supplierId": 191538,
+    "supplierAlias": "barossaoutdoors",
+    "supplierName": "Barossa Outdoors",
+    "timezone": "Australia/Adelaide",
+    "advertisedPrice": 55.0,
+    "priceOptions": [
+      {
+        "price": 55.0,
+        "label": "Single",
+        "id": 17926897,
+        "seatsUsed": 1,
+        "productCode": "PB5S7C"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Kayak",
+    "unitLabelPlural": "Kayaks",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 13,
+    "images": [
+      {
+        "id": 2209374,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/IMG_20201230_160006_710.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/IMG_20201230_160006_710_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/IMG_20201230_160006_710_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/IMG_20201230_160006_710_lg.jpg"
+      },
+      {
+        "id": 2210086,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/ff8f27bc0dd24a299a5664d798e577a2IMG_20210113_143142.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/ff8f27bc0dd24a299a5664d798e577a2IMG_20210113_143142_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/ff8f27bc0dd24a299a5664d798e577a2IMG_20210113_143142_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/ff8f27bc0dd24a299a5664d798e577a2IMG_20210113_143142_lg.jpg"
+      },
+      {
+        "id": 2210174,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/646905196b754f63b0b8dc59d9e1dff9unnamed.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/646905196b754f63b0b8dc59d9e1dff9unnamed_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/646905196b754f63b0b8dc59d9e1dff9unnamed_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/646905196b754f63b0b8dc59d9e1dff9unnamed_lg.jpg"
+      },
+      {
+        "id": 2210177,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/sp1.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/sp1_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/sp1_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/191538/sp1_lg.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "id": "YYP46q3JBWo",
+        "platform": "youtube",
+        "url": "https://www.youtube.com/watch?v=YYP46q3JBWo"
+      }
+    ],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "Booking Policy\r\n\r\nBookings close 1 hour before the session starts.\r\n\r\nCancellation Policy: CANCELLATION OR BOOKING CHANGES Current as at 2 December 2019 Page 4 (a) Where cancellations are due to adverse weather, declared days of Total Fire Ban or other SA Water planned closures a full refund will be made less 2.5% admin fee unless the participants re-book another day / time to be mutually agreed with BKH. (b) All booking changes (day or time) must be advised at least 4 hours in advance and must be mutually agreed with BKH. (c) All booking changes (day or time) must be made between 9am and 5pm Monday to Sunday by phone call to us. Emailed requests for changes cannot be guaranteed as emails are not monitored 24 hrs a day. (d) Where there is a NO SHOW or cancellation by the participant less than 4 hours in advance, there will be no refund",
+    "extras": [
+      {
+        "name": "Keep updated on Barossa Outdoors wellness events",
+        "description": "Opt in to hear first about our limited ticketed wellness events like our popular 'Kayak, Yoga and Lo-Tox Living' experience. Learn about the use of essential oils with Faye from Young Living and the benefits to your overall health and wellbeing.",
+        "price": 0.0,
+        "extraPriceType": "FIXED",
+        "image": {
+          "id": 2820133,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1_.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/YL_BrandPartner_Logo_2022_print__1__lg.png"
+        }
+      },
+      {
+        "name": "Support Beyond Blue",
+        "description": "Make a donation to help improve the lives of individuals, families and communities. Support others affected by anxiety, depression and suicide.",
+        "price": 5.0,
+        "extraPriceType": "ANY"
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Date of birth",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Date"
+      },
+      {
+        "label": "Address",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "City",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "State/County/Region",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Postcode/ZIP",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -34.70548297788429,
+    "longitude": 138.93559129743653,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 1,
+    "dateCreated": "2021-02-23T06:16:40Z",
+    "minimumNoticeMinutes": 60,
+    "durationMinutes": 120,
+    "dateUpdated": "2024-03-31T23:57:15Z",
+    "locationAddress": {
+      "addressLine": "Warren Reservoir Reserve",
+      "postCode": "SA5351",
+      "city": "Mount Crawford",
+      "state": "South Australia",
+      "countryCode": "au",
+      "latitude": -34.70548297788429,
+      "longitude": 138.93559129743653
+    },
+    "additionalInformation": "<p style=\"margin: 0cm;\"><b><u><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33);\"><span class=\"wysiwyg-font-size-large\">IMPORTANT -&nbsp;</span><a rel=\"nofollow\" target=\"_blank\" href=\"https://www.barossaoutdoors.com.au/\"><span class=\"wysiwyg-font-size-large\">&nbsp;PRINT, C</span><span style=\"text-decoration-line: none;\" class=\"wysiwyg-font-size-large\">OMPLETE AND BRING ALONG THE CHECK IN FORM. THIS IS ESSENTIAL</span><span class=\"wysiwyg-font-size-large\">&nbsp;FOR EACH ADULT AND MUST INCLUDE ALL CHILDREN PARTICIPANTS&nbsp;</span></a></span></u></b></p><p style=\"margin: 0cm;\"><span style=\"font-family: Helvetica, sans-serif; color: black;\">&nbsp;</span></p><p style=\"margin: 0cm;\"><b><u><span style=\"font-family: Helvetica, sans-serif;\">ADVENTURER CHECKLIST</span></u></b><span style=\"font-family: Helvetica, sans-serif;\">&nbsp;</span><br></p><p style=\"margin: 0cm;\"><span style=\"font-family: Helvetica, sans-serif; color: black;\"></span></p><p style=\"margin: 0cm; line-height: 13.5pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; vertical-align: baseline;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33);\">Please check the weather forecast in advance and wear suitable outdoor clothing.</span><span style=\"font-family: Helvetica, sans-serif; color: black;\"></span></p><p style=\"margin: 0cm; line-height: 13.5pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; vertical-align: baseline;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33); border: 1pt none windowtext; padding: 0cm;\">Bring a sunsmart hat,&nbsp;a towel&nbsp;and&nbsp;water bottle.</span><span style=\"font-family: Helvetica, sans-serif; color: black;\"></span></p><p style=\"margin: 0cm; line-height: 13.5pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; vertical-align: baseline;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33); border: 1pt none windowtext; padding: 0cm;\">Put on sunscreen and&nbsp;insect repellent.</span><span style=\"font-family: Helvetica, sans-serif; color: black;\"></span></p><p style=\"margin: 0cm; line-height: 13.5pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; vertical-align: baseline;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33); border: 1pt none windowtext; padding: 0cm;\"><br></span></p><p style=\"margin: 0cm;\"><b><u><span style=\"font-family: Helvetica, sans-serif;\"><a rel=\"nofollow\" target=\"_blank\" href=\"https://maps.app.goo.gl/vp8FrjcCaq4mBR7m6\">FIND US</a></span></u></b></p><p style=\"margin: 0cm; line-height: 13.5pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; vertical-align: baseline;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33); border: 1pt none windowtext; padding: 0cm;\"></span></p><p style=\"margin: 0cm;\"><span style=\"font-family: Helvetica, sans-serif; color: rgb(33, 33, 33);\">Look for the BAROSSA OUTDOORS flag&nbsp;at Warren Reservoir Reserve (Second Carpark), Warren Road, Mount Crawford, South Australia SA5351&nbsp;</span></p>",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "TYPE:Rental",
+      "CATEGORY:kayaking"
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "MULTIDAYTOUR",
+    "name": "10-Day Eyre Peninsula & West Coast 4WD Eco Safari (Private Charter)",
+    "shortDescription": "HIGHLIGHTS: Complimentary pick-up and drop off, professional, accredited tour guide/driver, comfortable air-conditioned 4WD vehicle. Includes Spencer Gulf, Port Lincoln National Park, Coffin Bay, Gawler Ranges National Park and more.",
+    "description": "<p>HIGHLIGHTS:<br></p><ul><li>Complimentary pick-up and drop off</li><li>Professional, accredited tour guide/driver</li><li>Comfortable air-conditioned 4WD vehicle</li><li>All park entry fees</li><li>Spencer Gulf<br></li><li>Port Lincoln National Park<br></li><li>Coffin Bay<br></li><li>Gawler Ranges National Park<br></li><li>Yorke Peninsula</li><li>Outback SA</li></ul><p><br></p><p><b>DAY 1</b></p><p>8am Departure from Adelaide. Heading north along the Eastern side of Gulf St Vincent, you will be entertained with stories about our early explorers. Follow the Gulf St Vincent and Spencer Gulf, stopping at historical coastal towns. Learn our rich maritime history and maybe take a walk down the longest wooden jetty in the Southern Hemisphere at Port Germain. This was once a bustling port for sail ships and seafarers.</p><p>During the safari your Tour Guide will introduce you to a remarkable and resilient history of both Aboriginal and white settlement in SA.</p><p>See the Southern Flinders Ranges, 600-million-year-old mountain peaks with spectacular views over this incredible landscape.</p><p>Spend the afternoon strolling around the award winning Wadlata Outback Centre at Pt Augusta.</p><p><b>Overnight Accommodation:</b><br>Port Augusta Motel</p><p><b>Meals:</b><br>(L) Included: Picnic Lunch<br>(D) Own Expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 2</b></p><p>Stroll around the Arid Lands Botanic Gardens at Port Augusta. Then we will slowly head down the eastern side of Spencer Gulf following the coast road down through Cowell, Tumby Bay and onto Lincoln National Park.</p><p><b>Overnight Accommodation:</b><br>Port Lincoln Motel</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Bakery/Café<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 3</b></p><p>A fun and full day exploring Sleaford Bay, Fisheries Bay and Whalers Way.</p><p><b>Overnight Accommodation:</b><br>Port Lincoln Motel</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Picnic Lunch<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 4</b></p><p>Morning drive from Port Lincoln to Coffin Bay, exploring many of the natural beauty spots and points of interest along the way.<br></p><p><b>Overnight Accommodation:</b><br>Coffin Bay Caravan Park Deluxe Cabin</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Café<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 5</b></p><p>Coffin Bay Oyster Farm visit and tasting. Coffin Bay National Park.<br></p><p><b>Overnight Accommodation:</b><br>Coffin Bay Caravan Park Deluxe Cabin</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Café<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 6</b></p><p>Murphys Haystacks, Elliston, Venus Bay, Streaky Bay.<br></p><p><b>Overnight Accommodation:</b><br>Streaky Bay Caravan Park Cabin, Foreshore Room</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Your choice<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 7</b></p><p>We spend the day exploring the coast around Streaky Bay.</p><p><b>Overnight Accommodation:</b><br>Streaky Bay Caravan Park Cabin, Foreshore Room</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Picnic<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 8</b></p><p>We travel from Ceduna to Minnipa.<br></p><p><b>Overnight Accommodation:</b><br>Minnipa Motel</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Your choice<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 9</b></p><p>We travel via outback tracks through the Gawler Ranges National Park.<br></p><p><b>Overnight Accommodation:</b><br>Minnipa Motel</p><p><b>Meals:</b><br><b>(B) Included: Continental</b><br>(L) Included: Your choice<br>(D) Own expense: Local Pub/Restaurant</p><p><br></p><p><b>DAY 10</b></p><p>We travel from Minnipa to Lucky Bay to catch the midday ferry to Wallaroo. A quick visit to Yorke Peninsula, then we return to Adelaide in the late afternoon.</p><p><b>Meals:</b><br>(B) Included: Continental<br>(L) Included: Bakery/Café</p><p><br></p><p><b>Please note:</b><br></p><p>CODE (B) (L) (D) indicates which meals are included and which meals are at the passengers own expense.</p><p>Advertised itineraries &amp; vehicles may change due to circumstances beyond our control.</p><p><br></p><p><b>Printable itinerary:</b> <a href=\"https://saecotours.com.au/brochure/eyre-peninsula-10-day-eco-safari.pdf\">click here to view</a></p><p>Advertised itineraries and vehicles may change due to circumstances beyond our control.<br></p><p><br></p><p><b>If you are interested in this tour but cannot travel on any of the dates listed, please contact us directly and we can arrange additional tour dates.</b></p>",
+    "productCode": "PVV63Z",
+    "internalCode": "10DAY-EYREWEST",
+    "supplierId": 183241,
+    "supplierAlias": "saecotours",
+    "supplierName": "SA Eco Tours",
+    "timezone": "Australia/Adelaide",
+    "advertisedPrice": 8495.0,
+    "priceOptions": [
+      {
+        "price": 8495.0,
+        "label": "Double/Twin Share",
+        "id": 37710370,
+        "seatsUsed": 1,
+        "productCode": "PVV63Z"
+      },
+      {
+        "price": 8995.0,
+        "label": "Single",
+        "id": 37734647,
+        "seatsUsed": 1,
+        "productCode": "PVV63Z"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "People",
+    "unitLabelPlural": "People",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 8,
+    "images": [
+      {
+        "id": 3861748,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/eyre_peninsula_hero.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/eyre_peninsula_hero_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/eyre_peninsula_hero_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/eyre_peninsula_hero_lg.jpg"
+      },
+      {
+        "id": 3861727,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.29.58_2f8ff06b.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.29.58_2f8ff06b_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.29.58_2f8ff06b_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.29.58_2f8ff06b_lg.jpg"
+      },
+      {
+        "id": 3861745,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/australian_arid_lands_botanic_garden.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/australian_arid_lands_botanic_garden_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/australian_arid_lands_botanic_garden_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/australian_arid_lands_botanic_garden_lg.jpg"
+      },
+      {
+        "id": 3861729,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_7e48ab5f.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_7e48ab5f_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_7e48ab5f_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_7e48ab5f_lg.jpg"
+      },
+      {
+        "id": 3861728,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_2191f330.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_2191f330_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_2191f330_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_2191f330_lg.jpg"
+      },
+      {
+        "id": 3861730,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.55.40_38c28f71.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.55.40_38c28f71_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.55.40_38c28f71_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/WhatsApp_Image_2024_09_23_at_12.55.40_38c28f71_lg.jpg"
+      },
+      {
+        "id": 3861731,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.36_dda5c44a.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.36_dda5c44a_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.36_dda5c44a_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.36_dda5c44a_lg.jpg"
+      },
+      {
+        "id": 3861732,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.32_b316ecc4.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.32_b316ecc4_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.32_b316ecc4_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.32_b316ecc4_lg.jpg"
+      },
+      {
+        "id": 3861733,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_868ab634.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_868ab634_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_868ab634_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.33_868ab634_lg.jpg"
+      },
+      {
+        "id": 3861744,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/ardrossan_jetty.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/ardrossan_jetty_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/ardrossan_jetty_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/ardrossan_jetty_lg.jpg"
+      },
+      {
+        "id": 3861734,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.34_534306f6.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.34_534306f6_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.34_534306f6_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.34_534306f6_lg.jpg"
+      },
+      {
+        "id": 3861749,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_national_park.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_national_park_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_national_park_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_national_park_lg.jpg"
+      },
+      {
+        "id": 3861750,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_organ_pipes.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_organ_pipes_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_organ_pipes_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/gawler_ranges_organ_pipes_lg.jpg"
+      },
+      {
+        "id": 3861735,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_8f1458aa.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_8f1458aa_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_8f1458aa_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.35_8f1458aa_lg.jpg"
+      },
+      {
+        "id": 3861746,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/1071214_166_Coffin_Bay_Oyster_Farms.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/1071214_166_Coffin_Bay_Oyster_Farms_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/1071214_166_Coffin_Bay_Oyster_Farms_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/1071214_166_Coffin_Bay_Oyster_Farms_lg.jpg"
+      },
+      {
+        "id": 3861736,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.38_0aa8f090.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.38_0aa8f090_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.38_0aa8f090_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/Photo_2024_09_20_at_12.12.38_0aa8f090_lg.jpg"
+      },
+      {
+        "id": 3861751,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/murphys_haystacks.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/murphys_haystacks_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/murphys_haystacks_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/murphys_haystacks_lg.jpg"
+      },
+      {
+        "id": 3861752,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/sleaford_bay.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/sleaford_bay_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/sleaford_bay_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/sleaford_bay_lg.jpg"
+      },
+      {
+        "id": 3861753,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/whalers_way.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/whalers_way_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/whalers_way_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/183241/whalers_way_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Date of birth",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Date"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "I agree to receive marketing emails",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "If double/twin accommodation, specify bed configuration",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "listOptions": "1 x Double bed\r\n2 x Single beds",
+        "fieldType": "List"
+      }
+    ],
+    "latitude": -34.7226381,
+    "longitude": 135.8597449,
+    "xeroAccount": "",
+    "confirmMode": "MANUAL",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 10.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 30,
+    "dateCreated": "2024-09-23T06:57:53Z",
+    "minimumNoticeMinutes": 10080,
+    "durationMinutes": 14400,
+    "dateUpdated": "2026-04-28T07:46:44Z",
+    "pickupId": 10788,
+    "locationAddress": {
+      "addressLine": "",
+      "postCode": "",
+      "city": "Port Lincoln",
+      "state": "South Australia ",
+      "countryCode": "au",
+      "latitude": -34.7226381,
+      "longitude": 135.8597449
+    },
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "AGE:Adult",
+      "SUITABILITY:Family",
+      "CATEGORY:Eco-Tours",
+      "INTEREST:Ecotourism",
+      "AGE:Teenager",
+      "AGE:Senior",
+      "INTEREST:Sightseeing",
+      "INTENSITY:Quiet",
+      "SUITABILITY:Groups",
+      "SKILL_LEVEL:Beginner",
+      "AGE:Child",
+      "INTEREST:Cultural",
+      "TYPE:Tour"
+    ],
+    "taxes": [
+      {
+        "supplierId": 183241,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": true,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

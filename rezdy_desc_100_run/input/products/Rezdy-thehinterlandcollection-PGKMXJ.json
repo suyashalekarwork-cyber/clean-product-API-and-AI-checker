@@ -1,0 +1,179 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "EVENT",
+    "name": "Valentine’s Picnic Day at Elysian Hills",
+    "shortDescription": "Celebrate Valentine’s Day with an elevated picnic experience set high above the hinterland.\r\n",
+    "description": "<p>Celebrate Valentine’s Day with an elevated picnic experience set high above the hinterland.</p><p>Whether you’re planning a romantic afternoon with your partner or gathering your favourite people for a stylish Galentine’s celebration, our Valentine’s Picnic Day offers a relaxed yet luxurious way to mark the occasion.</p><p>With sweeping views, beautifully styled grazing boxes, curated beverages, and a selection of optional enhancements, this one-day-only event is designed for those who value connection, atmosphere, and unforgettable experiences.</p><h3>Event Details</h3><p>Date: Saturday 14 February 2026<br>Time: 3:00pm – 6:00pm<br>Price: $120 for two <br>Group Size: Two adults per picnic</p><p>Children&nbsp;under 12 are welcome at no additional cost.</p><p></p><p></p><p></p><h3>What’s Included</h3><p>Each picnic booking includes a thoughtfully curated experience, designed to feel indulgent yet effortless.</p><h4>Grazing Box</h4><p>Each group receives a grazing box, featuring:</p><ul><li><p>King Island Camembert with crackers &amp; spreads</p></li><li><p>Chargrilled chicken with lemon roll</p></li><li><p>Sundried tomato penne pasta salad</p></li><li><p>Baby quiche Lorraines</p></li><li><p>Pork &amp; fennel sausage rolls</p></li><li><p>Biscuits &amp; seasonal fruit</p></li></ul><h4>Included Drink</h4><p>Choose one of the following options per group:</p><p>Wine</p><ul><li><p>1 × Cloud St Sparkling Brut</p></li><li><p>1 × Cloud St Chardonnay</p></li><li><p>1 × Cloud St Shiraz</p></li></ul><p>Beer</p><ul><li><p>4 × Stone &amp; Wood Pacific Ale</p></li><li><p>4 × Corona</p></li><li><p>4 × Great Northern Original</p></li></ul><h3>Drink Upgrades</h3><p>For those looking to elevate their celebration, premium drink upgrades are available:</p><ul><li><p>Bandini Prosecco +$15</p></li><li><p>Moët &amp; Chandon Brut Impérial +$65</p></li><li><p>Craggy Range Sauvignon Blanc +$15</p></li><li><p>Maison AIX Rosé +$15</p></li><li><p>Fringe Society Pinot Noir +$15</p></li></ul><p>Perfect for romantic toasts, Galentine’s cheers, or simply turning your picnic into something extra special.</p><h3>Optional Enhancements &amp; Experiences</h3><p>Transform your picnic into a full romantic or celebratory escape with our optional add-ons, designed to extend the experience beyond the picnic itself.</p><h4>Eco Cruise (Pre-Picnic)</h4><p>Begin your afternoon with a peaceful eco cruise before heading up to Elysian Hills. A beautiful way to slow down, take in the landscape, and ease into the celebration.</p><p></p><p></p><p></p><p></p><p></p><p><a href=\"https://www.tweedecocruises.com/\">Book a cruise</a></p><p></p><p></p><p></p><p></p><p></p><h4>Dinner at Potager</h4><p>Continue your Valentine’s or Galentine’s celebrations with an unforgettable farm-to-table dining experience at Potager. A seamless way to turn your afternoon picnic into a complete day (or night) of indulgence.</p><p></p><p></p><p></p><p></p><p></p><p><a href=\"https://bookings.nowbookit.com/?accountid=2a4ff302-6217-4f3c-b1ba-fa92ec33139d&amp;venueid=973&amp;theme=light&amp;colors=hex,a1887f\">book a table</a></p><p></p><p></p><p></p><p></p><p></p><h4>Romantic Accommodation Packages</h4><p>Make a night of it with on-site or nearby accommodation:</p><ul><li><p>Stay at Elysian Hills and wake up to panoramic hinterland views</p></li><li><p>Or retreat to Cascade Springs for a secluded, nature-immersed escape</p></li></ul><p>Accommodation packages are ideal for couples celebrating Valentine’s Day or friends turning Galentine’s into a weekend getaway.</p><p></p><p></p><p></p><p></p><p></p><p><a href=\"https://thehinterlandcollection.holidayfuture.com/\">explore our accommodation options</a></p><p></p><p></p><p></p><p></p><p></p><h3>Beverages Available for Purchase on the Day</h3><p>A pop-up bar will be available throughout the event, offering:</p><p>Beer<br>Wine</p><p>Cocktails</p><ul><li><p>Strawberry Caprioska</p></li><li><p>Mojito</p></li><li><p>Aperol Spritz</p></li></ul><p>Perfect for relaxed refills as the afternoon unfolds.</p><h3>A Limited, One-Day-Only Experience</h3><p>With only 15 picnic bookings available, this event is intentionally intimate and exclusive. Early bookings are strongly recommended to avoid missing out.</p><p>Celebrate love, friendship, and connection this February — your way.</p><p>Secure your Valentine’s or Galentine’s Picnic today.</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>",
+    "productCode": "PGKMXJ",
+    "internalCode": "",
+    "supplierId": 261255,
+    "supplierAlias": "thehinterlandcollection",
+    "supplierName": "The Hinterland Collection",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 120.0,
+    "priceOptions": [
+      {
+        "price": 120.0,
+        "label": "Quantity",
+        "id": 61056401,
+        "seatsUsed": 1,
+        "priceGroupType": "TOTAL",
+        "productCode": "PGKMXJ"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Reservation",
+    "unitLabelPlural": "Reservations",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 15,
+    "images": [],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "extras": [
+      {
+        "name": "Curated Wine Upgrade",
+        "description": "Select Any Premium Wine +$15\r\n\r\nEnhance your picnic with a premium wine upgrade, carefully selected to complement the relaxed, indulgent nature of the afternoon.\r\n\r\nChoose from:\r\nBandini Prosecco\r\nCraggy Range Sauvignon Blanc\r\nMaison AIX Rosé\r\nFringe Society Pinot Noir\r\n\r\nSimply let our team know your wine choice on the day, allowing you to decide in the moment and tailor your picnic experience to suit your mood.\r\n",
+        "price": 15.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 4380067,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/6.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/6_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/6_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/6_lg.png"
+        }
+      },
+      {
+        "name": "Premium Champagne Upgrade",
+        "description": "Moët & Chandon Brut Impérial +$65\r\n\r\nUpgrade your picnic with a bottle of Moët & Chandon Brut Impérial — a timeless champagne synonymous with celebration.\r\n\r\nCrisp, elegant and effortlessly luxurious, this premium addition is perfect for milestone moments, relaxed afternoon toasts, or simply elevating your picnic into something truly special.",
+        "price": 65.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 4380068,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/5.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/5_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/5_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/261255/5_lg.png"
+        }
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Dietary requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -28.2327629,
+    "longitude": 153.4162469,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2026-02-01T22:37:47Z",
+    "minimumNoticeMinutes": 1440,
+    "durationMinutes": 180,
+    "dateUpdated": "2026-02-12T02:56:44Z",
+    "locationAddress": {
+      "addressLine": "515 Carool Rd",
+      "postCode": "2486",
+      "city": "Carool",
+      "state": "NSW",
+      "countryCode": "au",
+      "latitude": -28.2327629,
+      "longitude": 153.4162469
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "ACCESSIBILITY:Paraplegic",
+      "SUITABILITY:Day Time",
+      "AGE:Adult",
+      "ACCESSIBILITY:Asthmatic",
+      "SUITABILITY:Family",
+      "ACCESSIBILITY:Quadriplegic",
+      "AGE:Teenager",
+      "AGE:Senior",
+      "INTENSITY:Relaxed",
+      "AGE:Infant",
+      "INTEREST:Sightseeing",
+      "ACCESSIBILITY:Vision Impaired",
+      "ACCESSIBILITY:Epileptic",
+      "TYPE:Event",
+      "SUITABILITY:Night Time",
+      "SKILL_LEVEL:Beginner",
+      "INTEREST:Relaxation",
+      "ACCESSIBILITY:Hearing Impaired",
+      "AGE:Child",
+      "SUITABILITY:Any Weather",
+      "INTEREST:Romance",
+      "CATEGORY:Romantic Dining"
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "PGKMXJ"
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "CUSTOM",
+    "name": "Groups - Tamborine Mountain Rainforest Skywalk + Glow Worm Cave Tour + Waterfalls or Shopping",
+    "shortDescription": "Tour from Brisbane or Gold Coast Hotels to Tamborine Rainforest Skywalk, after you finish your morning adventures you will visit the famous Glow Worm Caves of Tamborine Mountain and some local lookouts.\r\n\r\n\r\n\r\n",
+    "description": "8:00am or 1:30pm Pickup - 5 Hrs Total<p><br></p><p>Pricing for Smaller or Larger Groups available on request<br></p><p><br></p><p>Brisbane and Gold Coast<br></p><p><strong>8:00am Pickup from City<br>12:00pm Departure for 1pm return</strong></p><p><strong>1:30pm Pickup from City<br>5:30pm Departure for 6pm return</strong></p><p><br></p><p><strong>----------------------------------------------</strong></p><h3>Tamborine Rainforest Skywalk</h3><h4>Overview</h4><p>The Tamborine Rainforest Skywalk offers a unique and immersive experience, allowing visitors to explore the lush canopy of the rainforest from an elevated perspective. Situated in the Gold Coast Hinterland of Queensland, Australia, this eco-adventure attraction provides an opportunity to delve into the natural beauty and biodiversity of the Tamborine Mountain region.</p><h4>Experience</h4><p>The Skywalk comprises a 1.5-kilometre long path that combines forest floor trails, 300 meters of steel bridges through the upper canopy, and a cantilever bridge that soars 30 meters above the creek and rainforest below. This design ensures that visitors can appreciate the varying layers of the rainforest, from the towering trees to the intricate undergrowth.</p><h4>Highlights</h4><ul><li><strong>Cantilever Bridge</strong>: One of the most exhilarating parts of the walk, offering breathtaking views over the rainforest and the Cedar Creek below.</li><li><strong>Interpretive Signage</strong>: Along the way, interpretive signs provide fascinating insights into the flora and fauna, as well as the geological features of the area.</li><li><strong>Bird Watching</strong>: The elevated pathways provide an excellent vantage point for bird watching, with species like the Paradise Riflebird and the Albert’s Lyrebird often spotted.</li></ul><h4>Eco-Friendly Initiative</h4><p>The Skywalk is constructed with minimal environmental impact in mind. The materials used and the construction process were carefully chosen to protect the natural habitat, ensuring that the ecosystem remains undisturbed for future generations.</p><p>------------------------------------------------<br></p><h3>Glow Worm Caves on Tamborine Mountain</h3><h4>Overview</h4><p>The Glow Worm Caves, located on Tamborine Mountain, offer a magical subterranean experience that showcases the bioluminescent beauty of glow worms. These man-made caves are part of Cedar Creek Estate Vineyard and Winery and are designed to provide a controlled environment where glow worms can thrive and be observed up close.</p><h4>Experience</h4><p>Visitors are guided through the caves, where the darkness is punctuated by the mesmerising blue-green glow of thousands of tiny bioluminescent creatures. The guided tours are educational, providing detailed information about the glow worms’ life cycle, habitat, and the science behind their bioluminescence.</p><h4>Highlights</h4><ul><li><strong>Bioluminescent Display</strong>: The primary attraction is the ethereal glow created by the Arachnocampa flava, a species of glow worm native to Queensland.</li><li><strong>Educational Tours</strong>: Knowledgeable guides offer insights into the ecological importance of glow worms and the efforts being made to conserve their natural habitats.</li><li><strong>Interactive Learning</strong>: The tour includes interactive displays and information panels that explain the biology of glow worms and the environmental conditions they require.</li></ul><h4>Conservation Efforts</h4><p>The Glow Worm Caves are part of a broader conservation effort aimed at protecting these delicate creatures. By creating a controlled environment, the caves help alleviate the pressure on wild populations, which are often threatened by habitat destruction and human interference.</p><h3>Visiting Tips</h3><ol><li><strong>Plan Ahead</strong>: Both attractions are popular, so booking in advance is recommended, especially during peak tourist seasons.</li><li><strong>Wear Comfortable Footwear</strong>: The Skywalk involves a fair amount of walking, so comfortable shoes are a must.</li><li><strong>Respect Nature</strong>: Both sites emphasise environmental conservation. Follow all guidelines to minimise your impact on the delicate ecosystems.</li><li><strong>Bring a Camera</strong>: The Skywalk offers stunning photographic opportunities, though photography inside the Glow Worm Caves is restricted to protect the glow worms.</li></ol><p><br></p><p>------------------------------------------------</p><h3>Additional Activities: Waterfalls or Shopping on the Gallery Walk</h3><br><h4>Waterfalls</h4><p>For those looking to extend their nature adventure, a short walk from the Bus Parking leads to a serene Waterfall. This picturesque waterfall is a favourite spot for both locals and visitors, offering a tranquil escape within the heart of the rainforest.</p><h5>Highlights:</h5><ul><li><strong>Natural Cascades</strong>: The falls cascade into a series of natural rock pools, perfect for some fantastic Photos.</li><li><strong>Picnic Areas</strong>: Several well-maintained picnic spots with tables and benches provide an ideal setting for a relaxing lunch surrounded by nature.</li><li><strong>Walking Trails</strong>: A network of walking trails meanders through the surrounding bushland, offering varying levels of difficulty and a chance to spot local wildlife.</li></ul><h4>Gallery Walk</h4><p>For a more leisurely experience, visitors can spend some time exploring the vibrant Gallery Walk on Tamborine Mountain. This bustling strip is home to an eclectic mix of shops, cafes, and art galleries, making it the perfect place to indulge in some retail therapy or simply enjoy the local culture.</p><h5>Highlights:</h5><ul><li><strong>Boutique Shops</strong>: Discover unique treasures in the many boutique shops offering handmade crafts, jewellery, and local produce.</li><li><strong>Art Galleries</strong>: Explore the creative side of Tamborine Mountain with visits to numerous art galleries showcasing works by local artists.</li><li><strong>Cafes and Restaurants</strong>: Take a break and enjoy a coffee or a meal at one of the charming cafes or restaurants, many of which offer alfresco dining with views of the mountain.</li><li><strong>Specialty Stores</strong>: From gourmet chocolates and cheeses to artisan wines and spirits, Gallery Walk offers a variety of specialty stores that cater to every taste.</li></ul><p></p><p></p>",
+    "productCode": "P7JY1E",
+    "internalCode": "SKY+GLOW",
+    "supplierId": 81069,
+    "supplierAlias": "pineappletours",
+    "supplierName": "Pineapple Tours - Luxury Tours and Experiences",
+    "timezone": "Australia/Brisbane",
+    "advertisedPrice": 159.0,
+    "priceOptions": [
+      {
+        "price": 159.0,
+        "label": "Adult",
+        "id": 34067394,
+        "seatsUsed": 1,
+        "productCode": "P7JY1E"
+      },
+      {
+        "price": 0.0,
+        "label": "Infant",
+        "id": 34067393,
+        "seatsUsed": 1,
+        "productCode": "P7JY1E"
+      },
+      {
+        "price": 99.0,
+        "label": "Child",
+        "id": 34067391,
+        "seatsUsed": 1,
+        "productCode": "P7JY1E"
+      },
+      {
+        "price": 149.0,
+        "label": "Senior",
+        "id": 34067392,
+        "seatsUsed": 1,
+        "productCode": "P7JY1E"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 20,
+    "quantityRequiredMax": 54,
+    "images": [
+      {
+        "id": 3743140,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/TTT_web.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/TTT_web_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/TTT_web_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/TTT_web_lg.jpg"
+      },
+      {
+        "id": 3743141,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/FOATHTV_S003_S001_T02028.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/FOATHTV_S003_S001_T02028_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/FOATHTV_S003_S001_T02028_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/FOATHTV_S003_S001_T02028_lg.jpg"
+      },
+      {
+        "id": 3743139,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Tamborine_Rainforest_Skywalk_Cantilever_from_Heli_1500x600.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Tamborine_Rainforest_Skywalk_Cantilever_from_Heli_1500x600_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Tamborine_Rainforest_Skywalk_Cantilever_from_Heli_1500x600_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Tamborine_Rainforest_Skywalk_Cantilever_from_Heli_1500x600_lg.jpg"
+      },
+      {
+        "id": 3743143,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/1a8f0daa6ec965f1a8ce1ebb892d5db4_scaled.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/1a8f0daa6ec965f1a8ce1ebb892d5db4_scaled_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/1a8f0daa6ec965f1a8ce1ebb892d5db4_scaled_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/1a8f0daa6ec965f1a8ce1ebb892d5db4_scaled_lg.jpeg"
+      },
+      {
+        "id": 3743144,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Unknown11.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Unknown11_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Unknown11_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Unknown11_lg.jpeg"
+      },
+      {
+        "id": 3743146,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Untitled_1.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Untitled_1_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Untitled_1_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Untitled_1_lg.jpg"
+      },
+      {
+        "id": 3743142,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/b7896d6bd3134cdd98a2d82d3b9b1070Untitled_12.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/b7896d6bd3134cdd98a2d82d3b9b1070Untitled_12_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/b7896d6bd3134cdd98a2d82d3b9b1070Untitled_12_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/b7896d6bd3134cdd98a2d82d3b9b1070Untitled_12_lg.jpg"
+      },
+      {
+        "id": 3743145,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/tamborine2.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/tamborine2_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/tamborine2_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/tamborine2_lg.jpg"
+      },
+      {
+        "id": 3743151,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/9f32b22dbbe447b38c824c685e0d1ff817tb_glowworms1_superJumbo.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/9f32b22dbbe447b38c824c685e0d1ff817tb_glowworms1_superJumbo_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/9f32b22dbbe447b38c824c685e0d1ff817tb_glowworms1_superJumbo_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/9f32b22dbbe447b38c824c685e0d1ff817tb_glowworms1_superJumbo_lg.jpg"
+      },
+      {
+        "id": 3743152,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_1.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_1_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_1_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_1_lg.jpg"
+      },
+      {
+        "id": 3743153,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_2.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_2_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_2_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Glow_2_lg.jpg"
+      },
+      {
+        "id": 3743155,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Inside_the_Glow_Worm_Caves.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Inside_the_Glow_Worm_Caves_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Inside_the_Glow_Worm_Caves_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Inside_the_Glow_Worm_Caves_lg.jpeg"
+      },
+      {
+        "id": 3743156,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Lookout_Tamborine_Mountain.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Lookout_Tamborine_Mountain_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Lookout_Tamborine_Mountain_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Lookout_Tamborine_Mountain_lg.jpg"
+      },
+      {
+        "id": 3743157,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/27772957140_2854bedfc1_b.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/27772957140_2854bedfc1_b_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/27772957140_2854bedfc1_b_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/27772957140_2854bedfc1_b_lg.jpg"
+      },
+      {
+        "id": 3743158,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/0Z7A0905.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/0Z7A0905_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/0Z7A0905_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/0Z7A0905_lg.jpg"
+      },
+      {
+        "id": 3743159,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1TamborineMountainwaterfall.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1TamborineMountainwaterfall_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1TamborineMountainwaterfall_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1TamborineMountainwaterfall_lg.jpg"
+      },
+      {
+        "id": 3743160,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/gallery_walk_tamborine_mountain_image2.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/gallery_walk_tamborine_mountain_image2_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/gallery_walk_tamborine_mountain_image2_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/gallery_walk_tamborine_mountain_image2_lg.jpg"
+      },
+      {
+        "id": 3743161,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1Tamborine_Waterfalljpg.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1Tamborine_Waterfalljpg_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1Tamborine_Waterfalljpg_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/_A1Tamborine_Waterfalljpg_lg.jpg"
+      },
+      {
+        "id": 3743163,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Gallery_Walk2.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Gallery_Walk2_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Gallery_Walk2_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Gallery_Walk2_lg.jpg"
+      },
+      {
+        "id": 3743164,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Mt_Tamborine_800_2.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Mt_Tamborine_800_2_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Mt_Tamborine_800_2_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/81069/Mt_Tamborine_800_2_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "I agree to receive marketing emails",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "Hotel Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -27.9132358,
+    "longitude": 153.1881676,
+    "xeroAccount": "200",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "FULL_AGENT",
+    "maxCommissionPercent": 25.0,
+    "commissionIncludesExtras": false,
+    "dateCreated": "2024-07-16T02:33:15Z",
+    "minimumNoticeMinutes": 2880,
+    "durationMinutes": 300,
+    "dateUpdated": "2025-02-12T03:48:34Z",
+    "locationAddress": {
+      "addressLine": "333 Geissmann Dr Tamborine Mountain QLD 4272 Australia",
+      "postCode": "4272",
+      "city": "tamborine mountain",
+      "state": "qld",
+      "countryCode": "au",
+      "latitude": -27.9132358,
+      "longitude": 153.1881676
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [],
+    "taxes": [
+      {
+        "supplierId": 81069,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": true,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

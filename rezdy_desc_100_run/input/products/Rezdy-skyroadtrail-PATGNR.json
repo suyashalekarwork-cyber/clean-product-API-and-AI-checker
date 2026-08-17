@@ -1,0 +1,279 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "MULTIDAYTOUR",
+    "name": "NORTHERN RIVERS HIKING ODYSSEY - Full Pack Hike and Day Pack Hikes",
+    "shortDescription": "Embark on an unforgettable hiking journey through the captivating landscape of Northern NSW. From the vibrant mountains to the serenity of the Clarence River, immerse yourself in a week of exhilarating exploration & natural beauty",
+    "description": "<h5>Get ready for an invigorating and thrilling adventure on the Upper Clarence Wilderness Trail! ?✨</h5><h5><br></h5><h5>Choose Your Adventure:</h5><h5><br></h5><h5>3 Night Option: Friday night to Monday evening. Travel with us or self-drive.</h5><h5>2 Night Option: Friday night to Sunday evening. Self-drive only.</h5><h5>Hiking Options:</h5><h5><br></h5><h5>Full Pack Hike: Over 3 days and 2 nights.</h5><h5>Three Daily Supported Hikes: From base camp each day.</h5><h5>Highlights:</h5><h5><br></h5><h5>Explore a section of the 400km Clarence River and its confluence.</h5><h5>Hike 30-40km through breathtaking landscapes.</h5><h5>Stay in cozy huts or cabins with showers, pit toilets, camp kitchen, and a marquee.</h5><h5><br></h5><h5>Enjoy delicious meals, including a wood-fired gourmet pizza night. Vegetarian, vegan, and gluten-free options available.</h5><h5><br></h5><h5>Accommodation options: twin share in a hut or single for an additional $60. Bring your own tent at no extra charge.</h5><h5>Travel in modern, high-quality 4WDs or self-drive with provided map details.</h5><h5><br></h5><h5>Activities:</h5><h5>Swimming and kayaking in the Clarence River.</h5><h5>Visit the Clarence River Wilderness Lodge Property, Humbug Gully, Toolooma Creek, and more.</h5><h5>Discover historical sites like the Old Gold Mine and try gold panning.</h5><h5>Learn about gold mining history and the Githabul indigenous people.</h5><h5>Explore unique tracks like the Telecom Track and the Wheelbarrow Track.</h5><h5>Visit the Rose Garden and the Garden of Eden.</h5><h5>Summit to Sunset Lookout for breathtaking views of the Great Dividing Range.</h5><h5><br></h5><h5>Locations Visited:</h5><h5><br></h5><h5>Clarence River Wilderness Lodge Property (also known as Big Fish Flat)</h5><h5>Humbug Gully</h5><h5>Toolooma Creek</h5><h5>The Bulldozer Windows</h5><h5>Clarence River Crossings</h5><h5>People’s Hut</h5><h5>Large ironbark trees</h5><h5>Crystal Dam</h5><h5>Silver Mine Campsite</h5><h5>Frazers Gully</h5><h5>Rainforest</h5><h5>Eaglehawk Track</h5><h5>Old Gold Mine</h5><h5>Gold Panning – option to try and find alluvial gold.</h5><h5>Gold Mining History Talk</h5><h5>The Rose Garden</h5><h5>The Fig Tree</h5><h5>McPherson Ranges</h5><h5>Paddys Flat</h5><h5>Historical Tracks:</h5><h5><br></h5><h5>The Telecom Track: Part of Prime Minister Bob Hawke’s 1980s Telecom rollout, this track was ploughed through the bush by a D6 bulldozer to service a Juvenile Offenders camp which no longer operates. The forest is dry sclerophyll dominated by eucalyptus of Ironbark, spotted gum, and grey gum with an understorey of Dogwood. Walk past Tooloom Gold Mine Camp.</h5><h5><br></h5><h5>The Wheelbarrow Track: Built by early miners to transport gold-bearing ore. Imagine pushing a fully loaded wheelbarrow up and over this cliff edge. 1.5 km downstream, a large gully called Back Creek joins Tooloom Creek. Back Creek still produces gold with each pan that is washed.</h5><h5><br></h5><h5>The Rose Garden: Home to John Smith and his wife of Aboriginal descent. They eked out a living by prospecting for gold and making herbal remedies to sell to other miners. The remnants of their humpy can still be found beside the track on the next level above the creek. Look for a rose bush, a wisteria vine, and the old footings of the fireplace.</h5><h5><br></h5><h5>The Garden of Eden: Named after an amazing landscape feature that you will walk past. The Garden of Eden is a large area of rock scree clinging to the side of the mountain with a 40-degree slope. In the center of this rock scree is a patch of rainforest and vine thicket.</h5><h5>Pricing:</h5><h5><br></h5><h5>3 Day Cost: $495pp Travel With Us / $445pp Self Drive</h5><h5>2 Day Cost: $375 Self Drive Only</h5><h5><br></h5><h5>RSVP for this trip here or on Facebook. We can’t wait to share this incredible journey with you! ?</h5><h5><br></h5><h5>Hope you will join us to hike the Upper Clarence River.!</h5>",
+    "productCode": "PATGNR",
+    "internalCode": "NTHRIVHIK24",
+    "supplierId": 224631,
+    "supplierAlias": "skyroadtrail",
+    "supplierName": "Sky Road Trail",
+    "timezone": "Australia/Brisbane",
+    "advertisedPrice": 495.0,
+    "priceOptions": [
+      {
+        "price": 495.0,
+        "label": "Quantity",
+        "id": 34496258,
+        "seatsUsed": 1,
+        "productCode": "PATGNR"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 16,
+    "images": [
+      {
+        "id": 3761979,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/3550756262.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/3550756262_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/3550756262_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/3550756262_lg.jpg"
+      },
+      {
+        "id": 3761973,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/ATDW_Clarence_Valley_gorge_canoeing_at_sunset_North_Coast.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/ATDW_Clarence_Valley_gorge_canoeing_at_sunset_North_Coast_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/ATDW_Clarence_Valley_gorge_canoeing_at_sunset_North_Coast_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/ATDW_Clarence_Valley_gorge_canoeing_at_sunset_North_Coast_lg.jpeg"
+      },
+      {
+        "id": 3761980,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/bushwalking.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/bushwalking_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/bushwalking_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/bushwalking_lg.jpg"
+      },
+      {
+        "id": 3761982,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Canoes.PNG",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Canoes_tb.PNG",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Canoes_med.PNG",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Canoes_lg.PNG"
+      },
+      {
+        "id": 3761976,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Cabin_Dining_table.PNG",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Cabin_Dining_table_tb.PNG",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Cabin_Dining_table_med.PNG",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Cabin_Dining_table_lg.PNG"
+      },
+      {
+        "id": 3761983,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Cabins.PNG",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Cabins_tb.PNG",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Cabins_med.PNG",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Cabins_lg.PNG"
+      },
+      {
+        "id": 3761974,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Byron_Bay_Beach.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Byron_Bay_Beach_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Byron_Bay_Beach_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Byron_Bay_Beach_lg.jpg"
+      },
+      {
+        "id": 3761971,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/highres_500785722.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/highres_500785722_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/highres_500785722_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/highres_500785722_lg.jpeg"
+      },
+      {
+        "id": 3761978,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness.PNG",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_tb.PNG",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_med.PNG",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_lg.PNG"
+      },
+      {
+        "id": 3761977,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/426038c5f68b4e4185e8fa49cfd46426highres_501318485.jpeg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/426038c5f68b4e4185e8fa49cfd46426highres_501318485_tb.jpeg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/426038c5f68b4e4185e8fa49cfd46426highres_501318485_med.jpeg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/426038c5f68b4e4185e8fa49cfd46426highres_501318485_lg.jpeg"
+      },
+      {
+        "id": 3761975,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Untitled.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Untitled_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Untitled_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Untitled_lg.jpg"
+      },
+      {
+        "id": 3761981,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_Lodge.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_Lodge_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_Lodge_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/224631/Clarence_River_Wilderness_Lodge_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Gender",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "List"
+      },
+      {
+        "label": "Preferred Language",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "City",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "State/County/Region",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Postcode/ZIP",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "I agree to receive marketing emails",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Advise any Dietary Requirements here",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -28.70382639999999,
+    "longitude": 152.4547254,
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 20.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 30,
+    "dateCreated": "2024-07-23T07:35:28Z",
+    "minimumNoticeMinutes": 2880,
+    "durationMinutes": 4320,
+    "dateUpdated": "2024-07-23T07:53:50Z",
+    "pickupId": 18077,
+    "locationAddress": {
+      "addressLine": "",
+      "postCode": "",
+      "city": "Paddy's Flat",
+      "state": "NSW",
+      "countryCode": "au",
+      "latitude": -28.70382639999999,
+      "longitude": 152.4547254
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [],
+    "taxes": [
+      {
+        "supplierId": 224631,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": true,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

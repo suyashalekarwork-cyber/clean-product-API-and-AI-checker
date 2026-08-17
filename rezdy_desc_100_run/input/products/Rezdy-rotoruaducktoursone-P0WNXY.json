@@ -1,0 +1,244 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "TARAWERA AND LAKES TOUR",
+    "shortDescription": "Journey through the Rotorua lakes district riding in New Zealands ONLY genuine WW2 landing crafts on land AND water!! You'll discover the history of our lakes,  volcanic areas, while visiting 4 lakes with splashdown on 3 including Tarawera.",
+    "description": "<p></p>Overview<p>The Tarawera &amp; Lakes Eco Tour offered by Rotorua Duck Tours is an immersive experience that combines the unique amphibious capabilities of their \"duck\" vehicles with an eco-focused exploration of Rotorua's lakes and the famous Mount Tarawera. This tour provides a deeper dive into the natural and cultural history of the region, with a particular emphasis on environmental conservation and Māori heritage.</p>The Vehicle<p>As with other Rotorua Duck Tours, this experience utilizes converted WWII amphibious vehicles, affectionately known as \"ducks.\" These vehicles have been modernized for comfort and safety while retaining their classic charm. Their amphibious nature allows for a seamless transition between land and water, offering a unique perspective of the diverse Rotorua landscape.</p>Tour Duration and Departure<p>The Tarawera &amp; Lakes Eco Tour is typically longer than the standard City &amp; Lakes Tour, usually lasting between 2 to 2.5 hours. This extended duration allows for a more comprehensive exploration of the region. Tours generally depart from a central location in Rotorua, with specific departure times scheduled throughout the day.</p>Lake Exploration<p>A significant portion of the tour is dedicated to exploring Rotorua's stunning lakes:</p><ol><br><li>Lake Tikitapu (Blue Lake): Known for its vibrant blue color.</li><br><li>Lake Okareka: A smaller lake surrounded by native bush and wetlands.</li><br><li>Lake Tarawera: The largest of the three, sitting at the foot of Mount Tarawera.</li><li>Rotokakahi: Enjoy the views of a sacred lake and learn about its history.</li><br></ol><p>The amphibious vehicle enters each lake, providing unique vantage points and allowing passengers to experience the lakes from both on and off-shore perspectives.</p>Mount Tarawera Focus<p>A key highlight of this tour is the exploration of Mount Tarawera and its significance:</p><ul><br><li>Historical context of the 1886 eruption that dramatically reshaped the landscape.</li><br><li>Geological information about the volcano and its impact on the region.</li><br><li>Māori legends and cultural significance associated with Tarawera.</li><br><li>Views of the mountain from various perspectives, including from the lakes.</li><br></ul>Ecological and Conservation Aspects<p>True to its \"Eco Tour\" name, this experience places a strong emphasis on the local ecosystem:</p><ul><br><li>Detailed information about native flora and fauna.</li><br><li>Discussion of conservation efforts in the lakes region.</li><br><li>Explanation of the geothermal activity and its impact on the environment.</li><br><li>Information about water quality management and preservation of the lakes.</li><br></ul>Cultural Insights<p>The tour provides rich cultural context, focusing on:</p><ul><br><li>Māori history and legends associated with the lakes and Mount Tarawera.</li><br><li>The impact of the Tarawera eruption on local Māori communities.</li><br><li>Traditional Māori practices related to the lakes and surrounding forests.</li><br><li>The intersection of Māori culture with conservation efforts.</li><br></ul>Educational Commentary<p>Throughout the journey, expert guides offer in-depth commentary on various topics:</p><ul><br><li>The unique ecology of each lake.</li><br><li>The volcanic history of the region.</li><br><li>Local wildlife, including native birds and aquatic life.</li><br><li>The history of human settlement and its impact on the landscape.</li><br></ul>Scenic Highlights<p>The tour showcases numerous picturesque locations:</p><ul><br><li>Panoramic views of Mount Tarawera.</li><br><li>Native forests surrounding the lakes.</li><br><li>Unique geological formations resulting from volcanic activity.</li><br><li>Wetland areas and their importance to the ecosystem.</li><br></ul>Interactive Elements<p>To enhance the experience, the tour may include:</p><ul><br><li>Opportunities for passengers to steer the duck in the water (under supervision).</li><br><li>Stops at significant viewpoints for photo opportunities.</li><br><li>Possible short nature walks, depending on the specific tour itinerary.</li><br></ul>Environmental Responsibility<p>The Eco Tour emphasizes sustainable tourism practices:</p><ul><br><li>Information on how tourists can minimize their environmental impact.</li><br><li>Discussion of local environmental challenges and solutions.</li><br><li>Potential participation in small conservation activities during the tour.</li><br></ul>Comfort and Accessibility<ul><br><li>Vehicles are equipped for comfort during the extended tour duration.</li><br><li>Provisions for varying weather conditions, including blankets for cooler days.</li><br><li>Accessibility considerations for boarding and moving around the vehicle.</li><br></ul>Booking Information<ul><br><li>Advance booking is strongly recommended due to the tour's popularity.</li><br><li>Options for private or group bookings may be available.</li><br><li>Potential for customization for special interests or educational groups.</li><br></ul>Safety Measures<ul><br><li>Comprehensive safety briefings before water entry.</li><br><li>Life jackets provided for water sections of the tour.</li><br><li>Adherence to all relevant safety regulations for both land and water travel.</li><br></ul>Conclusion<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p><p>The Tarawera &amp; Lakes Eco Tour by Rotorua Duck Tours offers a comprehensive and immersive exploration of Rotorua's lakes and the iconic Mount Tarawera. It combines the unique perspective provided by the amphibious vehicles with a strong focus on ecology, conservation, and cultural heritage. This tour is ideal for those seeking a deeper understanding of the region's natural environment and its significance to both the ecosystem and local Māori culture.</p>",
+    "productCode": "P0WNXY",
+    "internalCode": "TARAWERA",
+    "supplierId": 32652,
+    "supplierAlias": "rotoruaducktoursone",
+    "supplierName": "Rotorua Duck Tours Ltd",
+    "timezone": "Pacific/Auckland",
+    "advertisedPrice": 110.0,
+    "priceOptions": [
+      {
+        "price": 110.0,
+        "label": "Adult (Adult)",
+        "id": 38253241,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 65.0,
+        "label": "Child 3-16yrs (Child)",
+        "id": 38253242,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 0.0,
+        "label": "Child 0-2yrs (Child0-2y)",
+        "id": 31098149,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 255.0,
+        "label": "Family Special 1: 2 Adults + 1 Child (Family1)",
+        "id": 38253243,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 255.0,
+        "label": "Family Special 2: 2 Adults + 2 Children (Family)",
+        "id": 38253244,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 50.0,
+        "label": "Additional Child Over Family (ChildAdd)",
+        "id": 31098153,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 240.0,
+        "label": "Family Special 2: 1 Adult + 2 Children (Family2)",
+        "id": 39930676,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      },
+      {
+        "price": 99.0,
+        "label": "Seniors 65+ (Seniors)",
+        "id": 38253245,
+        "seatsUsed": 1,
+        "productCode": "P0WNXY"
+      }
+    ],
+    "currency": "NZD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 10,
+    "images": [
+      {
+        "id": 3825525,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Duckoutofblue_edited1_under_5mb.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Duckoutofblue_edited1_under_5mb_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Duckoutofblue_edited1_under_5mb_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Duckoutofblue_edited1_under_5mb_lg.jpg"
+      },
+      {
+        "id": 3825536,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_Lakes.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_Lakes_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_Lakes_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_Lakes_lg.jpg"
+      },
+      {
+        "id": 3658182,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/503ac5813aa448e3991db6168a06a867Duck_Tours_0037.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/503ac5813aa448e3991db6168a06a867Duck_Tours_0037_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/503ac5813aa448e3991db6168a06a867Duck_Tours_0037_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/503ac5813aa448e3991db6168a06a867Duck_Tours_0037_lg.jpg"
+      },
+      {
+        "id": 3825521,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20210127_084831.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20210127_084831_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20210127_084831_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20210127_084831_lg.jpg"
+      },
+      {
+        "id": 3825526,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/952fef67172e4725869fde70c3f200a6Okareka_Adrian_Hodge_Photography_Resize.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/952fef67172e4725869fde70c3f200a6Okareka_Adrian_Hodge_Photography_Resize_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/952fef67172e4725869fde70c3f200a6Okareka_Adrian_Hodge_Photography_Resize_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/952fef67172e4725869fde70c3f200a6Okareka_Adrian_Hodge_Photography_Resize_lg.jpg"
+      },
+      {
+        "id": 3825529,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Screenshot_20180131_104457.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Screenshot_20180131_104457_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Screenshot_20180131_104457_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Screenshot_20180131_104457_lg.jpg"
+      },
+      {
+        "id": 3825527,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20201209_111615.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20201209_111615_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20201209_111615_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/20201209_111615_lg.jpg"
+      },
+      {
+        "id": 3825530,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_LakesMorning.JPEG",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_LakesMorning_tb.JPEG",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_LakesMorning_med.JPEG",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/32652/Tarawera_LakesMorning_lg.JPEG"
+      }
+    ],
+    "videos": [
+      {
+        "id": "EvvMPXXpZgs",
+        "platform": "youtube",
+        "url": "https://www.youtube.com/watch?v=EvvMPXXpZgs"
+      }
+    ],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "Tickets may be refundable at the operator’s discretion. Rotorua Duck Tours reserves the right to cancel or amend any tour for any reason and assumes no responsibility for any personal injury, loss or damage to personal equipment, delays or irregularities which may occur in the operation of this business for any reason.",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -38.1375268,
+    "longitude": 176.25350449999996,
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 18.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2015-03-19T09:52:25Z",
+    "minimumNoticeMinutes": 0,
+    "durationMinutes": 120,
+    "dateUpdated": "2026-04-20T03:36:12Z",
+    "locationAddress": {
+      "addressLine": "1241 Fenton Street",
+      "postCode": "3010",
+      "city": "Rotorua",
+      "state": "",
+      "countryCode": "nz",
+      "latitude": -38.1375268,
+      "longitude": 176.25350449999996
+    },
+    "additionalInformation": "<b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">IMPORTANT INFO ABOUT YOUR TOUR</b>\r\n\r\n<br><br>Kia Ora!<br><br>Thank you for booking your Duck Tour! We look forward to showing you \r\naround this beautiful place we call home. The purpose of this email is \r\njust to give you a few pointers on how to make your tour go as smoothly \r\nas possible. Please read the following information carefully. \r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">Times\r\n</b><br>Please allow 2 hours for the Rotorua City &amp; Lakes Tour, and 2\r\n ½ hours for the Tarawera &amp; Lakes Tour. There may be delays or \r\ndetours due to road works.\r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">Payment &amp; Departure</b><br>If\r\n you haven’t yet paid for your booking, you can do this at our store \r\n1241 Fenton Street, Rotorua. Unless you have arranged an alternative \r\npickup location, please be there at least 20 minutes prior to departure,\r\n as the Duck does leave promptly. You may also purchase T-shirts and \r\nmerchandise at our store.\r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">What to Bring\r\n</b><br>The weather here in New Zealand can be very changeable, so \r\nplease bring warm clothing. In winter, gloves, hats and thermals are \r\nrecommended. The sides of the Duck fold down to keep the cold out, and \r\nwe have blankets on board during winter. Do not forget your camera, as \r\nthere are plenty of opportunities to get some great snaps!\r\n<br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\"><br>Intermission\r\n</b><br>The driver may allow you to disembark to use the toilets, take \r\nphotos and have a snack if you have brought food or drink with you. \r\nPlease note this stop is at the driver’s discretion, if he is running \r\nlate he may not allow you to exit, in order to keep to our scheduled \r\ntimes. You can also eat and drink non-alcoholic drinks on the Duck \r\nitself, provided you dispose of your packaging thoughtfully.\r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">Parking\r\n</b><br>Below is a map of the FREE parking areas close to our store. \r\nIt’s about a 5-10 minute walk at the most from these locations back to \r\nthe Duck store. Otherwise, the regular meters are $2 for 2 hours. If you\r\n get lost, call us and we’ll be happy to help you get orientated!\r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">Minimum Numbers</b><br>Please\r\n note that the minimum numbers for the tour to depart are 4 paying \r\nadults at retail price. The operator reserves the right to postpone the \r\ntour if these numbers are not met.\r\n•\tPassengers will be offered an alternative departure and will be \r\nguaranteed departure for this time regardless of numbers.\r\n•\tIf an alternative time or day is not suitable, the passenger will be \r\noffered a full refund of the ticket price.\r\n<br><br><b style=\"text-align: start; color: rgb(43, 60, 78); font-size: 13px;\">Cancellation Policy\t</b><br>Please\r\n notify us a minimum of 24 hours prior to your departure time to avoid \r\ncancellation fees. Cancellations within 24 hours of your departure time \r\nwill be charged at 50% of the cost of your tour.&nbsp;\tCancellations less \r\nthan 1 hour prior to the departure of your trip will incur the full \r\nprice of the tour.\tIf you do not show up on the day, without notifying \r\nus, you will be charged the full price of the tour. Rotorua Duck Tours \r\nwill give a full refund in the event of a breakdown or unexpected \r\nhalting of your trip.\r\n\r\n\r\n\r\n<br><br>Disclaimer:\r\nTickets may be refundable at the operator’s discretion.\r\nRotorua Duck Tours reserves the right to cancel or amend any tour for \r\nany reason and assumes no responsibility for any personal injury, loss \r\nor damage to personal equipment,\r\ndelays or irregularities which may occur in the operation of this \r\nbusiness for any reason.<br>",
+    "languages": [
+      "en_nz"
+    ],
+    "tags": [
+      "SUITABILITY:Day Time",
+      "CATEGORY:Scenic Tours",
+      "AGE:Adult",
+      "SUITABILITY:Gift Voucher",
+      "SUITABILITY:Family",
+      "AGE:Teenager",
+      "AGE:Infant",
+      "AGE:Senior",
+      "INTENSITY:Relaxed",
+      "INTEREST:Sightseeing",
+      "SUITABILITY:Schools",
+      "SUITABILITY:Groups",
+      "SKILL_LEVEL:Beginner",
+      "AGE:Child",
+      "SUITABILITY:Any Weather",
+      "INTEREST:Cultural",
+      "INTEREST:Family",
+      "TYPE:Tour"
+    ],
+    "taxes": [
+      {
+        "supplierId": 32652,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 15.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": false
+  }
+}

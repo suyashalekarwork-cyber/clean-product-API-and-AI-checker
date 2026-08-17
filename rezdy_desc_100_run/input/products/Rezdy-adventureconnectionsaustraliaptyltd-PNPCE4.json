@@ -1,0 +1,258 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "Family Kayak Adventure in Collie",
+    "shortDescription": "Enjoy a fun, healthy and active family kayaking experience these school holidays on the Collie River at Minningup Pool. Perfect for beginners, kids and families wanting outdoor adventure, movement and nature time.",
+    "description": "<strong>Family Kayak Adventure in Collie</strong><br><p><strong>Kayaking on the Collie River at Minningup Pool</strong><br><br><strong>Adults:</strong> $79 | <strong>Kids (9–14 yrs):</strong> $59</p><p>Make the most of the school holidays with a fun, active and refreshing outdoor experience the whole family will love. <strong>Family Paddle &amp; Play – School Holiday Adventure</strong> is designed for families wanting to get moving, reconnect with nature and enjoy quality time together away from screens, stress and busy routines.</p><p>Set on the beautiful <strong>Collie River at Minningup Pool</strong>, this <strong>2-hour guided kayaking session</strong> takes place on calm, sheltered waters—perfect for first-time paddlers, confident kids and families looking for a safe, enjoyable and meaningful outdoor activity in Collie.</p><b>What to Expect</b><br><h3>Fun, Safe and Easy Kayaking</h3><p>Your session begins with a friendly safety briefing and simple paddling instruction to help everyone feel confident on the water. The group stays together and moves at a relaxed family pace while exploring the natural surroundings of Minningup Pool.</p><h3>Family-Friendly Paddling</h3><p>This experience is designed specifically for families. There’s no pressure and no rushing—just gentle paddling, floating, exploring and sharing moments together.</p><h3>Swim, Splash and Play</h3><p>Depending on conditions, children and adults can enjoy supervised opportunities for a dip, splash or cool-off during the session.</p><h3>Nature Discovery</h3><p>Learn about local wildlife, listen to the sounds of the river and help kids build a deeper appreciation for nature, mindful moments and adventure.</p><b>Choose Your Session</b><br><p><strong>Morning:</strong> Fresh air and gentle sunshine—an energising start to the day.<br><strong>Afternoon:</strong> Warm weather and golden afternoon light—perfect for relaxed paddling.</p><b>Health &amp; Wellbeing Benefits</b><br><ul><li>Builds confidence and resilience in kids</li><li>Encourages movement, balance and coordination</li><li>Reduces stress and improves mood</li><li>Promotes screen-free time outdoors</li><li>Strengthens family connection through shared experiences</li><li>Supports healthy, active holiday time</li></ul><b>What’s Included</b><br><ul><li>Guided family-friendly kayaking experience</li><li>High-quality kayaks, paddles and safety equipment</li><li>Introduction to paddling techniques</li><li>Nature interpretation and simple water-based activities</li><li>Photos of your adventure taken for you</li></ul>Who Is This Tour Perfect For?<br><p>This experience is ideal for families with children aged 9–14 years who enjoy:</p><ul><li>Outdoor adventure</li><li>Nature and fresh air</li><li>Fun, safe activities</li><li>Movement and exploration</li><li>Quality family time</li></ul>Book Your School Holiday Adventure<br><p>Give your family the gift of movement, nature and connection these school holidays. Limited spaces are available for each session.</p><strong>FAQ’s</strong><br><p><strong>Is this activity suitable for beginners?</strong><br>Yes. The Collie River at Minningup Pool has calm water, making it ideal for first-time paddlers and families.</p><p><strong>What age is this tour suitable for?</strong><br>This tour is perfect for children aged 9–14 years and their accompanying adults.</p><p><strong>Do we need to be able to swim?</strong><br>Basic water confidence is recommended. All participants wear provided PFDs for safety.</p><p><strong>Where does the tour take place?</strong><br>The session is held on the Collie River at Minningup Pool, just a short drive from Collie, Western Australia.</p><p><strong>Are parents required to join their children on the water?</strong><br>Yes, all children must be accompanied by a participating adult.</p><p><strong>Can we bring our own kayaks?</strong><br>For safety and consistency, all participants use the equipment provided.</p><p><strong>What should we bring?</strong><br>Comfortable outdoor clothing, a hat, water, sunscreen, and a towel if you plan to swim.</p><p><strong>Will the session run in all weather?</strong><br>The tour runs in most conditions, but may be rescheduled in the event of unsafe weather.</p>",
+    "productCode": "PNPCE4",
+    "internalCode": "",
+    "supplierId": 209192,
+    "supplierAlias": "adventureconnectionsaustraliaptyltd",
+    "supplierName": "Adventure Connections Australia Pty Ltd",
+    "timezone": "Australia/Perth",
+    "advertisedPrice": 59.0,
+    "priceOptions": [
+      {
+        "price": 79.0,
+        "label": "Adult",
+        "id": 56535726,
+        "seatsUsed": 1,
+        "productCode": "PNPCE4"
+      },
+      {
+        "price": 59.0,
+        "label": "Child",
+        "id": 56535725,
+        "seatsUsed": 1,
+        "productCode": "PNPCE4"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Participant",
+    "unitLabelPlural": "Participants",
+    "quantityRequired": true,
+    "quantityRequiredMin": 2,
+    "quantityRequiredMax": 10,
+    "images": [
+      {
+        "id": 4319060,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/209192/286125115_1148464322382461_8433769155406459771_n.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/209192/286125115_1148464322382461_8433769155406459771_n_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/209192/286125115_1148464322382461_8433769155406459771_n_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/209192/286125115_1148464322382461_8433769155406459771_n_lg.jpg"
+      }
+    ],
+    "videos": [],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Date of birth",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "Date"
+      },
+      {
+        "label": "Address",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "City",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Postcode/ZIP",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "I agree to receive marketing emails",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Time of Hire",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "listOptions": "9.00am - 1.00pm\r\n1.00pm - 5.00pm",
+        "fieldType": "List"
+      },
+      {
+        "label": "Do you have any medical, allergy or injury concerns? Please list all necessary. information",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Emergency Contact Details (Name and Number)",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "fieldType": "String"
+      },
+      {
+        "label": "Do you agree to Adventure Connections and Voltage Lodge Terms and Conditions? (See website)",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Water Confidence",
+        "requiredPerParticipant": true,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": false,
+        "listOptions": "Weak (Stage 1 - 3)\r\nConfident (Stage 4 -6)\r\nAdvanced (Stage 7 - 9)",
+        "fieldType": "List"
+      }
+    ],
+    "latitude": -33.3775435,
+    "longitude": 116.1401539,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 13.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 7,
+    "dateCreated": "2025-11-24T03:28:40Z",
+    "dateUpdated": "2026-01-17T04:40:54Z",
+    "locationAddress": {
+      "addressLine": "Minningup Pool Rowing Shed",
+      "postCode": "6225",
+      "city": "Collie",
+      "state": "Western Australia",
+      "countryCode": "au",
+      "latitude": -33.3775435,
+      "longitude": 116.1401539
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "CATEGORY:Kayaking",
+      "AGE:Adult",
+      "ACCESSIBILITY:Asthmatic",
+      "TYPE:Activity",
+      "SUITABILITY:Family",
+      "INTEREST:Ecotourism",
+      "AGE:Teenager",
+      "INTENSITY:Relaxed",
+      "AGE:Senior",
+      "SKILL_LEVEL:Beginner",
+      "AGE:Child",
+      "ACCESSIBILITY:Hearing Impaired",
+      "INTEREST:Relaxation",
+      "INTEREST:Family"
+    ],
+    "taxes": [
+      {
+        "supplierId": 209192,
+        "label": "GST",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": false,
+        "compound": false
+      }
+    ],
+    "productSeoTags": [
+      {
+        "metaType": "META_NAME",
+        "attrKey": "description",
+        "attrValue": "Enjoy a fun and active school holiday family kayaking adventure on the Collie River at Minningup Pool. A safe, guided 2-hour paddle designed for kids 9–14 and their families. Morning and afternoon sessions available. Book your Collie family kayaking experience today.",
+        "productCode": "PNPCE4"
+      },
+      {
+        "metaType": "NOINDEX",
+        "attrKey": "noindex",
+        "attrValue": "0",
+        "productCode": "PNPCE4"
+      },
+      {
+        "metaType": "TITLE",
+        "attrKey": "title",
+        "attrValue": "Family Paddle & Play – School Holiday Kayak Adventure on the Collie River | Minningup Pool WA",
+        "productCode": "PNPCE4"
+      }
+    ],
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

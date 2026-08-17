@@ -1,0 +1,332 @@
+{
+  "requestStatus": {
+    "success": true,
+    "version": "v1"
+  },
+  "product": {
+    "productType": "DAYTOUR",
+    "name": "Luxury Private Romantic Dinner Cruise For 2 ",
+    "shortDescription": "Indulge and enjoy a private dinner cruise on Melbourne's spectacular Yarra River for you and your partner.",
+    "description": "<p>This is a Melbourne must do, imagine cruising down the Yarra River on your private luxury boat enjoying a 3-course dinner and drink on board.&nbsp;</p><p>Enjoy one of Melbourne's unique dining experiences with a delicious 3-course meal on board a luxurious electric boat that is private for just you and your partner.</p><p>There is simply no better way to indulge in a gourmet dining experience, surrounded by the vibrancy of this world-class culinary city while cruising on a luxury boat. &nbsp;This truly is a Melbourne experience not to miss, Melbourne’s first and only Yarra River private dinner cruise experience which includes a scenic cruise along Melbourne’s iconic Yarra River with spectacular breath-taking views and delicious food and wine to savour your taste buds.<br></p><p>Seeing Melbourne city by a boat provides an entirely new viewpoint on the skyline.<br></p><p>Departing from Docklands this 1.5 hr dinner cruise winds up the Yarra River and then returns to Docklands<br></p><p><br></p><p><b>Highlights</b></p><ul><li>Luxury 1.5 hr private cruise for just you and partner</li></ul><ul><li>A luxurious eco-friendly boat which is whisper quiet and has no fumes</li></ul><ul><li>Premium dining experience</li></ul><ul><li>3 Course meal included</li></ul><ul><li>Beer, wine and soft drinks included</li></ul><ul><li>Unbeatable views of Melbourne city</li></ul><ul><li>Friendly and experienced local Skipper</li></ul><p><b>Menu Selections:</b></p><p><u><b>Entree&nbsp;</b></u></p><p>Choice of:&nbsp;</p><p><b>Duo of Dips board to share &nbsp;(v, veo, gf)</b></p><p>Selection of house made dips and assorted breads</p><p><b>Chefs tasting board to share &nbsp;(vo, gf)</b><br></p><p>Chefs' selection of house made delicacies</p><p><b><u>Main:</u></b><br></p><p>Choice of:<br></p><p></p><p></p><p></p><p></p><p><b>Braised Lamb Ricotta Gnocchi&nbsp;</b></p><p></p><p></p><p></p><p></p><p>Fresh ricotta &amp; potato gnocchi, slow braised lamb, red wine, tomato sugo, parmesan, sage</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Mushroom Duxelles Risotto&nbsp;</b><b>(V, VG, DFO)</b></p><p>Truffled mushroom Duxelles, parmesan, garlic &amp; herb King oyster mushroom, truffle oil<br></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Roasted Spatchcock&nbsp;</b><b>(GF)</b><br>Ras el hanout spiced Butterflied spatchcock, chickpea ratatouille, curry leaves</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Parsley &amp; Lemon Gnocchi&nbsp;</b><b>(V, VGO, GF, DFO)</b><br>Fresh parsley &amp; lemon gnocchi, tomato sugo, broccolini, fior di latte, Tuscan kale and olive oil</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Grilled Tiger King Prawn&nbsp;</b><b>(GF, DFO)&nbsp;</b><b>(5pcs)</b><br>QLD sourced King prawn, Authentic Asian slaw, lime, sweet chilli dressing, fried shallots</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Crispy Pork Belly&nbsp;</b><b>(GF, P)</b><br>Slow cooked pork belly, cauliflower puree, broccolini and cranberry jus</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Squid Ink Linguine&nbsp;</b><b>(DFO)&nbsp;</b></p><p>Fresh squid inked linguine, Prawn, scallops, clams, calamari, mussel meats, confit&nbsp;garlic, chili, olive oil, white wine, lemon herb butter</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><b>Beer Battered Fish &amp; Chips&nbsp;</b><b>(DF)</b><br>Battered seasonal fish, tartare, lemon, salad and chips</p><p><b>Eye Fillet&nbsp;</b></p><p>250g grass fed, Huon Creek VIC, mash potato, heirloom carrots, red wine jus (gf)</p><p><br></p><p><b><u>Dessert:</u></b><br></p><p>Selection of dessert petit fours</p><p><br></p><p>V - Vegetarian, VG - Vegan, VGO - Vegan Option, &nbsp;GF - Gluten Free, GFO - Gluten Free Option, VEO - Vegan Option, DF- Dairy Free, &nbsp;DFO - Dairy Free Option</p><p><b>Allergy alert: while stringent precautions are taken, one should assume that contact with peanuts, tree nuts, seeds, wheat, eggs, milk, soy, shellfish and other allergens is possible.</b></p><p><br></p><p></p>",
+    "productCode": "PWY4P4",
+    "internalCode": "MBH-LPDC",
+    "supplierId": 25768,
+    "supplierAlias": "melbourneboathire",
+    "supplierName": "Melbourne Boat Hire",
+    "timezone": "Australia/Sydney",
+    "advertisedPrice": 589.0,
+    "priceOptions": [
+      {
+        "price": 589.0,
+        "label": "Quantity",
+        "id": 19730264,
+        "seatsUsed": 1,
+        "productCode": "PWY4P4"
+      }
+    ],
+    "currency": "AUD",
+    "unitLabel": "Boat",
+    "unitLabelPlural": "Couple",
+    "quantityRequired": true,
+    "quantityRequiredMin": 1,
+    "quantityRequiredMax": 1,
+    "images": [
+      {
+        "id": 1116937,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise17.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise17_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise17_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise17_lg.jpg"
+      },
+      {
+        "id": 1116933,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise10.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise10_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise10_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise10_lg.jpg"
+      },
+      {
+        "id": 1116934,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise3.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise3_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise3_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise3_lg.jpg"
+      },
+      {
+        "id": 1116935,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise16.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise16_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise16_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise16_lg.jpg"
+      },
+      {
+        "id": 1116936,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise23.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise23_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise23_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise23_lg.jpg"
+      },
+      {
+        "id": 1116939,
+        "itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise36.jpg",
+        "thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise36_tb.jpg",
+        "mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise36_med.jpg",
+        "largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/25768/MBHRomanticCruise36_lg.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "id": "mrIGzpakkIM",
+        "platform": "youtube",
+        "url": "https://www.youtube.com/watch?v=mrIGzpakkIM"
+      }
+    ],
+    "bookingMode": "INVENTORY",
+    "charter": false,
+    "terms": "",
+    "extras": [
+      {
+        "name": "Chocolate Birthday Cake",
+        "description": "Chocolate Birthday Cake",
+        "price": 45.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 1074769,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Screen_Shot_2018_02_27_at_10.01.36_pm.png",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Screen_Shot_2018_02_27_at_10.01.36_pm_tb.png",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Screen_Shot_2018_02_27_at_10.01.36_pm_med.png",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Screen_Shot_2018_02_27_at_10.01.36_pm_lg.png"
+        }
+      },
+      {
+        "name": "Red Roses",
+        "description": "Bouquet of fresh red roses",
+        "price": 50.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 581568,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Roses.JPG",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Roses_tb.JPG",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Roses_med.JPG",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Roses_lg.JPG"
+        }
+      },
+      {
+        "name": "Happy Birthday Helium Balloon",
+        "description": "Helium balloon which has Happy Birthday",
+        "price": 40.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2151418,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/boat_hire_birthday_ballons_Melbourne.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/boat_hire_birthday_ballons_Melbourne_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/boat_hire_birthday_ballons_Melbourne_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/boat_hire_birthday_ballons_Melbourne_lg.jpg"
+        }
+      },
+      {
+        "name": "Romantic \"I Love You\" Helium Balloon",
+        "description": "Romantic \"I Love You\" helium filled red love heart shaped balloon",
+        "price": 40.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2233670,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/7275a269e5eb46349635d616095336e3images.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/7275a269e5eb46349635d616095336e3images_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/7275a269e5eb46349635d616095336e3images_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/7275a269e5eb46349635d616095336e3images_lg.jpg"
+        }
+      },
+      {
+        "name": "Happy Anniversary Balloon",
+        "description": "Make your anniversary celebration extra special with a 'Happy Anniversary\" helium balloon",
+        "price": 40.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2733734,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/Happy_Anniversary_balloon.jpeg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/Happy_Anniversary_balloon_tb.jpeg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Happy_Anniversary_balloon_med.jpeg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/Happy_Anniversary_balloon_lg.jpeg"
+        }
+      },
+      {
+        "name": "Mumm Champagne",
+        "description": "Mumm Champagne 750ml",
+        "price": 80.0,
+        "extraPriceType": "ANY",
+        "image": {
+          "id": 2679413,
+          "itemUrl": "https://img.rezdy.com/EXTRA_IMAGE/5796013ff06d4e03a0daa5fad00795a4mumm.jpg",
+          "thumbnailUrl": "https://img.rezdy.com/EXTRA_IMAGE/5796013ff06d4e03a0daa5fad00795a4mumm_tb.jpg",
+          "mediumSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/5796013ff06d4e03a0daa5fad00795a4mumm_med.jpg",
+          "largeSizeUrl": "https://img.rezdy.com/EXTRA_IMAGE/5796013ff06d4e03a0daa5fad00795a4mumm_lg.jpg"
+        }
+      },
+      {
+        "name": "Additional Child meal",
+        "description": "Additional child meal if bringing child onboard",
+        "price": 25.0,
+        "extraPriceType": "ANY"
+      },
+      {
+        "name": "Miscellaneous food item ",
+        "description": "extra food item ",
+        "price": 170.0,
+        "extraPriceType": "ANY"
+      },
+      {
+        "name": "Additional meal ",
+        "description": "Additional meal ",
+        "price": 60.0,
+        "extraPriceType": "ANY"
+      }
+    ],
+    "bookingFields": [
+      {
+        "label": "First Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Last Name",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": true,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Mobile",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "Phone"
+      },
+      {
+        "label": "Email",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Country",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "List"
+      },
+      {
+        "label": "How did you hear about us?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "Special Requirements",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      },
+      {
+        "label": "I understand the hire Terms and Conditions",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": false,
+        "fieldType": "Boolean"
+      },
+      {
+        "label": "Entree Selection",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "listOptions": "Duo of Dips and Bread Board to share  (v)\r\nChefs Tasting Board (v)\r\n",
+        "fieldType": "List"
+      },
+      {
+        "label": "Main Course Selection Passenger 1",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "listOptions": "Braised Lamb Ricotta Gnocchi \r\nMushroom Duxelles Risotto (V, VG, DFO)\r\nRoasted Spatchcock (GF)\r\nParsley & Lemon Gnocchi (V, VGO, GF, DFO)\r\nGrilled Tiger King Prawn (GF, DFO) (5pcs)\r\nCrispy Pork Belly (GF, P)\r\nSquid Ink Linguine (DFO) \r\nBeer Battered Fish & Chips (DF)\r\nEye Fillet with mash and red wine jus (GF)\r\n\r\n",
+        "fieldType": "List"
+      },
+      {
+        "label": "Main Course Selection Passenger 2",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": true,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "listOptions": "Braised Lamb Ricotta Gnocchi \r\nMushroom Duxelles Risotto (V, VG, DFO)\r\nRoasted Spatchcock (GF)\r\nParsley & Lemon Gnocchi (V, VGO, GF, DFO)\r\nGrilled Tiger King Prawn (GF, DFO) (5pcs)\r\nCrispy Pork Belly (GF, P)\r\nSquid Ink Linguine (DFO) \r\nBeer Battered Fish & Chips (DF)\r\nEye Fillet with mash and red wine jus (GF)",
+        "fieldType": "List"
+      },
+      {
+        "label": "Any dietary requirements?",
+        "requiredPerParticipant": false,
+        "requiredPerBooking": false,
+        "visiblePerParticipant": false,
+        "visiblePerBooking": true,
+        "fieldType": "String"
+      }
+    ],
+    "latitude": -37.81554787606771,
+    "longitude": 144.9417150395202,
+    "xeroAccount": "",
+    "confirmMode": "AUTOCONFIRM",
+    "confirmModeMinParticipants": 0,
+    "agentPaymentType": "PAYOUTS",
+    "maxCommissionPercent": 18.0,
+    "commissionIncludesExtras": false,
+    "cancellationPolicyDays": 1,
+    "dateCreated": "2018-02-20T09:18:07Z",
+    "minimumNoticeMinutes": 1440,
+    "durationMinutes": 90,
+    "dateUpdated": "2025-11-11T03:13:51Z",
+    "locationAddress": {
+      "addressLine": "45 New Quay Promenade",
+      "postCode": "3008",
+      "city": "Docklands",
+      "state": "Victoria",
+      "countryCode": "au",
+      "latitude": -37.81554787606771,
+      "longitude": 144.9417150395202
+    },
+    "additionalInformation": "",
+    "languages": [
+      "en_au"
+    ],
+    "tags": [
+      "CATEGORY:private tours",
+      "TYPE:Private_tour",
+      "CATEGORY:Charter Boat"
+    ],
+    "taxes": [
+      {
+        "supplierId": 25768,
+        "label": "GST - Inclusive",
+        "taxFeeType": "TAX",
+        "taxType": "PERCENT",
+        "taxPercent": 10.0,
+        "priceInclusive": true,
+        "compound": false
+      }
+    ],
+    "waitListingEnabled": false,
+    "isApiBookingSupported": true,
+    "isMultiProductBookingSupported": true
+  }
+}

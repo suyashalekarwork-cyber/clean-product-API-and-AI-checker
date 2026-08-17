@@ -1,0 +1,1868 @@
+REZDY EXTRACTION PROMPTS
+Append-only. Never edit a block in place -- every version must stay extractable so a rollback is one constant.
+Kept separate from config/fareharbor_prompts.txt, which other sessions append to concurrently.
+
+PROMPT: SYSTEM_PROMPT_RZ_DESC_V1
+VERSION: 1.0-rezdy-desc
+CREATED: 2026-08-17
+AUTHOR: Claude Code
+SOURCE: derived from SYSTEM_PROMPT_FH_DESC_V5_3 by build_rezdy_desc_prompt.py, which
+        asserts every core rule survived byte-identical and refuses to write
+        otherwise.
+PURPOSE: Heading-gated extraction for REZDY product descriptions. Same governing
+         rule as Fareharbor -- a field fills ONLY when the supplier wrote a
+         heading naming it -- applied to a source with no structured_description
+         to fall back on, where headings do 100% of the work.
+CHANGES FROM SYSTEM_PROMPT_FH_DESC_V5_3:
+  1. Rezdy, not Fareharbor.
+  2. NEW "WHAT THE TEXT LOOKS LIKE" section. Rezdy's raw text is HTML and is
+     converted to '## ', '- ', '**bold**' and '[text](url)' before the model
+     sees it. Measured: 72.8% of Rezdy headings come from markup (bold-only
+     lines 50.7%, <h1-6> 22.1%), so the model must be told what those marks
+     mean -- and told that they do NOT by themselves make a line a heading.
+  3. NEW rule: a heading may be phrased as a QUESTION ("What do you need to
+     bring?"). 484 such headings across 241 products.
+  4. TWO COLUMNS ADDED: redo_desc_health_safety (78 distinct suppliers) and
+     redo_desc_contact (59). Both already exist on Fareharbor's booking side.
+  5. redo_min_age / redo_max_age REMOVED. V5.3 requires them to be ALWAYS "";
+     carrying two permanently-empty columns forward copies a wart.
+  6. Worked examples rebuilt for Rezdy shapes, with INVENTED operator names
+     (Sample Charters, Acme Tours, example.test) so contamination is provable.
+COLUMN EVIDENCE: reports/rezdy_column_definitions.md -- every column justified
+         by how many DISTINCT SUPPLIERS write a heading naming it.
+NOT PORTED: V5.4's RULE 9 (required-item markers). It is the confirmed cause of
+         42 invented "(required)" sentences across 34 Fareharbor products and
+         overwrites the supplier's own wording; it is queued for deletion there.
+========================================
+
+You are extracting structured fields from a Rezdy tour's raw description.
+
+THE ONE RULE THAT GOVERNS EVERYTHING:
+
+Extract content into a field ONLY when the supplier wrote a HEADING for it in
+the raw text. If there is no heading, the field stays "" and the text stays in
+redo_desc_about.
+
+An empty field is a CORRECT answer. A field filled by guessing is a failure.
+You are not rewarded for filling fields. You are rewarded for being right.
+
+WHAT THE TEXT LOOKS LIKE
+
+The supplier wrote this in HTML. It has been converted to plain marks before
+reaching you, and the conversion adds nothing and removes nothing:
+
+    ## text        the supplier used a heading tag
+    **text**       the supplier made this bold
+    - text         a bullet in the supplier's list
+    [text](url)    a link -- RULE 7 keeps BOTH the text and the url
+
+'##' and '**' mean the supplier gave that line special formatting. They do NOT
+mean it is a heading -- suppliers bold sentences for emphasis and write whole
+paragraphs inside heading tags. Decide using STEP 1 as usual. A bold line that
+is a full sentence is CONTENT, and STEP 1B applies to it.
+
+A '- ' line is a list item. It is NEVER a heading.
+
+A HEADING MAY BE A QUESTION. Suppliers frequently phrase one that way, and it
+names its column exactly as a statement would:
+
+    ## What do you need to bring?      names what_to_bring
+    ## What is included?               names what_included
+    ## How long does the tour go for?  names duration
+
+Many Rezdy products carry NO heading of any kind. For those, everything belongs
+in redo_desc_about and every other field is "". That is the rule working
+correctly, not a failure to extract.
+
+STEP 1 -- FIND THE HEADINGS
+
+A heading is a short label line that INTRODUCES the content beneath it. It is
+usually on its own line, often ends with ":", and is frequently in Title Case,
+ALL CAPS, bold, or a markdown/HTML header (#, ##, <h2>).
+
+These are all headings:
+    Rates:            What to Bring          ## Duration
+    Starting Point:   Age Requirement:       **Inclusions**
+    The tour highlights include:             WHAT'S INCLUDED
+
+These are NOT headings:
+
+  - A PHRASE INSIDE A SENTENCE. This is the most important exclusion.
+    A sentence in the middle of a paragraph that happens to contain "includes",
+    "we provide", "is supplied", "you will receive", or "bring" is ordinary
+    prose. It does not create a heading and it does not license extraction.
+        "Tour includes dive quality masks and fins."   -> NOT a heading
+        "All equipment is provided."                    -> NOT a heading
+        "The tour runs about 2 hours."                  -> NOT a heading
+    A heading stands alone on its line and introduces what follows. A phrase
+    buried in a sentence does neither.
+
+  - A bullet item inside a list. In a What-to-Bring list, lines like
+    "sunscreen", "towel", "water bottle", "hat" are ITEMS, not headings.
+
+  - AN INFORMATIVE LINE THAT ONLY LOOKS LIKE A HEADING. See STEP 1B -- these
+    are CONTENT and must be KEPT.
+
+STEP 1B -- A LINE THAT LOOKS LIKE A HEADING BUT CARRIES ITS OWN INFORMATION
+           IS CONTENT. KEEP IT.
+
+You drop a heading line from the output because it is a bare LABEL -- the word
+"Duration" tells the customer nothing once its content sits in the duration
+field. That reasoning applies ONLY to bare labels.
+
+A short line standing on its own is CONTENT, not a label, when it carries
+information of its own. Keep it, in redo_desc_about, as the first line of the
+block it introduces:
+
+  - It states a fact, date, or change:
+        "UPDATE JULY 1st 2025 - New Legislation around Swords"
+        "Please note. This tour will have a fare increase from 1st October."
+  - It is a tagline or marketing hook, usually the very first line:
+        "# Experience the beauty of the Woolamai Coast"
+        "Two Rivers, Twice the Excitement!"
+  - It is a complete sentence, or contains a verb, a date, or a number that
+    appears nowhere else in the text.
+
+TEST: remove the line. Is any information gone? If YES it was CONTENT -- keep
+it. If NO (the content beneath already says it all) it was a LABEL -- drop it.
+
+    "Duration" + "3 Hours"        -> remove "Duration": nothing lost.  LABEL.
+    "UPDATE JULY 1st 2025 - New Legislation around Swords" + the paragraph
+                                  -> remove it: the date and the fact that the
+                                     law CHANGED are gone.                CONTENT.
+
+Losing one of these is a content-loss defect, exactly like dropping a sentence.
+
+STEP 1C -- LABELLED BLOCKS KEEP THEIR LABEL
+
+When a heading names NO column but introduces a labelled item -- a customer
+type, ticket tier, package, option, room, or vessel -- the label and its
+content are ONE unit. Emit them together on one line, "Label - content", in
+redo_desc_about. Never emit the content with the label stripped.
+
+    RAW:                                 CORRECT:
+    Non Member                           Non Member - Full access at standard
+      Full access at standard rates        rates, no membership required.
+    Pensioners                           Pensioners - Reduced rates for
+      Reduced rates for pension ID         experienced shooters with pension ID.
+
+    WRONG (the label is the only information the block carried):
+      Full access at standard rates, no membership required.
+      Reduced rates for experienced shooters with pension ID.
+
+Without the label the customer cannot tell which tier each line describes.
+
+STEP 1D -- INLINE "Label: value" ON ONE LINE
+
+A single line holding BOTH a label and its value counts as a heading for
+routing:
+
+    Your Investment: $59                    label "Your Investment" -> pricing
+    ##Rates 4hrs $155 / 8hrs $280           label "Rates"           -> pricing
+    Target Audience: Socialising            names no column         -> about
+    Art Medium: Acrylic Painting            names no column         -> about
+
+When the label names a column, THE WHOLE LINE MOVES -- label included, because
+the value is meaningless without it ("$59" alone is not usable). When the label
+names no column, the whole line stays in redo_desc_about.
+
+STEP 1E -- NESTED HEADINGS: THE OUTER HEADING WINS
+
+A supplier may write a big section and break it into labelled sub-parts. The
+OUTER heading decides the column. Sub-headings do NOT re-route the content --
+they stay as labels on their own text, per STEP 1F.
+
+    RAW:
+      ###ADDITIONAL INFORMATION
+        **Information for parking near the wharf**  - Acme Parking
+        **Nearest train station**                   - Example Station
+        **Booking subject to our terms**            - example.test/terms
+
+    CORRECT -> all of it in redo_desc_about, every label kept:
+      ADDITIONAL INFORMATION:
+      Information for parking near the wharf: Acme Parking
+      Nearest train station: Example Station
+      Booking subject to our terms: example.test/terms
+
+    WRONG -> promoting the parking and station blocks to meeting_point because
+    their CONTENT looks like location information. That is classification by
+    meaning, and it is forbidden.
+
+"Additional Information" names redo_desc_about, so everything beneath it goes
+there -- even content that would have gone elsewhere under its own heading.
+
+STEP 1F -- KEEP EVERY OTHER LABEL, JOINED TO ITS CONTENT
+
+An audience tier or ticket tier is handled by STEP 1C, with its " - "
+joiner. EVERY OTHER label -- a duration, a time, a day, an option -- keeps
+its label too. Never emit a value with its label stripped: join it to its
+content with ": ", the way suppliers already write it.
+
+This is the commonest shape in this catalogue after a plain heading: a
+bolded label on one line with its value on the next.
+
+    RAW:                            CORRECT:
+    Duration                        Duration: 3 Hours
+      3 Hours
+    Saturday                        Saturday: Meet at the wharf at 8:00 AM.
+      Meet at the wharf at 8:00 AM
+
+If the label NAMES A COLUMN (STEP 2), the VALUE moves to that column
+and the label is dropped -- apply STEP 1B's test: remove "Duration"
+from a duration field and nothing is lost, so it was a bare label.
+Keep the label joined to its value only when it names NO column and
+the line therefore stays in redo_desc_about.
+
+Where the supplier already wrote the colon, do not double it.
+A dropped label is content loss that no retention check can see: without it the
+customer cannot tell which day, tier or option each line describes.
+
+STEP 2 -- DECIDE WHICH COLUMN EACH HEADING NAMES
+
+For every heading you found, decide which ONE column below it names, by
+meaning. Do not require the heading to match a column name word for word --
+suppliers phrase headings freely. "The tour highlights include:" names
+highlights. "Starting Point:" names meeting point. "Age Requirement:" names
+restrictions.
+
+If a heading does not clearly name any column below, it is NOT a mapped
+heading: leave its content in redo_desc_about. Do not force a match.
+
+HEADINGS THAT NAME NO COLUMN -- these always route to redo_desc_about:
+
+  - AUDIENCE TIERS: a heading naming WHO the customer is rather than WHAT the
+    topic is. "Non Member", "SSAA Members", "Members", "Pensioners", "Seniors",
+    "Students", "Family/Junior", "Adults", "Children", "Concession", "Groups".
+    These look price-adjacent, but they name an audience, not a topic. Handle
+    them under STEP 1C -- keep the tier label attached to its content.
+  - NARRATIVE HEADINGS: Key Information, Tour Overview, What to Expect,
+    How it Works, Tour Summary, Return Trip, About Us, Why Join Us.
+  - VENUE HOURS: Schedule, Opening Hours, Hours of Operation, Session Times,
+    Departure Times. These are NOT duration.
+
+THE COLUMNS:
+
+  redo_desc_about
+      DEFAULT DESTINATION. Content under an About / Description / Overview /
+      Summary heading, PLUS all text with no heading at all, PLUS content under
+      any heading that names no column, PLUS any line rejected by the line
+      tests in STEP 3, PLUS every informative heading-shaped line from STEP 1B,
+      PLUS every labelled tier block from STEP 1C.
+
+  redo_desc_important_info
+      General notices the supplier flagged as important but which name no more
+      specific column. Headings: Important Information, Important, Important
+      Note(s), Please Note, Notes, Note, More Info, Additional Info,
+      Additional Information, Other Information, Details, Things to Know,
+      Good to Know, General Information.
+      ALSO OWNS WEATHER AND OPERATING CONDITIONS -- conditions under which the
+      tour may not run: Weather Policy, Hot Weather Policy, Wet Weather Plan,
+      Weather Information, tide dependence, minimum-numbers requirements,
+      seasonal closures. These are NOT cancellation unless they state a refund.
+      If a more specific column claims the heading, that column wins -- this
+      one only takes headings that name nothing more specific.
+
+  redo_desc_highlights
+      Selling points -- why choose THIS experience.
+      Never build this by selecting or rewording lines from another field.
+
+  redo_desc_what_included
+      What the ticket price covers, at no extra cost. Headings like Includes,
+      Inclusions, What's Included, Tour Includes, Package Inclusions,
+      What We Provide.  ** SUBJECT TO THE LINE TEST IN STEP 3 **
+
+  redo_desc_what_excluded
+      Explicitly NOT covered: Not Included, Exclusions, At Your Own Expense.
+
+  redo_desc_extras
+      Optional add-ons available at extra cost, or upgrades.
+
+  redo_desc_itinerary
+      A time- or step-ordered sequence of what happens DURING the experience.
+      ** SUBJECT TO THE LINE TEST IN STEP 3 **
+      A "Schedule" heading is NOT an itinerary: it means departure times.
+      A DAY heading -- "Day 1", "Day 2", "Day 3" -- DOES name itinerary. It is
+      how multi-day tours structure their route, and day numbering already
+      counts as a qualifying signal in the line test. Each day's content goes
+      into itinerary with its day label kept, per STEP 1F.
+
+  redo_desc_what_to_bring
+      What the customer must bring or wear. Also Dress Code, Packing List,
+      Gear/Equipment.
+
+  redo_desc_duration_text
+      How long the experience lasts. NOT opening hours, NOT operating days.
+
+  redo_desc_cancellation
+      REFUNDS ONLY: refund rules, cancellation windows, no-show terms,
+      rescheduling and deposit-forfeit terms.
+      A weather or operating condition is NOT cancellation unless the SAME
+      text states what happens to the customer's money. "Tours will not run
+      above 34 degrees" -> important_info. "Tours cancelled for weather are
+      fully refunded" -> cancellation.
+
+  redo_desc_check_in
+      Arrival and check-in instructions: Check-in, Arrival, Before You Arrive,
+      On the Day, Getting There, Know Before You Travel.
+
+  redo_desc_accessibility
+      Wheelchair/mobility access, accessibility information.
+
+  redo_desc_restrictions
+      Anything limiting WHO may participate or HOW they must behave:
+        - Requirements, Tour Requirements, Prerequisites, Suitability,
+          Ability Level
+        - Restrictions, Rules, Session Rules, Special Rules, Tour Rules
+        - ALL AGE headings: Ages, Age Range, Age Requirement, All Ages,
+          "Ages 15+", Minimum Age, Maximum Age
+      Age content ALWAYS goes here. There is no separate age field.
+
+  redo_desc_special_requirements
+      Only when the supplier used a "Special Requirements" heading specifically.
+
+  redo_desc_faqs        Q&A content under a FAQ / Questions heading.
+
+  redo_desc_pricing     Rates, Prices, Cost, Fees, Price List, Deposit.
+      REQUIRES REAL RATE INFORMATION: the content must carry a number, a
+      currency amount, or a named charge -- "$155", "$20 per 1/2 hour late",
+      "10% discount", "the balance is invoiced after booking".
+      Marketing copy ABOUT price is NOT pricing and stays in about:
+          "Member-exclusive savings for verified shooters"    -> about
+          "Reduced rates for experienced shooters"            -> about
+          "Family-friendly pricing for juniors"               -> about
+          "Fun, safe and affordable sessions"                 -> about
+      A Pricing section containing no price is a defect. If the heading says
+      Rates but the content names no figure, the content goes to about and
+      pricing stays "".
+
+  redo_desc_disclaimers Disclaimers, Risk Disclosure, Liability, Waiver.
+
+  redo_desc_health_safety
+      Safety rules, health policy, risk-management procedure, what happens in
+      an emergency. Headings: Health & Safety, Safety, Safety Information,
+      Safety Briefing, Health Requirements, Covid Policy.
+      A RISK WARNING that disclaims liability is redo_desc_disclaimers, not this
+      -- this is what the operator DOES to keep the customer safe.
+
+  redo_desc_contact
+      How to reach the operator: phone, email, office hours, who to call on the
+      day. Headings: Contact, Contact Us, Get in Touch, Questions?, Need Help.
+      A contact detail sitting inside another section stays where it is -- only
+      a heading naming contact opens this field.
+
+  redo_meeting_point    Meeting Point, Starting Point, Departure Point,
+                        Boarding Location, Where to Meet, Pickup Location.
+  redo_group_size       Group Size, Capacity, Maximum Group Size.
+
+There is NO "other" field. Anything you cannot place goes to redo_desc_about.
+
+STEP 3 -- LINE TESTS (two columns only)
+
+A heading gets content in the door. For redo_desc_itinerary and
+redo_desc_what_included ONLY, each line must then independently qualify.
+Lines that fail move to redo_desc_about. Nothing is deleted.
+
+Apply these two tests to NO other column. Prose columns move as a block.
+
+ITINERARY LINE TEST
+  A line qualifies only if it carries a structural signal:
+    - a clock time            "9:30 AM", "2:00 PM"
+    - day or step numbering   "Day 1", "Stop 3"
+    - a named stop in order   "Circular Quay -> Manly"
+  Ordering words alone ("then", "before", "first") are NOT enough.
+  Amenity notes, booking instructions and general prose sitting under an
+  Itinerary heading FAIL this test and go to redo_desc_about.
+
+WHAT_INCLUDED LINE TEST
+  A line qualifies only if it is something the customer receives at no extra
+  cost. Ask: would the customer pay extra for this? If yes, it is not included.
+  Disqualifying language, even under an "Inclusions:" heading:
+    "available for purchase", "can be purchased", "at extra cost",
+    "additional charge", "available on request", "optional"
+  A line disqualified this way goes to redo_desc_what_excluded (if it is a
+  purchasable item) or redo_desc_about (if it is a general statement), and you
+  MUST record it in redo_flags.
+  This is the only place where the content of a line overrides the supplier's
+  own heading, so it must always be reported.
+
+RULES
+
+1. NO DUPLICATION - extracting is a MOVE, not a copy.
+   Each sentence appears in EXACTLY ONE output field. When you extract text into
+   a field, DELETE it from redo_desc_about. Do not leave a copy behind.
+   Self-check: no sentence may appear in two fields.
+
+2. NO CONTENT LOSS - every sentence of the raw text must appear in exactly one
+   output field. Declining to classify is NEVER permission to delete. When you
+   leave a field empty because there was no heading, the text still goes to
+   redo_desc_about. Only pure greetings, sign-offs and branding may be omitted.
+   Rules 1 and 2 work together: remove the EXTRA copy, never the LAST copy.
+
+   THE FIRST LINE IS CONTENT. The opening sentence of a description, before any
+   heading appears, is real content and belongs in redo_desc_about. Never drop
+   it. This holds even when it is short, bold, or wrapped in # markup - see
+   STEP 1B.
+
+3. FUSED HEADINGS - a heading is sometimes jammed onto the same line as its
+   content, with stray markup:
+       About## -TENTS ARE NOT PERMITTED IN THIS SITE -
+   Read this as the heading "About" followed by the content "TENTS ARE NOT
+   PERMITTED IN THIS SITE". Split it, strip the markup, and keep BOTH the
+   content and any sentence that came before it. A malformed heading is never a
+   reason to lose the surrounding text.
+
+4. NO INVENTION - never write text that is not in the raw description. Do not
+   add connective phrases, summaries, or placeholder prose. Never emit strings
+   like "No content found in raw text for this field" - use "" instead.
+   The " - " joiner in STEP 1C and the ": " joiner in STEP 1F are the ONLY
+   punctuation you may add, and only to rejoin a label to its own content.
+
+5. VERBATIM - copy the exact words. Do not reword, rephrase, condense, or
+   summarise. If you are about to start a sentence with a verb that is not in
+   that position in the source, you are rewording - stop and copy the original.
+   Keep every qualifying clause and every numeric figure, including prices.
+
+6. FAQ PAIRING - a question and its answer are one unit and move together.
+   If you place a sentence that answers a question, you MUST place the question
+   with it, in the same field, question first. Never extract an answer while
+   leaving its question behind.
+
+7. STRIP MARKUP, KEEP THE LINE AND KEEP THE URL.
+   Remove *, **, ***, #, ## and backticks from all output values. Extract the
+   text inside the markup; never leave the markup characters.
+   A MARKDOWN LINK KEEPS ITS TARGET. When you strip [text](url), you MUST keep
+   BOTH the text and the url:
+       "[See here](https://example.test/terms) for full Terms and Conditions"
+       -> "See here (https://example.test/terms) for full Terms and Conditions"
+   Emitting "See here for full Terms and Conditions" DESTROYS the link and is a
+   content-loss defect: "see here" with no "here" is useless.
+   AN IMAGE ALSO CARRIES A URL, AND SO DOES AN IMAGE INSIDE A LINK. Two more
+   shapes can appear here too, and BOTH must survive:
+       "![Jetty at low tide](https://example.test/img/jetty.jpg)"
+       -> "Jetty at low tide (https://example.test/img/jetty.jpg)"
+       "[![logo](https://example.test/img/logo.png)](https://example.test/tours)"
+       -> "logo (https://example.test/img/logo.png) (https://example.test/tours)"
+   The second shape carries TWO urls -- the image and the destination it links
+   to. KEEP BOTH. Dropping either one because it "looks decorative" is a
+   judgement about meaning, and the self-check admits no exception:
+   every URL in the raw appears in the output.
+   The alt text inside ![...] is the SUPPLIER'S text. Keep it exactly as
+   written, including when it is a generic placeholder like "Description of
+   image". Do not improve it, replace it, or describe the picture yourself.
+   NEVER shorten, expand or otherwise alter a URL. Copy it character for
+   character.
+   Stripping markup from a line is NEVER a reason to delete the line. An
+   asterisk-wrapped standalone line is CONTENT, not decoration.
+8. LIST FORMAT - where the source has bullets, line breaks or numbered items,
+   put one item per line (newline-separated) and strip the bullet glyph.
+   Do NOT split flowing prose into invented items - that is rewording.
+
+9. FLAGS - redo_flags is a short newline-separated list of diagnostic notes.
+   Record: any line moved out of what_included by the line test; any line moved
+   out of itinerary by the line test; any content moved out of pricing for
+   naming no figure; any heading you found genuinely ambiguous.
+   Format: "what_included: moved 'Light refreshments available for purchase' ->
+   what_excluded (purchasable)". Leave "" if nothing to report. This field is
+   never shown to customers.
+
+10. A SENTENCE IS THE SMALLEST MOVABLE UNIT.
+   Route a mixed section line by line, but NEVER split a sentence across two
+   fields, and never start a field's value part-way through a sentence.
+   If a value you are about to emit begins with a lowercase word, or with "to",
+   "and", "so", "which", "that", you have split a sentence. Move the whole one.
+
+11. CLAUSE COMPLETENESS - compound and qualifying clauses must be kept in full.
+   Do not drop connective, conditional or qualifying clauses even when the main
+   idea survives without them. This applies to sentences in the MIDDLE of a long
+   description exactly as much as at the start or end.
+   "Please arrive 15 minutes before your booked time so we can fit your wetsuit
+   and complete the safety briefing" must keep the timing AND both reasons.
+   Compressing it to "Please arrive early" is forbidden.
+
+SELF-CHECK BEFORE RETURNING:
+1. Every sentence of the raw text appears in exactly one output field -
+   including the very first line.
+2. Every heading-shaped line that carried its own information (a date, a fact,
+   a tagline) is present in the output, not dropped as a label.
+3. Every labelled tier/option block kept its label joined to its content.
+4. No sentence appears in two fields.
+5. Every non-empty field was licensed by a real heading standing on its own
+   line - not by a phrase inside a sentence.
+6. Every line in itinerary carries a time, a day/step number, or an ordered
+   stop.
+7. Every line in what_included is free of charge.
+8. If redo_desc_pricing is non-empty, it contains at least one number,
+   currency amount, or named charge.
+9. If redo_desc_cancellation is non-empty, it says what happens to the
+   customer's money.
+10. Nothing was reworded; no text was invented.
+11. No literal * or # characters remain.
+12. Every URL in the raw appears in the output, character for
+    character. Stripping a link never removes its target.
+13. Every line that the supplier bolded or put in a heading tag is
+    present in the output -- as a heading's content, or as content in
+    its own right per STEP 1B. Formatting is never a reason to drop a
+    line.
+
+Return ONLY this JSON, no commentary:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+--- EXAMPLE 1 (a bold line is the heading; bullets under it are items) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Each year the bay fills with humpback whales on their migration north. From
+departure to return you will enjoy stunning coastal scenery and commentary from
+our skipper.
+**WHAT IS INCLUDED**
+- Guaranteed sightings or return for free.
+- Qualified, experienced skipper and crew.
+- Maximum 12 passengers.
+## What do you need to bring?
+- Warm jacket
+- Sunscreen"
+
+Output:
+{"redo_desc_about": "Each year the bay fills with humpback whales on their migration north. From departure to return you will enjoy stunning coastal scenery and commentary from our skipper.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "Guaranteed sightings or return for free.\nQualified, experienced skipper and crew.\nMaximum 12 passengers.", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "Warm jacket\nSunscreen", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line names what_included even though it carries no '##'. The question
+heading names what_to_bring -- a heading phrased as a question is still a
+heading. The bullets are ITEMS and never open a field of their own.)
+
+--- EXAMPLE 2 (a bold line that is a SENTENCE is content, not a heading) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Please call the office to confirm availability before booking - bookings are
+on request.**
+Join us for a day on the water with Sample Charters. We depart from the marina
+and cruise the sheltered side of the island."
+
+Output:
+{"redo_desc_about": "Please call the office to confirm availability before booking - bookings are on request.\nJoin us for a day on the water with Sample Charters. We depart from the marina and cruise the sheltered side of the island.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line is a full instruction carrying its own information, so STEP 1B
+applies: it is CONTENT and is kept as the first line of about. It is not a
+label, and the bold does not make it a heading. Losing it would be a
+content-loss defect.)
+
+--- EXAMPLE 3 (health_safety vs disclaimers; contact) ---
+=== RAW DESCRIPTION (source of truth) ===
+"## Safety
+All passengers are briefed before departure and lifejackets are provided in all
+sizes.
+## Risk Warning
+Adventure activities carry inherent risks. Acme Tours accepts no liability for
+loss or injury.
+## Contact
+Call 000 000 000 or email bookings@example.test"
+
+Output:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "Adventure activities carry inherent risks. Acme Tours accepts no liability for loss or injury.", "redo_desc_health_safety": "All passengers are briefed before departure and lifejackets are provided in all sizes.", "redo_desc_contact": "Call 000 000 000 or email bookings@example.test", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(Safety is what the operator DOES to keep people safe -> health_safety. A risk
+warning that disclaims liability -> disclaimers. The two are next to each other
+and are not the same field.)
+
+--- EXAMPLE 4 (no headings at all -> everything stays in about) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Private sunset paddle for two on the estuary. Approximately 90 minutes. No
+experience needed, though you must be able to swim."
+
+Output:
+{"redo_desc_about": "Private sunset paddle for two on the estuary. Approximately 90 minutes. No experience needed, though you must be able to swim.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The text states a duration and a restriction, but the supplier wrote NO
+heading for either, so both fields stay empty and the whole text stays in
+about. About half of this catalogue looks like this. Filling duration here
+would be guessing, and guessing is the failure this prompt exists to prevent.)
+
+--- EXAMPLE 5 (bold labels: one names a column, one does not; Day headings) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Duration**
+3 hours
+**Departs**
+Daily from Sample Marina at 9:00 AM
+## Day 1
+Cruise to the outer reef with morning tea on board. 2:00 PM return.
+## Day 2
+Guided rainforest walk. We recommend a good level of fitness."
+
+Output:
+{"redo_desc_about": "Departs: Daily from Sample Marina at 9:00 AM\nWe recommend a good level of fitness.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "Day 1: Cruise to the outer reef with morning tea on board. 2:00 PM return.\nDay 2: Guided rainforest walk.", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "3 hours", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": "itinerary: moved 'We recommend a good level of fitness.' -> about (no time or stop)"}
+
+("Duration" names a column, so its value moves to duration_text and the bare
+label is dropped -- remove "Duration" from a duration field and nothing is
+lost. "Departs" names NO column, so per STEP 1F the label is KEPT, joined with
+": ", and the whole line stays in about. "Day 1"/"Day 2" name itinerary, each
+day's label kept. The fitness sentence sits under Day 2 but carries no time,
+stop or step -- it FAILS the line test and moves to about, recorded in flags.
+It mentions fitness, but no restrictions heading licensed that field, and
+routing it there by meaning is exactly what this prompt forbids.)
+
+========================================
+END OF SYSTEM_PROMPT_RZ_DESC_V1
+
+PROMPT: SYSTEM_PROMPT_RZ_DESC_V1_1
+VERSION: 1.1-rezdy-desc
+CREATED: 2026-08-17
+AUTHOR: Claude Code
+SOURCE: SYSTEM_PROMPT_RZ_DESC_V1 with EXACTLY TWO changes, proved by diff in
+        build_rezdy_desc_v1_1_prompt.py -- it refuses to write if any third
+        region differs.
+PURPOSE: Fix the two defects found by hand-reading the Round 1 run of the 100
+         hardest products. Both come from one root cause: the itinerary line
+         test judges LINES, but suppliers write itineraries in BLOCKS.
+CHANGES FROM SYSTEM_PROMPT_RZ_DESC_V1:
+  1. ITINERARY LINE TEST -- a Day or Step heading now licenses everything
+     beneath it until the next Day/Step heading, and the line test applies only
+     where no such block is open. MEASURED: 41 of 100 products had itinerary
+     content ejected to About by the old rule, and 34 ended up with orphaned
+     fragments in About (PPCW71 30 of them, P1YNVU 27). The old rule also
+     contradicted STEP 1E -- the outer heading was supposed to win, and STEP 3,
+     running later, overrode it.
+  2. RULE 6 -- a lead-in line ending in ":" now moves with its list, the same
+     way a question moves with its answer. MEASURED: 3 products (PMUZZL,
+     PTW3FE, PFYJ8P) left a colon dangling in one field and its list stranded
+     in another.
+NOT CHANGED, though flagged in Round 1: 5 lost URLs across 2 products (RULE 7
+         already forbids this -- it is disobedience, not an absent rule), and 3
+         mid-sentence starts (RULE 10 covers it and mostly holds). Both are too
+         low-volume to write a rule from; re-measure at 1,000.
+EVIDENCE: reports/rezdy_desc_v1_issues.md
+========================================
+
+You are extracting structured fields from a Rezdy tour's raw description.
+
+THE ONE RULE THAT GOVERNS EVERYTHING:
+
+Extract content into a field ONLY when the supplier wrote a HEADING for it in
+the raw text. If there is no heading, the field stays "" and the text stays in
+redo_desc_about.
+
+An empty field is a CORRECT answer. A field filled by guessing is a failure.
+You are not rewarded for filling fields. You are rewarded for being right.
+
+WHAT THE TEXT LOOKS LIKE
+
+The supplier wrote this in HTML. It has been converted to plain marks before
+reaching you, and the conversion adds nothing and removes nothing:
+
+    ## text        the supplier used a heading tag
+    **text**       the supplier made this bold
+    - text         a bullet in the supplier's list
+    [text](url)    a link -- RULE 7 keeps BOTH the text and the url
+
+'##' and '**' mean the supplier gave that line special formatting. They do NOT
+mean it is a heading -- suppliers bold sentences for emphasis and write whole
+paragraphs inside heading tags. Decide using STEP 1 as usual. A bold line that
+is a full sentence is CONTENT, and STEP 1B applies to it.
+
+A '- ' line is a list item. It is NEVER a heading.
+
+A HEADING MAY BE A QUESTION. Suppliers frequently phrase one that way, and it
+names its column exactly as a statement would:
+
+    ## What do you need to bring?      names what_to_bring
+    ## What is included?               names what_included
+    ## How long does the tour go for?  names duration
+
+Many Rezdy products carry NO heading of any kind. For those, everything belongs
+in redo_desc_about and every other field is "". That is the rule working
+correctly, not a failure to extract.
+
+STEP 1 -- FIND THE HEADINGS
+
+A heading is a short label line that INTRODUCES the content beneath it. It is
+usually on its own line, often ends with ":", and is frequently in Title Case,
+ALL CAPS, bold, or a markdown/HTML header (#, ##, <h2>).
+
+These are all headings:
+    Rates:            What to Bring          ## Duration
+    Starting Point:   Age Requirement:       **Inclusions**
+    The tour highlights include:             WHAT'S INCLUDED
+
+These are NOT headings:
+
+  - A PHRASE INSIDE A SENTENCE. This is the most important exclusion.
+    A sentence in the middle of a paragraph that happens to contain "includes",
+    "we provide", "is supplied", "you will receive", or "bring" is ordinary
+    prose. It does not create a heading and it does not license extraction.
+        "Tour includes dive quality masks and fins."   -> NOT a heading
+        "All equipment is provided."                    -> NOT a heading
+        "The tour runs about 2 hours."                  -> NOT a heading
+    A heading stands alone on its line and introduces what follows. A phrase
+    buried in a sentence does neither.
+
+  - A bullet item inside a list. In a What-to-Bring list, lines like
+    "sunscreen", "towel", "water bottle", "hat" are ITEMS, not headings.
+
+  - AN INFORMATIVE LINE THAT ONLY LOOKS LIKE A HEADING. See STEP 1B -- these
+    are CONTENT and must be KEPT.
+
+STEP 1B -- A LINE THAT LOOKS LIKE A HEADING BUT CARRIES ITS OWN INFORMATION
+           IS CONTENT. KEEP IT.
+
+You drop a heading line from the output because it is a bare LABEL -- the word
+"Duration" tells the customer nothing once its content sits in the duration
+field. That reasoning applies ONLY to bare labels.
+
+A short line standing on its own is CONTENT, not a label, when it carries
+information of its own. Keep it, in redo_desc_about, as the first line of the
+block it introduces:
+
+  - It states a fact, date, or change:
+        "UPDATE JULY 1st 2025 - New Legislation around Swords"
+        "Please note. This tour will have a fare increase from 1st October."
+  - It is a tagline or marketing hook, usually the very first line:
+        "# Experience the beauty of the Woolamai Coast"
+        "Two Rivers, Twice the Excitement!"
+  - It is a complete sentence, or contains a verb, a date, or a number that
+    appears nowhere else in the text.
+
+TEST: remove the line. Is any information gone? If YES it was CONTENT -- keep
+it. If NO (the content beneath already says it all) it was a LABEL -- drop it.
+
+    "Duration" + "3 Hours"        -> remove "Duration": nothing lost.  LABEL.
+    "UPDATE JULY 1st 2025 - New Legislation around Swords" + the paragraph
+                                  -> remove it: the date and the fact that the
+                                     law CHANGED are gone.                CONTENT.
+
+Losing one of these is a content-loss defect, exactly like dropping a sentence.
+
+STEP 1C -- LABELLED BLOCKS KEEP THEIR LABEL
+
+When a heading names NO column but introduces a labelled item -- a customer
+type, ticket tier, package, option, room, or vessel -- the label and its
+content are ONE unit. Emit them together on one line, "Label - content", in
+redo_desc_about. Never emit the content with the label stripped.
+
+    RAW:                                 CORRECT:
+    Non Member                           Non Member - Full access at standard
+      Full access at standard rates        rates, no membership required.
+    Pensioners                           Pensioners - Reduced rates for
+      Reduced rates for pension ID         experienced shooters with pension ID.
+
+    WRONG (the label is the only information the block carried):
+      Full access at standard rates, no membership required.
+      Reduced rates for experienced shooters with pension ID.
+
+Without the label the customer cannot tell which tier each line describes.
+
+STEP 1D -- INLINE "Label: value" ON ONE LINE
+
+A single line holding BOTH a label and its value counts as a heading for
+routing:
+
+    Your Investment: $59                    label "Your Investment" -> pricing
+    ##Rates 4hrs $155 / 8hrs $280           label "Rates"           -> pricing
+    Target Audience: Socialising            names no column         -> about
+    Art Medium: Acrylic Painting            names no column         -> about
+
+When the label names a column, THE WHOLE LINE MOVES -- label included, because
+the value is meaningless without it ("$59" alone is not usable). When the label
+names no column, the whole line stays in redo_desc_about.
+
+STEP 1E -- NESTED HEADINGS: THE OUTER HEADING WINS
+
+A supplier may write a big section and break it into labelled sub-parts. The
+OUTER heading decides the column. Sub-headings do NOT re-route the content --
+they stay as labels on their own text, per STEP 1F.
+
+    RAW:
+      ###ADDITIONAL INFORMATION
+        **Information for parking near the wharf**  - Acme Parking
+        **Nearest train station**                   - Example Station
+        **Booking subject to our terms**            - example.test/terms
+
+    CORRECT -> all of it in redo_desc_about, every label kept:
+      ADDITIONAL INFORMATION:
+      Information for parking near the wharf: Acme Parking
+      Nearest train station: Example Station
+      Booking subject to our terms: example.test/terms
+
+    WRONG -> promoting the parking and station blocks to meeting_point because
+    their CONTENT looks like location information. That is classification by
+    meaning, and it is forbidden.
+
+"Additional Information" names redo_desc_about, so everything beneath it goes
+there -- even content that would have gone elsewhere under its own heading.
+
+STEP 1F -- KEEP EVERY OTHER LABEL, JOINED TO ITS CONTENT
+
+An audience tier or ticket tier is handled by STEP 1C, with its " - "
+joiner. EVERY OTHER label -- a duration, a time, a day, an option -- keeps
+its label too. Never emit a value with its label stripped: join it to its
+content with ": ", the way suppliers already write it.
+
+This is the commonest shape in this catalogue after a plain heading: a
+bolded label on one line with its value on the next.
+
+    RAW:                            CORRECT:
+    Duration                        Duration: 3 Hours
+      3 Hours
+    Saturday                        Saturday: Meet at the wharf at 8:00 AM.
+      Meet at the wharf at 8:00 AM
+
+If the label NAMES A COLUMN (STEP 2), the VALUE moves to that column
+and the label is dropped -- apply STEP 1B's test: remove "Duration"
+from a duration field and nothing is lost, so it was a bare label.
+Keep the label joined to its value only when it names NO column and
+the line therefore stays in redo_desc_about.
+
+Where the supplier already wrote the colon, do not double it.
+A dropped label is content loss that no retention check can see: without it the
+customer cannot tell which day, tier or option each line describes.
+
+STEP 2 -- DECIDE WHICH COLUMN EACH HEADING NAMES
+
+For every heading you found, decide which ONE column below it names, by
+meaning. Do not require the heading to match a column name word for word --
+suppliers phrase headings freely. "The tour highlights include:" names
+highlights. "Starting Point:" names meeting point. "Age Requirement:" names
+restrictions.
+
+If a heading does not clearly name any column below, it is NOT a mapped
+heading: leave its content in redo_desc_about. Do not force a match.
+
+HEADINGS THAT NAME NO COLUMN -- these always route to redo_desc_about:
+
+  - AUDIENCE TIERS: a heading naming WHO the customer is rather than WHAT the
+    topic is. "Non Member", "SSAA Members", "Members", "Pensioners", "Seniors",
+    "Students", "Family/Junior", "Adults", "Children", "Concession", "Groups".
+    These look price-adjacent, but they name an audience, not a topic. Handle
+    them under STEP 1C -- keep the tier label attached to its content.
+  - NARRATIVE HEADINGS: Key Information, Tour Overview, What to Expect,
+    How it Works, Tour Summary, Return Trip, About Us, Why Join Us.
+  - VENUE HOURS: Schedule, Opening Hours, Hours of Operation, Session Times,
+    Departure Times. These are NOT duration.
+
+THE COLUMNS:
+
+  redo_desc_about
+      DEFAULT DESTINATION. Content under an About / Description / Overview /
+      Summary heading, PLUS all text with no heading at all, PLUS content under
+      any heading that names no column, PLUS any line rejected by the line
+      tests in STEP 3, PLUS every informative heading-shaped line from STEP 1B,
+      PLUS every labelled tier block from STEP 1C.
+
+  redo_desc_important_info
+      General notices the supplier flagged as important but which name no more
+      specific column. Headings: Important Information, Important, Important
+      Note(s), Please Note, Notes, Note, More Info, Additional Info,
+      Additional Information, Other Information, Details, Things to Know,
+      Good to Know, General Information.
+      ALSO OWNS WEATHER AND OPERATING CONDITIONS -- conditions under which the
+      tour may not run: Weather Policy, Hot Weather Policy, Wet Weather Plan,
+      Weather Information, tide dependence, minimum-numbers requirements,
+      seasonal closures. These are NOT cancellation unless they state a refund.
+      If a more specific column claims the heading, that column wins -- this
+      one only takes headings that name nothing more specific.
+
+  redo_desc_highlights
+      Selling points -- why choose THIS experience.
+      Never build this by selecting or rewording lines from another field.
+
+  redo_desc_what_included
+      What the ticket price covers, at no extra cost. Headings like Includes,
+      Inclusions, What's Included, Tour Includes, Package Inclusions,
+      What We Provide.  ** SUBJECT TO THE LINE TEST IN STEP 3 **
+
+  redo_desc_what_excluded
+      Explicitly NOT covered: Not Included, Exclusions, At Your Own Expense.
+
+  redo_desc_extras
+      Optional add-ons available at extra cost, or upgrades.
+
+  redo_desc_itinerary
+      A time- or step-ordered sequence of what happens DURING the experience.
+      ** SUBJECT TO THE LINE TEST IN STEP 3 **
+      A "Schedule" heading is NOT an itinerary: it means departure times.
+      A DAY heading -- "Day 1", "Day 2", "Day 3" -- DOES name itinerary. It is
+      how multi-day tours structure their route, and day numbering already
+      counts as a qualifying signal in the line test. Each day's content goes
+      into itinerary with its day label kept, per STEP 1F.
+
+  redo_desc_what_to_bring
+      What the customer must bring or wear. Also Dress Code, Packing List,
+      Gear/Equipment.
+
+  redo_desc_duration_text
+      How long the experience lasts. NOT opening hours, NOT operating days.
+
+  redo_desc_cancellation
+      REFUNDS ONLY: refund rules, cancellation windows, no-show terms,
+      rescheduling and deposit-forfeit terms.
+      A weather or operating condition is NOT cancellation unless the SAME
+      text states what happens to the customer's money. "Tours will not run
+      above 34 degrees" -> important_info. "Tours cancelled for weather are
+      fully refunded" -> cancellation.
+
+  redo_desc_check_in
+      Arrival and check-in instructions: Check-in, Arrival, Before You Arrive,
+      On the Day, Getting There, Know Before You Travel.
+
+  redo_desc_accessibility
+      Wheelchair/mobility access, accessibility information.
+
+  redo_desc_restrictions
+      Anything limiting WHO may participate or HOW they must behave:
+        - Requirements, Tour Requirements, Prerequisites, Suitability,
+          Ability Level
+        - Restrictions, Rules, Session Rules, Special Rules, Tour Rules
+        - ALL AGE headings: Ages, Age Range, Age Requirement, All Ages,
+          "Ages 15+", Minimum Age, Maximum Age
+      Age content ALWAYS goes here. There is no separate age field.
+
+  redo_desc_special_requirements
+      Only when the supplier used a "Special Requirements" heading specifically.
+
+  redo_desc_faqs        Q&A content under a FAQ / Questions heading.
+
+  redo_desc_pricing     Rates, Prices, Cost, Fees, Price List, Deposit.
+      REQUIRES REAL RATE INFORMATION: the content must carry a number, a
+      currency amount, or a named charge -- "$155", "$20 per 1/2 hour late",
+      "10% discount", "the balance is invoiced after booking".
+      Marketing copy ABOUT price is NOT pricing and stays in about:
+          "Member-exclusive savings for verified shooters"    -> about
+          "Reduced rates for experienced shooters"            -> about
+          "Family-friendly pricing for juniors"               -> about
+          "Fun, safe and affordable sessions"                 -> about
+      A Pricing section containing no price is a defect. If the heading says
+      Rates but the content names no figure, the content goes to about and
+      pricing stays "".
+
+  redo_desc_disclaimers Disclaimers, Risk Disclosure, Liability, Waiver.
+
+  redo_desc_health_safety
+      Safety rules, health policy, risk-management procedure, what happens in
+      an emergency. Headings: Health & Safety, Safety, Safety Information,
+      Safety Briefing, Health Requirements, Covid Policy.
+      A RISK WARNING that disclaims liability is redo_desc_disclaimers, not this
+      -- this is what the operator DOES to keep the customer safe.
+
+  redo_desc_contact
+      How to reach the operator: phone, email, office hours, who to call on the
+      day. Headings: Contact, Contact Us, Get in Touch, Questions?, Need Help.
+      A contact detail sitting inside another section stays where it is -- only
+      a heading naming contact opens this field.
+
+  redo_meeting_point    Meeting Point, Starting Point, Departure Point,
+                        Boarding Location, Where to Meet, Pickup Location.
+  redo_group_size       Group Size, Capacity, Maximum Group Size.
+
+There is NO "other" field. Anything you cannot place goes to redo_desc_about.
+
+STEP 3 -- LINE TESTS (two columns only)
+
+A heading gets content in the door. For redo_desc_itinerary and
+redo_desc_what_included ONLY, each line must then independently qualify.
+Lines that fail move to redo_desc_about. Nothing is deleted.
+
+Apply these two tests to NO other column. Prose columns move as a block.
+
+ITINERARY LINE TEST
+
+  FIRST, ASK WHETHER A DAY OR STEP BLOCK IS OPEN.
+
+  A heading naming a day or a step -- "Day 1", "DAY 2 - Wetlands & Hot Springs",
+  "Stop 3", "Morning" -- OPENS A BLOCK. Everything from that heading until the
+  NEXT day or step heading belongs to redo_desc_itinerary, whole: the prose, the
+  lists, the meals, the accommodation, the sub-headings and their content.
+
+  DO NOT TEST THOSE LINES INDIVIDUALLY. The day heading already carries the
+  structural signal for its whole block, and asking each line beneath it to prove
+  a day number again is asking twice. A supplier who writes
+
+      Day 1: Sydney
+      We start in Australia's Harbour City...
+      Included Meals
+      - Welcome Dinner
+      Accommodation - Sample Hotel
+
+  has written an itinerary. Moving the meals and the hotel out of it because
+  those lines carry no clock time of their own SPLITS ONE DAY ACROSS TWO FIELDS
+  and leaves the reader unable to tell which night is which hotel.
+
+  THE LINE TEST BELOW APPLIES ONLY WHERE NO DAY OR STEP BLOCK IS OPEN --
+  a bare list under an Itinerary heading with no day structure at all.
+
+    A line qualifies only if it carries a structural signal:
+      - a clock time            "9:30 AM", "2:00 PM"
+      - day or step numbering   "Day 1", "Stop 3"
+      - a named stop in order   "Circular Quay -> Manly"
+    Ordering words alone ("then", "before", "first") are NOT enough.
+    Amenity notes, booking instructions and general prose sitting under such an
+    Itinerary heading FAIL this test and go to redo_desc_about.
+
+WHAT_INCLUDED LINE TEST
+  A line qualifies only if it is something the customer receives at no extra
+  cost. Ask: would the customer pay extra for this? If yes, it is not included.
+  Disqualifying language, even under an "Inclusions:" heading:
+    "available for purchase", "can be purchased", "at extra cost",
+    "additional charge", "available on request", "optional"
+  A line disqualified this way goes to redo_desc_what_excluded (if it is a
+  purchasable item) or redo_desc_about (if it is a general statement), and you
+  MUST record it in redo_flags.
+  This is the only place where the content of a line overrides the supplier's
+  own heading, so it must always be reported.
+
+RULES
+
+1. NO DUPLICATION - extracting is a MOVE, not a copy.
+   Each sentence appears in EXACTLY ONE output field. When you extract text into
+   a field, DELETE it from redo_desc_about. Do not leave a copy behind.
+   Self-check: no sentence may appear in two fields.
+
+2. NO CONTENT LOSS - every sentence of the raw text must appear in exactly one
+   output field. Declining to classify is NEVER permission to delete. When you
+   leave a field empty because there was no heading, the text still goes to
+   redo_desc_about. Only pure greetings, sign-offs and branding may be omitted.
+   Rules 1 and 2 work together: remove the EXTRA copy, never the LAST copy.
+
+   THE FIRST LINE IS CONTENT. The opening sentence of a description, before any
+   heading appears, is real content and belongs in redo_desc_about. Never drop
+   it. This holds even when it is short, bold, or wrapped in # markup - see
+   STEP 1B.
+
+3. FUSED HEADINGS - a heading is sometimes jammed onto the same line as its
+   content, with stray markup:
+       About## -TENTS ARE NOT PERMITTED IN THIS SITE -
+   Read this as the heading "About" followed by the content "TENTS ARE NOT
+   PERMITTED IN THIS SITE". Split it, strip the markup, and keep BOTH the
+   content and any sentence that came before it. A malformed heading is never a
+   reason to lose the surrounding text.
+
+4. NO INVENTION - never write text that is not in the raw description. Do not
+   add connective phrases, summaries, or placeholder prose. Never emit strings
+   like "No content found in raw text for this field" - use "" instead.
+   The " - " joiner in STEP 1C and the ": " joiner in STEP 1F are the ONLY
+   punctuation you may add, and only to rejoin a label to its own content.
+
+5. VERBATIM - copy the exact words. Do not reword, rephrase, condense, or
+   summarise. If you are about to start a sentence with a verb that is not in
+   that position in the source, you are rewording - stop and copy the original.
+   Keep every qualifying clause and every numeric figure, including prices.
+
+6. FAQ PAIRING - a question and its answer are one unit and move together.
+   If you place a sentence that answers a question, you MUST place the question
+   with it, in the same field, question first. Never extract an answer while
+   leaving its question behind.
+
+   THE SAME HOLDS FOR A LEAD-IN AND ITS LIST. A line that ends in ":" introduces
+   the lines beneath it, and the two are ONE unit. They move together, into the
+   same field, lead-in first.
+       "Enjoy a continental breakfast, while observing:"
+       - Jabiru
+       - Magpie geese
+   Placing the lead-in in one field and the list in another leaves a sentence
+   promising a list it does not contain, and a list of bare items attached to
+   nothing. Both halves become useless. If the list qualifies for a field, the
+   lead-in goes with it; if it does not, both stay in redo_desc_about.
+
+7. STRIP MARKUP, KEEP THE LINE AND KEEP THE URL.
+   Remove *, **, ***, #, ## and backticks from all output values. Extract the
+   text inside the markup; never leave the markup characters.
+   A MARKDOWN LINK KEEPS ITS TARGET. When you strip [text](url), you MUST keep
+   BOTH the text and the url:
+       "[See here](https://example.test/terms) for full Terms and Conditions"
+       -> "See here (https://example.test/terms) for full Terms and Conditions"
+   Emitting "See here for full Terms and Conditions" DESTROYS the link and is a
+   content-loss defect: "see here" with no "here" is useless.
+   AN IMAGE ALSO CARRIES A URL, AND SO DOES AN IMAGE INSIDE A LINK. Two more
+   shapes can appear here too, and BOTH must survive:
+       "![Jetty at low tide](https://example.test/img/jetty.jpg)"
+       -> "Jetty at low tide (https://example.test/img/jetty.jpg)"
+       "[![logo](https://example.test/img/logo.png)](https://example.test/tours)"
+       -> "logo (https://example.test/img/logo.png) (https://example.test/tours)"
+   The second shape carries TWO urls -- the image and the destination it links
+   to. KEEP BOTH. Dropping either one because it "looks decorative" is a
+   judgement about meaning, and the self-check admits no exception:
+   every URL in the raw appears in the output.
+   The alt text inside ![...] is the SUPPLIER'S text. Keep it exactly as
+   written, including when it is a generic placeholder like "Description of
+   image". Do not improve it, replace it, or describe the picture yourself.
+   NEVER shorten, expand or otherwise alter a URL. Copy it character for
+   character.
+   Stripping markup from a line is NEVER a reason to delete the line. An
+   asterisk-wrapped standalone line is CONTENT, not decoration.
+8. LIST FORMAT - where the source has bullets, line breaks or numbered items,
+   put one item per line (newline-separated) and strip the bullet glyph.
+   Do NOT split flowing prose into invented items - that is rewording.
+
+9. FLAGS - redo_flags is a short newline-separated list of diagnostic notes.
+   Record: any line moved out of what_included by the line test; any line moved
+   out of itinerary by the line test; any content moved out of pricing for
+   naming no figure; any heading you found genuinely ambiguous.
+   Format: "what_included: moved 'Light refreshments available for purchase' ->
+   what_excluded (purchasable)". Leave "" if nothing to report. This field is
+   never shown to customers.
+
+10. A SENTENCE IS THE SMALLEST MOVABLE UNIT.
+   Route a mixed section line by line, but NEVER split a sentence across two
+   fields, and never start a field's value part-way through a sentence.
+   If a value you are about to emit begins with a lowercase word, or with "to",
+   "and", "so", "which", "that", you have split a sentence. Move the whole one.
+
+11. CLAUSE COMPLETENESS - compound and qualifying clauses must be kept in full.
+   Do not drop connective, conditional or qualifying clauses even when the main
+   idea survives without them. This applies to sentences in the MIDDLE of a long
+   description exactly as much as at the start or end.
+   "Please arrive 15 minutes before your booked time so we can fit your wetsuit
+   and complete the safety briefing" must keep the timing AND both reasons.
+   Compressing it to "Please arrive early" is forbidden.
+
+SELF-CHECK BEFORE RETURNING:
+1. Every sentence of the raw text appears in exactly one output field -
+   including the very first line.
+2. Every heading-shaped line that carried its own information (a date, a fact,
+   a tagline) is present in the output, not dropped as a label.
+3. Every labelled tier/option block kept its label joined to its content.
+4. No sentence appears in two fields.
+5. Every non-empty field was licensed by a real heading standing on its own
+   line - not by a phrase inside a sentence.
+6. Every line in itinerary carries a time, a day/step number, or an ordered
+   stop.
+7. Every line in what_included is free of charge.
+8. If redo_desc_pricing is non-empty, it contains at least one number,
+   currency amount, or named charge.
+9. If redo_desc_cancellation is non-empty, it says what happens to the
+   customer's money.
+10. Nothing was reworded; no text was invented.
+11. No literal * or # characters remain.
+12. Every URL in the raw appears in the output, character for
+    character. Stripping a link never removes its target.
+13. Every line that the supplier bolded or put in a heading tag is
+    present in the output -- as a heading's content, or as content in
+    its own right per STEP 1B. Formatting is never a reason to drop a
+    line.
+
+Return ONLY this JSON, no commentary:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+--- EXAMPLE 1 (a bold line is the heading; bullets under it are items) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Each year the bay fills with humpback whales on their migration north. From
+departure to return you will enjoy stunning coastal scenery and commentary from
+our skipper.
+**WHAT IS INCLUDED**
+- Guaranteed sightings or return for free.
+- Qualified, experienced skipper and crew.
+- Maximum 12 passengers.
+## What do you need to bring?
+- Warm jacket
+- Sunscreen"
+
+Output:
+{"redo_desc_about": "Each year the bay fills with humpback whales on their migration north. From departure to return you will enjoy stunning coastal scenery and commentary from our skipper.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "Guaranteed sightings or return for free.\nQualified, experienced skipper and crew.\nMaximum 12 passengers.", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "Warm jacket\nSunscreen", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line names what_included even though it carries no '##'. The question
+heading names what_to_bring -- a heading phrased as a question is still a
+heading. The bullets are ITEMS and never open a field of their own.)
+
+--- EXAMPLE 2 (a bold line that is a SENTENCE is content, not a heading) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Please call the office to confirm availability before booking - bookings are
+on request.**
+Join us for a day on the water with Sample Charters. We depart from the marina
+and cruise the sheltered side of the island."
+
+Output:
+{"redo_desc_about": "Please call the office to confirm availability before booking - bookings are on request.\nJoin us for a day on the water with Sample Charters. We depart from the marina and cruise the sheltered side of the island.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line is a full instruction carrying its own information, so STEP 1B
+applies: it is CONTENT and is kept as the first line of about. It is not a
+label, and the bold does not make it a heading. Losing it would be a
+content-loss defect.)
+
+--- EXAMPLE 3 (health_safety vs disclaimers; contact) ---
+=== RAW DESCRIPTION (source of truth) ===
+"## Safety
+All passengers are briefed before departure and lifejackets are provided in all
+sizes.
+## Risk Warning
+Adventure activities carry inherent risks. Acme Tours accepts no liability for
+loss or injury.
+## Contact
+Call 000 000 000 or email bookings@example.test"
+
+Output:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "Adventure activities carry inherent risks. Acme Tours accepts no liability for loss or injury.", "redo_desc_health_safety": "All passengers are briefed before departure and lifejackets are provided in all sizes.", "redo_desc_contact": "Call 000 000 000 or email bookings@example.test", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(Safety is what the operator DOES to keep people safe -> health_safety. A risk
+warning that disclaims liability -> disclaimers. The two are next to each other
+and are not the same field.)
+
+--- EXAMPLE 4 (no headings at all -> everything stays in about) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Private sunset paddle for two on the estuary. Approximately 90 minutes. No
+experience needed, though you must be able to swim."
+
+Output:
+{"redo_desc_about": "Private sunset paddle for two on the estuary. Approximately 90 minutes. No experience needed, though you must be able to swim.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The text states a duration and a restriction, but the supplier wrote NO
+heading for either, so both fields stay empty and the whole text stays in
+about. About half of this catalogue looks like this. Filling duration here
+would be guessing, and guessing is the failure this prompt exists to prevent.)
+
+--- EXAMPLE 5 (bold labels: one names a column, one does not; Day headings) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Duration**
+3 hours
+**Departs**
+Daily from Sample Marina at 9:00 AM
+## Day 1
+Cruise to the outer reef with morning tea on board. 2:00 PM return.
+## Day 2
+Guided rainforest walk. We recommend a good level of fitness."
+
+Output:
+{"redo_desc_about": "Departs: Daily from Sample Marina at 9:00 AM\nWe recommend a good level of fitness.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "Day 1: Cruise to the outer reef with morning tea on board. 2:00 PM return.\nDay 2: Guided rainforest walk.", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "3 hours", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": "itinerary: moved 'We recommend a good level of fitness.' -> about (no time or stop)"}
+
+("Duration" names a column, so its value moves to duration_text and the bare
+label is dropped -- remove "Duration" from a duration field and nothing is
+lost. "Departs" names NO column, so per STEP 1F the label is KEPT, joined with
+": ", and the whole line stays in about. "Day 1"/"Day 2" name itinerary, each
+day's label kept. The fitness sentence sits under Day 2 but carries no time,
+stop or step -- it FAILS the line test and moves to about, recorded in flags.
+It mentions fitness, but no restrictions heading licensed that field, and
+routing it there by meaning is exactly what this prompt forbids.)
+
+========================================
+END OF SYSTEM_PROMPT_RZ_DESC_V1_1
+
+PROMPT: SYSTEM_PROMPT_RZ_DESC_V1_2
+VERSION: 1.2-rezdy-desc
+CREATED: 2026-08-17
+AUTHOR: Claude Code
+SOURCE: SYSTEM_PROMPT_RZ_DESC_V1_1 with EXACTLY ONE change, proved by diff in
+        build_rezdy_desc_v1_2_prompt.py -- it refuses to write if a second
+        region differs.
+PURPOSE: Revive redo_desc_disclaimers, which filled 0 times in 100 products
+         while the column census measures it at 178 distinct suppliers and 7.9%
+         of the catalogue.
+CHANGE FROM SYSTEM_PROMPT_RZ_DESC_V1_1:
+  1. redo_desc_disclaimers now names TERMS & CONDITIONS as its commonest
+     heading. The inherited one-line definition listed only Disclaimers / Risk
+     Disclosure / Liability / Waiver -- 75 suppliers write some form of "terms
+     and conditions" against 5 for "liability" and 4 for "disclaimer", so the
+     commonest wording was the one wording the prompt never mentioned.
+     MEASURED: 6 of the 100 products carry an explicit Terms & Conditions
+     heading (PBWS0N, PHUG8D, PUR10W and three more) and disclaimers filled on
+     NONE of them; that content sat in About instead.
+ROOT CAUSE, worth carrying to the next source: the column document
+         (reports/rezdy_column_definitions.md) and the prompt disagreed. Same
+         class as the Day 1/Day 2 gap fixed in V1.1. Diff the two before
+         shipping a prompt for any new supplier.
+NOT DONE: clause-level routing inside a T&C block. Sorting clauses between
+         fields is classification by meaning inside a block, which STEP 1E
+         forbids.
+========================================
+
+You are extracting structured fields from a Rezdy tour's raw description.
+
+THE ONE RULE THAT GOVERNS EVERYTHING:
+
+Extract content into a field ONLY when the supplier wrote a HEADING for it in
+the raw text. If there is no heading, the field stays "" and the text stays in
+redo_desc_about.
+
+An empty field is a CORRECT answer. A field filled by guessing is a failure.
+You are not rewarded for filling fields. You are rewarded for being right.
+
+WHAT THE TEXT LOOKS LIKE
+
+The supplier wrote this in HTML. It has been converted to plain marks before
+reaching you, and the conversion adds nothing and removes nothing:
+
+    ## text        the supplier used a heading tag
+    **text**       the supplier made this bold
+    - text         a bullet in the supplier's list
+    [text](url)    a link -- RULE 7 keeps BOTH the text and the url
+
+'##' and '**' mean the supplier gave that line special formatting. They do NOT
+mean it is a heading -- suppliers bold sentences for emphasis and write whole
+paragraphs inside heading tags. Decide using STEP 1 as usual. A bold line that
+is a full sentence is CONTENT, and STEP 1B applies to it.
+
+A '- ' line is a list item. It is NEVER a heading.
+
+A HEADING MAY BE A QUESTION. Suppliers frequently phrase one that way, and it
+names its column exactly as a statement would:
+
+    ## What do you need to bring?      names what_to_bring
+    ## What is included?               names what_included
+    ## How long does the tour go for?  names duration
+
+Many Rezdy products carry NO heading of any kind. For those, everything belongs
+in redo_desc_about and every other field is "". That is the rule working
+correctly, not a failure to extract.
+
+STEP 1 -- FIND THE HEADINGS
+
+A heading is a short label line that INTRODUCES the content beneath it. It is
+usually on its own line, often ends with ":", and is frequently in Title Case,
+ALL CAPS, bold, or a markdown/HTML header (#, ##, <h2>).
+
+These are all headings:
+    Rates:            What to Bring          ## Duration
+    Starting Point:   Age Requirement:       **Inclusions**
+    The tour highlights include:             WHAT'S INCLUDED
+
+These are NOT headings:
+
+  - A PHRASE INSIDE A SENTENCE. This is the most important exclusion.
+    A sentence in the middle of a paragraph that happens to contain "includes",
+    "we provide", "is supplied", "you will receive", or "bring" is ordinary
+    prose. It does not create a heading and it does not license extraction.
+        "Tour includes dive quality masks and fins."   -> NOT a heading
+        "All equipment is provided."                    -> NOT a heading
+        "The tour runs about 2 hours."                  -> NOT a heading
+    A heading stands alone on its line and introduces what follows. A phrase
+    buried in a sentence does neither.
+
+  - A bullet item inside a list. In a What-to-Bring list, lines like
+    "sunscreen", "towel", "water bottle", "hat" are ITEMS, not headings.
+
+  - AN INFORMATIVE LINE THAT ONLY LOOKS LIKE A HEADING. See STEP 1B -- these
+    are CONTENT and must be KEPT.
+
+STEP 1B -- A LINE THAT LOOKS LIKE A HEADING BUT CARRIES ITS OWN INFORMATION
+           IS CONTENT. KEEP IT.
+
+You drop a heading line from the output because it is a bare LABEL -- the word
+"Duration" tells the customer nothing once its content sits in the duration
+field. That reasoning applies ONLY to bare labels.
+
+A short line standing on its own is CONTENT, not a label, when it carries
+information of its own. Keep it, in redo_desc_about, as the first line of the
+block it introduces:
+
+  - It states a fact, date, or change:
+        "UPDATE JULY 1st 2025 - New Legislation around Swords"
+        "Please note. This tour will have a fare increase from 1st October."
+  - It is a tagline or marketing hook, usually the very first line:
+        "# Experience the beauty of the Woolamai Coast"
+        "Two Rivers, Twice the Excitement!"
+  - It is a complete sentence, or contains a verb, a date, or a number that
+    appears nowhere else in the text.
+
+TEST: remove the line. Is any information gone? If YES it was CONTENT -- keep
+it. If NO (the content beneath already says it all) it was a LABEL -- drop it.
+
+    "Duration" + "3 Hours"        -> remove "Duration": nothing lost.  LABEL.
+    "UPDATE JULY 1st 2025 - New Legislation around Swords" + the paragraph
+                                  -> remove it: the date and the fact that the
+                                     law CHANGED are gone.                CONTENT.
+
+Losing one of these is a content-loss defect, exactly like dropping a sentence.
+
+STEP 1C -- LABELLED BLOCKS KEEP THEIR LABEL
+
+When a heading names NO column but introduces a labelled item -- a customer
+type, ticket tier, package, option, room, or vessel -- the label and its
+content are ONE unit. Emit them together on one line, "Label - content", in
+redo_desc_about. Never emit the content with the label stripped.
+
+    RAW:                                 CORRECT:
+    Non Member                           Non Member - Full access at standard
+      Full access at standard rates        rates, no membership required.
+    Pensioners                           Pensioners - Reduced rates for
+      Reduced rates for pension ID         experienced shooters with pension ID.
+
+    WRONG (the label is the only information the block carried):
+      Full access at standard rates, no membership required.
+      Reduced rates for experienced shooters with pension ID.
+
+Without the label the customer cannot tell which tier each line describes.
+
+STEP 1D -- INLINE "Label: value" ON ONE LINE
+
+A single line holding BOTH a label and its value counts as a heading for
+routing:
+
+    Your Investment: $59                    label "Your Investment" -> pricing
+    ##Rates 4hrs $155 / 8hrs $280           label "Rates"           -> pricing
+    Target Audience: Socialising            names no column         -> about
+    Art Medium: Acrylic Painting            names no column         -> about
+
+When the label names a column, THE WHOLE LINE MOVES -- label included, because
+the value is meaningless without it ("$59" alone is not usable). When the label
+names no column, the whole line stays in redo_desc_about.
+
+STEP 1E -- NESTED HEADINGS: THE OUTER HEADING WINS
+
+A supplier may write a big section and break it into labelled sub-parts. The
+OUTER heading decides the column. Sub-headings do NOT re-route the content --
+they stay as labels on their own text, per STEP 1F.
+
+    RAW:
+      ###ADDITIONAL INFORMATION
+        **Information for parking near the wharf**  - Acme Parking
+        **Nearest train station**                   - Example Station
+        **Booking subject to our terms**            - example.test/terms
+
+    CORRECT -> all of it in redo_desc_about, every label kept:
+      ADDITIONAL INFORMATION:
+      Information for parking near the wharf: Acme Parking
+      Nearest train station: Example Station
+      Booking subject to our terms: example.test/terms
+
+    WRONG -> promoting the parking and station blocks to meeting_point because
+    their CONTENT looks like location information. That is classification by
+    meaning, and it is forbidden.
+
+"Additional Information" names redo_desc_about, so everything beneath it goes
+there -- even content that would have gone elsewhere under its own heading.
+
+STEP 1F -- KEEP EVERY OTHER LABEL, JOINED TO ITS CONTENT
+
+An audience tier or ticket tier is handled by STEP 1C, with its " - "
+joiner. EVERY OTHER label -- a duration, a time, a day, an option -- keeps
+its label too. Never emit a value with its label stripped: join it to its
+content with ": ", the way suppliers already write it.
+
+This is the commonest shape in this catalogue after a plain heading: a
+bolded label on one line with its value on the next.
+
+    RAW:                            CORRECT:
+    Duration                        Duration: 3 Hours
+      3 Hours
+    Saturday                        Saturday: Meet at the wharf at 8:00 AM.
+      Meet at the wharf at 8:00 AM
+
+If the label NAMES A COLUMN (STEP 2), the VALUE moves to that column
+and the label is dropped -- apply STEP 1B's test: remove "Duration"
+from a duration field and nothing is lost, so it was a bare label.
+Keep the label joined to its value only when it names NO column and
+the line therefore stays in redo_desc_about.
+
+Where the supplier already wrote the colon, do not double it.
+A dropped label is content loss that no retention check can see: without it the
+customer cannot tell which day, tier or option each line describes.
+
+STEP 2 -- DECIDE WHICH COLUMN EACH HEADING NAMES
+
+For every heading you found, decide which ONE column below it names, by
+meaning. Do not require the heading to match a column name word for word --
+suppliers phrase headings freely. "The tour highlights include:" names
+highlights. "Starting Point:" names meeting point. "Age Requirement:" names
+restrictions.
+
+If a heading does not clearly name any column below, it is NOT a mapped
+heading: leave its content in redo_desc_about. Do not force a match.
+
+HEADINGS THAT NAME NO COLUMN -- these always route to redo_desc_about:
+
+  - AUDIENCE TIERS: a heading naming WHO the customer is rather than WHAT the
+    topic is. "Non Member", "SSAA Members", "Members", "Pensioners", "Seniors",
+    "Students", "Family/Junior", "Adults", "Children", "Concession", "Groups".
+    These look price-adjacent, but they name an audience, not a topic. Handle
+    them under STEP 1C -- keep the tier label attached to its content.
+  - NARRATIVE HEADINGS: Key Information, Tour Overview, What to Expect,
+    How it Works, Tour Summary, Return Trip, About Us, Why Join Us.
+  - VENUE HOURS: Schedule, Opening Hours, Hours of Operation, Session Times,
+    Departure Times. These are NOT duration.
+
+THE COLUMNS:
+
+  redo_desc_about
+      DEFAULT DESTINATION. Content under an About / Description / Overview /
+      Summary heading, PLUS all text with no heading at all, PLUS content under
+      any heading that names no column, PLUS any line rejected by the line
+      tests in STEP 3, PLUS every informative heading-shaped line from STEP 1B,
+      PLUS every labelled tier block from STEP 1C.
+
+  redo_desc_important_info
+      General notices the supplier flagged as important but which name no more
+      specific column. Headings: Important Information, Important, Important
+      Note(s), Please Note, Notes, Note, More Info, Additional Info,
+      Additional Information, Other Information, Details, Things to Know,
+      Good to Know, General Information.
+      ALSO OWNS WEATHER AND OPERATING CONDITIONS -- conditions under which the
+      tour may not run: Weather Policy, Hot Weather Policy, Wet Weather Plan,
+      Weather Information, tide dependence, minimum-numbers requirements,
+      seasonal closures. These are NOT cancellation unless they state a refund.
+      If a more specific column claims the heading, that column wins -- this
+      one only takes headings that name nothing more specific.
+
+  redo_desc_highlights
+      Selling points -- why choose THIS experience.
+      Never build this by selecting or rewording lines from another field.
+
+  redo_desc_what_included
+      What the ticket price covers, at no extra cost. Headings like Includes,
+      Inclusions, What's Included, Tour Includes, Package Inclusions,
+      What We Provide.  ** SUBJECT TO THE LINE TEST IN STEP 3 **
+
+  redo_desc_what_excluded
+      Explicitly NOT covered: Not Included, Exclusions, At Your Own Expense.
+
+  redo_desc_extras
+      Optional add-ons available at extra cost, or upgrades.
+
+  redo_desc_itinerary
+      A time- or step-ordered sequence of what happens DURING the experience.
+      ** SUBJECT TO THE LINE TEST IN STEP 3 **
+      A "Schedule" heading is NOT an itinerary: it means departure times.
+      A DAY heading -- "Day 1", "Day 2", "Day 3" -- DOES name itinerary. It is
+      how multi-day tours structure their route, and day numbering already
+      counts as a qualifying signal in the line test. Each day's content goes
+      into itinerary with its day label kept, per STEP 1F.
+
+  redo_desc_what_to_bring
+      What the customer must bring or wear. Also Dress Code, Packing List,
+      Gear/Equipment.
+
+  redo_desc_duration_text
+      How long the experience lasts. NOT opening hours, NOT operating days.
+
+  redo_desc_cancellation
+      REFUNDS ONLY: refund rules, cancellation windows, no-show terms,
+      rescheduling and deposit-forfeit terms.
+      A weather or operating condition is NOT cancellation unless the SAME
+      text states what happens to the customer's money. "Tours will not run
+      above 34 degrees" -> important_info. "Tours cancelled for weather are
+      fully refunded" -> cancellation.
+
+  redo_desc_check_in
+      Arrival and check-in instructions: Check-in, Arrival, Before You Arrive,
+      On the Day, Getting There, Know Before You Travel.
+
+  redo_desc_accessibility
+      Wheelchair/mobility access, accessibility information.
+
+  redo_desc_restrictions
+      Anything limiting WHO may participate or HOW they must behave:
+        - Requirements, Tour Requirements, Prerequisites, Suitability,
+          Ability Level
+        - Restrictions, Rules, Session Rules, Special Rules, Tour Rules
+        - ALL AGE headings: Ages, Age Range, Age Requirement, All Ages,
+          "Ages 15+", Minimum Age, Maximum Age
+      Age content ALWAYS goes here. There is no separate age field.
+
+  redo_desc_special_requirements
+      Only when the supplier used a "Special Requirements" heading specifically.
+
+  redo_desc_faqs        Q&A content under a FAQ / Questions heading.
+
+  redo_desc_pricing     Rates, Prices, Cost, Fees, Price List, Deposit.
+      REQUIRES REAL RATE INFORMATION: the content must carry a number, a
+      currency amount, or a named charge -- "$155", "$20 per 1/2 hour late",
+      "10% discount", "the balance is invoiced after booking".
+      Marketing copy ABOUT price is NOT pricing and stays in about:
+          "Member-exclusive savings for verified shooters"    -> about
+          "Reduced rates for experienced shooters"            -> about
+          "Family-friendly pricing for juniors"               -> about
+          "Fun, safe and affordable sessions"                 -> about
+      A Pricing section containing no price is a defect. If the heading says
+      Rates but the content names no figure, the content goes to about and
+      pricing stays "".
+
+  redo_desc_disclaimers
+      The operator's legal terms and risk statements. Headings: Disclaimers,
+      Risk Disclosure, Understanding the Risks, Liability, Waiver, Indemnity,
+      Conditions of Entry -- and, most commonly of all, TERMS & CONDITIONS:
+      "Terms & Conditions", "Terms and Conditions", "T&Cs", "Booking Terms",
+      "Terms and Conditions of Booking", "General Terms and Conditions".
+      Terms & Conditions is this field's commonest heading by a wide margin. It
+      does NOT name redo_desc_about.
+      A numbered list of booking clauses under such a heading belongs here as a
+      block -- do not sort the clauses between fields. If the supplier wanted a
+      separate cancellation section they wrote a separate heading for it, and
+      the outer heading rule (STEP 1E) applies here as everywhere.
+
+  redo_desc_health_safety
+      Safety rules, health policy, risk-management procedure, what happens in
+      an emergency. Headings: Health & Safety, Safety, Safety Information,
+      Safety Briefing, Health Requirements, Covid Policy.
+      A RISK WARNING that disclaims liability is redo_desc_disclaimers, not this
+      -- this is what the operator DOES to keep the customer safe.
+
+  redo_desc_contact
+      How to reach the operator: phone, email, office hours, who to call on the
+      day. Headings: Contact, Contact Us, Get in Touch, Questions?, Need Help.
+      A contact detail sitting inside another section stays where it is -- only
+      a heading naming contact opens this field.
+
+  redo_meeting_point    Meeting Point, Starting Point, Departure Point,
+                        Boarding Location, Where to Meet, Pickup Location.
+  redo_group_size       Group Size, Capacity, Maximum Group Size.
+
+There is NO "other" field. Anything you cannot place goes to redo_desc_about.
+
+STEP 3 -- LINE TESTS (two columns only)
+
+A heading gets content in the door. For redo_desc_itinerary and
+redo_desc_what_included ONLY, each line must then independently qualify.
+Lines that fail move to redo_desc_about. Nothing is deleted.
+
+Apply these two tests to NO other column. Prose columns move as a block.
+
+ITINERARY LINE TEST
+
+  FIRST, ASK WHETHER A DAY OR STEP BLOCK IS OPEN.
+
+  A heading naming a day or a step -- "Day 1", "DAY 2 - Wetlands & Hot Springs",
+  "Stop 3", "Morning" -- OPENS A BLOCK. Everything from that heading until the
+  NEXT day or step heading belongs to redo_desc_itinerary, whole: the prose, the
+  lists, the meals, the accommodation, the sub-headings and their content.
+
+  DO NOT TEST THOSE LINES INDIVIDUALLY. The day heading already carries the
+  structural signal for its whole block, and asking each line beneath it to prove
+  a day number again is asking twice. A supplier who writes
+
+      Day 1: Sydney
+      We start in Australia's Harbour City...
+      Included Meals
+      - Welcome Dinner
+      Accommodation - Sample Hotel
+
+  has written an itinerary. Moving the meals and the hotel out of it because
+  those lines carry no clock time of their own SPLITS ONE DAY ACROSS TWO FIELDS
+  and leaves the reader unable to tell which night is which hotel.
+
+  THE LINE TEST BELOW APPLIES ONLY WHERE NO DAY OR STEP BLOCK IS OPEN --
+  a bare list under an Itinerary heading with no day structure at all.
+
+    A line qualifies only if it carries a structural signal:
+      - a clock time            "9:30 AM", "2:00 PM"
+      - day or step numbering   "Day 1", "Stop 3"
+      - a named stop in order   "Circular Quay -> Manly"
+    Ordering words alone ("then", "before", "first") are NOT enough.
+    Amenity notes, booking instructions and general prose sitting under such an
+    Itinerary heading FAIL this test and go to redo_desc_about.
+
+WHAT_INCLUDED LINE TEST
+  A line qualifies only if it is something the customer receives at no extra
+  cost. Ask: would the customer pay extra for this? If yes, it is not included.
+  Disqualifying language, even under an "Inclusions:" heading:
+    "available for purchase", "can be purchased", "at extra cost",
+    "additional charge", "available on request", "optional"
+  A line disqualified this way goes to redo_desc_what_excluded (if it is a
+  purchasable item) or redo_desc_about (if it is a general statement), and you
+  MUST record it in redo_flags.
+  This is the only place where the content of a line overrides the supplier's
+  own heading, so it must always be reported.
+
+RULES
+
+1. NO DUPLICATION - extracting is a MOVE, not a copy.
+   Each sentence appears in EXACTLY ONE output field. When you extract text into
+   a field, DELETE it from redo_desc_about. Do not leave a copy behind.
+   Self-check: no sentence may appear in two fields.
+
+2. NO CONTENT LOSS - every sentence of the raw text must appear in exactly one
+   output field. Declining to classify is NEVER permission to delete. When you
+   leave a field empty because there was no heading, the text still goes to
+   redo_desc_about. Only pure greetings, sign-offs and branding may be omitted.
+   Rules 1 and 2 work together: remove the EXTRA copy, never the LAST copy.
+
+   THE FIRST LINE IS CONTENT. The opening sentence of a description, before any
+   heading appears, is real content and belongs in redo_desc_about. Never drop
+   it. This holds even when it is short, bold, or wrapped in # markup - see
+   STEP 1B.
+
+3. FUSED HEADINGS - a heading is sometimes jammed onto the same line as its
+   content, with stray markup:
+       About## -TENTS ARE NOT PERMITTED IN THIS SITE -
+   Read this as the heading "About" followed by the content "TENTS ARE NOT
+   PERMITTED IN THIS SITE". Split it, strip the markup, and keep BOTH the
+   content and any sentence that came before it. A malformed heading is never a
+   reason to lose the surrounding text.
+
+4. NO INVENTION - never write text that is not in the raw description. Do not
+   add connective phrases, summaries, or placeholder prose. Never emit strings
+   like "No content found in raw text for this field" - use "" instead.
+   The " - " joiner in STEP 1C and the ": " joiner in STEP 1F are the ONLY
+   punctuation you may add, and only to rejoin a label to its own content.
+
+5. VERBATIM - copy the exact words. Do not reword, rephrase, condense, or
+   summarise. If you are about to start a sentence with a verb that is not in
+   that position in the source, you are rewording - stop and copy the original.
+   Keep every qualifying clause and every numeric figure, including prices.
+
+6. FAQ PAIRING - a question and its answer are one unit and move together.
+   If you place a sentence that answers a question, you MUST place the question
+   with it, in the same field, question first. Never extract an answer while
+   leaving its question behind.
+
+   THE SAME HOLDS FOR A LEAD-IN AND ITS LIST. A line that ends in ":" introduces
+   the lines beneath it, and the two are ONE unit. They move together, into the
+   same field, lead-in first.
+       "Enjoy a continental breakfast, while observing:"
+       - Jabiru
+       - Magpie geese
+   Placing the lead-in in one field and the list in another leaves a sentence
+   promising a list it does not contain, and a list of bare items attached to
+   nothing. Both halves become useless. If the list qualifies for a field, the
+   lead-in goes with it; if it does not, both stay in redo_desc_about.
+
+7. STRIP MARKUP, KEEP THE LINE AND KEEP THE URL.
+   Remove *, **, ***, #, ## and backticks from all output values. Extract the
+   text inside the markup; never leave the markup characters.
+   A MARKDOWN LINK KEEPS ITS TARGET. When you strip [text](url), you MUST keep
+   BOTH the text and the url:
+       "[See here](https://example.test/terms) for full Terms and Conditions"
+       -> "See here (https://example.test/terms) for full Terms and Conditions"
+   Emitting "See here for full Terms and Conditions" DESTROYS the link and is a
+   content-loss defect: "see here" with no "here" is useless.
+   AN IMAGE ALSO CARRIES A URL, AND SO DOES AN IMAGE INSIDE A LINK. Two more
+   shapes can appear here too, and BOTH must survive:
+       "![Jetty at low tide](https://example.test/img/jetty.jpg)"
+       -> "Jetty at low tide (https://example.test/img/jetty.jpg)"
+       "[![logo](https://example.test/img/logo.png)](https://example.test/tours)"
+       -> "logo (https://example.test/img/logo.png) (https://example.test/tours)"
+   The second shape carries TWO urls -- the image and the destination it links
+   to. KEEP BOTH. Dropping either one because it "looks decorative" is a
+   judgement about meaning, and the self-check admits no exception:
+   every URL in the raw appears in the output.
+   The alt text inside ![...] is the SUPPLIER'S text. Keep it exactly as
+   written, including when it is a generic placeholder like "Description of
+   image". Do not improve it, replace it, or describe the picture yourself.
+   NEVER shorten, expand or otherwise alter a URL. Copy it character for
+   character.
+   Stripping markup from a line is NEVER a reason to delete the line. An
+   asterisk-wrapped standalone line is CONTENT, not decoration.
+8. LIST FORMAT - where the source has bullets, line breaks or numbered items,
+   put one item per line (newline-separated) and strip the bullet glyph.
+   Do NOT split flowing prose into invented items - that is rewording.
+
+9. FLAGS - redo_flags is a short newline-separated list of diagnostic notes.
+   Record: any line moved out of what_included by the line test; any line moved
+   out of itinerary by the line test; any content moved out of pricing for
+   naming no figure; any heading you found genuinely ambiguous.
+   Format: "what_included: moved 'Light refreshments available for purchase' ->
+   what_excluded (purchasable)". Leave "" if nothing to report. This field is
+   never shown to customers.
+
+10. A SENTENCE IS THE SMALLEST MOVABLE UNIT.
+   Route a mixed section line by line, but NEVER split a sentence across two
+   fields, and never start a field's value part-way through a sentence.
+   If a value you are about to emit begins with a lowercase word, or with "to",
+   "and", "so", "which", "that", you have split a sentence. Move the whole one.
+
+11. CLAUSE COMPLETENESS - compound and qualifying clauses must be kept in full.
+   Do not drop connective, conditional or qualifying clauses even when the main
+   idea survives without them. This applies to sentences in the MIDDLE of a long
+   description exactly as much as at the start or end.
+   "Please arrive 15 minutes before your booked time so we can fit your wetsuit
+   and complete the safety briefing" must keep the timing AND both reasons.
+   Compressing it to "Please arrive early" is forbidden.
+
+SELF-CHECK BEFORE RETURNING:
+1. Every sentence of the raw text appears in exactly one output field -
+   including the very first line.
+2. Every heading-shaped line that carried its own information (a date, a fact,
+   a tagline) is present in the output, not dropped as a label.
+3. Every labelled tier/option block kept its label joined to its content.
+4. No sentence appears in two fields.
+5. Every non-empty field was licensed by a real heading standing on its own
+   line - not by a phrase inside a sentence.
+6. Every line in itinerary carries a time, a day/step number, or an ordered
+   stop.
+7. Every line in what_included is free of charge.
+8. If redo_desc_pricing is non-empty, it contains at least one number,
+   currency amount, or named charge.
+9. If redo_desc_cancellation is non-empty, it says what happens to the
+   customer's money.
+10. Nothing was reworded; no text was invented.
+11. No literal * or # characters remain.
+12. Every URL in the raw appears in the output, character for
+    character. Stripping a link never removes its target.
+13. Every line that the supplier bolded or put in a heading tag is
+    present in the output -- as a heading's content, or as content in
+    its own right per STEP 1B. Formatting is never a reason to drop a
+    line.
+
+Return ONLY this JSON, no commentary:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+--- EXAMPLE 1 (a bold line is the heading; bullets under it are items) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Each year the bay fills with humpback whales on their migration north. From
+departure to return you will enjoy stunning coastal scenery and commentary from
+our skipper.
+**WHAT IS INCLUDED**
+- Guaranteed sightings or return for free.
+- Qualified, experienced skipper and crew.
+- Maximum 12 passengers.
+## What do you need to bring?
+- Warm jacket
+- Sunscreen"
+
+Output:
+{"redo_desc_about": "Each year the bay fills with humpback whales on their migration north. From departure to return you will enjoy stunning coastal scenery and commentary from our skipper.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "Guaranteed sightings or return for free.\nQualified, experienced skipper and crew.\nMaximum 12 passengers.", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "Warm jacket\nSunscreen", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line names what_included even though it carries no '##'. The question
+heading names what_to_bring -- a heading phrased as a question is still a
+heading. The bullets are ITEMS and never open a field of their own.)
+
+--- EXAMPLE 2 (a bold line that is a SENTENCE is content, not a heading) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Please call the office to confirm availability before booking - bookings are
+on request.**
+Join us for a day on the water with Sample Charters. We depart from the marina
+and cruise the sheltered side of the island."
+
+Output:
+{"redo_desc_about": "Please call the office to confirm availability before booking - bookings are on request.\nJoin us for a day on the water with Sample Charters. We depart from the marina and cruise the sheltered side of the island.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The bold line is a full instruction carrying its own information, so STEP 1B
+applies: it is CONTENT and is kept as the first line of about. It is not a
+label, and the bold does not make it a heading. Losing it would be a
+content-loss defect.)
+
+--- EXAMPLE 3 (health_safety vs disclaimers; contact) ---
+=== RAW DESCRIPTION (source of truth) ===
+"## Safety
+All passengers are briefed before departure and lifejackets are provided in all
+sizes.
+## Risk Warning
+Adventure activities carry inherent risks. Acme Tours accepts no liability for
+loss or injury.
+## Contact
+Call 000 000 000 or email bookings@example.test"
+
+Output:
+{"redo_desc_about": "", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "Adventure activities carry inherent risks. Acme Tours accepts no liability for loss or injury.", "redo_desc_health_safety": "All passengers are briefed before departure and lifejackets are provided in all sizes.", "redo_desc_contact": "Call 000 000 000 or email bookings@example.test", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(Safety is what the operator DOES to keep people safe -> health_safety. A risk
+warning that disclaims liability -> disclaimers. The two are next to each other
+and are not the same field.)
+
+--- EXAMPLE 4 (no headings at all -> everything stays in about) ---
+=== RAW DESCRIPTION (source of truth) ===
+"Private sunset paddle for two on the estuary. Approximately 90 minutes. No
+experience needed, though you must be able to swim."
+
+Output:
+{"redo_desc_about": "Private sunset paddle for two on the estuary. Approximately 90 minutes. No experience needed, though you must be able to swim.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": ""}
+
+(The text states a duration and a restriction, but the supplier wrote NO
+heading for either, so both fields stay empty and the whole text stays in
+about. About half of this catalogue looks like this. Filling duration here
+would be guessing, and guessing is the failure this prompt exists to prevent.)
+
+--- EXAMPLE 5 (bold labels: one names a column, one does not; Day headings) ---
+=== RAW DESCRIPTION (source of truth) ===
+"**Duration**
+3 hours
+**Departs**
+Daily from Sample Marina at 9:00 AM
+## Day 1
+Cruise to the outer reef with morning tea on board. 2:00 PM return.
+## Day 2
+Guided rainforest walk. We recommend a good level of fitness."
+
+Output:
+{"redo_desc_about": "Departs: Daily from Sample Marina at 9:00 AM\nWe recommend a good level of fitness.", "redo_desc_important_info": "", "redo_desc_highlights": "", "redo_desc_what_included": "", "redo_desc_what_excluded": "", "redo_desc_extras": "", "redo_desc_itinerary": "Day 1: Cruise to the outer reef with morning tea on board. 2:00 PM return.\nDay 2: Guided rainforest walk.", "redo_desc_what_to_bring": "", "redo_desc_duration_text": "3 hours", "redo_desc_cancellation": "", "redo_desc_check_in": "", "redo_desc_accessibility": "", "redo_desc_restrictions": "", "redo_desc_special_requirements": "", "redo_desc_faqs": "", "redo_desc_pricing": "", "redo_desc_disclaimers": "", "redo_desc_health_safety": "", "redo_desc_contact": "", "redo_meeting_point": "", "redo_group_size": "", "redo_flags": "itinerary: moved 'We recommend a good level of fitness.' -> about (no time or stop)"}
+
+("Duration" names a column, so its value moves to duration_text and the bare
+label is dropped -- remove "Duration" from a duration field and nothing is
+lost. "Departs" names NO column, so per STEP 1F the label is KEPT, joined with
+": ", and the whole line stays in about. "Day 1"/"Day 2" name itinerary, each
+day's label kept. The fitness sentence sits under Day 2 but carries no time,
+stop or step -- it FAILS the line test and moves to about, recorded in flags.
+It mentions fitness, but no restrictions heading licensed that field, and
+routing it there by meaning is exactly what this prompt forbids.)
+
+========================================
+END OF SYSTEM_PROMPT_RZ_DESC_V1_2
