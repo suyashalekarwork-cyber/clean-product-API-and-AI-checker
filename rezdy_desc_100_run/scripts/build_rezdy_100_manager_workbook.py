@@ -23,6 +23,7 @@ supplier text, and Excel truncates cells over 32,767 characters. Both handled in
 clean().
 """
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -44,8 +45,13 @@ from build_rezdy_desc_prompt import COLUMNS                   # noqa: E402
 from build_rezdy_desc_100_issues import audit                 # noqa: E402
 from build_rezdy_desc_100_raw_vs_extracted import LABEL, retention  # noqa: E402
 
-OUT = ROOT / "exports" / "rezdy_100_manager_review.xlsx"
-OUTPUT = T / "rezdy_desc_100_output.jsonl"
+# RZ_TAG names which run this workbook shows. A manager opening a file
+# labelled "current" and seeing superseded numbers is worse than no file.
+_TAG = os.environ.get("RZ_TAG", "rzd1")
+_SFX = "" if _TAG == "rzd1" else f"_{_TAG}"
+_PROMPT = {"rzd1": "V1", "rzd12": "V1.2"}.get(_TAG, _TAG)
+OUT = ROOT / "exports" / f"rezdy_100_manager_review{_SFX}.xlsx"
+OUTPUT = T / f"rezdy_desc_100_output{_SFX}.jsonl"
 PRODUCTS = T / "rezdy_desc_100_products.json"
 
 CONTENT = [c for c in COLUMNS if c != "redo_flags"]
@@ -96,7 +102,7 @@ def load():
 def summary(wb, rows):
     ws = wb.create_sheet("Summary", 0)
     ws.sheet_view.showGridLines = False
-    ws["A1"] = "Rezdy description extraction — 100 product review"
+    ws["A1"] = f"Rezdy description extraction — 100 product review ({_PROMPT})"
     ws["A1"].font = Font(bold=True, size=16, color="1F3864")
     ws["A2"] = ("The 100 hardest products in the Rezdy catalogue, 16–55 headings "
                 "each. Deliberately the difficult end: if it works here it will "

@@ -1,0 +1,961 @@
+==============================================================================
+REZDY ROUND 1 -- DESCRIPTION EXTRACTION, PER-PRODUCT ISSUE LIST
+==============================================================================
+
+Products         : 100  (the 100 HARDEST in the catalogue --
+                   16-55 headings each, up to 2,881 words. The typical
+                   Rezdy product is far simpler, so every rate below is
+                   the PESSIMISTIC end, not what the catalogue will do.)
+Prompt           : SYSTEM_PROMPT_RZ_DESC_V1
+Clean (no finding): 44 / 100
+
+READ THIS BEFORE QUOTING ANY NUMBER
+------------------------------------------------------------------------------
+This is a NOMINATION LIST, not a defect count. On the Fareharbor side the
+equivalent detectors over-reported roughly 3x before their guards were
+added, and even now a finding is only confirmed once a human has read the
+supplier's raw text. Treat every line as CANDIDATE until checked.
+
+HAND-VERIFIED SAMPLE -- what survived reading the raw text
+------------------------------------------------------------------------------
+A sample of findings was checked line by line against the supplier's own
+text before this report was published. Results:
+
+  URL LOST      5 of 5 CONFIRMED REAL. Four are one product (PS0MP2, a
+                Chinese-language description with inline Wikipedia links)
+                and one is PF008R (arrowtown.com). A sixth was a FALSE
+                POSITIVE -- PKBUB1's Google Maps link IS in the output;
+                the checker compared URLs exactly and a long URL differed
+                in its tail. Fixed, and the fix is why this reads 5 not 6.
+
+  NO HEADING    ~2 of 6 sampled survived. EXPECT ROUGHLY A THIRD TO BE
+                REAL. This check asks 'did a heading license this fill?'
+                and answers using our stem list -- which cannot name every
+                supplier wording. Confirmed false positives: 'Numbers on
+                the Day' (licenses group_size), 'Session Length'
+                (duration), 'Gift eCards Available' (extras), and a block
+                of FAQ questions used as headings. All four ARE headings;
+                our stems simply do not list them. CLAUDE.md already
+                records that this mapper cannot be completed -- adding
+                patterns for every topic wording is classification by
+                meaning, the thing heading-gating replaced.
+                Genuine examples that DID survive: PQC41U (content under
+                'Meeting Time' went to check_in, not meeting_point) and
+                P4RRV9 (highlights filled with no highlights heading).
+
+  Two detector bugs were found and fixed by this verification, BEFORE
+  publishing: the licensing check used the router (first stem wins), so a
+  compound heading like 'Important Health and Safety Information' licensed
+  important_info and left health_safety reading as unlicensed; and the URL
+  check compared exactly rather than by prefix.
+
+Findings by type
+------------------------------------------------------------------------------
+  NO HEADING          54
+  DUPLICATED          35
+  CONTENT LOSS        19
+  REWORDED            17
+  URL LOST             1
+  MID-SENTENCE         1
+
+What each type means
+------------------------------------------------------------------------------
+  CONTENT LOSS   raw text that reached no field at all. Shown with the
+                 heading it sat under, so it can be put back rather than
+                 merely counted.
+  REWORDED       present, but not word-for-word. The model paraphrased.
+  URL LOST       a link in the raw absent from the output.
+  INVENTED       4+ consecutive output words that appear nowhere in raw.
+  MID-SENTENCE   a field value starting part-way through a sentence.
+  NO HEADING     a field filled when no heading or label names it. This
+                 is the failure heading-gating exists to prevent.
+  DUPLICATED     the same sentence in 2+ fields. Reported, never removed.
+  CONTAMINATION  our own prompt example text appearing in real output.
+
+==============================================================================
+PER PRODUCT -- worst first
+==============================================================================
+
+------------------------------------------------------------------------------
+PUR10W   aphelionwine
+  To Infinity & Aphelion Sydney Wine Dinner
+  18 headings | 1,029 words | 9 of 21 fields filled
+  units checked: 78
+  >> 11 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [NO HEADING] redo_desc_what_included filled but no heading names it
+     [NO HEADING] redo_desc_extras filled but no heading names it
+     [NO HEADING] redo_desc_restrictions filled but no heading names it
+     [NO HEADING] redo_desc_contact filled but no heading names it
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Welkin by Aphelion Sparkling Chenin Blanc 2021
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Aphelion Callow Grenache Blanc 2025
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Aphelion Pir Chenin Blanc 2025
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Aphelion Brini Single Site Grenache 2024
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Aphelion Hickinbotham Single Site Grenache 2024
+     [DUPLICATED] redo_desc_about & redo_desc_extras: Aphelion Wait Single Site Grenache 2024
+  supplier headings: Important Details, To Infinity and Beyond Aphel, On Arrival, Starter, Main, Dessert, Fun, Wine Offers, Each pack will contain, Mixed Dozen ...
+
+------------------------------------------------------------------------------
+PDAZEA   untamedescapes
+  7-Day Explorers Way Adelaide to Alice Springs Accommodated Tour
+  34 headings | 2,129 words | 4 of 21 fields filled
+  units checked: 133
+  >> 7 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [REWORDED] INCLUSIONS: o 5 x nights twin-share room
+     [REWORDED] INCLUSIONS: o 1 x night multi-share dorm
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 1 – Adelaide to Quorn:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 2 – Quorn to Coober Pedy:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 3 – Coober Pedy to Erldunda:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 7 – Uluru to Alice Springs:
+  supplier headings: UNTAMED MOMENTS, INCLUSIONS, TOUR ITINERARY, Day 1 | Adelaide to Quorn (S, Accommodation: ** **Quorn Gr, Distance Travelled: ** Appro, **Day 2 |** Quorn to Coober , **Accommodation:** Coober Pe, Distance Travelled:** Approx, Day 3 | Coober Pedy to Erldu ...
+
+------------------------------------------------------------------------------
+PJCEZZ   untamedescapes
+  7-Day Explorers Way Alice Springs to Adelaide Accommodated Tour
+  32 headings | 2,081 words | 4 of 21 fields filled
+  units checked: 133
+  >> 7 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [REWORDED] INCLUSIONS: o 5 x nights twin-share room
+     [REWORDED] INCLUSIONS: o 1 x night multi-share dorm
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 4 – Kings Canyon to Erldunda:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 5 – Erldunda to Coober Pedy:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 6 – Coober Pedy to Quorn:
+     [DUPLICATED] redo_desc_important_info & redo_desc_itinerary: Day 7 – Quorn to Adelaide (via Clare Valley):
+  supplier headings: UNTAMED MOMENTS, INCLUSIONS, TOUR ITINERARY, Day 1 | Alice Springs, Yular, Accommodation:** Outback Hot, Distance:** Approx. 510 km, Day 2 | Kata Tjuta & Uluru, Accommodation:** Outback Hot, Distance:** Approx. 100 km, Day 3 | Uluru to Kings Canyo ...
+
+------------------------------------------------------------------------------
+PHUG8D   ngaranaboriginalculture
+  Yuin Retreat
+  28 headings | 2,305 words | 13 of 21 fields filled
+  units checked: 114
+  >> 5 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [CONTENT LOSS] Day three: 8 am: Note: This itinerary order and activities may change due to daylight saving and weather conditions.
+     [CONTENT LOSS] Day three: 8 am: This is to enhance the visitor experience by responding and delivering our features to suit each group and time.
+     [CONTENT LOSS] Day three: 8 am: Also please be mindful that due to weather, safety, situational or access restrictions to the Gulaga National Park (option one), we may have to undertake the Djirringanj Dreaming (opt
+     [DUPLICATED] redo_desc_extras & redo_desc_itinerary: To ensure you get the on country experience you want, you can book a private experience, a 30% surcharge per person (see extras) m
+  supplier headings: Yuin Retreat - Two Night- 40, Group sizes-** **Minimum two, Dates- are on request and su, Payments - will not be due o, Yuin Country, Itinerary Features, Day one: 7pm, **Traditional Welcome** - Th, Day two: 6.30am, **Sunrise ceremony** – The d ...
+
+------------------------------------------------------------------------------
+PEVUE4   otaokitchen
+  Online Chinese Dumpling Making Class with Hamper Delivered
+  26 headings | 1,538 words | 8 of 21 fields filled
+  units checked: 88
+  >> 5 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_included filled but no heading names it
+     [NO HEADING] redo_desc_what_to_bring filled but no heading names it
+     [NO HEADING] redo_desc_restrictions filled but no heading names it
+     [CONTENT LOSS] Hayley Tan • Sep 2021: [SUBSCRIBE TO OUR NEWSLETTER ](http://eepurl.com/heDFhj)for special promotions, tasting events, recipes and more!
+     [DUPLICATED] redo_desc_about & redo_desc_cancellation: (https://otaokitchen.com.au/faq/)
+  supplier headings: HIGHLIGHTS, THE MENU, HAMPER CONTENTS, EQUIPMENT NEEDED, SPECIAL DIETARY NOTES, ON THE DAY, HOW WE RUN THE CLASS?, CANCELLATIONS AND CHANGE FOR, LIQUOR LICENSE, REVIEWS ...
+
+------------------------------------------------------------------------------
+PQLMEL   tristaraviation
+  Light Aircraft Training 2 Flight Package (Launceston)
+  22 headings | 687 words | 9 of 21 fields filled
+  units checked: 0
+  >> 5 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_duration_text filled but no heading names it
+     [NO HEADING] redo_group_size filled but no heading names it
+     [DUPLICATED] redo_desc_important_info & redo_desc_restrictions: Please call the flying school if in any doubt.
+     [DUPLICATED] redo_desc_important_info & redo_desc_restrictions: Any cancelled flights will be rescheduled for a later date.
+     [DUPLICATED] redo_desc_highlights & redo_desc_what_included: Two training flights in a light aircraft
+  supplier headings: Highlights, ## Two training flights in a, What's Included?, ## Two training flights in a, Session Length, ## Allow approx 5 hrs for th, Restrictions, ## Due to COVID 19 participa, Guidelines, ## You must be of 15 years o ...
+
+------------------------------------------------------------------------------
+PS0MP2   wildescapestasmania
+  Tasman Peninsula Small-Group Guided Tour & Shore Excursions
+  30 headings | 726 words | 6 of 21 fields filled
+  units checked: 52
+  >> 4 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_included filled but no heading names it
+     [NO HEADING] redo_desc_what_excluded filled but no heading names it
+     [URL LOST] https://zh.wikipedia.org/wiki/%E4%BA%9A%E7%91%9F%E6%B8%AF_(%E5%A1%94%E6%96%AF%E6%9B%BC%E5%B0%BC%E4%BA%9A%E5%B7%9E
+     [CONTENT LOSS] 中文導覽行程: 1830年代初，歐洲人在半島的[亞瑟港](https://zh.wikipedia.org/wiki/%E4%BA%9A%E7%91%9F%E6%B8%AF_(%E5%A1%94%E6%96%AF%E6%9B%BC%E5%B0%BC%E4%BA%9A%E5%B7%9E))建立了第一個居住地。由於它在地理上孤立於其他的殖民地，因此被選為關押犯人的地方，並且相比位於西海岸的另一個關押犯
+  supplier headings: Tasman Peninsula Day Tour, Duration:, 8 hrs (Normal Itinerary), 6-6.5 hrs(Cruise Ships Excur, What is Include, What is Not Include:, Pick Up Point, Prices Wharf to Tasman Penin, Princes Wharf No. 1, Castray, ****Tour starts from 08:30am ...
+
+------------------------------------------------------------------------------
+PPHWME   egobikehire
+  Adelaide Hills Priceless Piccadilly Valley Self-Guided e-Bike Winery Tou
+  19 headings | 1,342 words | 8 of 21 fields filled
+  units checked: 88
+  >> 4 finding(s) -- CANDIDATE, verify against raw text
+     [CONTENT LOSS] Departure Location: Duration:  4 hours
+     [REWORDED] Departure Location: Riding time: 2 hours 2 minutes at a relaxed pace
+     [REWORDED] Departure Location: Suitable for:  Beginner, Naturally fit, casual and seasoned rider
+     [DUPLICATED] redo_desc_about & redo_desc_highlights: The Piccadilly Valley: Skirted with vineyards, orchards market gardens and native bush.
+  supplier headings: Adelaide Hills Priceless Pic, Departure Location, Duration: ** 4 hours, Riding time:** 2 hours 2 min, Distance: ** 24.5km, Meeting Time:** Flexible hou, Suitable for: ** Beginner, N, **We offer quality** touring, **Provided** with each booki, **A mobile phone holder** is ...
+
+------------------------------------------------------------------------------
+PEDP01   ethicaladventures
+  Awaken in the Wild - Litchfield 3 Day - accommodated - PRIVATE CHARTER
+  19 headings | 782 words | 5 of 21 fields filled
+  units checked: 43
+  >> 4 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [NO HEADING] redo_desc_what_excluded filled but no heading names it
+     [NO HEADING] redo_desc_what_to_bring filled but no heading names it
+     [MID-SENTENCE] redo_desc_highlights: tour Features (https://ethicaladventures.rezdy.com/139816/litchfield-wanderer)
+Hikes and activities away from 
+  supplier headings: ‘Awaken in the Wild’, Tour Outline, DAY 1 – DARWIN TO LITCHFIELD, Meet Your Guide and Begin th, Initial Exploration, DAY 2 – Explore some more, Early Start and Light Breakf, Off-the-Beaten-Path Explorat, Educational Insights: Tradit, Challenging Terrain: Hike De ...
+
+------------------------------------------------------------------------------
+P4RRV9   gdayadventuretours
+  Bribie Island 4WD, Kayak, Beach & Bunker tour
+  16 headings | 1,244 words | 2 of 21 fields filled
+  units checked: 65
+  >> 4 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_faqs filled but no heading names it
+     [CONTENT LOSS] 3. Thrilling Outdoor Adventure: FAQs
+     [CONTENT LOSS] Book Your Adventure Today!: Don’t miss out on this chance to experience the best of Bribie Island.
+     [CONTENT LOSS] Book Your Adventure Today!: With the perfect blend of history, adventure, and natural beauty, this tour is one you’ll remember for years to come. Book your Bribie Island National Park 4WD, Kayak, Beac
+  supplier headings: Beach Drive to Norfolk Lagoo, The Kayak Journey, Wildlife at Its Best, Exploring History, A Window Into Wartime Austra, Welsby Lagoon Stop, 1. Immersive Nature Experien, 2. Historical Exploration, 3. Thrilling Outdoor Adventu, What should I bring on the t ...
+
+------------------------------------------------------------------------------
+P0WNXY   rotoruaducktoursone
+  TARAWERA AND LAKES TOUR
+  16 headings | 774 words | 3 of 21 fields filled
+  units checked: 57
+  >> 4 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [NO HEADING] redo_desc_health_safety filled but no heading names it
+     [CONTENT LOSS] no heading: Overview
+     [CONTENT LOSS] Throughout the journey, expert guides offer in-depth commentary on various topics: Scenic Highlights
+  supplier headings: The tour provides rich cultu, Throughout the journey, expe, The tour showcases numerous , To enhance the experience, t, The Eco Tour emphasizes sust
+
+------------------------------------------------------------------------------
+P7LN79   hoponhopoffwinetours
+  Bannockburn Hop on Hop off Wine and Beer Tour
+  38 headings | 2,034 words | 4 of 21 fields filled
+  units checked: 102
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_duration_text filled but no heading names it
+     [CONTENT LOSS] 2. Goldfields Mining Centre: Contact: ( 0800 111 038 ) or ([info@goldfieldsmining.co.nz](mailto:info@goldfieldsmining.co.nz))
+     [REWORDED] 8. Orchard Complex Stop: 10. Stoaker Room (+64 3 445 4841) or ([restaurant@thestoakerroom.co.nz](mailto:restaurant@thestoakerroom.co.nz))
+  supplier headings: Full Day Tour**: 8 Hours (De, **All children 12 and under , **1.Oxbow Adventure Co. (***, Opening times vary depending, HoHo Special: 10% Discount, 2. Goldfields Mining Centre, **Opening Hours: May - Augus, Contact, HoHo Special: 10% Discount., 3. Jones Family Fruit, Wine  ...
+
+------------------------------------------------------------------------------
+PF008R   hoponhopoffwinetours
+  Queenstown Hop on Hop off Wine and Beer Tour
+  30 headings | 834 words | 4 of 21 fields filled
+  units checked: 58
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+     [CONTENT LOSS] Afternoon Tour (half day): Please have a close look at all the stops below as some of them require bookings in advance.
+     [CONTENT LOSS] Afternoon Tour (half day): We have attached all their contact details for you. We always recommend pre booking lunch and some tastings.
+  supplier headings: For Sunday - Friday:, For Saturday:, Full Day Tours, Start Times, Duration, Afternoon Tour (half day), Start Time, Duration, STOPS, 1. Shotover Jet (+64 3 442 8 ...
+
+------------------------------------------------------------------------------
+PS01BF   photographyworkshops
+  X - 2024 - New Zealand Landscapes Photography Tour
+  22 headings | 1,662 words | 4 of 21 fields filled
+  units checked: 88
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_highlights: Mt White Station (https://www.photographyworkshops.co.nz/mt-white/)
+     [DUPLICATED] redo_desc_about & redo_desc_what_included: Mt White Station (https://www.photographyworkshops.co.nz/mt-white/)
+     [DUPLICATED] redo_desc_about & redo_desc_itinerary: Mt White Station (https://www.photographyworkshops.co.nz/mt-white/)
+  supplier headings: HIGHLIGHTS, LOCATION: Christchurch - Auc, ITINERARY, Day 1 Christchurch - Mt Whit, Day 2 - Mt White, Day 3 - Mt White, Day 4 - Mt White - Auckland, Day 5 – Auckland, Day 6 - Auckland - Hokianga, Day 7 – Hokianga - Karikari  ...
+
+------------------------------------------------------------------------------
+PMHFH6   offroadrush
+  Ipswich - V8 Race Buggy - 10 Drive Laps + 2 Hot Laps
+  22 headings | 646 words | 8 of 21 fields filled
+  units checked: 38
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_duration_text filled but no heading names it
+     [NO HEADING] redo_desc_restrictions filled but no heading names it
+     [NO HEADING] redo_meeting_point filled but no heading names it
+  supplier headings: The Experience, Throughout the experience, y, Guidelines, Venue, Off Road Rush Pty Ltd – Ipsw, Session Length, Session times, What to Wear, Weather, Participant Changes ...
+
+------------------------------------------------------------------------------
+P2LEB0   otaokitchen
+  Online Japanese Ramen Cooking Class with Hamper Delivered
+  18 headings | 1,213 words | 7 of 21 fields filled
+  units checked: 78
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_included filled but no heading names it
+     [NO HEADING] redo_desc_what_to_bring filled but no heading names it
+     [NO HEADING] redo_desc_restrictions filled but no heading names it
+  supplier headings: HIGHLIGHTS, THE MENU, HAMPER CONTENTS, DELIVERY AND UNPACK THE KITS, WHAT DO I BRING?, EQUIPMENT NEEDED, SPECIAL DIETARY NOTES, ON THE DAY, HOW DO WE RUN THE CLASS?, CANCELLATIONS AND CHANGE FOR ...
+
+------------------------------------------------------------------------------
+PQCP4H   theapertureclub
+  Autumn Colours of Blue Mountains 2026
+  17 headings | 1,459 words | 10 of 21 fields filled
+  units checked: 96
+  >> 3 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+     [CONTENT LOSS] A TYPICAL DAY: Of course we can change the schedule to suit conditions and if we find an absolutely 'must photograph' place that we can't resist!
+     [REWORDED] LOCATION: Mount Victoria including Mount Wilson: PREREQUISITES: BEGINNERS TO ADVANCED To join this workshop you should have some basic camera handling.
+  supplier headings: AUTUMN COLOURS PHOTOGRAPHY W, **TOTAL INVESTMENT**: $2200 , LEARN HOW TO CAPTURE THE COL, WHY THE APERTURE CLUB?, ACCOMODATION, INVESTMENT, **Cost $22000** Includes acc, Deposit $450 ** to secure yo, WORKSHOP FORMAT, DATE**: 28, 29 30 April 1 Ma ...
+
+------------------------------------------------------------------------------
+P1YNVU   viatravel
+  Sydney to Cairns - 14 Day Boutique Tour
+  45 headings | 1,698 words | 3 of 21 fields filled
+  units checked: 111
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [REWORDED] Included Meals: Accommodation – [Mission Beach Resort](https://www.missionbeachresort.com.au/?utm_source=google_yext&utm_medium=organic&utm_campaign=book-a-table)
+     [DUPLICATED] redo_desc_what_included & redo_desc_itinerary: Great Barrier Reef day cruise including snorkelling & glass bottom boat
+  supplier headings: Sydney to Cairns – 14 Day Bo, Included, Full Itinerary, Day 1: Sydney, Included Activities, Included Meals, **Accommodation** – [Holiday, Day 2: Hunter Valley and New, Included Activities, Included Meals ...
+
+------------------------------------------------------------------------------
+PCC2FP   nttopadventures
+  8 DAY DARWIN TO ULURU
+  25 headings | 923 words | 3 of 21 fields filled
+  units checked: 60
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_important_info filled but no heading names it
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+  supplier headings: Private | Fully personalised, Accommodation not included**, Fogg Dam Conservation Reserv, Optional: Adelaide River Cro, Ubirr Rock Art & Lookout, Nourlangie (Burrungkuy), Yellow Water Sunrise Cruise, The perfect way to experienc, Maguk (Barramundi Gorge)** (, Edith Falls (Leliyn), Nitmil ...
+
+------------------------------------------------------------------------------
+PYSD1R   cheekykeatours
+  14 Day South Island Grand Adventure Tour (Small Group, Carbon Neutral)
+  24 headings | 2,341 words | 4 of 21 fields filled
+  units checked: 252
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [CONTENT LOSS] Inclusions: adventure one to remember. With comfortable and specially designed vehicles,
+     [REWORDED] Day 7: Wanaka to Franz Josef: its origins high up in the Southern Alps and descends into the native
+  supplier headings: Highlights, Itinerary, Day 1: Christchurch to Akaro, Christchurch** – We start ou, Akaroa** – Through to Akaroa, Day 2: Akaroa to Mt Cook Via, Akaroa** – Make sure you fue, Fairlie Bakehouse** - Quick , Geraldine** – Before, Lake Tekapo** -Along the ...
+
+------------------------------------------------------------------------------
+PNPCE4   adventureconnectionsaustraliaptyltd
+  Family Kayak Adventure in Collie
+  20 headings | 563 words | 5 of 21 fields filled
+  units checked: 39
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+     [NO HEADING] redo_desc_pricing filled but no heading names it
+  supplier headings: Family Kayak Adventure in Co, Kayaking on the Collie River, Adults:** $79 | **Kids (9–14, What to Expect, Fun, Safe and Easy Kayaking, Family-Friendly Paddling, Swim, Splash and Play, Nature Discovery, Choose Your Session, Morning:** Fresh air and gen ...
+
+------------------------------------------------------------------------------
+PQC41U   egobikehire
+  Adelaide Hills Nature Highlights  Self-Guided e-Bike Tour
+  19 headings | 931 words | 9 of 21 fields filled
+  units checked: 64
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [CONTENT LOSS] Departure Location: Duration:  4 hours (approx.)
+     [REWORDED] Departure Location: Riding time: 1 hour 30 minutes at a relaxed pace
+  supplier headings: Adelaide Hills Nature Highli, Departure Location, Duration: ** 4 hours (approx, Riding time:** 1 hour 30 min, Distance: ** 17.3km, Meeting Time:** Flexible hou, Suitable for: ** Naturally f, Highlights, Highlights on Route, Uraidla Republic Bakery & Br ...
+
+------------------------------------------------------------------------------
+PB5S7C   barossaoutdoors
+  SINGLE KAYAK HIRE - up to 2 hours
+  19 headings | 498 words | 8 of 21 fields filled
+  units checked: 27
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_extras filled but no heading names it
+     [NO HEADING] redo_desc_pricing filled but no heading names it
+  supplier headings: PRE-BOOKING ESSENTIAL, Important - Online Pre-Check, ## Please note in the intere, Pre-Check In/waiver as soon , ## Accurate weights and info, ## A Check In Form MUST be c, Please follow the link to pr, ## [CHECK IN FORM](https://w, Kayak and equipment hire - u, **Junior kayak** - suitable  ...
+
+------------------------------------------------------------------------------
+P7CC1G   koshertoursandtravel
+  Wellington Jewish Heritage Tour
+  18 headings | 1,083 words | 2 of 21 fields filled
+  units checked: 48
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_what_included: Visit the burial sites of the first settlers, Lipman Levy and Solomon Levy.
+     [DUPLICATED] redo_desc_about & redo_desc_what_included: A perfect way to get your bearings and take in the full sweep of the capital.
+  supplier headings: YOUR ** **JEWISH HERITAGE EX, **Full-day tour (6 hours). K, Sexton’s Cottage, Bolton Street Cemetery, Holocaust Centre — “My Origi, Jewish Community Centre and , Kosher Lunch, Sample menu, Parliament Grounds and The B, Mount Victoria Lookout ...
+
+------------------------------------------------------------------------------
+PJMWN3   aiptravel
+  Half Day Island Boat Cruise
+  18 headings | 800 words | 5 of 21 fields filled
+  units checked: 53
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_group_size filled but no heading names it
+     [REWORDED] Book Your Outer Reef Experience: Group Size & Capacity To ensure a premium experience, our group sizes are strictly managed.
+  supplier headings: Explore the Outer Great Barr, Why the Outer Great Barrier , This distance creates someth, A More Immersive Reef Experi, During your expedition, you , Iconic Outer Reef Locations, Osprey Reef, Ribbon Reefs (Reefs 3–10), Bougainville Reef System, Agincourt Reefs ...
+
+------------------------------------------------------------------------------
+PGV1B6   adventuredaytrips
+  6 Hours Welcome to Brisbane Private Tours - Our Top Picks
+  17 headings | 769 words | 8 of 21 fields filled
+  units checked: 46
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+     [NO HEADING] redo_desc_contact filled but no heading names it
+  supplier headings: Overview, Best of Queensland Experienc, Google Review ★★★★★ 5.0 (78), **Price** | From A$118 per p, **Vehicle** | 1-3 guests: Lu, Time** | Morning, Afternoon,, Duration** | approx. 6 hrs, Destinations, **⚲ Pick-up at your preferre, ⚲ 1. Mt. Coot-Tha ...
+
+------------------------------------------------------------------------------
+PZVPEU   theapertureclub
+  5-Day South Coast Seascapes Photography Workshop
+  16 headings | 1,496 words | 7 of 21 fields filled
+  units checked: 121
+  >> 2 finding(s) -- CANDIDATE, verify against raw text
+     [REWORDED] WORKSHOP FORMAT: GETTING THERE By Car:  From northern, central and southern Sydney, drive to Narooma via Wollongong and Nowra.
+     [REWORDED] OTHER WORKSHOPS OFFERED BY THE APERTURE CLUB: The Aperture Club Team
+  supplier headings: PLEASE NOTE, LESSON TOPICS, WORKSHOP FORMAT, **DATES: ** 23rd - 27th Nov , **LOCATION: ** We will be ba, **GROUP SIZE**: Minimum 3 - , **TOUR INVESTMENT: ** $1,595, **GETTING THERE** **By Car: , **By Bus: ** The Premier Tra, **ACCOMMODATION: ** Accommod ...
+
+------------------------------------------------------------------------------
+PEPGXL   connectaussietours
+  Great Ocean Road Tour and VIP Wildlife Experience
+  55 headings | 466 words | 2 of 21 fields filled
+  units checked: 5
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+  supplier headings: ## **Stop 1: Guaranteed Aust, INCLUSION:, 停靠点 1：澳大利亚野生动物保证互动体验 – 仅此一家, 您的一天从别具一格的体验开始——这是大洋路上其他任何旅行, 一次有保证的、可亲手接触的真实澳大利亚野生动物互动。, 您将在持证指导员的监督下，亲自抚摸并与考拉合影。, 其他旅行团也许承诺“有机会看到野生动物”，, 但我们能 保证 您一定见到。, 无需远远观望或碰运气——, 在安格尔西 Akuna 的私人室内场地中， ...
+
+------------------------------------------------------------------------------
+PWLAK8   viatravel
+  Best Of The East Coast – 16 Day Boutique Tour
+  52 headings | 2,113 words | 3 of 21 fields filled
+  units checked: 138
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_what_included & redo_desc_itinerary: Great Barrier Reef day cruise including snorkelling & glass bottom boat
+  supplier headings: Best of East Coast Australia, Included, Full Itinerary, Day 1: Sydney, Included Activities, Included Meals, **Accommodation** – [Holiday, Day 2: Hunter Valley and New, Included Activities, Included Meals ...
+
+------------------------------------------------------------------------------
+PBLXXJ   bearbrasstours
+  AUSTRALIAN RULES FOOTBALL - AFL with a local host
+  48 headings | 1,538 words | 2 of 21 fields filled
+  units checked: 165
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_important_info: Prices do not include vehicle transfers, if required.
+  supplier headings: HOSTED AUSTRALIAN RULES FOOT, **2024 AFL Season Fixture - , **This package can be booked, **Please contact us at least, Key to venues, ******Denotes a Premium matc, Opening Round, Round 1, Round 2, Round 3 ...
+
+------------------------------------------------------------------------------
+P1CL35   barossahelicopters
+  Barossa Valley Behind the Scenes Winery and Vineyard Experience at Kies 
+  37 headings | 586 words | 8 of 21 fields filled
+  units checked: 0
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_group_size filled but no heading names it
+  supplier headings: ## Nestled in the picturesqu, ​, ## Take in breathtaking view, ​, ## The Kies family landed in, ## Allow a member of the Kie, ## Kies Family Wines built a, ## Immerse yourself in true , ## All wines tasted are sing, ​ ...
+
+------------------------------------------------------------------------------
+PVV63Z   saecotours
+  10-Day Eyre Peninsula & West Coast 4WD Eco Safari (Private Charter)
+  32 headings | 582 words | 4 of 21 fields filled
+  units checked: 70
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [REWORDED] Please note: Printable itinerary: [click here to view](https://saecotours.com.au/brochure/eyre-peninsula-10-day-eco-safari.pdf)
+  supplier headings: HIGHLIGHTS, DAY 1, Overnight Accommodation:, Meals:, DAY 2, Overnight Accommodation:, Meals:, DAY 3, Overnight Accommodation:, Meals: ...
+
+------------------------------------------------------------------------------
+PKQ8SH   saecotours
+  10-Day Great West Coast & Outback South Australia Small Group 4WD/ATV Ec
+  31 headings | 1,395 words | 3 of 21 fields filled
+  units checked: 95
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [REWORDED] Please note: Printable itinerary: [click here to view](https://saecotours.com.au/wp-content/uploads/2025/10/SA-Eco-Tours-Great-West-Coast-and-Outback-10-Day-Eco-Safari.pdf)
+  supplier headings: HIGHLIGHTS, DAY 1, Overnight Accommodation:, Meals:** (L) Lunch at a bake, DAY 2, Overnight Accommodation:, **Meals:** (B) A fully cooke, DAY 3, Overnight Accommodation:, Meals:** (B) Breakfast at ou ...
+
+------------------------------------------------------------------------------
+PBTBKL   luxuryoutbacktour
+  Ningaloo Reef, Monkey Mia, Exmouth 7-Day Tour
+  30 headings | 1,926 words | 5 of 21 fields filled
+  units checked: 239
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [REWORDED] As we: ospreys, ocean fish that have become locked in by tides and or cyclones.
+  supplier headings: Day 1 – Perth to Kalbarri, Pinnacles, Geraldton, Pink H, Accommodation, Day 2 – Kalbarri, Kalbarri to Monkey Mia Dolph, **Kalbarri Skywalk, Shark Ba, Accommodation: ** Monkey Mia, Day 3 – Monkey Mia to Carnar, Three-hour Dolphin Cruise, C, Fact ...
+
+------------------------------------------------------------------------------
+PBWZY2   viatravel
+  Brisbane to Daintree Rainforest - 9 Day Boutique Tour
+  29 headings | 1,225 words | 3 of 21 fields filled
+  units checked: 91
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_what_included & redo_desc_itinerary: Great Barrier Reef day cruise including snorkelling & glass bottom boat
+  supplier headings: Brisbane to Daintree Rainfor, Included, Full Itinerary, Day 1: Brisbane, Included Activities, Accommodation** – [The Point, Day 2: Brisbane to Airlie Be, Included Activities, Included Meals, **Accommodation** – [Mantra  ...
+
+------------------------------------------------------------------------------
+P00YPY   rovinglardermanlycookingschool
+  Tuscan Reverie of Fresh Pasta
+  26 headings | 806 words | 4 of 21 fields filled
+  units checked: 0
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: A TUSCAN REVERIE OF FRESH PA, Winter Warmers Edition, ## Cold outside. Inside? Fre, WHY YOU’LL LOVE IT, ## This is the kind of winte, HANDS-ON COOKING & DINING EX, ## This is not a cooking dem, ITINERARY, ## Please arrive **15 minute, TECHNIQUES YOU’LL LEARN ...
+
+------------------------------------------------------------------------------
+P7RYNW   wildescapestasmania
+  Bruny Island Small-Group Guided Tour
+  26 headings | 605 words | 7 of 21 fields filled
+  units checked: 39
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: Bruny Island Day Tour, Duration: 8 hrs, What To Expect:, ****Pick up**** Princes Whar, Itinerary, Bruny Island Ferry, Get Shucked/ Bruny Island Oy, Bruny Island Cheese Company, The Neck, South Bruny National Park ...
+
+------------------------------------------------------------------------------
+PJAK8R   skyroadtrail
+  Kimberley Nulla Nulla 4WD Camping Safari Tour
+  25 headings | 1,184 words | 7 of 21 fields filled
+  units checked: 88
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_to_bring filled but no heading names it
+  supplier headings: TOUR REGION, TOUR TYPE, ALTERNATIVE TOUR, DURATION, TOUR STAGES, TOUR HIGHLIGHTS AND AUTHENTI, INTRODUCING, ITINERARY, EQUIPMENT, What Equipment will we be ta ...
+
+------------------------------------------------------------------------------
+PT8TLG   skyroadtrail
+  Kimberley Nulla Nulla 4WD Camping Safari Tour
+  25 headings | 1,184 words | 9 of 21 fields filled
+  units checked: 88
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_to_bring filled but no heading names it
+  supplier headings: TOUR REGION, TOUR TYPE, ALTERNATIVE TOUR, DURATION, TOUR STAGES, TOUR HIGHLIGHTS AND AUTHENTI, INTRODUCING, ITINERARY, EQUIPMENT, What Equipment will we be ta ...
+
+------------------------------------------------------------------------------
+PYGCD0   photographyworkshops
+  X -2026 - Ultimate New Zealand Photography Tour
+  23 headings | 1,881 words | 4 of 21 fields filled
+  units checked: 91
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_highlights & redo_desc_what_included: 2 night cruise on Doubtful Sound
+  supplier headings: HIGHLIGHTS, QUEENSTOWN - QUEENSTOWN, I****TINERARY, Day 1 – Queenstown - Wanaka, Day 2 – Nevis Valley, Day 3 – Central Otago, Day 4 – Wanaka - Queenstown, Day 5 – Queenstown, Day 6 – Queenstown - Milford, Day 7 – Milford Sound - Te A ...
+
+------------------------------------------------------------------------------
+PJZBNW   chameleontravelshop82
+  Perth Walking Tour
+  23 headings | 196 words | 2 of 21 fields filled
+  units checked: 7
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_duration_text filled but no heading names it
+  supplier headings: You will then learn about th, Languages
+
+------------------------------------------------------------------------------
+PZXFYS   untamedescapes
+  10-Day Adelaide to Perth Adventure Tour
+  22 headings | 2,683 words | 5 of 21 fields filled
+  units checked: 137
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: UNTAMED MOMENTS, INCLUSIONS, ITINERARY, Day 1 | Adelaide to Mount Re, One of those places that qui, Accommodation:** Swag campin, Meals Included:** Dinner, Distance Travelled:** Approx, Day 2 | Mount Remarkable to , " A simple lunch that direct ...
+
+------------------------------------------------------------------------------
+PT1CFA   pineappletours
+  Currumbin Wildlife Sanctuary - Southern Gold Coast  - Hop on Hop off Shu
+  22 headings | 691 words | 2 of 21 fields filled
+  units checked: 50
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: Create Your Own Adventure: S, How It Works, Featured Attractions, Currumbin Wildlife Sanctuary, Discover Australian Wildlife, Jellurgal Aboriginal Cultura, Immerse in Indigenous Cultur, Burleigh Heads National Park, Nature’s Coastal Gem, Tropical Fruit World ...
+
+------------------------------------------------------------------------------
+PCXTA6   gltg-perth-autopia-tours
+  Autopia Tours: Perth to Exmouth Explorer 7 Day Original Tour (Private Do
+  21 headings | 2,242 words | 10 of 21 fields filled
+  units checked: 114
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_restrictions: Children aged between 6 to 17 years old, must be accompanied by an adult or legal guardian at all times.
+  supplier headings: TOUR CODE: ** PXR7-S --- Pri, OPERATES:** Fridays (weekly), TOUR DURATION:** 7 Days / 6 , MAIN PICKUP LOCATION & TIME:, HIGHLIGHTS:, ITINERARY:, Day 1: Perth - Kalbarri, Meals, Accomm, Driving Distance ...
+
+------------------------------------------------------------------------------
+PZN7XD   gltg-perth-autopia-tours
+  Autopia Tours: Perth to Exmouth Explorer 7 Day Original Tour (Private Si
+  21 headings | 2,223 words | 10 of 21 fields filled
+  units checked: 115
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_restrictions: Not suitable for children 17 years and under.
+  supplier headings: TOUR CODE: ** PXR7-P --- Pri, OPERATES:** Fridays (weekly), TOUR DURATION:** 7 Days / 6 , MAIN PICKUP LOCATION & TIME:, HIGHLIGHTS:, ITINERARY:, Day 1: Perth - Kalbarri, Meals, Accomm, Driving Distance ...
+
+------------------------------------------------------------------------------
+PTJ0EC   photographyworkshops
+  X - 2024 - Ultimate New Zealand Photo Tour
+  21 headings | 1,882 words | 4 of 21 fields filled
+  units checked: 91
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_highlights & redo_desc_what_included: 2 night cruise on Doubtful Sound
+  supplier headings: HIGHLIGHTS, QUEENSTOWN - QUEENSTOWN, I****TINERARY, Day 1 – Queenstown - Wanaka, Day 2 – Nevis Valley, Day 3 – Central Otago, Day 4 – Wanaka, Day 5 – Queenstown, Day 6 – Queenstown - Mt Cook, Day 7 – Aoraki/Mt Cook ...
+
+------------------------------------------------------------------------------
+PFR1SX   luxuryoutbacktour
+  Seven Day Tour Margaret River, Pemberton, Albany, Wave Rock
+  21 headings | 1,736 words | 2 of 21 fields filled
+  units checked: 105
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_itinerary filled but no heading names it
+  supplier headings: Includes, Meals, Breakfast, Lunches, Entry Fees, National Parks
+
+------------------------------------------------------------------------------
+P3BP4H   rovinglardermanlycookingschool
+  Handcrafted Gnocchi from Sicily
+  20 headings | 731 words | 4 of 21 fields filled
+  units checked: 65
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: HANDCRAFTED GNOCCHIItalian C, Winter Warmers Edition, **Handcrafted Gnocchi** is R, WHY YOU’LL LOVE IT, HANDS-ON COOKING & DINING EX, WHAT YOU’LL COOK, Starter, Arancini with Bocconcini & T, Main, Handcrafted Gnocchi with Lem ...
+
+------------------------------------------------------------------------------
+PVYU4M   rovinglardermanlycookingschool
+  With Love From Paris
+  19 headings | 805 words | 5 of 21 fields filled
+  units checked: 65
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_highlights filled but no heading names it
+  supplier headings: WITH LOVE FROM PARISFrench C, Winter Warmers Edition, **With Love from Paris** is , WHY YOU’LL LOVE IT, HANDS-ON COOKING & DINING EX, ITINERARY, TECHNIQUES YOU’LL LEARN, During this French Cook & Di, SAMPLE MENU, Main ...
+
+------------------------------------------------------------------------------
+PYHS2B   poseidonadventure
+  Brisbane River Jet Ski Tour
+  18 headings | 933 words | 9 of 21 fields filled
+  units checked: 59
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_about & redo_desc_contact: We’ll do our best to accommodate your schedule.
+  supplier headings: English, Price:, What to Expect, Your Voyage, Cultural & Historical Notes, Flexible Pace & Photo Stops, Please Note, Brisbane Forecast:** https:/, Medical Conditions & Fitness, What to Bring ...
+
+------------------------------------------------------------------------------
+PQXVJF   barossaoutdoors
+  DOUBLE KAYAK HIRE- up to 2 hours
+  18 headings | 445 words | 6 of 21 fields filled
+  units checked: 24
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_faqs filled but no heading names it
+  supplier headings: PRE-BOOKING ESSENTIAL, Important - Pre-Check In pro, ## Please note in the intere, Pre-Check In/waiver as soon , ## Accurate weights and info, ## A Check In Form MUST be c, Please follow the link to pr, ## [CHECK IN FORM](https://w, Kayak and equipment hire - u, Single kayak** - suitable fo ...
+
+------------------------------------------------------------------------------
+PG0UJ0   melbourneaustraliatourscom
+  3 days 2 nights Melbourne Package tour
+  17 headings | 1,321 words | 1 of 21 fields filled
+  units checked: 78
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [CONTENT LOSS] Overnight Stay: After breakfast at hotel we depart about 12 pm
+  supplier headings: Day 1:** (L), Melbourne, Beaches of Great ocean road, Memorial Arch (Eastern View), Kennett River, Apollo Bay, Otway’s Rainforest, 12 Apostles, Loch Ard Gorge, London Bridge and Colac ...
+
+------------------------------------------------------------------------------
+PGKMXJ   thehinterlandcollection
+  Valentine’s Picnic Day at Elysian Hills
+  17 headings | 516 words | 3 of 21 fields filled
+  units checked: 50
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [CONTENT LOSS] Optional Enhancements & Experiences: Transform your picnic into a full romantic or celebratory escape with our optional add-ons, designed to extend the experience beyond the picnic itself.
+  supplier headings: Event Details, Date, Time, Price, Group Size, What’s Included, Grazing Box, Each group receives a grazin, Included Drink, Choose one of the following  ...
+
+------------------------------------------------------------------------------
+PYXCCK   cape2camp
+  Cape2Camp End to End 7 Days
+  16 headings | 1,057 words | 7 of 21 fields filled
+  units checked: 55
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_what_included filled but no heading names it
+  supplier headings: 7 Days, 6 Nights, 135 km of , Day 1: Cape Naturaliste to Y, Day 2: Yallingup to Moses Ro, Day 3: Moses Rock to Graceto, Day 4: Gracetown to Prevelly, Day 5: Prevelly to Conto (19, Day 6: Conto to Hamelin Bay , Day 7: Hamelin Bay to Cape L, Packing List, Safety First ...
+
+------------------------------------------------------------------------------
+P70YXP   pineappletours
+  Tamborine Mountain - Hop On Hop Off + Glow Worms & Rainforest Skywalk - 
+  16 headings | 1,052 words | 6 of 21 fields filled
+  units checked: 76
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [DUPLICATED] redo_desc_highlights & redo_desc_what_included: Unlimited Hop On Hop Off access on Tamborine Mountain
+  supplier headings: Highlights, Inclusions, Exclusions, Itinerary / Itinerary Descri, Pickup & Departure from the , Gold Coast Pickup Schedule:, Note, Hop On, Hop Off Freedom, Glow Worm Caves, Rainforest Skywalk ...
+
+------------------------------------------------------------------------------
+P1BEM7   unwindtours31
+  Swan Valley Wine Tours
+  16 headings | 972 words | 4 of 21 fields filled
+  units checked: 18
+  >> 1 finding(s) -- CANDIDATE, verify against raw text
+     [NO HEADING] redo_desc_pricing filled but no heading names it
+  supplier headings: :, ## **Unwind Tours presents: , ## **?️ Gourmet Lunch** Indu, ## ? Exclusive Gift for Grou, ## **Cheese Board** – $20 Ad, ## **$175 per person** Inclu, ## **Departure Time**: 10:30, ## Comfortable walking shoes, ## We’re not just tour guide, ## **Unwind Tours presents:  ...
+
+------------------------------------------------------------------------------
+PATGNR   skyroadtrail
+  NORTHERN RIVERS HIKING ODYSSEY - Full Pack Hike and Day Pack Hikes
+  52 headings | 605 words | 3 of 21 fields filled
+  units checked: 0
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PVFNZS   want-tours
+  19 Days Perth - Darwin Tour with 4 UNESCO World Heritage Sites
+  40 headings | 2,766 words | 5 of 21 fields filled
+  units checked: 133
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PBWS0N   hoponhopoffwinetours
+  CRUISE SHIP DAYS - Hop on Hop off - Wine, Beer, Food & Wonders Tour - Ma
+  39 headings | 743 words | 4 of 21 fields filled
+  units checked: 42
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PPCW71   outbackhorizons55
+  15 Day Kimberley Ultimate Camping
+  38 headings | 1,367 words | 2 of 21 fields filled
+  units checked: 74
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PUW953   want-tours
+  17 Days Kununurra – Perth Tour with 3 UNESCO World Heritage Sites
+  36 headings | 2,274 words | 5 of 21 fields filled
+  units checked: 114
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PVWPH2   adventurehorsetrekking
+  Glen Lyon Alpine Horseback Adventure
+  35 headings | 1,298 words | 3 of 21 fields filled
+  units checked: 129
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PAYXFR   beyondbordersexperiences
+  PRIVATE SYDNEY CITY FULL-DAY EXPERIENCE
+  35 headings | 907 words | 2 of 21 fields filled
+  units checked: 48
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PKFTWQ   want-tours
+  23 Days Active Escape
+  34 headings | 2,881 words | 4 of 21 fields filled
+  units checked: 137
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PWQT7Z   tourdevines
+  Tour de Mudgee Cellar Door
+  32 headings | 671 words | 4 of 21 fields filled
+  units checked: 0
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PXY1BL   beyondbordersexperiences
+  PRIVATE SYDNEY CITY HALF-DAY EXPERIENCE
+  31 headings | 814 words | 2 of 21 fields filled
+  units checked: 45
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PGP7L8   puresa
+  Swim with the Giant Cuttlefish
+  30 headings | 1,448 words | 6 of 21 fields filled
+  units checked: 127
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PMUZZL   nttopadventures
+  3 Day Top End. Kakadu Art Kakadu Waterfalls Katherine Gorge Edith Falls
+  29 headings | 820 words | 2 of 21 fields filled
+  units checked: 66
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PKBUB1   luxuryoutbacktour
+  Burringurrah Mount Augustus Dirk Hartog Island 10 Day Tour  2025
+  28 headings | 2,353 words | 2 of 21 fields filled
+  units checked: 248
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PTW3FE   nttopadventures
+  5 DAY TOP END. KAKADU KATHERINE GORGE MATARANKA LITCHFIELD
+  26 headings | 2,529 words | 1 of 21 fields filled
+  units checked: 116
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PS1YDW   beyondbordersexperiences
+  PRIVATE SOUTH COAST FULL-DAY EXPERIENCE
+  25 headings | 893 words | 3 of 21 fields filled
+  units checked: 43
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PHEVWP   poseidonadventure
+  Moreton Bay  Jet Ski Tour (2 hours)
+  23 headings | 1,020 words | 9 of 21 fields filled
+  units checked: 91
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P9GV2Y   brisbanetoyambatours
+  YAMBA TO PACFAIR BROADBEACH- ONE WAY FARE
+  23 headings | 591 words | 2 of 21 fields filled
+  units checked: 26
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PH8D0L   gltg-darwin
+  Wildlife Tours Australia: Uluru Kings Canyon West Mac Outback 4 Day Tour
+  22 headings | 2,490 words | 9 of 21 fields filled
+  units checked: 119
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PFYJ8P   gltg-darwin
+  Wildlife Tours Australia: Uluru Kings Canyon West Mac Outback 4 Day Tour
+  22 headings | 2,480 words | 9 of 21 fields filled
+  units checked: 117
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PNNEKD   gltg-melbourne-sydney
+  Autopia Tours: 16 Day Best of East Coast Australia Comfort Tour from Syd
+  22 headings | 2,114 words | 10 of 21 fields filled
+  units checked: 105
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P69Y90   gltg-melbourne-sydney
+  Autopia Tours: 16 Day Best of East Coast Australia Comfort Tour from Syd
+  22 headings | 2,102 words | 10 of 21 fields filled
+  units checked: 105
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PUFWUT   gltg-melbourne-sydney
+  Autopia Tours: 16 Day Best of East Coast Australia Comfort Tour from Syd
+  22 headings | 2,093 words | 10 of 21 fields filled
+  units checked: 104
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PJWVJ6   barossaoutdoors
+  Fully Guided Kayak Tour
+  22 headings | 664 words | 3 of 21 fields filled
+  units checked: 35
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PYY6RM   wildescapestasmania
+  Wild Escapes Tasmania｜Night Safari & Southern Light
+  22 headings | 496 words | 2 of 21 fields filled
+  units checked: 10
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PD0W0F   gltg-darwin
+  Wildlife Tours Australia: Uluru-Kata Tjuta Kings Canyon 3 Day Camping - 
+  21 headings | 2,333 words | 9 of 21 fields filled
+  units checked: 111
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P0WDC8   farnorthescapes23
+  12-Day 4WD Premium Cape York Tour
+  21 headings | 2,315 words | 1 of 21 fields filled
+  units checked: 0
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PPNU0F   gltg-perth-autopia-tours
+  Autopia Tours: Perth to Exmouth Explorer 7 Day Original Tour (Shared Acc
+  21 headings | 2,236 words | 10 of 21 fields filled
+  units checked: 115
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PWPX11   poseidonadventure
+  Kooringal Jet Ski Tour
+  21 headings | 996 words | 6 of 21 fields filled
+  units checked: 87
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P4PN1R   offroadrush
+  EXCLUSIVE || November 2019 || SCORE INTERNATIONAL BAJA1000 Pre-Run Tour 
+  20 headings | 2,367 words | 6 of 21 fields filled
+  units checked: 0
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PNB4HJ   farnorthescapes23
+  10 Day 4WD Premium Cape York Tour
+  20 headings | 1,654 words | 1 of 21 fields filled
+  units checked: 0
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PQLM1S   theactc
+  9 Night GREAT AUSTRALIAN EXPERIENCE
+  19 headings | 1,510 words | 4 of 21 fields filled
+  units checked: 82
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P1VTG0   theapertureclub
+  Berry 4 Day Photo Retreat 2024
+  19 headings | 959 words | 5 of 21 fields filled
+  units checked: 72
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P7JY1E   pineappletours
+  Groups - Tamborine Mountain Rainforest Skywalk + Glow Worm Cave Tour + W
+  19 headings | 846 words | 2 of 21 fields filled
+  units checked: 34
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PM8U68   theactc
+  11 Night DELUXE AUSTRALIAN TOUR
+  17 headings | 1,708 words | 4 of 21 fields filled
+  units checked: 95
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PYWRUQ   perthscuba
+  PADI Open Water Dive Course - Learn to Dive (Chinese Instructor)
+  17 headings | 746 words | 5 of 21 fields filled
+  units checked: 36
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P7956E   perthscuba
+  PADI Open Water Dive Course - Learn to Dive
+  17 headings | 745 words | 5 of 21 fields filled
+  units checked: 36
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PTKVYY   capetocapetours
+  The Ultimate Margaret River Adventure
+  17 headings | 720 words | 3 of 21 fields filled
+  units checked: 49
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PDNUDX   emurun
+  1 Day Uluru Tour - Start & End in Alice Springs
+  17 headings | 645 words | 5 of 21 fields filled
+  units checked: 39
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PGRR3S   emurun
+  1 Day Uluru Tour - Start & End in Ayers Rock
+  17 headings | 645 words | 5 of 21 fields filled
+  units checked: 39
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PJSFJP   emurun
+  1 Day Uluru Tour - Start Ayers Rock / End Alice Springs
+  17 headings | 645 words | 5 of 21 fields filled
+  units checked: 39
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PWY4P4   melbourneboathire
+  Luxury Private Romantic Dinner Cruise For 2
+  17 headings | 484 words | 2 of 21 fields filled
+  units checked: 27
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+P5F10R   saecotours
+  7-Day Adelaide to Lake Eyre Small Group Eco Tour incl. Flinders Ranges a
+  16 headings | 1,725 words | 3 of 21 fields filled
+  units checked: 100
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PD09RY   outbackhorizons55
+  13 Day Kimberley Accommodated
+  16 headings | 1,313 words | 2 of 21 fields filled
+  units checked: 123
+  >> NO FINDINGS
+
+------------------------------------------------------------------------------
+PEVHQL   egobikehire
+  Adelaide Hills Village to Village e-Bike Easy Self-Guided Tour
+  16 headings | 758 words | 9 of 21 fields filled
+  units checked: 55
+  >> NO FINDINGS

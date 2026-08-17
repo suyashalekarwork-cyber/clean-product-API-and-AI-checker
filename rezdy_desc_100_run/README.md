@@ -243,12 +243,16 @@ this method replaced.
 | `input/rezdy_desc_100_products.json` | The 100 selected products with their heading counts. |
 | `input/products/` | The 100 raw Rezdy API responses, unmodified. |
 | `results/rezdy_desc_100_output.jsonl` | Raw Batch API replies for the V1 run. |
-| `reports/rezdy_desc_100_raw_vs_extracted.txt` | Supplier text and extraction side by side, per product. |
-| `reports/rezdy_desc_100_issues.txt` | Per-product issue list, all 100 including the clean ones. |
+| `reports/rezdy_desc_100_raw_vs_extracted_rzd12.txt` | **V1.2** — supplier text and extraction side by side, per product. |
+| `reports/rezdy_desc_100_issues_rzd12.txt` | **V1.2** — per-product issue list, all 100 including the clean ones. |
+| `reports/rezdy_desc_100_raw_vs_extracted.txt` | The same for V1. |
+| `reports/rezdy_desc_100_issues.txt` | The same for V1. |
+| `reports/rezdy_v1_vs_v1_2_ab.txt` | The A/B between them. |
 | `reports/rezdy_column_definitions.md` | The field list, built from supplier evidence before any prompt was written. |
 | `reports/rezdy_heading_census.md` | The viability study — do Rezdy suppliers write headings at all? |
 | `reports/rezdy_desc_v1_issues.md` | The issue list that produced V1.1 and V1.2. |
-| `rezdy_100_manager_review.xlsx` | **Start here for review** — supplier text and extraction per product. |
+| `rezdy_100_manager_review_rzd12.xlsx` | **Start here for review** — V1.2, the current version. Supplier text and extraction per product. |
+| `rezdy_100_manager_review.xlsx` | The same, for V1 — kept so the two can be compared. |
 | `rezdy_step1_vs_step2_100.xlsx` | Old method vs new, stacked, same 100 products. |
 
 ### Run order
@@ -370,3 +374,34 @@ The third needs a hand-read. One sentence was lost in a product that has nothing
 to do with the fixes — worth watching at 1,000 products, not worth a rule yet.
 
 **V1.2 is the version to scale with.**
+
+
+### Findings, V1 vs V1.2, from the per-product reports
+
+The A/B measured word movement. The issue reports measure something different --
+how many products a reviewer would have to look at -- and the gap is larger:
+
+| | V1 | V1.2 |
+|---|---|---|
+| **Products with no finding at all** | 35 | **44** |
+| Content loss | 82 | **19** |
+| Reworded | 26 | **17** |
+| Filled with no heading | 61 | **54** |
+| Duplicated | 42 | **35** |
+| URLs lost | 5 | **1** |
+| Values starting mid-sentence | 3 | **1** |
+| Products at >=99% retention | 50 | **57** |
+
+**Content-loss findings fell 82 -> 19.** That is the day-block fix seen from a
+different angle: most of those were never text vanishing, they were text landing
+in About where the checker could not reconcile it against the heading it belonged
+under. Put the day back together and the finding disappears with it.
+
+**URLs lost fell 5 -> 1**, which was not a declared fix and is not claimed as
+one. Most likely the same cause -- links inside day blocks survived the move
+better once the block stopped being torn apart -- but it is unexplained and
+recorded as such.
+
+Fill rate barely moved (24.8% -> 24.1%), which is correct: the fixes moved
+content BETWEEN fields, they did not license new ones. The only new filling is
+disclaimers, 0 -> 6.

@@ -17,6 +17,7 @@ make a correct empty look identical to a field nobody thought about -- and the
 whole point of this run is to be able to tell those apart.
 """
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -53,8 +54,13 @@ def retention(conv, fields):
         " ".join(str(v) for k, v in fields.items() if k != "redo_flags")))
     return (100.0 * len(raw_w & out_w) / len(raw_w)) if raw_w else 100.0
 
-OUT = ROOT / "reports" / "rezdy_desc_100_raw_vs_extracted.txt"
-OUTPUT = T / "rezdy_desc_100_output.jsonl"
+# RZ_TAG names which run this report describes. Default "rzd1" = V1.
+_TAG = os.environ.get("RZ_TAG", "rzd1")
+_SFX = "" if _TAG == "rzd1" else f"_{_TAG}"
+OUT = ROOT / "reports" / f"rezdy_desc_100_raw_vs_extracted{_SFX}.txt"
+OUTPUT = T / f"rezdy_desc_100_output{_SFX}.jsonl"
+_PROMPT_NAME = {"rzd1": "SYSTEM_PROMPT_RZ_DESC_V1",
+                "rzd12": "SYSTEM_PROMPT_RZ_DESC_V1_2"}.get(_TAG, _TAG)
 PRODUCTS = T / "rezdy_desc_100_products.json"
 
 CONTENT = [c for c in COLUMNS if c != "redo_flags"]
@@ -127,7 +133,7 @@ def main():
     A("=" * W)
     A("")
     A(f"{len(rows)} products, the HARDEST in the catalogue (16-55 headings each).")
-    A("Prompt: SYSTEM_PROMPT_RZ_DESC_V1")
+    A(f"Prompt: {_PROMPT_NAME}")
     A("")
     A("HOW TO READ A BLOCK")
     A("-" * W)

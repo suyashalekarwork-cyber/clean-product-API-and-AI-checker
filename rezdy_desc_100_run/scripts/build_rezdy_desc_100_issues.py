@@ -47,6 +47,7 @@ added, and even after them the counts are an upper bound until a human reads the
 raw text. The header says so, and per-product findings are labelled CANDIDATE.
 """
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -67,8 +68,11 @@ from build_rezdy_desc_100_batch import SENTINELS                  # noqa: E402
 sys.path.insert(0, str(ROOT / "scripts"))
 from build_rezdy_column_definitions import COLUMN_STEMS, norm      # noqa: E402
 
-OUT = ROOT / "reports" / "rezdy_desc_100_issues.txt"
-OUTPUT = T / "rezdy_desc_100_output.jsonl"
+# RZ_TAG names which run this report describes. Default "rzd1" = V1.
+_TAG = os.environ.get("RZ_TAG", "rzd1")
+_SFX = "" if _TAG == "rzd1" else f"_{_TAG}"
+OUT = ROOT / "reports" / f"rezdy_desc_100_issues{_SFX}.txt"
+OUTPUT = T / f"rezdy_desc_100_output{_SFX}.jsonl"
 PRODUCTS = T / "rezdy_desc_100_products.json"
 
 CONTENT_COLS = [c for c in COLUMNS if c != "redo_flags"]
