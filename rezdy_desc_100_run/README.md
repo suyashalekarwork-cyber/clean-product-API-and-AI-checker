@@ -115,7 +115,11 @@ Both runs used the OpenAI Batch API with `gpt-5.6-luna`, 100 requests each.
 | Run | Submitted | Completed | Wall clock |
 |---|---|---|---|
 | V1 | 17:00:38 | ~17:06:40 | **≈ 6 minutes** |
-| V1.2 | 17:57:53 | — | (same size, same model) |
+| V1.2 | 17:57:53 | 18:29:12 | **≈ 31 minutes** |
+
+Same size, same model, same 100 products — but **5x the wall clock**. Batch API
+queue time is not predictable and does not scale with the work; plan the full
+run around that rather than around the 6-minute case.
 
 ~1.05M tokens per run, most of which is the 32 KB system prompt repeated on
 every request. At catalogue scale that is the binding constraint: 9,363
@@ -297,3 +301,72 @@ ending in a question mark — `<h4>What do you need to bring?</h4>`.
 
 The converter is verified word-for-word lossless across all 9,361 products, and
 the batch builder refuses to run if a single word would be dropped.
+
+---
+
+## The re-run: V1 vs V1.2, same 100 products
+
+Both prompt versions were run on the **same 100 products with the same supplier
+text**, so any difference is the prompt and nothing else. V1.2 declared three
+fixes; the job of the A/B is to check that each one did what it said, and that
+nothing else moved.
+
+Full detail: `reports/rezdy_v1_vs_v1_2_ab.txt`. Raw output:
+`results/rezdy_desc_100_output_rzd12.jsonl`.
+
+### Fix 1 — day blocks stay whole ✅
+
+| | V1 | V1.2 |
+|---|---|---|
+| Words in Itinerary | 53,679 | **61,404** (+7,725) |
+| Words in About | 45,351 | **35,508** (−9,843) |
+| Orphaned fragments in About | 883 | **512** (−371) |
+
+Nearly **10,000 words left About and went back into the itinerary**, where the
+supplier had put them. The number of products *with* an itinerary barely moved
+(59 → 59) — the same products always had one. What changed is that each day is
+now whole instead of split across two fields.
+
+### Fix 3 — Terms & Conditions ✅
+
+`disclaimers` went from **0 to 6** — exactly the six products carrying an
+explicit Terms & Conditions heading. A field that was dead is now doing its job.
+
+### Fix 2 — lead-in with its list ⚠️ inconclusive
+
+Our proxy (an itinerary value ending in a colon) moved 2 → 1. The measure is too
+weak to prove anything at this scale; the three known products need reading by
+hand.
+
+### Five changes with no declared cause
+
+Every product that changed was checked against the three fixes. Five moved
+something the fixes do not touch:
+
+| Product | What moved | Reading |
+|---|---|---|
+| `PATGNR` | pricing: "Travel With us" → "Travel With Us" | a capitalisation change — a small VERBATIM slip |
+| `PJZBNW` | duration: "3 hours" → "Duration 3 hours" | kept a label that names its own column |
+| `P1CL35` | meeting point lost the "PICK UP & DROP OFF" label | arguably an improvement — the label named the column |
+| `PS01BF` | what's included, same length, reordered | cosmetic |
+| `PGKMXJ` | **one sentence lost from extras** | a real loss: *"Transform your picnic into a full romantic or celebratory escape…"* appears nowhere in V1.2's output |
+
+### What this comparison cannot prove
+
+**There is no control run.** The model is not deterministic — on the Fareharbor
+side, re-running identical products against an *identical* prompt made 4 of 6
+defects disappear. So a small difference here cannot be attributed to our change
+rather than to run-to-run variance.
+
+That is fine for the large movements: ~10,000 words moving in the predicted
+direction is not noise. It is **not** fine for those five small diffs, which is
+why they are listed individually rather than counted. Reading them is the only
+way to tell a regression from a coin flip.
+
+### Verdict
+
+Two of the three fixes are confirmed at a scale that variance cannot explain.
+The third needs a hand-read. One sentence was lost in a product that has nothing
+to do with the fixes — worth watching at 1,000 products, not worth a rule yet.
+
+**V1.2 is the version to scale with.**

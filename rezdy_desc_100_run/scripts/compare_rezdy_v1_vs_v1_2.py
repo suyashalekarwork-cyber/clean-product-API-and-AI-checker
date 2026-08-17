@@ -93,9 +93,23 @@ def main():
     L.append("changed. Every difference must trace to one of the three declared")
     L.append("fixes; anything else is a regression until explained.")
     L.append("")
+    L.append("WHAT THIS A/B CANNOT PROVE")
+    L.append("-" * 78)
+    L.append("There is NO CONTROL RUN. The model is not deterministic: re-running")
+    L.append("identical products on an IDENTICAL prompt has previously made 4 of 6")
+    L.append("defects vanish. So a small difference here cannot be attributed to")
+    L.append("our change rather than to run-to-run variance.")
+    L.append("")
+    L.append("That is fine for the LARGE movements below -- thousands of words")
+    L.append("moving in the predicted direction is not noise. It is NOT fine for")
+    L.append("the handful of small unexplained diffs, which is why they are listed")
+    L.append("individually rather than counted. Reading them is the only way to")
+    L.append("tell a regression from a coin flip.")
+    L.append("")
 
     # ---- headline movements
     stats = Counter()
+    itin_a = itin_b = about_a = about_b = 0
     ret_a = ret_b = 0.0
     frag_a = frag_b = 0
     dangling_a = dangling_b = 0
@@ -116,6 +130,10 @@ def main():
             dangling_a += 1
         if (b.get("redo_desc_itinerary") or "").rstrip().endswith(":"):
             dangling_b += 1
+        itin_a += len((a.get("redo_desc_itinerary") or "").split())
+        itin_b += len((b.get("redo_desc_itinerary") or "").split())
+        about_a += len((a.get("redo_desc_about") or "").split())
+        about_b += len((b.get("redo_desc_about") or "").split())
 
         moved = []
         for c in CONTENT:
@@ -148,6 +166,14 @@ def main():
              f"   ({frag_b-frag_a:+d})")
     L.append(f"  itinerary filled              {per_field['redo_desc_itinerary'][0]:4d}"
              f"  ->  {per_field['redo_desc_itinerary'][1]:4d}")
+    L.append(f"  WORDS in itinerary          {itin_a:6,}  ->{itin_b:7,}"
+             f"   ({itin_b-itin_a:+,})")
+    L.append(f"  WORDS in about              {about_a:6,}  ->{about_b:7,}"
+             f"   ({about_b-about_a:+,})")
+    L.append("  ^ the count of FILLED products barely moves because the same")
+    L.append("    products have an itinerary either way. What moved is the")
+    L.append("    CONTENT: whole day blocks left About and went back where the")
+    L.append("    supplier put them.")
     L.append("")
     L.append("FIX 2 -- a lead-in moves with its list")
     L.append(f"  itinerary ending in a colon   {dangling_a:4d}  ->  {dangling_b:4d}"

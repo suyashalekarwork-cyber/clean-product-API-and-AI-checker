@@ -1,0 +1,572 @@
+==============================================================================
+REZDY A/B -- SYSTEM_PROMPT_RZ_DESC_V1  vs  V1_2
+==============================================================================
+
+Same 100 products, same supplier text, only the prompt
+changed. Every difference must trace to one of the three declared
+fixes; anything else is a regression until explained.
+
+WHAT THIS A/B CANNOT PROVE
+------------------------------------------------------------------------------
+There is NO CONTROL RUN. The model is not deterministic: re-running
+identical products on an IDENTICAL prompt has previously made 4 of 6
+defects vanish. So a small difference here cannot be attributed to
+our change rather than to run-to-run variance.
+
+That is fine for the LARGE movements below -- thousands of words
+moving in the predicted direction is not noise. It is NOT fine for
+the handful of small unexplained diffs, which is why they are listed
+individually rather than counted. Reading them is the only way to
+tell a regression from a coin flip.
+
+HEADLINE
+------------------------------------------------------------------------------
+  products identical               2 / 100
+  products changed                98 / 100
+
+  mean retention   V1  98.6%  ->  V1.2  98.8%
+
+FIX 1 -- day blocks stay whole
+  orphaned fragments in About    883  ->   512   (-371)
+  itinerary filled                59  ->    59
+  WORDS in itinerary          53,679  -> 61,404   (+7,725)
+  WORDS in about              45,351  -> 35,508   (-9,843)
+  ^ the count of FILLED products barely moves because the same
+    products have an itinerary either way. What moved is the
+    CONTENT: whole day blocks left About and went back where the
+    supplier put them.
+
+FIX 2 -- a lead-in moves with its list
+  itinerary ending in a colon      2  ->     1   (-1)
+
+FIX 3 -- Terms & Conditions names disclaimers
+  disclaimers filled               0  ->     6
+
+EVERY FIELD, BEFORE AND AFTER
+------------------------------------------------------------------------------
+  field                                 V1   V1.2   diff
+  redo_desc_about                       98     89     -9
+  redo_desc_important_info              45     47     +2
+  redo_desc_highlights                  45     44     -1
+  redo_desc_what_included               67     66     -1
+  redo_desc_what_excluded               28     26     -2
+  redo_desc_extras                      14     10     -4
+  redo_desc_itinerary                   59     59     +0
+  redo_desc_what_to_bring               29     28     -1
+  redo_desc_duration_text               23     24     +1
+  redo_desc_cancellation                 8      8     +0
+  redo_desc_check_in                     9      8     -1
+  redo_desc_accessibility                2      2     +0
+  redo_desc_restrictions                29     26     -3
+  redo_desc_special_requirements         0      0     +0
+  redo_desc_faqs                         7      8     +1
+  redo_desc_pricing                     11     11     +0
+  redo_desc_disclaimers                  0      6     +6
+  redo_desc_health_safety               10     10     +0
+  redo_desc_contact                      8      7     -1
+  redo_meeting_point                    23     23     +0
+  redo_group_size                        5      5     +0
+
+PRODUCTS WHERE NOTHING TRACES TO A DECLARED FIX
+------------------------------------------------------------------------------
+  5 product(s). READ THESE -- a change with no
+  declared cause is a regression until proven otherwise.
+    P1CL35: redo_meeting_point 27w->22w
+    PATGNR: pricing 18w->18w
+    PGKMXJ: extras 228w->212w
+    PJZBNW: duration_text 2w->3w
+    PS01BF: what_included 119w->119w
+
+==============================================================================
+PER PRODUCT -- what moved
+==============================================================================
+
+P00YPY  rovinglardermanlycookingschool  (26 headings)
+    about                      614 ->   407 words
+    highlights                  77 ->   190 words
+
+P0WDC8  farnorthescapes23  (21 headings)
+    about                       70 ->     0 words
+    itinerary                 2249 ->  2319 words
+
+P0WNXY  rotoruaducktoursone  (16 headings)
+    about                      643 ->   672 words
+
+P1BEM7  unwindtours31  (16 headings)
+    about                      545 ->   876 words
+    what_included              246 ->     0 words
+    extras                      56 ->     0 words
+    what_to_bring               30 ->     0 words
+    duration_text                0 ->    12 words
+    redo_meeting_point           0 ->    30 words
+
+P1CL35  barossahelicopters  (37 headings)
+    redo_meeting_point          27 ->    22 words
+
+P1VTG0  theapertureclub  (19 headings)
+    about                      810 ->   804 words
+    important_info              58 ->    58 words
+
+P1YNVU  viatravel  (45 headings)
+    about                      479 ->   107 words
+    itinerary                  985 ->  1408 words
+
+P2LEB0  otaokitchen  (18 headings)
+    about                      756 ->   772 words
+
+P3BP4H  rovinglardermanlycookingschool  (20 headings)
+    about                      498 ->   531 words
+    what_included               39 ->    42 words
+    itinerary                   15 ->     0 words
+
+P4PN1R  offroadrush  (20 headings)
+    about                      435 ->   435 words
+    what_included               64 ->    64 words
+    what_excluded                8 ->     8 words
+    extras                       0 ->    38 words
+    itinerary                 1032 ->   979 words
+
+P4RRV9  gdayadventuretours  (16 headings)
+    about                      802 ->   952 words
+    highlights                 195 ->     0 words
+
+P5F10R  saecotours  (16 headings)
+    about                      565 ->   247 words
+    important_info              95 ->   140 words
+    extras                      31 ->     0 words
+    itinerary                  990 ->  1337 words
+
+P70YXP  pineappletours  (16 headings)
+    about                      499 ->   532 words
+    important_info             196 ->   196 words
+    itinerary                  125 ->   125 words
+
+P7956E  perthscuba  (17 headings)
+    about                      347 ->   427 words
+    restrictions               116 ->    40 words
+
+P7CC1G  koshertoursandtravel  (18 headings)
+    about                     1059 ->   849 words
+    what_included               16 ->   288 words
+
+P7JY1E  pineappletours  (19 headings)
+    about                      813 ->   514 words
+    highlights                   0 ->   295 words
+
+P7LN79  hoponhopoffwinetours  (38 headings)
+    about                     1978 ->  1495 words
+    disclaimers                  0 ->   468 words
+
+P7RYNW  wildescapestasmania  (26 headings)
+    about                      113 ->   113 words
+    what_included                9 ->    10 words
+    what_excluded                7 ->     8 words
+    itinerary                  373 ->   373 words
+    redo_meeting_point          45 ->    45 words
+
+P9GV2Y  brisbanetoyambatours  (23 headings)
+    about                      588 ->   510 words
+    disclaimers                  0 ->    75 words
+
+PATGNR  skyroadtrail  (52 headings)
+    pricing                     18 ->    18 words
+
+PAYXFR  beyondbordersexperiences  (35 headings)
+    about                      832 ->   836 words
+
+PB5S7C  barossaoutdoors  (19 headings)
+    about                      277 ->    93 words
+    important_info             100 ->   100 words
+    extras                       0 ->    21 words
+    pricing                      0 ->    35 words
+    health_safety               67 ->   197 words
+
+PBLXXJ  bearbrasstours  (48 headings)
+    about                     1427 ->  1427 words
+
+PBTBKL  luxuryoutbacktour  (30 headings)
+    about                      601 ->     0 words
+    what_included              125 ->    97 words
+    extras                      26 ->     0 words
+    itinerary                 1007 ->  1679 words
+
+PBWS0N  hoponhopoffwinetours  (39 headings)
+    about                      478 ->   366 words
+    disclaimers                  0 ->   111 words
+
+PBWZY2  viatravel  (29 headings)
+    about                      330 ->    72 words
+    itinerary                  701 ->   984 words
+
+PCC2FP  nttopadventures  (25 headings)
+    about                      139 ->    75 words
+    itinerary                  757 ->   797 words
+
+PCXTA6  gltg-perth-autopia-tours  (21 headings)
+    about                      338 ->   469 words
+    highlights                 132 ->   128 words
+    what_included               81 ->    66 words
+    itinerary                  650 ->   860 words
+
+PD09RY  outbackhorizons55  (16 headings)
+    extras                      12 ->     0 words
+    itinerary                 1271 ->  1283 words
+
+PD0W0F  gltg-darwin  (21 headings)
+    about                      493 ->  1109 words
+    important_info             868 ->    76 words
+    itinerary                  535 ->   769 words
+
+PDAZEA  untamedescapes  (34 headings)
+    about                      393 ->     0 words
+    important_info             208 ->   874 words
+    what_included               25 ->    25 words
+    itinerary                 1096 ->  1096 words
+    check_in                    20 ->     0 words
+    restrictions               177 ->     0 words
+
+PDNUDX  emurun  (17 headings)
+    about                      281 ->   121 words
+    what_included               17 ->    24 words
+    itinerary                  249 ->   373 words
+
+PEDP01  ethicaladventures  (19 headings)
+    about                      659 ->   659 words
+
+PEPGXL  connectaussietours  (55 headings)
+    what_included               93 ->    93 words
+    itinerary                  318 ->   350 words
+
+PEVHQL  egobikehire  (16 headings)
+    about                       22 ->    30 words
+    important_info              45 ->    45 words
+    highlights                 541 ->   541 words
+    duration_text                9 ->     3 words
+
+PEVUE4  otaokitchen  (26 headings)
+    about                     1101 ->  1048 words
+    important_info               0 ->    63 words
+
+PF008R  hoponhopoffwinetours  (30 headings)
+    about                      338 ->   146 words
+    itinerary                  457 ->   481 words
+    duration_text                8 ->    10 words
+    disclaimers                  0 ->   133 words
+
+PFR1SX  luxuryoutbacktour  (21 headings)
+    about                       82 ->     0 words
+    what_included               89 ->    89 words
+    itinerary                 1563 ->  1645 words
+
+PFYJ8P  gltg-darwin  (22 headings)
+    about                      641 ->   520 words
+    itinerary                  880 ->  1001 words
+
+PG0UJ0  melbourneaustraliatourscom  (17 headings)
+    about                      118 ->     0 words
+    what_included               66 ->     0 words
+    extras                      61 ->     0 words
+    itinerary                  937 ->  1299 words
+    pricing                     23 ->     0 words
+    contact                      3 ->     0 words
+
+PGKMXJ  thehinterlandcollection  (17 headings)
+    extras                     228 ->   212 words
+
+PGP7L8  puresa  (30 headings)
+    about                      165 ->   165 words
+    highlights                 104 ->   190 words
+    what_included              110 ->    87 words
+    itinerary                  732 ->   735 words
+
+PGRR3S  emurun  (17 headings)
+    about                      220 ->   121 words
+    itinerary                  274 ->   373 words
+
+PGV1B6  adventuredaytrips  (17 headings)
+    about                      180 ->   167 words
+    important_info              75 ->    77 words
+    itinerary                  404 ->   425 words
+    duration_text                3 ->     5 words
+    pricing                     13 ->    15 words
+    contact                     27 ->    30 words
+
+PH8D0L  gltg-darwin  (22 headings)
+    about                      720 ->   518 words
+    itinerary                  799 ->  1001 words
+    redo_meeting_point          27 ->    27 words
+
+PHEVWP  poseidonadventure  (23 headings)
+    about                      506 ->   512 words
+    important_info             144 ->   147 words
+    restrictions               123 ->   132 words
+    health_safety               29 ->    31 words
+
+PHUG8D  ngaranaboriginalculture  (28 headings)
+    about                     1164 ->   286 words
+    important_info              52 ->    66 words
+    what_included              169 ->   175 words
+    extras                       0 ->    30 words
+    itinerary                  245 ->   518 words
+    cancellation               205 ->   199 words
+    restrictions                11 ->   131 words
+    disclaimers                  0 ->   390 words
+
+PJAK8R  skyroadtrail  (25 headings)
+    about                      593 ->   627 words
+    what_included               45 ->     0 words
+    what_excluded               54 ->     0 words
+    itinerary                  239 ->   279 words
+
+PJCEZZ  untamedescapes  (32 headings)
+    about                      934 ->     0 words
+    important_info               0 ->   931 words
+    what_included               25 ->    25 words
+    itinerary                  997 ->   997 words
+
+PJMWN3  aiptravel  (18 headings)
+    about                      512 ->   486 words
+    important_info              36 ->    62 words
+    restrictions                90 ->    69 words
+    redo_group_size             10 ->    21 words
+
+PJSFJP  emurun  (17 headings)
+    about                      136 ->   104 words
+    highlights                  82 ->    74 words
+    itinerary                  372 ->   390 words
+
+PJWVJ6  barossaoutdoors  (22 headings)
+    about                      114 ->   123 words
+    important_info             444 ->   472 words
+    contact                     13 ->     0 words
+    redo_meeting_point          11 ->     0 words
+    redo_group_size              9 ->     0 words
+
+PJZBNW  chameleontravelshop82  (23 headings)
+    duration_text                2 ->     3 words
+
+PKBUB1  luxuryoutbacktour  (28 headings)
+    itinerary                 2346 ->  2347 words
+
+PKFTWQ  want-tours  (34 headings)
+    about                      212 ->   100 words
+    itinerary                 2386 ->  2498 words
+
+PKQ8SH  saecotours  (31 headings)
+    about                      552 ->     0 words
+    important_info              24 ->    74 words
+    extras                       6 ->     0 words
+    itinerary                  772 ->  1274 words
+
+PM8U68  theactc  (17 headings)
+    about                      406 ->   253 words
+    important_info               6 ->     0 words
+    itinerary                 1106 ->  1270 words
+
+PMHFH6  offroadrush  (22 headings)
+    about                      307 ->   307 words
+    duration_text               28 ->    28 words
+    redo_meeting_point          16 ->    16 words
+
+PMUZZL  nttopadventures  (29 headings)
+    about                      302 ->    78 words
+    itinerary                  467 ->   694 words
+
+PNB4HJ  farnorthescapes23  (20 headings)
+    about                      358 ->     0 words
+    itinerary                 1286 ->  1664 words
+
+PNNEKD  gltg-melbourne-sydney  (22 headings)
+    itinerary                 1322 ->  1344 words
+
+PNPCE4  adventureconnectionsaustraliaptyltd  (20 headings)
+    about                      311 ->   298 words
+    pricing                      0 ->     7 words
+
+PPCW71  outbackhorizons55  (38 headings)
+    about                      216 ->    73 words
+    itinerary                 1136 ->  1279 words
+
+PPHWME  egobikehire  (19 headings)
+    about                     1155 ->  1153 words
+    important_info              45 ->    28 words
+    restrictions                 7 ->    24 words
+
+PPNU0F  gltg-perth-autopia-tours  (21 headings)
+    about                      448 ->   426 words
+    what_excluded               57 ->    57 words
+    itinerary                  860 ->   882 words
+    duration_text                5 ->     7 words
+    redo_meeting_point           8 ->    13 words
+
+PQC41U  egobikehire  (19 headings)
+    about                        9 ->    20 words
+    highlights                 675 ->   715 words
+    duration_text               14 ->    11 words
+    check_in                    11 ->     0 words
+    restrictions                 8 ->     6 words
+
+PQCP4H  theapertureclub  (17 headings)
+    about                      804 ->   713 words
+    highlights                 113 ->     0 words
+    itinerary                    0 ->   125 words
+    restrictions                 0 ->    25 words
+    redo_group_size              0 ->    16 words
+
+PQLM1S  theactc  (19 headings)
+    about                      306 ->   247 words
+    itinerary                 1026 ->  1085 words
+
+PQLMEL  tristaraviation  (22 headings)
+    about                       68 ->    40 words
+    highlights                  44 ->    44 words
+    what_included              198 ->   225 words
+    restrictions                87 ->   110 words
+
+PQXVJF  barossaoutdoors  (18 headings)
+    about                       75 ->    85 words
+    important_info             104 ->    99 words
+    extras                      18 ->     0 words
+    faqs                         0 ->    13 words
+    health_safety              196 ->   194 words
+    redo_meeting_point          15 ->    15 words
+
+PS01BF  photographyworkshops  (22 headings)
+    what_included              119 ->   119 words
+
+PS0MP2  wildescapestasmania  (30 headings)
+    about                      494 ->   523 words
+    itinerary                   43 ->    51 words
+    duration_text               12 ->     9 words
+    redo_meeting_point          52 ->    74 words
+
+PS1YDW  beyondbordersexperiences  (25 headings)
+    about                      304 ->   198 words
+    itinerary                  507 ->   615 words
+
+PT1CFA  pineappletours  (22 headings)
+    about                      649 ->   614 words
+    highlights                   0 ->    35 words
+
+PT8TLG  skyroadtrail  (25 headings)
+    about                      634 ->   521 words
+    what_included                0 ->    45 words
+    what_excluded                0 ->    54 words
+    extras                     111 ->    49 words
+    itinerary                  239 ->   279 words
+
+PTKVYY  capetocapetours  (17 headings)
+    about                      554 ->   554 words
+    what_included              118 ->   110 words
+
+PTW3FE  nttopadventures  (26 headings)
+    about                       64 ->     0 words
+    itinerary                 2443 ->  2507 words
+
+PUFWUT  gltg-melbourne-sydney  (22 headings)
+    about                      144 ->    34 words
+    what_excluded               75 ->    75 words
+    itinerary                 1282 ->  1344 words
+    duration_text                5 ->     7 words
+    redo_meeting_point          13 ->    18 words
+
+PUR10W  aphelionwine  (18 headings)
+    about                      556 ->   313 words
+    highlights                 106 ->   171 words
+    extras                     173 ->   171 words
+    disclaimers                  0 ->   179 words
+    redo_meeting_point          21 ->    12 words
+
+PUW953  want-tours  (36 headings)
+    about                      142 ->    68 words
+    important_info              53 ->    64 words
+    extras                     202 ->   154 words
+    itinerary                 1720 ->  1845 words
+    restrictions                10 ->     0 words
+
+PVFNZS  want-tours  (40 headings)
+    about                      231 ->    79 words
+    important_info              46 ->    59 words
+    extras                     183 ->   183 words
+    itinerary                 2107 ->  2259 words
+    restrictions                12 ->     0 words
+
+PVV63Z  saecotours  (32 headings)
+    about                      174 ->    32 words
+    important_info              74 ->    30 words
+    itinerary                  287 ->   461 words
+
+PVWPH2  adventurehorsetrekking  (35 headings)
+    about                     1108 ->   100 words
+    highlights                 109 ->     0 words
+    itinerary                  118 ->  1181 words
+
+PVYU4M  rovinglardermanlycookingschool  (19 headings)
+    about                      674 ->   571 words
+    what_included               39 ->    42 words
+    itinerary                    0 ->    16 words
+
+PWLAK8  viatravel  (52 headings)
+    about                      218 ->    88 words
+    what_excluded               14 ->     0 words
+    itinerary                 1526 ->  1770 words
+
+PWPX11  poseidonadventure  (21 headings)
+    about                      520 ->   519 words
+    pricing                     11 ->     0 words
+
+PWQT7Z  tourdevines  (32 headings)
+    itinerary                   71 ->    71 words
+
+PWY4P4  melbourneboathire  (17 headings)
+    about                      419 ->   419 words
+
+PXY1BL  beyondbordersexperiences  (31 headings)
+    about                      237 ->   736 words
+    what_excluded               13 ->     0 words
+    itinerary                  484 ->     0 words
+
+PYGCD0  photographyworkshops  (23 headings)
+    about                      480 ->   370 words
+    what_included              130 ->   131 words
+    itinerary                 1210 ->  1325 words
+
+PYHS2B  poseidonadventure  (18 headings)
+    about                      471 ->   446 words
+    check_in                    12 ->    21 words
+    contact                      0 ->    14 words
+    redo_meeting_point          11 ->    12 words
+
+PYSD1R  cheekykeatours  (24 headings)
+    about                      199 ->   159 words
+    what_included               30 ->    48 words
+    itinerary                 2045 ->  2098 words
+
+PYWRUQ  perthscuba  (17 headings)
+    about                      420 ->   420 words
+
+PYXCCK  cape2camp  (16 headings)
+    about                      338 ->   238 words
+    what_included                0 ->    90 words
+
+PYY6RM  wildescapestasmania  (22 headings)
+    about                      378 ->   380 words
+
+PZN7XD  gltg-perth-autopia-tours  (21 headings)
+    about                      622 ->   436 words
+    what_included               81 ->    66 words
+    what_excluded               57 ->    57 words
+    itinerary                  606 ->   882 words
+
+PZVPEU  theapertureclub  (16 headings)
+    about                     1146 ->  1095 words
+    important_info              64 ->    67 words
+    what_to_bring               76 ->    58 words
+    check_in                     0 ->    45 words
+
+PZXFYS  untamedescapes  (22 headings)
+    about                      768 ->     9 words
+    important_info               0 ->   583 words
+    what_included               48 ->    39 words
+    itinerary                 1526 ->  1856 words
+    restrictions               110 ->     0 words
