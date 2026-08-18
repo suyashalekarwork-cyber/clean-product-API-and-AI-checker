@@ -86,7 +86,7 @@ chunks that already have output on disk, so a restart costs nothing.
 - **Difficulty ratings** (`Difficulty: Hard`) wrongly fill `restrictions`.
   Reproducible across runs, and a two-line prompt fix.
 - **Content loss does not shrink with easier products.** The
-  `recovered_content` pass built for the booking side (see `booking_v5_3_run/`)
+  `recovered_content` pass built for the booking side (see `fareharbor/booking/booking_v5_3_run/`)
   should be applied here too — it records what was missed **and which heading it
   belonged under**, which is what makes a loss fixable rather than merely
   counted.

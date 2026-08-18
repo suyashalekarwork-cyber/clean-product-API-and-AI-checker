@@ -81,7 +81,8 @@ zip.**
 ## Note on provenance
 
 The checker was built and validated in a separate working session from the
-extraction work in `v5_3_500_run/`, `v5_3_1000_run/` and `booking_v5_3_run/`.
+extraction work in `fareharbor/description/v5_3_500_run/`,
+`fareharbor/description/v5_3_1000_run/` and `fareharbor/booking/booking_v5_3_run/`.
 The figures on this page — the 42-versus-2 comparison and the 42% → 4%
 false-alarm reduction — come from that session's own validation run, recorded in
 `review_v1_validation73.xlsx`.

@@ -35,10 +35,13 @@ OUT = TEST_DIR / "luna100_products.json"
 # skipped, because a missing exclusion turns "new evidence" into a repeat.
 PRIOR_RUNS = {
     "hard30": ["hard30_products.json",
+               "../../../model-choice/hard30_run/hard30_products.json",
+               "fareharbor/model-choice/hard30_run/hard30_products.json",
                "../../hard30_run/hard30_products.json",
                "hard30_run/hard30_products.json"],
     "luna50": ["luna50_products.json",
                "../../luna50_run/luna50_products.json",
+               "fareharbor/description/luna50_run/luna50_products.json",
                "luna50_run/luna50_products.json"],
 }
 

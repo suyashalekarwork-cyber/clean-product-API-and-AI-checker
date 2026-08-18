@@ -37,7 +37,7 @@ be checked back to its source by eye.
 | `input/booking_v5_4_500_output.jsonl` | The booking V5.4 replies for these 500 products. |
 
 The description input is not duplicated here — it is the full-catalogue run already in
-this repo at `v5_3_full_run/input/v5_3_full_output_0*.jsonl`.
+this repo at `fareharbor/description/v5_3_full_run/input/v5_3_full_output_0*.jsonl`.
 
 ---
 

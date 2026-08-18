@@ -62,7 +62,7 @@ a difficulty-selected set, so those are the pessimistic end, not the typical cas
 0.6% on the hardest set, 0.7% here. That is the evidence that it cannot be fixed
 by prompt wording: re-running identical products on an identical prompt made 4 of
 6 defects vanish. It needs a deterministic post-extraction check, which is what
-the `recovered_content` pass in `booking_v5_3_run/` does.
+the `recovered_content` pass in `fareharbor/booking/booking_v5_3_run/` does.
 
 **Difficulty ratings wrongly fill `restrictions`** — `Difficulty: Hard`,
 `Level: Moderate`. Confirmed in both the 500 and the 1,000, so unlike most
@@ -95,4 +95,4 @@ defect classes fired", which is weaker than "read and confirmed correct".
 28 KB system prompt repeats on every request. **Ask Huadong for the data as a
 zip.**
 
-See `v5_3_500_run/` for the hardest-500 run and its priority matrix.
+See `fareharbor/description/v5_3_500_run/` for the hardest-500 run and its priority matrix.

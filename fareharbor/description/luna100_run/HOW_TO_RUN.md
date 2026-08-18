@@ -11,7 +11,7 @@ anything or spending anything.
 
 ```bash
 git clone https://github.com/suyashalekarwork-cyber/clean-product-API-and-AI-checker.git
-cd clean-product-API-and-AI-checker/luna100_run
+cd clean-product-API-and-AI-checker/fareharbor/description/luna100_run
 
 pip install pandas openpyxl
 cd code
@@ -68,7 +68,7 @@ pip install openai python-dotenv pandas openpyxl
 ### 4. Do a dry run first — free, no API call
 
 ```bash
-cd luna100_run/code
+cd fareharbor/description/luna100_run/code
 python run_extraction.py --build
 ```
 
@@ -153,7 +153,7 @@ wrong once that check was applied.
 | `OPENAI_API_KEY not set` | `.env` is missing or the key line is wrong. It must read `OPENAI_API_KEY=sk-...` with no quotes |
 | `insufficient_quota` | The account has no credit — add some in billing |
 | `ModuleNotFoundError` | `pip install openai python-dotenv pandas openpyxl` |
-| `no run output found` | You are not in `luna100_run/code`, or the extraction has not run yet |
+| `no run output found` | You are not in `fareharbor/description/luna100_run/code`, or the extraction has not run yet |
 | A run seems stuck | Batches can take up to 24h at busy times. These have finished in 3–4 minutes. Ctrl-C is safe; re-run to resume |
 | Excel says a file is locked | Close the workbook before re-running the scripts |
 

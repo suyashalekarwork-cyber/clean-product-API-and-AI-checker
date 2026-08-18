@@ -18,7 +18,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent
 TEST_DIR = ROOT / "data_pipeline" / "batch_api_test"
-REPO = Path.home() / "Desktop" / "clean-product-API-and-AI-checker" / "v5_3_500_run"
+REPO = Path.home() / "Desktop" / "clean-product-API-and-AI-checker" / "fareharbor" / "description" / "v5_3_500_run"
 sys.path.insert(0, str(TEST_DIR))
 
 from build_model_comparison_batches import strip_html, find_raw_file  # noqa: E402

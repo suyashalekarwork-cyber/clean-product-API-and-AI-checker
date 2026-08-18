@@ -28,7 +28,7 @@ Full instructions with the API key setup: [`HOW_TO_RUN.md`](HOW_TO_RUN.md)
 
 ```bash
 pip install openai python-dotenv pandas openpyxl
-cd luna100_run/code
+cd fareharbor/description/luna100_run/code
 
 python review_output.py       # free — reviews the runs already in this repo
 python run_extraction.py      # ~$0.42, 3-4 min — needs an API key

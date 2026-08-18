@@ -143,7 +143,7 @@ an honest blank beats an invented answer.
 |---|---|
 | `OPENAI_API_KEY is not set` | Step 2. In a new terminal, set it again — it doesn't persist between windows. |
 | `openai package not installed` | `pip install openai` |
-| `luna50_batch_input.jsonl not found` | Run the command from *inside* this folder (`cd luna50_run`). |
+| `luna50_batch_input.jsonl not found` | Run the command from *inside* this folder (`cd fareharbor/description/luna50_run`). |
 | `insufficient_quota` / 429 | The key has no credit, or Batch access isn't enabled. |
 | Stuck at `in_progress` for ages | Normal. Leave it, or Ctrl+C and re-run later to resume. |
 | Want to genuinely start over | Delete `luna50_batch_id.json`, then re-run. **This submits a new batch and charges again.** |
@@ -156,7 +156,7 @@ an honest blank beats an invented answer.
 it takes messy supplier text and sorts it into fields like "What's Included",
 "Meeting Point" and "Duration".
 
-It was picked on a 30-product test ([`../hard30_run/`](../hard30_run/)) where
+It was picked on a 30-product test ([`../../model-choice/hard30_run/`](../../model-choice/hard30_run/)) where
 it matched a model costing **10x more** on faithfulness to the source, for
 **$49 versus $487** across the full catalogue.
 
