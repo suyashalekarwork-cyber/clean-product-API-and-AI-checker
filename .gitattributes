@@ -2,3 +2,5 @@
 *.docx binary
 *.jsonl -text
 *.json -text
+*.gz binary
+*.csv text eol=lf
