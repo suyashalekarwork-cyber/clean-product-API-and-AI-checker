@@ -1984,3 +1984,113 @@ caught by re-reading the raw data rather than by reviewing the reasoning.
 | 7 | Supplier data is internal and never displayed | The Figma prototype has an Operator Information section. Ten Livn fields were held on this premise and now ship. |
 | 8 | D5 affects 1,460 products (16%) | 1,004 (10.7%), counting `Rider` and `Kayaker` as people. |
 
+---
+
+# DROPPED FIELDS — what is NOT in the schema, and why
+
+*For review. Every field below exists in a supplier API and was left out by a
+recorded decision. **Nothing here was lost by accident** — a script
+(`scripts/audit_unmapped_fields.py`) checks the raw APIs against this document
+and reports anything unaccounted for.*
+
+**All of it is recoverable.** The raw supplier files are on disk; adding any
+field back is a build change, not a re-fetch.
+
+## The five that cost something
+
+These are worth a manager's attention. The rest are machinery.
+
+| What | Source | Fill | Why it is not carried |
+|---|---|---|---|
+| **Agent commission rate** | Rezdy | 99.5% | **A commercial decision, not a technical one.** Rezdy tells us the agent commission on almost every product — 13%, 18%, 25% and so on. For a travel-agent portal this is plausibly the field agents would most want to sort by. It is **not carried**, on the view that TDU has not asked for it to be visible. Recoverable from the raw data at any time. |
+| **Agent payment type** | Rezdy | 98.4% | How the agent is paid — `PAYOUTS` or `FULL_AGENT`. Dropped with the above. |
+| **Operator name for Fareharbor** | Metadata API | 100% | **The largest single cost of any drop.** TDU's product-list endpoint carries the operator name on all 10,943 Fareharbor products — including *Fantasea Cruising*, the operator shown in the Figma design. It is not carried because the build reads the Details API only. Consequence: **the Operator Information panel has no name on 11,231 products.** One decision away from being fixed; the file is already on disk. |
+| **Product ratings** | Fareharbor | 26% / 13% | Google rating and review count (26.3%), TripAdvisor rating, reviews, ranking and badge (13.1%). Held rather than dropped — **there is no Figma section for ratings**, and Fareharbor is the only source with any. Present on 100% of Fareharbor products in the raw API, so nothing is lost by waiting for a design. |
+| **Add-on images** | Rezdy | 33.1% | Rezdy's optional extras carry their own photos. The extras text ships; the images are held because there is no design for a priced add-on with a picture. |
+
+---
+
+## Everything else, by reason
+
+### Booking-engine machinery
+
+The portal lets agents browse; it does not take bookings. These fields describe a checkout that never happens here.
+
+| Source | Field | Fill | What it is |
+|---|---|---|---|
+| Rezdy | `bookingFields[].label` | 100% | the checkout form definition |
+| Rezdy | `confirmMode` | 100% | booking confirmation behaviour |
+| Rezdy | `isApiBookingSupported` | 100% | capability flag |
+| Rezdy | `waitListingEnabled` | 95% | waitlist behaviour |
+| Rezdy | `quantityRequired` | 100% | whether a quantity must be chosen |
+| CustomLinc | `paxNumberList` | 100% | fare-rule machinery |
+| CustomLinc | `validateUsing` | 100% | form validation rule |
+| CustomLinc | `captureAge` | 100% | what the booking form asks for |
+| CustomLinc | `yieldVehicle` | 100% | revenue management |
+| CustomLinc | `webLeadTime` | 100% | booking lead time |
+| Ingresso | `early_horizon` | 100% | how far ahead booking opens |
+| Ingresso | `need_performance` | 100% | booking flow requirement |
+| Ingresso | `is_add_on` | 100% | add-on booking logic |
+| Livn | `usesNetRates` | 100% | rate-plan wiring |
+| Livn | `directConnect` | 100% | integration setting |
+
+### Duplicates — the same content twice
+
+Each of these repeats something the schema already carries, in a second format. Keeping both would store every description twice.
+
+| Source | Field | Fill | What it is |
+|---|---|---|---|
+| Fareharbor | `description_safe_html` | 99% | same words as `description`, with `<p>` tags |
+| Fareharbor | `booking_notes_safe_html` | 73% | same as `booking_notes` |
+| Fareharbor | `cancellation_policy_safe_html` | 98% | same as `cancellation_policy` |
+| Ingresso | `event_info_html` | 19% | same as `event_info` |
+| Ingresso | `country_code` | 100% | we keep `country_desc` — *Australia*, not *au* |
+| Ingresso | `venue_code` | 100% | we keep `venue_desc` |
+| Ingresso | `no_singles_cost_range` | 100% | repeats the whole price block; 14 of 15 values identical |
+| Livn | `nameCompany` | 100% | legal-entity variant of `supplier.name` |
+| Livn | `nameTradingAs` | 94% | same |
+| Fareharbor | `images[].gallery` | 96% | one value, `carousel`, on 1,719 of 1,719 |
+
+### Supplier internals with no use to an agent
+
+Real data, but it describes the supplier's own systems rather than the product.
+
+| Source | Field | Fill | What it is |
+|---|---|---|---|
+| Rezdy | `productSeoTags[].attrKey` | 35% | search-engine metadata |
+| Rezdy | `xeroAccount` | 6% | the supplier's accounting code |
+| Rezdy | `qrCodeType` | 2% | their ticketing setup |
+| CustomLinc | `isA` | 100% | undocumented codes — `CT`, `PR`, `PK`, `PS` |
+| CustomLinc | `opcName` | 100% | sometimes a code, sometimes a name; `ocbName` is the name |
+| Ingresso | `event_subdata` | 75% | unexamined supplier internal |
+| Livn | `resSystem` | 100% | which reservation system they run |
+| Livn | `v1Cid` | 32% | legacy platform id |
+
+### Broken or unusable
+
+Dropped because the values cannot be trusted, not because the concept is unwanted.
+
+| Source | Field | Fill | What it is |
+|---|---|---|---|
+| CustomLinc | `duration` | 100% | mixes two units in one field — `1` means a DAY, `02:00` means HOURS. `durationLong` is used instead. |
+| CustomLinc | `departureTime` | 100% | decodes to the year 1773. `departing` is used instead. |
+| CustomLinc | `lowestPrice` | 100% | `0` on all 24 products. Real prices are in `fareTypes[]`. |
+| Livn | `commissionPerc` | 100% | present on 167/167, value `0` on every one |
+
+---
+
+## In short
+
+| | |
+|---|---|
+| Fields dropped as **booking machinery** | ~60 |
+| Fields dropped as **duplicates** | ~40 |
+| Fields dropped as **supplier internals** | 8 |
+| Fields dropped as **broken or unusable** | 4 |
+| Fields **held** pending a design decision | 8 |
+| Whole **API** not read (TDU product list) | 1 |
+
+**The one to revisit first is the operator name.** It is 100% filled, it is
+already downloaded, and without it the Operator Information panel in the
+design has no heading on more than half the catalogue.
+
