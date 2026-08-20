@@ -23,11 +23,10 @@ GROUPS = [
     ("Identity", ["compound_key", "product_id", "source", "product_name",
                   "product_headline"]),
     ("Operator", ["meta_supplier_id", "meta_supplier_name", "meta_operator_info"]),
-    ("Listing & price", ["product_price", "product_currency", "product_price_unit",
-                         "product_price_tax_inclusive", "product_price_options",
-                         "product_min_quantity", "product_max_quantity",
-                         "product_duration", "product_duration_minutes",
-                         "product_category", "product_tags"]),
+    # No price group: pricing was withdrawn 2026-08-20 and reaches the portal
+    # from a separate API. See "What is not here" in the generated README.
+    ("Listing", ["product_duration", "product_duration_minutes",
+                 "product_category", "product_tags"]),
     ("Location", ["location_street", "location_city", "location_state",
                   "location_country", "location_postcode", "location_latitude",
                   "location_longitude", "location_end"]),
@@ -36,12 +35,12 @@ GROUPS = [
                 "detail_important_info", "detail_booking_notes",
                 "detail_meeting_point", "detail_check_in", "detail_departure_info",
                 "detail_before_arrival", "detail_what_to_bring",
-                "detail_accessibility", "detail_restrictions",
+                "detail_accessibility", "detail_onboard_facilities",
+                "detail_restrictions",
                 "detail_special_requirements", "detail_health_safety",
                 "detail_group_size", "detail_faqs", "detail_extras",
                 "detail_disclaimers", "detail_cancellation_policy",
-                "detail_cancellation_hours", "detail_pricing_notes",
-                "detail_tax_percentage", "detail_operating_days",
+                "detail_cancellation_hours", "detail_operating_days",
                 "detail_start_time", "detail_return_time", "detail_languages",
                 "detail_pickup_available"]),
     ("Media", ["product_images", "product_videos"]),
@@ -49,11 +48,10 @@ GROUPS = [
 ]
 
 TYPE = {
-    "product_price": "number", "product_duration_minutes": "number",
-    "product_min_quantity": "number", "product_max_quantity": "number",
+    "product_duration_minutes": "number",
     "location_latitude": "number", "location_longitude": "number",
-    "detail_cancellation_hours": "number", "detail_tax_percentage": "number",
-    "meta_operator_info": "JSON", "product_price_options": "JSON",
+    "detail_cancellation_hours": "number",
+    "meta_operator_info": "JSON",
     "product_tags": "JSON", "product_images": "JSON", "product_videos": "JSON",
 }
 
@@ -66,13 +64,6 @@ HOLDS = {
     "meta_supplier_id": "Empty — see *Columns that are empty on purpose*.",
     "meta_supplier_name": "Empty — same.",
     "meta_operator_info": "Operator details. Feeds the **Operator Information** panel. Only `contact_text` is filled for Fareharbor.",
-    "product_price": "Lowest ticket price, **already in dollars**.",
-    "product_currency": "ISO code. Always `AUD` here.",
-    "product_price_unit": "What the price is *per*. Empty for Fareharbor — it prices per customer type.",
-    "product_price_tax_inclusive": "`true` / `false` / empty. Empty means **unknown**, not false.",
-    "product_price_options": "Every ticket type. See *JSON shapes*.",
-    "product_min_quantity": "Smallest bookable quantity. Empty for Fareharbor.",
-    "product_max_quantity": "Largest. Empty means **not stated**, not unlimited.",
     "product_duration": "The supplier's own words — `\"4 Hours\"`, `\"All day\"`. Not machine-readable.",
     "product_duration_minutes": "Empty for Fareharbor: it gives prose only and we never derive numbers.",
     "product_category": "One category string.",
@@ -89,7 +80,7 @@ HOLDS = {
     "detail_what_to_bring": "Includes items the supplier said **not** to bring, prefixed `Do not bring:`.",
     "detail_meeting_point": "Where to meet. May carry two `[API]` blocks — a meeting-point field and a location note.",
     "detail_cancellation_hours": "Hours of notice required.",
-    "detail_tax_percentage": "Tax rate as a percent, e.g. `10`.",
+    "detail_onboard_facilities": "Empty in every source. Holds the Figma **Onboard Facilities** section open — no supplier API carries a facilities list, and we never generate one.",
     "detail_pickup_available": "`true` / `false`.",
     "detail_languages": "Comma-separated ISO codes, e.g. `en, pt`.",
     "product_images": "All images. See *JSON shapes*.",
@@ -117,7 +108,6 @@ def main():
     bonly = int((df["extractions_present"] == "booking").sum())
     none = int((df["extractions_present"] == "none").sum())
 
-    opt = json.loads(next(v for v in df["product_price_options"] if v.strip()))[0]
     img = json.loads(next(v for v in df["product_images"] if v.strip()))[0]
     op = json.loads(next(v for v in df["meta_operator_info"] if v.strip()))
 
@@ -137,7 +127,6 @@ columns currently empty start filling.
 |---|---|
 | `fareharbor_unified_v2.csv` | The data. UTF-8, comma-separated, quoted. |
 | `fareharbor_unified_v2.xlsx` | Same data, plus a Schema sheet and a Read me sheet. |
-| `unified_schema_sample.html` | 10 worked examples across all six sources. Open it first. |
 
 ---
 
@@ -180,10 +169,15 @@ Blocks are **not de-duplicated**. If a supplier said the same thing twice, you
 get it twice. That was deliberate — merging would have destroyed the record of
 where each piece came from.
 
-### 2. Prices are already in dollars
+### 2. There is no price in this file
 
-The Fareharbor API returns **cents**. This file has divided by 100.
-`product_price` of `89.0` means **$89.00**. Do not divide again.
+Pricing reaches the portal from a separate API and is deliberately not carried
+here. Nine columns were withdrawn on 2026-08-20 — `product_price`,
+`product_currency`, `product_price_unit`, `product_price_tax_inclusive`,
+`product_price_options`, `product_min_quantity`, `product_max_quantity`,
+`detail_tax_percentage` and `detail_pricing_notes`. Join on `product_id` to
+whatever supplies price. Nothing was destroyed: the values are still in the raw
+supplier files, and the field map records each one.
 
 ### 3. The main image is flagged, not first
 
@@ -213,17 +207,7 @@ than showing a placeholder.
 
 ## JSON shapes
 
-Four columns hold JSON as text. `JSON.parse()` them.
-
-### `product_price_options` — one object per ticket type
-
-```json
-{json.dumps(opt, indent=2, ensure_ascii=False)}
-```
-
-Keys a source does not supply are `null`. **`note` is worth surfacing** — it
-carries age rules in prose (*"Ages 5-12"*, *"60+ and ID Required!"*,
-*"Total of 2 people/buggy"*) on products where `age_min` / `age_max` are empty.
+Three columns hold JSON as text. `JSON.parse()` them.
 
 ### `product_images` — one object per image
 
@@ -262,8 +246,7 @@ sources do, and the columns exist so all six share one schema.
 | Column | Why empty | Which source fills it |
 |---|---|---|
 | `meta_supplier_id`, `meta_supplier_name` | Fareharbor's Details API carries **no supplier data at all** | Rezdy, Livn, CustomLinc, Ingresso |
-| `product_price_unit` | Fareharbor prices per customer type, not per unit | **Rezdy** — and it matters: some prices are per jetski, boat or hour, not per person |
-| `product_min_quantity`, `product_max_quantity` | no quantity limits in the API | Rezdy |
+| `detail_onboard_facilities` | **no source has it** — searched all six APIs. The Figma chips exist only as prose inside descriptions, and we never generate a value | none yet |
 | `product_duration_minutes` | Fareharbor gives prose only, and we never derive numbers | Rezdy, Livn |
 | `product_videos` | no video field | Rezdy |
 | `detail_operating_days`, `detail_start_time`, `detail_return_time` | not in the API | Livn, CustomLinc |
@@ -325,15 +308,13 @@ Some products have no description or no booking notes. Check
 Product `{ex['product_id']}` — *{ex['product_name'][:56]}*
 
 ```
-product_price          {ex['product_price']}          ← dollars, already converted
-product_currency       {ex['product_currency']}
 location_city          {ex['location_city'] or '(empty)'}
 detail_cancellation_hours  {ex['detail_cancellation_hours'] or '(empty)'}
 extractions_present    {ex['extractions_present']}
 ```
 
-Open `unified_schema_sample.html` for ten of these, laid out in full across all
-six sources.
+Every column is listed with its type, meaning and measured fill in
+`ALL_SOURCES_FIELD_MAP.md`, alongside the dated decision behind each one.
 
 ---
 

@@ -30,10 +30,10 @@ GROUPS = [
                   "product_headline"], "1F2A44", "EDEFF4"),
     ("Supplier", ["meta_supplier_id", "meta_supplier_name", "meta_operator_info"],
      "5B4B8A", "F0EDF6"),
-    ("Price", ["product_price", "product_currency", "product_price_unit",
-               "product_price_tax_inclusive", "product_price_options",
-               "product_min_quantity", "product_max_quantity", "product_duration",
-               "product_duration_minutes", "product_category", "product_tags"],
+    # Price withdrawn 2026-08-20 - it comes from a separate API. The group
+    # keeps its colour and its remaining members rather than being deleted.
+    ("Listing", ["product_duration", "product_duration_minutes",
+                 "product_category", "product_tags"],
      "8A5300", "F8F1E6"),
     ("Location", ["location_street", "location_city", "location_state",
                   "location_country", "location_postcode", "location_latitude",
@@ -43,12 +43,12 @@ GROUPS = [
                 "detail_important_info", "detail_booking_notes",
                 "detail_meeting_point", "detail_check_in", "detail_departure_info",
                 "detail_before_arrival", "detail_what_to_bring",
-                "detail_accessibility", "detail_restrictions",
+                "detail_accessibility", "detail_onboard_facilities",
+                "detail_restrictions",
                 "detail_special_requirements", "detail_health_safety",
                 "detail_group_size", "detail_faqs", "detail_extras",
                 "detail_disclaimers", "detail_cancellation_policy",
-                "detail_cancellation_hours", "detail_pricing_notes",
-                "detail_tax_percentage", "detail_operating_days",
+                "detail_cancellation_hours", "detail_operating_days",
                 "detail_start_time", "detail_return_time", "detail_languages",
                 "detail_pickup_available"], "1F4E9C", "EAF0F9"),
     ("Media", ["product_images", "product_videos"], "9C1F3C", "FAECF0"),
@@ -64,13 +64,6 @@ HOLDS = {
     "meta_supplier_id": "Blank: the Details API carries no supplier data.",
     "meta_supplier_name": "Blank: same reason. Metadata API deliberately not used.",
     "meta_operator_info": "JSON. Only contact_text is filled, from booking notes.",
-    "product_price": "Lowest ticket price. DIVIDED BY 100 — the API gives cents.",
-    "product_currency": "AUD.",
-    "product_price_unit": "Blank: Fareharbor prices per customer type, not per unit.",
-    "product_price_tax_inclusive": "true — the API ships both ex- and inc-tax totals.",
-    "product_price_options": "JSON, 13 keys per ticket type. `note` carries age rules.",
-    "product_min_quantity": "Blank: Fareharbor has no quantity limits.",
-    "product_max_quantity": "Blank: same.",
     "product_duration": "Supplier's own words. Never derived.",
     "product_duration_minutes": "Blank: Fareharbor gives prose only, and we derive nothing.",
     "product_category": "First tag.",
@@ -87,7 +80,7 @@ HOLDS = {
     "detail_what_to_bring": "Includes 'Do not bring:' items, merged in.",
     "detail_meeting_point": "structured_description.meeting_point + locations[].note.",
     "detail_cancellation_hours": "Hours notice. Fareharbor states hours natively.",
-    "detail_tax_percentage": "Percent.",
+    "detail_onboard_facilities": "Blank in EVERY source. Holds the Figma Onboard Facilities section open; no API carries a facilities list.",
     "detail_pickup_available": "true / false.",
     "product_images": "JSON. The cover is flagged is_main — do NOT assume it is first.",
     "product_videos": "Blank: Fareharbor has no video field.",
@@ -120,7 +113,7 @@ def main():
         ws.row_dimensions[1].height = 34
 
         WIDE = {"product_name": 42, "product_headline": 34, "detail_description": 52,
-                "product_price_options": 40, "product_images": 34,
+                "product_images": 34,
                 "meta_operator_info": 34, "compound_key": 20}
         for i, c in enumerate(cols, 1):
             L = get_column_letter(i)
@@ -147,7 +140,7 @@ def main():
                 cell = ws.cell(row=r, column=i)
                 cell.alignment = Alignment(vertical="top", wrap_text=False)
                 cell.font = Font(size=9.5, name="Consolas" if c in (
-                    "compound_key", "product_id", "product_price_options",
+                    "compound_key", "product_id",
                     "product_images", "meta_operator_info") else "Calibri")
                 cell.border = Border(bottom=THIN, right=THIN)
                 if stripe:
@@ -233,20 +226,28 @@ def main():
             ("Read ids and postcodes as text.",
              "Excel and pandas will otherwise turn 2000 into 2000.0 and drop "
              "leading zeros."),
-            ("product_price_options is JSON.",
-             "13 keys per ticket type. The `note` key carries age rules in prose "
-             "— \"Ages 5-12\", \"60+ and ID Required!\" — on products where the "
-             "numeric age fields are empty."),
+            ("There is no price in this workbook.",
+             "Pricing comes from a separate API and was withdrawn on 2026-08-20: "
+             "product_price, product_currency, product_price_unit, "
+             "product_price_tax_inclusive, product_price_options, "
+             "product_min_quantity, product_max_quantity, detail_tax_percentage "
+             "and detail_pricing_notes. Join on product_id. The values are still "
+             "in the raw supplier files - nothing was destroyed."),
             ("", ""),
             ("COLUMNS THAT ARE ENTIRELY EMPTY, AND CORRECTLY SO", ""),
             ("Supplier name and id.",
              "Fareharbor's Details API carries no supplier data at all. The "
              "Metadata API is deliberately not used. Only meta_operator_info is "
              "filled, on 253 products, from contact details in booking notes."),
-            ("Price unit, min/max quantity, duration in minutes, videos, "
-             "operating days, start and return time, end location.",
+            ("Duration in minutes, videos, operating days, start and return "
+             "time, end location.",
              "These are Rezdy, Livn and CustomLinc fields. Fareharbor supplies "
              "none of them. They exist so every source shares one schema."),
+            ("Onboard facilities.",
+             "Empty in EVERY source, not just Fareharbor. The Figma section "
+             "exists but no supplier API carries a facilities list - the chip "
+             "text appears only as prose inside descriptions, and generating a "
+             "value from prose is the one thing this schema never does."),
             ("", ""),
             ("KNOWN GAPS", ""),
             ("167 products have no description; 2,992 have no booking notes; "
@@ -291,7 +292,17 @@ def main():
 
 
 if __name__ == "__main__":
+    # Excel holds a write lock on an open workbook. Rather than fail the whole
+    # rebuild, divert to a sibling filename and say so loudly - a run that
+    # silently wrote nothing is worse than one that wrote somewhere else.
+    if len(sys.argv) > 1:
+        OUT = sys.argv[1]
     try:
         main()
     except PermissionError:
-        raise SystemExit(f"\n{OUT} is open in Excel. Close it and re-run.")
+        alt = OUT.replace(".xlsx", "_NEW.xlsx")
+        print(f"\n{OUT} is open in Excel - writing to {os.path.basename(alt)} instead.")
+        OUT = alt
+        main()
+        print(f"\n!! {os.path.basename(alt)} is the CURRENT file. "
+              f"Close Excel and rename it over the old one.")

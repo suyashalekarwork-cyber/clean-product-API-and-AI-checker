@@ -1,9 +1,9 @@
 # TDU unified product data — developer README
 
-**Fareharbor · 11,231 products · 59 columns**
+**Fareharbor · 11,231 products · 51 columns**
 
 This is the first source delivered against the unified schema. Rezdy, Livn,
-CustomLinc, Ventus and Ingresso follow later **in the same 59 columns** — so
+CustomLinc, Ventus and Ingresso follow later **in the same 51 columns** — so
 build against this shape and nothing changes when they arrive, except that
 columns currently empty start filling.
 
@@ -11,7 +11,6 @@ columns currently empty start filling.
 |---|---|
 | `fareharbor_unified_v2.csv` | The data. UTF-8, comma-separated, quoted. |
 | `fareharbor_unified_v2.xlsx` | Same data, plus a Schema sheet and a Read me sheet. |
-| `unified_schema_sample.html` | 10 worked examples across all six sources. Open it first. |
 
 ---
 
@@ -48,16 +47,21 @@ Skip this and agents see `[BOOKING NOTES]` on the page.
 | `[BOOKING NOTES]` | Pulled out of the supplier's booking notes by AI. |
 | `[ADDITIONAL INFO]` · `[TERMS]` | Other sources. Not used by Fareharbor. |
 
-**77,623 cells** across **22 columns** carry tags in this file.
+**75,144 cells** across **21 columns** carry tags in this file.
 
 Blocks are **not de-duplicated**. If a supplier said the same thing twice, you
 get it twice. That was deliberate — merging would have destroyed the record of
 where each piece came from.
 
-### 2. Prices are already in dollars
+### 2. There is no price in this file
 
-The Fareharbor API returns **cents**. This file has divided by 100.
-`product_price` of `89.0` means **$89.00**. Do not divide again.
+Pricing reaches the portal from a separate API and is deliberately not carried
+here. Nine columns were withdrawn on 2026-08-20 — `product_price`,
+`product_currency`, `product_price_unit`, `product_price_tax_inclusive`,
+`product_price_options`, `product_min_quantity`, `product_max_quantity`,
+`detail_tax_percentage` and `detail_pricing_notes`. Join on `product_id` to
+whatever supplies price. Nothing was destroyed: the values are still in the raw
+supplier files, and the field map records each one.
 
 ### 3. The main image is flagged, not first
 
@@ -87,31 +91,7 @@ than showing a placeholder.
 
 ## JSON shapes
 
-Four columns hold JSON as text. `JSON.parse()` them.
-
-### `product_price_options` — one object per ticket type
-
-```json
-{
-  "label": "1 person",
-  "price": 69.0,
-  "price_ex_tax": 62.73,
-  "price_net": null,
-  "age_min": null,
-  "age_max": null,
-  "min_quantity": null,
-  "max_quantity": null,
-  "is_vehicle": null,
-  "seats_used": null,
-  "rate_type": null,
-  "note": "1 people",
-  "source_option_id": "1200321"
-}
-```
-
-Keys a source does not supply are `null`. **`note` is worth surfacing** — it
-carries age rules in prose (*"Ages 5-12"*, *"60+ and ID Required!"*,
-*"Total of 2 people/buggy"*) on products where `age_min` / `age_max` are empty.
+Three columns hold JSON as text. `JSON.parse()` them.
 
 ### `product_images` — one object per image
 
@@ -170,8 +150,7 @@ sources do, and the columns exist so all six share one schema.
 | Column | Why empty | Which source fills it |
 |---|---|---|
 | `meta_supplier_id`, `meta_supplier_name` | Fareharbor's Details API carries **no supplier data at all** | Rezdy, Livn, CustomLinc, Ingresso |
-| `product_price_unit` | Fareharbor prices per customer type, not per unit | **Rezdy** — and it matters: some prices are per jetski, boat or hour, not per person |
-| `product_min_quantity`, `product_max_quantity` | no quantity limits in the API | Rezdy |
+| `detail_onboard_facilities` | **no source has it** — searched all six APIs. The Figma chips exist only as prose inside descriptions, and we never generate a value | none yet |
 | `product_duration_minutes` | Fareharbor gives prose only, and we never derive numbers | Rezdy, Livn |
 | `product_videos` | no video field | Rezdy |
 | `detail_operating_days`, `detail_start_time`, `detail_return_time` | not in the API | Livn, CustomLinc |
@@ -202,17 +181,10 @@ sources do, and the columns exist so all six share one schema.
 | `meta_supplier_name` | text | — | Empty — same. |
 | `meta_operator_info` | JSON | **2%** | Operator details. Feeds the **Operator Information** panel. Only `contact_text` is filled for Fareharbor. |
 
-### Listing & price
+### Listing
 
 | Column | Type | Fill | What it holds |
 |---|---|---|---|
-| `product_price` | number | **100%** | Lowest ticket price, **already in dollars**. |
-| `product_currency` | text | **100%** | ISO code. Always `AUD` here. |
-| `product_price_unit` | text | — | What the price is *per*. Empty for Fareharbor — it prices per customer type. |
-| `product_price_tax_inclusive` | text | **100%** | `true` / `false` / empty. Empty means **unknown**, not false. |
-| `product_price_options` | JSON | **100%** | Every ticket type. See *JSON shapes*. |
-| `product_min_quantity` | number | — | Smallest bookable quantity. Empty for Fareharbor. |
-| `product_max_quantity` | number | — | Largest. Empty means **not stated**, not unlimited. |
 | `product_duration` | text | **78%** | The supplier's own words — `"4 Hours"`, `"All day"`. Not machine-readable. |
 | `product_duration_minutes` | number | — | Empty for Fareharbor: it gives prose only and we never derive numbers. |
 | `product_category` | text | **59%** | One category string. |
@@ -248,6 +220,7 @@ sources do, and the columns exist so all six share one schema.
 | `detail_before_arrival` | text | **2%** |  |
 | `detail_what_to_bring` | text | **48%** | Includes items the supplier said **not** to bring, prefixed `Do not bring:`. |
 | `detail_accessibility` | text | **11%** |  |
+| `detail_onboard_facilities` | text | — | Empty in every source. Holds the Figma **Onboard Facilities** section open — no supplier API carries a facilities list, and we never generate one. |
 | `detail_restrictions` | text | **25%** |  |
 | `detail_special_requirements` | text | **13%** |  |
 | `detail_health_safety` | text | **9%** |  |
@@ -257,8 +230,6 @@ sources do, and the columns exist so all six share one schema.
 | `detail_disclaimers` | text | **20%** |  |
 | `detail_cancellation_policy` | text | **98%** |  |
 | `detail_cancellation_hours` | number | **100%** | Hours of notice required. |
-| `detail_pricing_notes` | text | **22%** |  |
-| `detail_tax_percentage` | number | **100%** | Tax rate as a percent, e.g. `10`. |
 | `detail_operating_days` | text | — |  |
 | `detail_start_time` | text | — |  |
 | `detail_return_time` | text | — |  |
@@ -315,15 +286,13 @@ Some products have no description or no booking notes. Check
 Product `102322` — *NRMA Insurance SurfGroms Intensive Surf Program - Devonp*
 
 ```
-product_price          175.0          ← dollars, already converted
-product_currency       AUD
 location_city          (empty)
 detail_cancellation_hours  24
 extractions_present    description,booking
 ```
 
-Open `unified_schema_sample.html` for ten of these, laid out in full across all
-six sources.
+Every column is listed with its type, meaning and measured fill in
+`ALL_SOURCES_FIELD_MAP.md`, alongside the dated decision behind each one.
 
 ---
 

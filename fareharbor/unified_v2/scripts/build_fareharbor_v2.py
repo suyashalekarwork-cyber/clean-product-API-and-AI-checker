@@ -49,12 +49,24 @@ DESC = os.path.join(ROOT, "exports", "all_extractions", "description")
 BOOK = os.path.join(ROOT, "exports", "all_extractions", "booking")
 OUT = os.path.join(ROOT, "exports", "fareharbor_unified_v2.csv")
 
+# DECIDED 2026-08-20 (manager review): the unified schema carries NO pricing.
+# Price reaches the portal from a separate API that is not this project's
+# concern, so nine columns were withdrawn - product_price, product_currency,
+# product_price_unit, product_price_tax_inclusive, product_price_options,
+# product_min_quantity, product_max_quantity, detail_tax_percentage,
+# detail_pricing_notes. They are NOT deleted from anywhere: the values are still
+# in the raw supplier files and every one is listed in the dropped-fields
+# register in reports/ALL_SOURCES_FIELD_MAP.md with the reason. Restoring any of
+# them is re-adding a name here plus its build line - nothing was thrown away.
+#
+# ADDED the same day: detail_onboard_facilities, the Figma "Onboard Facilities"
+# section. NO source supplies it - searched all six APIs, zero matching fields;
+# the chip text ("Car Park", "Restroom Facilities") exists only as prose inside
+# descriptions. The column ships EMPTY and stays empty until a source supplies
+# it, because generating it is forbidden. See section 5 of the field map.
 COLUMNS = [
     "compound_key", "product_id", "source", "product_name", "product_headline",
     "meta_supplier_id", "meta_supplier_name", "meta_operator_info",
-    "product_price", "product_currency", "product_price_unit",
-    "product_price_tax_inclusive", "product_price_options",
-    "product_min_quantity", "product_max_quantity",
     "product_duration", "product_duration_minutes",
     "product_category", "product_tags",
     "location_street", "location_city", "location_state", "location_country",
@@ -63,13 +75,22 @@ COLUMNS = [
     "detail_what_is_not_included", "detail_itinerary", "detail_important_info",
     "detail_booking_notes", "detail_meeting_point", "detail_check_in",
     "detail_departure_info", "detail_before_arrival", "detail_what_to_bring",
-    "detail_accessibility", "detail_restrictions", "detail_special_requirements",
+    "detail_accessibility", "detail_onboard_facilities", "detail_restrictions",
+    "detail_special_requirements",
     "detail_health_safety", "detail_group_size", "detail_faqs", "detail_extras",
     "detail_disclaimers", "detail_cancellation_policy", "detail_cancellation_hours",
-    "detail_pricing_notes", "detail_tax_percentage",
     "detail_operating_days", "detail_start_time", "detail_return_time",
     "detail_languages", "detail_pickup_available",
     "product_images", "product_videos", "extractions_present",
+]
+
+# Withdrawn 2026-08-20. Kept as a named list, not a comment, so the build can
+# assert none of them came back and the register cannot drift from the code.
+WITHDRAWN_PRICE = [
+    "product_price", "product_currency", "product_price_unit",
+    "product_price_tax_inclusive", "product_price_options",
+    "product_min_quantity", "product_max_quantity",
+    "detail_tax_percentage", "detail_pricing_notes",
 ]
 
 # Fareharbor returns the literal string "<p>None</p>" for empty structured fields.
@@ -150,26 +171,10 @@ def build_row(path, desc, book):
             "contact_text": contact,
         }, ensure_ascii=False)
 
-    # -- price: the API gives CENTS
-    protos = item.get("customer_prototypes") or []
-    if protos:
-        r["product_price"] = round(
-            min(p.get("total_including_tax") or 0 for p in protos) / 100, 2)
-        r["product_price_options"] = json.dumps([{
-            "label": clean(p.get("display_name")),
-            "price": round((p.get("total_including_tax") or 0) / 100, 2),
-            "price_ex_tax": round((p.get("total") or 0) / 100, 2),
-            "price_net": None,
-            "age_min": p.get("minimum_age"), "age_max": p.get("maximum_age"),
-            "min_quantity": None, "max_quantity": None, "is_vehicle": None,
-            "seats_used": None, "rate_type": None,
-            "note": clean(p.get("note")), "source_option_id": str(p.get("pk")),
-        } for p in protos], ensure_ascii=False)
-    r["product_currency"] = "AUD"
-    # ships `total` AND `total_including_tax`, so inclusiveness is unambiguous
-    r["product_price_tax_inclusive"] = "true"
-    if item.get("tax_percentage") is not None:
-        r["detail_tax_percentage"] = item["tax_percentage"]
+    # -- price: NOT CARRIED (2026-08-20). The portal takes price from a separate
+    # API. item.customer_prototypes[] (cents), item.tax_percentage and
+    # structured_description.pricing are still in the raw files and still read
+    # correctly by this script's ancestors - see WITHDRAWN_PRICE above.
 
     # -- duration: prose only. Never derived (section 7).
     r["product_duration"] = blocks(
@@ -239,6 +244,13 @@ def build_row(path, desc, book):
     r["detail_accessibility"] = blocks(
         ("API", sd.get("accessibility")), ("DESCRIPTION", d.get("redo_desc_accessibility")),
         ("BOOKING NOTES", b.get("redo_booking_accessibility")))
+    # detail_onboard_facilities is INTENTIONALLY left at "". No Fareharbor field
+    # carries it and none of the other five sources do either. The Figma chips
+    # ("Car Park", "Restroom Facilities") appear only as prose inside supplier
+    # descriptions, and deriving a facilities list from prose is generating a
+    # value - the one thing this schema never does. The column exists so the
+    # front end can build the section now and so a source that DOES supply it
+    # later needs no schema change.
     r["detail_restrictions"] = blocks(
         ("API", sd.get("restrictions")), ("DESCRIPTION", d.get("redo_desc_restrictions")),
         ("BOOKING NOTES", b.get("redo_booking_restrictions")))
@@ -271,9 +283,7 @@ def build_row(path, desc, book):
     ecp = item.get("effective_cancellation_policy") or {}
     if ecp.get("cutoff_hours_before") is not None:
         r["detail_cancellation_hours"] = ecp["cutoff_hours_before"]
-    r["detail_pricing_notes"] = blocks(
-        ("API", sd.get("pricing")), ("DESCRIPTION", d.get("redo_desc_pricing")),
-        ("BOOKING NOTES", b.get("redo_booking_pricing")))
+    # detail_pricing_notes withdrawn with the rest of the price block.
 
     langs = [clean(x.get("language_code")) for x in (sd.get("guided_languages") or [])]
     r["detail_languages"] = ", ".join(x for x in langs if x)
@@ -339,6 +349,18 @@ def main():
     dupes = [k for k, v in seen.items() if v > 1]
     if dupes:
         raise SystemExit(f"duplicate compound keys: {dupes[:5]}")
+
+    # The 2026-08-20 withdrawal, asserted rather than trusted. A price column
+    # reintroduced by a merge would otherwise ship silently.
+    back = [c for c in WITHDRAWN_PRICE if c in COLUMNS]
+    if back:
+        raise SystemExit(f"withdrawn price columns are back in COLUMNS: {back}")
+    leaked = sorted({c for r in rows for c in r if c not in COLUMNS})
+    if leaked:
+        raise SystemExit(f"rows carry columns not in COLUMNS: {leaked}")
+    if any(str(r["detail_onboard_facilities"]).strip() for r in rows):
+        raise SystemExit("detail_onboard_facilities is filled - no source "
+                         "supplies it, so a value here was generated")
 
     with io.open(OUT, "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=COLUMNS)

@@ -23,7 +23,7 @@ framed as "six sources": it is really two sources and four long-tail exceptions.
 
 ---
 
-## THE 59 COLUMNS — description and measured fill
+## THE 51 COLUMNS — description and measured fill
 
 *Catalogue fill = the share of all **20,835** products where the source supplies a
 value, weighting each source by its product count. Computed from
@@ -49,14 +49,8 @@ value, weighting each source by its product count. Computed from
 | **SUPPLIER  (internal, never displayed)** | | | | |
 | `meta_supplier_id` | `str` | Supplier key. | 9,580 | **46%** |
 | `meta_supplier_name` | `str` | Supplier company name. | 9,580 | **46%** |
-| **LISTING & PRICE** | | | | |
-| `product_price` | `float` | Headline price. Fareharbor is CENTS. | 20,835 | **100%** |
-| `product_currency` | `str` | Currency code, uppercased. | 9,580 | **46%** |
-| `product_price_unit` | `str` | What the price is per. **D5.** | 9,416 | **45%** |
-| `product_price_tax_inclusive` | `str` | true / false / unknown. **D6.** | 5,127 | **25%** |
-| `product_price_options` | `JSON` | Every ticket type, 13 keys. | 20,602 | **99%** |
-| `product_min_quantity` | `float` | Smallest bookable quantity. | 9,373 | **45%** |
-| `product_max_quantity` | `float` | Largest. Null = not stated. | 7,618 | **37%** |
+| `meta_operator_info` | `JSON` | Operator name/contact/logo. Figma **Operator Information**. | 447 | **2%** |
+| **LISTING** | | | | |
 | `product_duration` | `str` | Supplier's own words. | 4,855 | **23%** |
 | `product_duration_minutes` | `float` | Minutes, only where given as a number. | 8,931 | **43%** |
 | `product_category` | `str` | What kind of thing this is. | 13,234 | **64%** |
@@ -84,6 +78,7 @@ value, weighting each source by its product count. Computed from
 | `detail_before_arrival` | `str` | Before you arrive. | — | *extraction only* |
 | `detail_what_to_bring` | `str` | What to bring, incl. "Do not bring". | 2,684 | **13%** ¹ |
 | `detail_accessibility` | `str` | Accessibility. | 7,469 | **36%** ¹ |
+| `detail_onboard_facilities` | `str` | Onboard facilities. **No source supplies it.** | 0 | **0%** |
 | `detail_restrictions` | `str` | Who can take part. | 7,941 | **38%** ¹ |
 | `detail_special_requirements` | `str` | Dietary, medical, disability needs. | 1,572 | **8%** ¹ |
 | `detail_health_safety` | `str` | Health & safety. | 772 | **4%** ¹ |
@@ -93,8 +88,6 @@ value, weighting each source by its product count. Computed from
 | `detail_disclaimers` | `str` | Legal text. | 5,186 | **25%** ¹ |
 | `detail_cancellation_policy` | `str` | Cancellation policy. | 14,267 | **68%** ¹ |
 | `detail_cancellation_hours` | `float` | Notice period. Rezdy is DAYS. | 18,423 | **88%** |
-| `detail_pricing_notes` | `str` | How pricing works + D6 fees. | 6,024 | **29%** ¹ |
-| `detail_tax_percentage` | `float` | Tax rate as a percent. | 16,326 | **78%** |
 | `detail_operating_days` | `str` | Which days it runs. | 171 | **1%** |
 | `detail_start_time` | `str` | Departure time or window. | 187 | **1%** |
 | `detail_return_time` | `str` | Return time. | 24 | **0%** |
@@ -402,6 +395,43 @@ Wrapper keys differ per source and are not stripped:
 >
 > **Fareharbor and Ventus supply no supplier data at all.** Fareharbor's unified
 > file fills `meta_supplier_name` from the **filename**, not the API.
+
+---
+
+> ### DECIDED — 2026-08-20, Suyash · manager review — PRICE IS OUT, FACILITIES IS IN
+>
+> **The unified schema carries NO pricing.** Price reaches the portal from a
+> separate API which is not this project's concern, so nine columns are
+> withdrawn: `product_price`, `product_currency`, `product_price_unit`,
+> `product_price_tax_inclusive`, `product_price_options`, `product_min_quantity`,
+> `product_max_quantity`, `detail_tax_percentage`, `detail_pricing_notes`.
+>
+> **Nothing is deleted.** The values are untouched in the raw supplier files and
+> every column is named in the dropped-fields register at the end of this
+> document with its measured fill. Restoring any of them is one line in
+> `scripts/build_fareharbor_v2.py` — the build asserts they have not crept back.
+>
+> **This SUPERSEDES four earlier decisions**, which stand as the record of how
+> the columns were designed and are no longer in force:
+> **D5** (price unit — `unitLabel`, 1,004 Rezdy products priced per jetski/boat),
+> **D6** (fees outside the advertised price — 378 Rezdy products),
+> the `product_price_options` 13-key shape, and
+> `quantityRequiredMin`/`Max` → `product_min_quantity`/`product_max_quantity`.
+> Their evidence is still correct; it now applies to whoever owns pricing.
+>
+> **ADDED: `detail_onboard_facilities`** — the Figma *Onboard Facilities*
+> section, which was missed when the schema was drawn. It ships **empty in every
+> source**. All six APIs were searched: no field carries a facilities list. The
+> chip text exists only as prose inside descriptions — `Car Park` in 685
+> Fareharbor files, `Family Friendly` 169, `Restroom Facilities` 14, `Onboard
+> Refreshments` 2 — and the closest structured data anywhere is Rezdy's
+> `SUITABILITY` (8,669) and `ACCESSIBILITY` (3,783) tag facets, which name
+> neither car parks nor toilets. Deriving the list from prose would be
+> generating a value, which this schema does not do. The column exists so the
+> front end can build the section now, and so a source that later supplies it
+> needs no schema change.
+>
+> **Net: 59 → 51 columns.**
 
 ---
 
@@ -1745,12 +1775,18 @@ blank there is correct, not a gap.*
 |---|---|
 | Identity | 4 |
 | Supplier | 3 |
-| Listing & price | 10 |
+| Listing | 4 |
 | Location | 8 |
-| Detail | 24 |
+| Detail | 28 |
 | Media | 2 |
 | Provenance | 2 |
-| **Total** | **59** |
+| **Total** | **51** |
+
+*Counted from the tables below, which now itemise every column. This table
+previously summed to 53 against a stated 59: five detail columns
+(`detail_operating_days`, `detail_start_time`, `detail_return_time`,
+`detail_languages`, `detail_pickup_available`) had no row in any section, and
+`compound_key` appeared only under Provenance. Fixed 2026-08-20.*
 
 
 ## 1. Identity — 4
@@ -1780,35 +1816,18 @@ blank there is correct, not a gap.*
 > supplied, so it is dropped. Low impact — `meta_*` is internal and never displayed.
 
 
-## 3. Listing & price — 10
+## 3. Listing — 4
 
 | Column | Type | Holds | Fareharbor | Rezdy | Livn | CustomLinc | Ventus | Ingresso |
 |---|---|---|---|---|---|---|---|---|
-| `product_price` | `float` | Headline price. **Fareharbor is CENTS — divide by 100.** | `total_including_tax` 100% | `advertisedPrice` 100% | `fromPrices[].amount` 100% | `fareTypes[].priceGross` 100% | `pricing[].price` 100% | `cost_range.min_combined` 100% |
-| `product_currency` | `str` | 3-letter code, **uppercased** — Ingresso ships `"aud"`. | — | `currency` 100% | `fromPrices[].currency` 100% | `currency` 100% | — | `currency_code` 100% |
-| `product_price_unit` | `str` | **D5.** What the price is *per*, verbatim. 10.7% of Rezdy is not a person. | — | `unitLabel` 100% | — | `fareTypes[].fareType` 100% | `attribute_name` 100% | — |
-| `product_price_tax_inclusive` | `str` | **D6.** `"true"` / `"false"` / `""` — three states, not a bool. | — | `taxes[].priceInclusive` 55% | — | — | — | — |
-| `product_price_options` | `str` (JSON) | Every ticket type. 13 keys — see below. | `customer_prototypes[]` 100% | `priceOptions[]` 99% | — | `fareTypes[]` 100% | `pricing[]` 100% | `ticket_type[]` 100% |
-| `product_min_quantity` | `float` | Smallest bookable quantity, in `product_price_unit`. | — | `quantityRequiredMin` 100% | — | — | — | — |
-| `product_max_quantity` | `float` | Largest. Null = not stated, **not** unlimited. | — | `quantityRequiredMax` 81% | `groupSizeMax` 4% | — | — | — |
 | `product_duration` | `str` | Supplier's own words. Never derived. | `sd.duration` 43% | — | — | `durationLong` 100% | — | — |
 | `product_duration_minutes` | `float` | Minutes, only where stated as a number. `0` → blank. | — | `durationMinutes` 94% | `duration` 100% | — | — | — |
 | `product_category` | `str` | What kind of thing this is. | `tags[].name` 59% | ``CATEGORY:` tags` 68% | `categories[].name` 100% | `productTypeCode` 100% | `flight_type.name` 100% | `classes.attractions` 100% |
 | `product_tags` | `str` (JSON) | Filterable attributes. | `tags[].name` 59% | `non-CATEGORY tags` 68% | `categories[].name` 100% | — | — | `classes.*` 88% |
 
-> **`product_price_options` object — 13 keys.** One shape, blank where a source gives less:
->
-> ```json
-> {"label": "Adult", "price": 35.0, "price_ex_tax": null, "price_net": 26.25,
->  "age_min": 0, "age_max": 0, "min_quantity": 1, "max_quantity": 25,
->  "is_vehicle": false, "seats_used": null, "rate_type": null,
->  "note": "Ages 18+", "source_option_id": "ADULT"}
-> ```
->
-> `note` (Fareharbor 68.4%) carries age rules in prose — *"Ages 5-12"*,
-> *"60+ and ID Required!"*, *"Total of 2 people/buggy"* — covering products where
-> the numeric age fields are empty.
-
+> **Price columns removed 2026-08-20.** The `product_price_options` 13-key
+> object specification that stood here is preserved in the dropped-fields
+> register and in git; it now belongs to whoever owns the pricing API.
 
 ## 4. Location — 8
 
@@ -1828,7 +1847,7 @@ blank there is correct, not a gap.*
 > Take `type == "primary"`, else the first: 761 of 885 products have exactly one.
 
 
-## 5. Detail — 24
+## 5. Detail — 28
 
 | Column | Type | Holds | Fareharbor | Rezdy | Livn | CustomLinc | Ventus | Ingresso |
 |---|---|---|---|---|---|---|---|---|
@@ -1845,6 +1864,7 @@ blank there is correct, not a gap.*
 | `detail_before_arrival` | `str` | Before you arrive | — | — | — | — | — | — |
 | `detail_what_to_bring` | `str` | What to bring. **Includes "Do not bring:" items.** | `sd.what_to_bring` 22% | — | `specialNotes` 100% | — | — | — |
 | `detail_accessibility` | `str` | Accessibility | `sd.accessibility` 10% | `tags[]` 68% | — | — | — | — |
+| `detail_onboard_facilities` | `str` | Onboard facilities for the Figma section. **Empty in all six** — no API carries a facilities list, and we never generate one. | — | — | — | — | — | — |
 | `detail_restrictions` | `str` | Who can take part | `sd.restrictions` 14% | `tags[]` 68% | — | — | — | — |
 | `detail_special_requirements` | `str` | Dietary, medical, disability needs | `sd.special_requirements` 12% | — | `specialNotes` 100% | — | — | — |
 | `detail_health_safety` | `str` | Health & safety | `health_and_safety_policy` 7% | — | `specialNotes` 100% | — | `terms.fit_to_fly_terms` 100% | — |
@@ -1854,8 +1874,11 @@ blank there is correct, not a gap.*
 | `detail_disclaimers` | `str` | Legal text | `sd.disclaimers` 16% | `terms` 34% | `supplier.tnc` 72% | — | `terms.booking_terms` 37% | — |
 | `detail_cancellation_policy` | `str` | Cancellation policy | `cancellation_policy` 98% | `terms` 34% | — | — | `terms.booking_terms` 37% | — |
 | `detail_cancellation_hours` | `str` | Notice period. **Rezdy is DAYS — convert. `9999` = non-refundable.** | `effective_cancellation_policy.cutoff_hours_before` 100% | `cancellationPolicyDays` 77% | — | — | — | — |
-| `detail_pricing_notes` | `str` | How pricing works + **D6 fees outside the price** | `sd.pricing` 6% | `taxes[]` 55% | `specialNotes` 100% | — | — | — |
-| `detail_tax_percentage` | `str` | Tax rate as a percent | `tax_percentage` 100% | `taxes[].taxPercent` 54% | — | — | — | — |
+| `detail_operating_days` | `str` | Which days it runs | — | — | `operatingDaysStr` 100% | `operatingDays` 17% | — | — |
+| `detail_start_time` | `str` | Departure time or window | — | — | `timeStart` 98% | `departureTime` 100% | — | — |
+| `detail_return_time` | `str` | Return time | — | — | — | `returning` 100% | — | — |
+| `detail_languages` | `str` | Guided languages | `sd.guided_languages[]` 3% | `languages[]` **100%** | — | `languageName` **0%** | — | — |
+| `detail_pickup_available` | `str` | Whether pickup is offered | `is_pickup_ever_available` 100% | `pickupId` 27% | `pickupNotes` 87% | `isPickupCompulsory` 100% | — | — |
 
 > **Every detail column carries SOURCE TAGS.** Where more than one place supplies a
 > concept, all are kept and labelled — `[API]` / `[DESCRIPTION]` / `[BOOKING NOTES]` /
@@ -1941,6 +1964,7 @@ block in the section named, stating the evidence it rests on.*
 
 | # | Decision | Section |
 |---|---|---|
+| 0 | **2026-08-20 — price withdrawn (9 columns), `detail_onboard_facilities` added. Supersedes D5, D6, price_options and min/max quantity. 59 → 51.** | 3. PRICE |
 | 1 | Identity — ids, headline, the CustomLinc filename trap | 1. IDENTITY |
 | 2 | `meta_operator_info` — one JSON column for the Figma Operator panel | 2. SUPPLIER |
 | 3 | Supplier — two columns, Rezdy uses `supplierAlias` | 2. SUPPLIER |
@@ -1995,6 +2019,34 @@ and reports anything unaccounted for.*
 
 **All of it is recoverable.** The raw supplier files are on disk; adding any
 field back is a build change, not a re-fetch.
+
+## Withdrawn 2026-08-20 after manager review — the price block
+
+*These are the only fields removed from a schema that had already shipped. They
+are recorded here in full because the decision reverses four dated decisions
+above, and because a future session WILL find the evidence for D5 and D6 and
+wonder why the columns are gone. The answer: pricing comes from a different API.
+The raw values are untouched.*
+
+| Column | Was fed by | Catalogue fill | What is lost by not carrying it |
+|---|---|---|---|
+| `product_price` | FH `total_including_tax`, Rezdy `advertisedPrice`, +4 | 100% | The headline price. |
+| `product_currency` | Rezdy/CustomLinc/Ingresso `currency` | 46% | Ingresso ships lowercase `"aud"`; whoever owns price must uppercase it. |
+| `product_price_unit` | Rezdy `unitLabel`, CustomLinc `fareType` | 45% | **D5.** 1,004 Rezdy products (10.7%) price a jetski, boat or bike, not a person. Without this a portal renders "$199 per person" for a two-up jetski. |
+| `product_price_tax_inclusive` | Rezdy `taxes[].priceInclusive` | 25% | **D6.** Three states, not a bool — empty means unknown. |
+| `product_price_options` | FH `customer_prototypes[]`, +4 | 99% | Every ticket type, 13 keys. `note` carries age rules in prose where the numeric age fields are empty. |
+| `product_min_quantity` | Rezdy `quantityRequiredMin` | 45% | Smallest bookable quantity, in `product_price_unit`. |
+| `product_max_quantity` | Rezdy `quantityRequiredMax`, Livn `groupSizeMax` | 37% | Largest. Null meant *not stated*, never *unlimited*. |
+| `detail_tax_percentage` | FH `tax_percentage`, Rezdy `taxes[].taxPercent` | 78% | **Eight distinct values** (10 ×7,544, 15 ×2,794, 0 ×880, …) — not single-valued, as was once misread. |
+| `detail_pricing_notes` | FH `sd.pricing`, Rezdy `taxes[]`, Livn `specialNotes` | 29% | **The only prose column here.** 2,479 Fareharbor products (22.1%) carried it, and 378 Rezdy products state fees OUTSIDE the advertised price — P9FC8N advertises $295 and charges $323.70. |
+
+**The one to watch is `detail_pricing_notes`.** The other eight are numbers the
+pricing API will have its own version of. This one is *supplier prose* — the
+sentence explaining that a park fee applies on arrival — and no pricing API is
+likely to carry it. If the portal ever shows a price without it, D6's 378
+products display a number that is not what the customer pays.
+
+---
 
 ## The five that cost something
 
